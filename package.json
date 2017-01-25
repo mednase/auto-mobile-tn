@@ -11,13 +11,22 @@
     "url": "https://github.com/mednase/auto-mobile-tn.git"
   },
   "keywords": [
-    "node","express","angularJs"
-
+    "node",
+    "express",
+    "angularJs"
   ],
   "author": "mednaceur",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/mednase/auto-mobile-tn/issues"
   },
-  "homepage": "https://github.com/mednase/auto-mobile-tn#readme"
+  "homepage": "https://github.com/mednase/auto-mobile-tn#readme",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "express": "^4.14.0",
+    "express-session": "^1.15.0",
+    "express-validator": "^3.1.2",
+    "mongoose": "^4.7.8",
+    "passport": "^0.3.2"
+  }
 }
