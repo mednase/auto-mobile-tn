@@ -1,9 +1,9 @@
 var app = angular.module('AutoMobileTn', ['ui.router']);
 
 app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider',
-    '$httpProvider', '$logProvider','$locationProvider',
+    '$httpProvider', '$logProvider', '$locationProvider',
     function ($urlRouterProvider, $urlMatcherFactoryProvider, $stateProvider,
-              $httpProvider, $logProvider,$locationProvider) {
+              $httpProvider, $logProvider, $locationProvider) {
 
         $logProvider.debugEnabled(true);
 
@@ -66,13 +66,18 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
                 templateUrl: '/public/views/core/reset.html',
                 controller: 'contactUsController'
             })
-            .state('about', {
-            url: '/about',
-            templateUrl: '/public/views/core/about.html'
-        })
-            .state('faq', {
-                url: '/faq',
-                templateUrl: '/public/views/core/faq.html'
+            .state('admin', {
+                url: '/admin',
+                abstract: true,
+                data: {
+                    authenticate: true,
+                    admin: true
+                }
+            })
+            .state('admin.dashboard', {
+                url: '/dashboard',
+                templateUrl: '/public/views/admin/first.html',
+                controller: 'dashboardController'
             })
 
     }]);

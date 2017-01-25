@@ -25,6 +25,10 @@ app.use('/public', express.static(__dirname + '/public'));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 
 /* run app from all route */
+
+app.get('/admin/*', function (req, res) {
+    return res.sendFile(__dirname + '/public/views/admin/dashboard.html')
+});
 app.get('*', function (req, res) {
     res.sendFile(__dirname + '/public/views/index.html')
 });
