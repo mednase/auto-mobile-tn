@@ -1,9 +1,9 @@
 var app = angular.module('AutoMobileTn', ['ui.router']);
 
 app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider',
-    '$httpProvider', '$logProvider',
+    '$httpProvider', '$logProvider','$locationProvider',
     function ($urlRouterProvider, $urlMatcherFactoryProvider, $stateProvider,
-              $httpProvider, $logProvider) {
+              $httpProvider, $logProvider,$locationProvider) {
 
         $logProvider.debugEnabled(true);
 
