@@ -1,0 +1,23 @@
+{
+  "name": "auto-mobile-tn",
+  "version": "1.0.0",
+  "description": "site de vente des voitures",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mednase/auto-mobile-tn.git"
+  },
+  "keywords": [
+    "node","express","angularJs"
+
+  ],
+  "author": "mednaceur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mednase/auto-mobile-tn/issues"
+  },
+  "homepage": "https://github.com/mednase/auto-mobile-tn#readme"
+}
