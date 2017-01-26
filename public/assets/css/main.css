@@ -62,3 +62,9 @@ footer .copyright{
     text-shadow: 1px 0px 17px rgba(230, 15, 32, 0.98);
     font-family: "Arabic Typesetting";
 }
+.page-sidebar-menu ul li{
+    cursor: pointer;
+}
+*,.page-title{
+    font-family: HacenTunisiaLt,NeoSansArabic,Helvetica,Arial,sans-serif;
+}

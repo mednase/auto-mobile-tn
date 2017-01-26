@@ -37,11 +37,10 @@ controller('registerController', ['$scope', 'authService', '$state', 'flashMessa
         }
 
     }]).
-controller('logoutController', ['authService', '$state', '$scope', function (authService, $state, $scope) {
+controller('logoutController', ['authService', '$state', '$scope','$window', function (authService, $state, $scope,$window) {
     authService.logout();
     $scope.$parent.authenticated = false;
-    $state.go('home');
-
+    $window.location.href="http://localhost:8080/";
 }]).
 controller('forgotController',['authService','$scope','flashMessage',function (authService,$scope,flashMessage) {
     $scope.email="";
@@ -75,5 +74,5 @@ controller('resetPasswordController',['authService','flashMessage','$stateParams
 
         });
 
-    }]);
+}]);
 

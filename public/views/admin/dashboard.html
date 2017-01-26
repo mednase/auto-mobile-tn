@@ -1,137 +1,22 @@
-<!DOCTYPE html>
-<!--[if IE 8]>
-<html lang="en" class="ie8 no-js"> <![endif]-->
-<!--[if IE 9]>
-<html lang="en" class="ie9 no-js"> <![endif]-->
-<!--[if !IE]><!-->
-<html lang="en" dir="rtl">
-<!--<![endif]-->
-<!-- BEGIN HEAD -->
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta content="width=device-width, initial-scale=1" name="viewport"/>
-    <title>لوحة التحكم</title>
-    <link rel="icon" type="image/x-icon" href="/public/assets/favicon/favicon.ico?v=1.0"/>
-    <link href="/public/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-    <link href="/public/assets/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
-    <link href="/public/assets/plugins/bootstrap/css/bootstrap-rtl.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="/public/assets/layout/css/layout-rtl.min.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/layout/css/themes/blue-rtl.min.css "/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/layout/css/custom-rtl.min.css"/>
-
-    <base href="/">
-
-</head>
-<body ng-app="AutoMobileTn"  ng-controller="homeController" class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-md">
-<div class="page-header navbar navbar-fixed-top">
-    <!-- BEGIN HEADER INNER -->
-
-    <div class="page-header-inner ">
-        <!-- BEGIN LOGO -->
-        <div class="page-logo">
-            <div class="menu-toggler sidebar-toggler">
-                <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
-            </div>
-        </div>
-
-        <!-- END LOGO -->
-        <!-- BEGIN PAGE TOP -->
-        <div class="page-top">
-            <!-- BEGIN TOP NAVIGATION MENU -->
-            <div class="top-menu">
-                <ul class="nav navbar-nav pull-right">
-                     <li class="dropdown dropdown-user">
-                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"
-                           data-hover="dropdown" data-close-others="true">
-                            <span class="username username-hide-on-mobile">
-                                                <small></small>
-                                    </span>
-
-                            <i class="fa fa-angle-down"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-default">
-                            <li>
-                                <a href="/logout">
-                                    <i class="icon-key"></i> تسجيل خروج </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <!-- END TOP NAVIGATION MENU -->
-            <div class="right content-logo">
-                <img src="" alt="logo" class="logo-default rigth">
-            </div>
-            <!-- END TOP NAVIGATION MENU -->
-        </div>
-        <!-- END PAGE TOP -->
-    </div>
-    <!-- END HEADER INNER -->
+<!-- BEGIN PAGE HEAD-->
+<div class="page-head">
+    <!-- BEGIN PAGE TITLE -->
+    <h1 class="page-title">
+        الرئيسية
+    </h1>
+    <!-- END PAGE TITLE -->
 </div>
-
-
-<div class="page-container">
-    <div class="page-sidebar-wrapper" style="position: fixed">
-        <div class="page-sidebar-wrapper">
-            <div class="page-sidebar navbar-collapse collapse">
-                <ul class="page-sidebar-menu  page-header-fixed page-sidebar-menu-hover-submenu  " data-keep-expanded="false"
-                    data-auto-scroll="true" data-slide-speed="200">
-                    <li class="nav-item start page-index">
-                        <a href="/admin/dashboard" class="nav-link nav-toggle">
-                            <i class="icon-home"></i>
-                            <span class="title">الصفحة الرئيسية</span>
-                            <span class="arrow"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item start page-index">
-                        <a href="/admin/dashboard" class="nav-link nav-toggle">
-                            <i class="fa fa-car "></i>
-                            <span class="title">السيارات</span>
-                            <span class="arrow"></span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li class="nav-item sentence-delay">
-                                <a href="" class="nav-link ">
-                                    <i class="fa fa-plus"></i>
-                                    <span class="title">أضف سيارة</span>
-                                </a>
-                            </li>
-                            <li class="nav-item sentence-absent">
-                                <a href="" class="nav-link ">
-                                    <i class="fa fa-list"></i>
-                                    <span class="title">قائمة السيارات</span>
-
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <!-- END SIDEBAR MENU -->
-            </div>
-            <!-- END SIDEBAR -->
-        </div>
-    </div>
-    <div class="page-content-wrapper ">
-        <div class="page-content main">
-            <div ui-view=""></div>
-        </div>
-    </div>
+<!-- END PAGE HEAD-->
+<!-- BEGIN PAGE BREADCRUMB -->
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="icon-home"></i>
+            <a ui-sref="dashboard">الرئيسية</a>
+        </li>
+    </ul>
 </div>
+<h1>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h1>
 
-<script type="text/javascript" src="/public/assets/plugins/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="/public/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-
-<script type="text/javascript" src="/node_modules/angular/angular.js"></script>
-<script type="text/javascript" src="/node_modules/angular-ui-router/release/angular-ui-router.js"></script>
-<script type="text/javascript" src="/public/app/app.js"></script>
-<script type="text/javascript" src="/public/app/constants.js"></script>
-
-<script type="text/javascript" src="/public/app/controllers/authController.js"></script>
-<script type="text/javascript" src="/public/app/controllers/homeController.js"></script>
-
-
-<script type="text/javascript" src="/public/app/services/authService.js"></script>
-
-</body>
-</html>
+<input type="hidden" value="" id="menuSelected" data-menu="page-dashboard">
+<script type="text/javascript" src="/public/assets/js/main.js"></script>

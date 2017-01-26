@@ -68,16 +68,22 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
             })
             .state('admin', {
                 url: '/admin',
-                abstract: true,
-                data: {
-                    authenticate: true,
-                    admin: true
-                }
-            })
-            .state('admin.dashboard', {
-                url: '/dashboard',
-                templateUrl: '/public/views/admin/first.html',
+                templateUrl: '/public/views/admin/dashboard.html',
                 controller: 'dashboardController'
             })
-
+            .state('newCar', {
+                url: '/admin/car/new',
+                templateUrl: '/public/views/admin/new.car.html',
+                controller: 'dashboardController'
+            })
+            .state('cars', {
+                url: '/admin/cars',
+                templateUrl: '/public/views/admin/cars.html',
+                controller: 'dashboardController'
+            })
+            .state('contactUsMessage', {
+                url: '/admin/cars',
+                templateUrl: '/public/views/admin/messages.html',
+                controller: 'dashboardController'
+            })
     }]);

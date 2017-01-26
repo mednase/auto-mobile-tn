@@ -1,0 +1,17 @@
+/**
+ * Created by medna on 26/01/2017.
+ */
+var mongoose=require('mongoose');
+var fs = require("fs");
+var async = require("async");
+var Schema=mongoose.Schema;
+var message_schema=new Schema({
+    name: String,
+    email: String,
+    body: String,
+    date: {type:Date , default:Date.now},
+    seen:Boolean
+});
+
+var Message = mongoose.model("Message",message_schema);
+module.exports=Message;
