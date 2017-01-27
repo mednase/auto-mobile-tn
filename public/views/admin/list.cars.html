@@ -1,4 +1,74 @@
+<!-- BEGIN PAGE HEAD-->
+<div class="page-head">
+    <!-- BEGIN PAGE TITLE -->
+    <h1 class="page-title">
+        قائمة السيارات
+    </h1>
+    <!-- END PAGE TITLE -->
+</div>
+<!-- END PAGE HEAD-->
+<!-- BEGIN PAGE BREADCRUMB -->
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="icon-home"></i>
+            <a ui-sref="admin">الرئيسية</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <span>قائمة السيارات</span>
+        </li>
 
-
+    </ul>
+</div>
+<div class="row">
+    <div class="m-heading-1 border-green m-bordered row" style="margin-bottom: 17px;">
+        <h2>     <span class="fa fa-car"></span>    &nbsp; قائمة السيارات </h2>
+    </div>
+    <div class="col-md-12">
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+        <!-- END EXAMPLE TABLE PORTLET-->
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+        <div class="portlet box red">
+            <div class="portlet-title">
+                <div class="caption"></div>
+            </div>
+            <div class="portlet-body ">
+                <table datatable="ng" class="table table-striped table-bordered table-hover  no-footer " dt-options="dtOptions" dt-column-defs="showCase.dtColumnDefs" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <th>الماركة</th>
+                        <th>الموديل</th>
+                        <th>السنة </th>
+                        <th>الثمن</th>
+                        <th>عدد الأبواب</th>
+                        <th> سعة المحرك</th>
+                        <th>الطاقة</th>
+                        <th>ناقل حركة</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="car in cars track by $index">
+                        <td> {{ car.marque }}</td>
+                        <td>{{ car.model }}</td>
+                        <td>{{ car.annee }}</td>
+                        <td>{{ car.prix }}</td>
+                        <td>{{ car.porte }}</td>
+                        <td>{{ car.capacite_moteur }}</td>
+                        <td>{{ car.energie }}</td>
+                        <td>{{ car.type_vitesse }}</td>
+                        <td>
+                            <button class="btn btn-sm green" >عرض</button>
+                            <button class="btn btn-sm red">تعديل</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- END EXAMPLE TABLE PORTLET-->
+</div>
 <input type="hidden" value="" id="menuSelected" data-menu="page-list-cars">
 <script type="text/javascript" src="/public/assets/js/main.js"></script>

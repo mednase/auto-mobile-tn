@@ -4,13 +4,32 @@
 var express = require('express'),
     async = require('async'),
     Car = require('../models/carModel'),
+    Marque = require('../models/marqueModel'),
     mongoose = require('mongoose'),
     config = require('../config/params');
 
 var router = express.Router();
 
 module.exports = (function () {
+    router.get('/api/marques',function (req,res) {
+            Marque.find().exec(function (err, result) {
+                res.json(result);
+            });
+    });
+    router.get('/api/cars',function (req,res) {
+        Car.find().exec(function (err, result) {
+            res.json(result);
+        });
+    });
 
+    router.get('/api/car/:id',function (req,res) {
+        Car.find({_id:req.params.id}).exec(function (err, result) {
+            if(result!=null)
+                res.json(result);
+            else
+                res.sendStatus(404);
+        });
+    });
     router.get('/api/cars/:pagination',function (req,res) {
         var pagination=parseInt(req.params.pagination)-1;
         var countQuery = function(callback){

@@ -4,7 +4,7 @@ var sendgrid = require("sendgrid"),
     params= require('../config/params');
 
 
-var template=fs.readFileSync('api/views/resetPassword.hjs','utf-8');
+var template=fs.readFileSync('server/views/resetPassword.hjs','utf-8');
 var compiledTemplate=hogan.compile(template);
 
 /* Prepare the email */

@@ -23,7 +23,6 @@ app.service('authService', function($q, $http, API_ENDPOINT,$window) {
     function useCredentials(token) {
         isAuthenticated = true;
         authToken = token;
-
         // Set the token as header for your requests!
         $http.defaults.headers.common.Authorization = authToken;
     }
@@ -52,10 +51,12 @@ app.service('authService', function($q, $http, API_ENDPOINT,$window) {
             $http.post(API_ENDPOINT.url + '/auth/login', user).then(function(result) {
                 if (result.data.success) {
                     storeUserCredentials(result.data.token);
-                    resolve(result.data.msg);
+                    resolve(1);
                 } else {
-                    reject(result.data.msg);
+                    reject(2);
                 }
+            },function () {
+                reject(3)
             });
         });
     };
@@ -116,19 +117,13 @@ app.service('authService', function($q, $http, API_ENDPOINT,$window) {
         resetPassword: resetPassword,
         isAuthenticated: function() {return isAuthenticated;}
     };
-})
-
-    .factory('AuthInterceptor', function ($rootScope, $q, AUTH_EVENTS) {
-        return {
-            responseError: function (response) {
-                $rootScope.$broadcast({
-                    401: AUTH_EVENTS.notAuthenticated,
-                }[response.status], response);
-                return $q.reject(response);
-            }
-        };
-    })
-
-    .config(function ($httpProvider) {
-        $httpProvider.interceptors.push('AuthInterceptor');
-    });
+}).factory('httpRequestInterceptor', function () {
+    return {
+        request: function (config) {
+            config.headers['Authorization'] = window.localStorage.getItem("user_token");
+            return config;
+        }
+    };
+}).config(function ($httpProvider) {
+    $httpProvider.interceptors.push('httpRequestInterceptor');
+});

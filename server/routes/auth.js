@@ -15,14 +15,7 @@ var router = express.Router();
 module.exports = (function () {
 
     router.post('/api/auth/register', function (req, res) {
-        req.check('email', 'Email not valid ').isEmail();
-        req.check('username', 'Username length should be between 4 and 20 characters').isLength({min: 4, max: 20});
-        req.check('password', 'Password Should be atleast 6 characters length').isLength({min: 6});
-        req.check('password', 'Password does not match').equals(req.body.Cpassword);
-        var errors = req.validationErrors();
-        if (errors)
-            res.send({success: false, errors: errors});
-        else
+
             User.getUserByEmail(req.body.email, function (err, user) {
                 if (user)
                     res.json({success: false, errors: [{message: 'email already taken'}]});
@@ -52,9 +45,6 @@ module.exports = (function () {
             if (!user) {
                 res.json({success: false, msg: 'Authentication failed. Wrong username.'});
             } else {
-                if (!user.enable)
-                    res.json({success: false, msg: 'This account is banned !'});
-                else
                 // check if password matches
                     User.comparePassword(req.body.password, user, function (err, isMatch) {
                         if (isMatch && !err) {

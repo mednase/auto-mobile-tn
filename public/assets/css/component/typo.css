@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'HacenTunisiaLt';
+    src: url('../fonts/HacenTunisiaLt.eot?#iefix') format('embedded-opentype'),  url('../fonts/HacenTunisiaLt.woff') format('woff'), url('../fonts/HacenTunisiaLt.ttf')  format('truetype'), url('../fonts/HacenTunisiaLt.svg#HacenTunisiaLt') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NeoSansArabic';
+    src: url('../fonts/NeoSansArabic.otf');
+}
+@font-face {
+    font-family: 'NeoSansArabic';
+    src: url('../fonts/NeoSansArabic.svg');
+}
+@font-face {
+    font-family: 'NeoSansArabic';
+    src: url('../fonts/NeoSansArabic.eot');
+}
+
+@font-face {
+    font-family: 'NeoSansArabic';
+    src: url('../fonts/NeoSansArabic.ttf');
+}

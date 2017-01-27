@@ -4,6 +4,7 @@
 var express = require('express'),
     User = require('../models/userModel'),
     Car = require('../models/carModel'),
+    Marque = require('../models/marqueModel'),
     config = require('../config/params'),
     jwt = require('jwt-simple'),
     passport = require('passport'),
@@ -14,6 +15,14 @@ var router = express.Router();
 
 
 module.exports = (function () {
+
+    router.get('/admin', passport.authenticate('jwt', {session: false}), function (req, res) {
+        return res.sendFile(__dirname + '/public/views/index.html')
+    });
+
+    router.get('/admin/*', passport.authenticate('jwt', {session: false}), function (req, res) {
+        return res.sendFile(__dirname + '/public/views/index.html')
+    });
 
     router.all('/api/admin/*', passport.authenticate('jwt', {session: false}), function (req, res, next) {
         var token = getToken(req.headers);
@@ -27,12 +36,41 @@ module.exports = (function () {
                     if (user.role == "ROLE_ADMIN") {
                         req.user = user;
                         next();
-                    }
+                    }else
+                        return res.sendStatus(401);
                 }
             });
         } else
             return res.status(403).send({success: false, msg: 'No token provided.'});
 
+    });
+
+    router.post('/api/admin/marque/new', function (req, res) {
+        Marque.findOne({nom: new RegExp('^'+req.body.nom_marque+'$', "i")}).exec(function (err,marque) {
+            if(err)throw err;
+            if(marque!=null)
+                return res.send({success:false});
+            else{
+                marque = new Marque();
+                marque.nom=req.body.nom_marque;
+                marque.save();
+                return res.send({success:true});
+            }
+        });
+    });
+    router.post('/api/admin/model/new', function (req, res) {
+        console.log(req.body);
+        Marque.findOne({_id:req.body.marque_id }).exec(function (err,marque) {
+            if(err)throw err;
+            if(marque!=null && (marque.models.indexOf(req.body.model_name)==-1)){
+                marque.models.push(req.body.model_name);
+                marque.save();
+                return res.send({success:true});
+
+            } else
+                return res.send({success:false});
+
+        });
     });
 
     router.post('/api/admin/car/new', function (req, res) {

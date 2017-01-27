@@ -1,5 +1,6 @@
 body{
     margin: 0;
+    font-family: HacenTunisiaLt,NeoSansArabic,Helvetica,Arial,sans-serif !important;
 }
 .main{
     padding: 0 !important;
@@ -48,16 +49,16 @@ footer .copyright{
     color: white;
 }
 #top-image-search{
-    margin-top: -25px;
+    margin-top: 68px;
     width: 100%;
-    height: 400px;
+    height: 300px;
     background: url("../img/highwayjpg.jpg") center;
     background-size: cover;
 }
 #top-image-search .search-title{
     padding-top: 30px;
     text-align: center;
-    font-size: 100px;
+    font-size: 70px;
     color: white;
     text-shadow: 1px 0px 17px rgba(230, 15, 32, 0.98);
     font-family: "Arabic Typesetting";
@@ -67,4 +68,117 @@ footer .copyright{
 }
 *,.page-title{
     font-family: HacenTunisiaLt,NeoSansArabic,Helvetica,Arial,sans-serif;
+}
+.navbar-button{
+    font-weight: 700;
+    height: 68px !important;
+    text-align: center;
+    padding-top: 23px !important;
+    font-size: 26px;
+    color: white;
+}
+.navbar-button:hover,.navbar-button:active,.navbar-button:focus{
+    color: #2cb9fa !important;
+    background-color: transparent !important;
+    cursor: pointer;
+    text-shadow: 1px 0px 17px rgba(13, 77, 230, 0.98);
+
+}
+.page-container{
+    margin-top: 0 !important;
+}
+.login-form .form-group.input-icon i {
+    margin-top: 15px;
+    -webkit-transition: all .4s ease;
+    transition: all .4s ease;
+}
+
+#username:focus, #password:focus {
+    background-color: #dde3ec;
+    box-shadow: 0 0 8px 1px rgba(44, 185, 250, 0.6) !important;
+    color: #8290a3;
+    height: 43px;
+    -webkit-transition: all .4s ease;
+    transition: all .4s ease;
+}
+.login-page{    font-family: HacenTunisiaLt,NeoSansArabic,Helvetica,Arial,sans-serif !important;
+
+    position: absolute;
+    width: 100%;
+    z-index: 50000;
+    background: url(/public/assets/img/bg_footer.gif) repeat;
+}
+.login-page .loading-icon{
+    left: 47%;
+    margin-top: 15px;
+    position: absolute
+}
+a, button, code, div, img, input, label, li, p, pre, select, span, svg, table, td, textarea, th, ul, body, h1, h2, h3, h4, h5, h6 {
+    border-radius: 0 !important;
+    font-family: HacenTunisiaLt,NeoSansArabic,Helvetica,Arial,sans-serif;
+}
+.boxed{
+    flex-wrap: wrap;
+    background-color: #F2F2F2;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.image-number{
+    background-image: url(/public/assets/img/camera.svg);
+    background-repeat: no-repeat;
+    background-size: 1em auto;
+    background-position: .25em center;
+    position: absolute;
+    top: 0;
+    text-shadow: 0 0 5px #4a4a4a;
+    right: 0;
+    color: #fff;
+    padding: .25rem .25rem .25rem 1.5rem;
+    width: 40px;
+}
+.car-details ul{
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    padding: .5rem .5rem 0;
+}
+.car-details ul li{
+    -ms-flex: 1 1 20%;
+    -webkit-flex: 1 1 20%;
+    flex: 1 1 20%;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    width: 20%;
+    text-align: center;
+    font-family: 'Karla',Verdana,Geneva,sans-serif;
+    font-size: .625rem;
+}
+.car-details img{
+    display: block;
+    font-size: 1.125rem;
+    height: 3.5rem;
+    line-height: 1.75rem;
+    margin: 0 auto .25rem;
+    width: auto;
+}
+.prix{
+    margin-top: 5px;
+    font-family: 'Montserrat Bold','Trebuchet MS Bold','Trebuchet MS','Helvetica Black',Helvetica,sans-serif;
+    font-size: 1.5rem;
 }

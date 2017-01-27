@@ -23,8 +23,11 @@
   "homepage": "https://github.com/mednase/auto-mobile-tn#readme",
   "dependencies": {
     "angular": "^1.6.1",
+    "angular-animate": "^1.6.1",
+    "angular-toastr": "^2.1.1",
     "angular-ui-router": "^0.4.2",
     "async": "^2.1.4",
+    "bcryptjs": "^2.4.0",
     "body-parser": "^1.16.0",
     "express": "^4.14.0",
     "express-session": "^1.15.0",
@@ -33,6 +36,7 @@
     "jwt-simple": "^0.5.1",
     "mongoose": "^4.7.8",
     "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
     "sendgrid": "^4.7.1"
   }
 }

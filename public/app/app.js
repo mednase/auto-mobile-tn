@@ -1,9 +1,9 @@
-var app = angular.module('AutoMobileTn', ['ui.router']);
+var app = angular.module('AutoMobileTn', ['ui.router','ngAnimate', 'toastr','datatables']);
 
 app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider',
-    '$httpProvider', '$logProvider', '$locationProvider',
+    '$httpProvider', '$logProvider', '$locationProvider','toastrConfig',
     function ($urlRouterProvider, $urlMatcherFactoryProvider, $stateProvider,
-              $httpProvider, $logProvider, $locationProvider) {
+              $httpProvider, $logProvider, $locationProvider,toastrConfig) {
 
         $logProvider.debugEnabled(true);
 
@@ -38,7 +38,7 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
             })
             .state('login', {
                 url: '/login',
-                templateUrl: '/public/views/core/login.html',
+                templateUrl: '/public/views/auth/login.html',
                 controller: 'loginController'
 
             })
@@ -48,7 +48,7 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
             })
             .state('register', {
                 url: '/register',
-                templateUrl: '/public/views/core/register.html',
+                templateUrl: '/public/views/auth/register.html',
                 controller: 'registerController'
             })
             .state('forget', {
@@ -74,16 +74,69 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
             .state('newCar', {
                 url: '/admin/car/new',
                 templateUrl: '/public/views/admin/new.car.html',
-                controller: 'dashboardController'
+                controller: 'newCarController'
             })
             .state('cars', {
                 url: '/admin/cars',
-                templateUrl: '/public/views/admin/cars.html',
-                controller: 'dashboardController'
+                templateUrl: '/public/views/admin/list.cars.html',
+                controller: 'carListController',
+                resolve: {
+                    Cars: function ($http, API_ENDPOINT, $stateParams, $state) {
+                        return $http.get(API_ENDPOINT.url + '/cars').then(function (res) {
+                            return res.data;
+                        },function () {
+                            $state.go("error");
+                        });
+                    }
+                }
+            }) .
+            state('show_car', {
+                url: '/car/:id/detail',
+                templateUrl: '/public/views/core/show_car.html',
+                controller: 'showCarController',
+                resolve: {
+                    car: function ($http, API_ENDPOINT, $stateParams, $state) {
+                        return $http.get(API_ENDPOINT.url + '/car/'+$stateParams.id).then(function (res) {
+                            return res.data;
+                        },function () {
+                            $state.go("error");
+                        });
+                    }
+                }
             })
-            .state('contactUsMessage', {
-                url: '/admin/cars',
+            .state('messages', {
+                url: '/admin/messages',
                 templateUrl: '/public/views/admin/messages.html',
-                controller: 'dashboardController'
+                controller: 'messagesController'
             })
-    }]);
+            .state('settings', {
+                url: '/admin/settings',
+                templateUrl: '/public/views/admin/settings.html',
+                controller: 'settingsController'
+            }).
+            state('error', {
+                url: '/error',
+                templateUrl: '/public/views/core/error.html',
+                controller:function ($window,API_ENDPOINT) {
+                    $window.location.href=API_ENDPOINT.domain+"error"
+                }
+            });
+            angular.extend(toastrConfig, {
+                autoDismiss: false,
+                containerId: 'toast-container',
+                maxOpened: 0,
+                newestOnTop: true,
+                positionClass: 'toast-top-left',
+                preventDuplicates: false,
+                preventOpenDuplicates: false,
+                target: 'body'
+            });
+}])
+.run(['$rootScope', function ($rootScope) {
+        $rootScope.$on('$stateChangeSuccess', function () {
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+    });
+
+
+
+}]);
