@@ -69,12 +69,17 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
             .state('admin', {
                 url: '/admin',
                 templateUrl: '/public/views/admin/dashboard.html',
-                controller: 'dashboardController'
+                data: {
+                    authenticate: true,
+                }
             })
             .state('newCar', {
                 url: '/admin/car/new',
                 templateUrl: '/public/views/admin/new.car.html',
-                controller: 'newCarController'
+                controller: 'newCarController',
+                data: {
+                    authenticate: true,
+                }
             })
             .state('cars', {
                 url: '/admin/cars',
@@ -88,10 +93,13 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
                             $state.go("error");
                         });
                     }
+                },
+                data: {
+                    authenticate: true,
                 }
             }) .
             state('show_car', {
-                url: '/car/:id/detail',
+                url: '/car/:id',
                 templateUrl: '/public/views/core/show_car.html',
                 controller: 'showCarController',
                 resolve: {
@@ -107,12 +115,18 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
             .state('messages', {
                 url: '/admin/messages',
                 templateUrl: '/public/views/admin/messages.html',
-                controller: 'messagesController'
+                controller: 'messagesController',
+                data: {
+                    authenticate: true,
+                }
             })
             .state('settings', {
                 url: '/admin/settings',
                 templateUrl: '/public/views/admin/settings.html',
-                controller: 'settingsController'
+                controller: 'settingsController',
+                data: {
+                    authenticate: true,
+                }
             }).
             state('error', {
                 url: '/error',
@@ -132,11 +146,26 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
                 target: 'body'
             });
 }])
-.run(['$rootScope', function ($rootScope) {
-        $rootScope.$on('$stateChangeSuccess', function () {
-        document.body.scrollTop = document.documentElement.scrollTop = 0;
-    });
+.run(['$rootScope','authService','$state', function ($rootScope,authService,$state) {
+    $rootScope.$on('$stateChangeStart', function (event, next,current) {
 
+        if(next.data==null && authService.isAuthenticated() )
+            authService.logout();
+
+        if (next.data && next.data.authenticate && !authService.isAuthenticated()) {
+            event.preventDefault();
+            $state.go('login');
+        }
+
+        if (authService.isAuthenticated()) {
+            $rootScope.stylesheet = "/public/assets/css/admin.css";
+            $rootScope.authenticated = true;
+        } else
+            $rootScope.stylesheet = "/public/assets/css/main.css";
+        $rootScope.$on('$stateChangeSuccess', function () {
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
+        });
+    });
 
 
 }]);

@@ -2,11 +2,11 @@
  * Created by medna on 25/01/2017.
  */
 app.
-controller('loginController', ['$scope','$rootScope', 'authService', '$window','API_ENDPOINT',
-    function ($scope, $rootScope,authService, $window,API_ENDPOINT) {
+controller('loginController', ['$scope','$rootScope', 'authService', '$window','API_ENDPOINT','$state',
+    function ($scope, $rootScope,authService, $window,API_ENDPOINT,$state) {
 
         if (authService.isAuthenticated()) {
-            $window.location.href=API_ENDPOINT.domain+"admin";
+            $state.go("admin",{},{reload:true});
         }
 
         $scope.doLogin = function () {
@@ -14,7 +14,7 @@ controller('loginController', ['$scope','$rootScope', 'authService', '$window','
             data = $scope.login;
             authService.login(data).then(function () {
                 $scope.loading=false;
-                $window.location.href=API_ENDPOINT.domain+"admin";
+                $state.go("admin",{},{reload:true});
             }, function (err) {
                 if(err==2){
                     $scope.errorMessage="معلومات الدخول خاطئة.";

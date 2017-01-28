@@ -16,13 +16,6 @@ var router = express.Router();
 
 module.exports = (function () {
 
-    router.get('/admin', passport.authenticate('jwt', {session: false}), function (req, res) {
-        return res.sendFile(__dirname + '/public/views/index.html')
-    });
-
-    router.get('/admin/*', passport.authenticate('jwt', {session: false}), function (req, res) {
-        return res.sendFile(__dirname + '/public/views/index.html')
-    });
 
     router.all('/api/admin/*', passport.authenticate('jwt', {session: false}), function (req, res, next) {
         var token = getToken(req.headers);

@@ -1,6 +1,7 @@
 /**
- * Created by medna on 25/01/2017.
+ * Created by medna on 03/10/2016.
  */
+
 app.service('authService', function($q, $http, API_ENDPOINT,$window) {
 
     var LOCAL_TOKEN_KEY = 'user_token';
@@ -23,6 +24,7 @@ app.service('authService', function($q, $http, API_ENDPOINT,$window) {
     function useCredentials(token) {
         isAuthenticated = true;
         authToken = token;
+
         // Set the token as header for your requests!
         $http.defaults.headers.common.Authorization = authToken;
     }
@@ -51,12 +53,10 @@ app.service('authService', function($q, $http, API_ENDPOINT,$window) {
             $http.post(API_ENDPOINT.url + '/auth/login', user).then(function(result) {
                 if (result.data.success) {
                     storeUserCredentials(result.data.token);
-                    resolve(1);
+                    resolve(result.data.msg);
                 } else {
-                    reject(2);
+                    reject(result.data.msg);
                 }
-            },function () {
-                reject(3)
             });
         });
     };
@@ -117,13 +117,19 @@ app.service('authService', function($q, $http, API_ENDPOINT,$window) {
         resetPassword: resetPassword,
         isAuthenticated: function() {return isAuthenticated;}
     };
-}).factory('httpRequestInterceptor', function () {
-    return {
-        request: function (config) {
-            config.headers['Authorization'] = window.localStorage.getItem("user_token");
-            return config;
-        }
-    };
-}).config(function ($httpProvider) {
-    $httpProvider.interceptors.push('httpRequestInterceptor');
-});
+})
+
+    .factory('AuthInterceptor', function ($rootScope, $q, AUTH_EVENTS) {
+        return {
+            responseError: function (response) {
+                $rootScope.$broadcast({
+                    401: AUTH_EVENTS.notAuthenticated,
+                }[response.status], response);
+                return $q.reject(response);
+            }
+        };
+    })
+
+    .config(function ($httpProvider) {
+        $httpProvider.interceptors.push('AuthInterceptor');
+    });

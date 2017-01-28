@@ -13,15 +13,10 @@ var server=app.listen(port, function () {
     console.log("Your server is running at "+port);
 });
 
-app.use(function (req, res, next) {
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-
-    try {
-        decodeURIComponent(req.path)
-    }
-    catch(e) {
-        return res.redirect('/error');
-    }
+app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
@@ -36,9 +31,6 @@ app.use(function (req, res, next) {
 // Connect to database
 mongoose.connect(config.database);
 
-// get our request parameters
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
 
 /* Library */
 app.use('/public', express.static(__dirname + '/public'));
@@ -54,6 +46,8 @@ app.use('/',admin, auth,client);
 app.get('/error', function (req, res) {
     return res.sendFile(__dirname + '/public/views/core/error.html')
 });
+
+
 
 
 /* run app from all route */
