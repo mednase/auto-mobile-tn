@@ -1,11 +1,9 @@
 var sendgrid = require("sendgrid"),
-    hogan= require('hogan'),
     fs= require('fs'),
     params= require('../config/params');
 
 
 var template=fs.readFileSync('server/views/resetPassword.hjs','utf-8');
-var compiledTemplate=hogan.compile(template);
 
 /* Prepare the email */
 function InitEmail(user,url){
@@ -13,9 +11,7 @@ function InitEmail(user,url){
     from_email = new helper.Email(params.server_email);
     to_email = new helper.Email(user.email);
     subject = "Reset Password Request";
-    content = new helper.Content("text/html",
-        compiledTemplate.render({firstname: user.firstname,tokenUrl: url,siteUrl: params.server_url }));
-    mail = new helper.Mail(from_email, subject, to_email, content);
+      mail = new helper.Mail(from_email, subject, to_email, content);
 
     return mail.toJSON();
 }
