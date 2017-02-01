@@ -2,7 +2,7 @@
 <div class="page-head">
     <!-- BEGIN PAGE TITLE -->
     <h1 class="page-title">
-        أضف سيارة
+        تعديل السيارة
     </h1>
     <!-- END PAGE TITLE -->
 </div>
@@ -16,7 +16,7 @@
             <i class="fa fa-angle-right"></i>
         </li>
         <li>
-            <span>أضف سيارة</span>
+            <span>تعديل السيارة</span>
         </li>
 
     </ul>
@@ -32,15 +32,15 @@
                 </div>
             </div>
             <div class="portlet-body" style="height: auto;">
-                <form role="form" ng-submit="addCar()" class="form-horizontal" name="form">
+                <form role="form" ng-submit="editCar()" class="form-horizontal" name="form">
                     <div class="form-body">
                         <div class="form-group">
                             <label for="marque" class="col-md-2 control-label">الماركة
                                 <span class="required" aria-required="true"> * </span>
                             </label>
                             <div class=" col-md-9">
-                                <select id="marque" ng-model="marque"  class="form-control" required>
-                                    <option ng-repeat="mq in marques track by $index" value="{{mq}}">{{mq.nom}}</option>
+                                <select  id="marque" ng-model="car.marque"  class="form-control" required>
+                                    <option  ng-repeat="mq in marques track by $index" value="{{mq.nom}}" >{{mq.nom}}</option>
                                 </select>
                             </div>
                         </div>
@@ -50,7 +50,7 @@
                             </label>
                             <div class=" col-md-9">
                                 <select ng-model="car.model" id="model"  class="form-control" required>
-                                    <option ng-repeat="mdl in models track by $index" value="{{mdl}}">{{mdl}}</option>
+                                    <option ng-repeat="mdl in models track by $index" value="{{mdl}}" >{{mdl}}</option>
                                 </select>
                             </div>
                         </div>
@@ -63,7 +63,7 @@
                                      <span class="input-group-addon">
                                          <i class="fa fa-calendar"></i>
                                      </span>
-                                    <input data-placeholder="السنة" ng-model="car.annee" range from="2000"  id="date" required>
+                                    <input data-placeholder="السنة"  range from="2000"  id="date" required>
                                 </div>
                                 <span class="help-block hidden">إختر سنة الصنع</span>
                             </div>
@@ -73,7 +73,7 @@
                                 <span class="required" aria-required="true"> * </span>
                             </label>
                             <div class="col-md-9">
-                                    <input ng-model="car.couleur" type="text" name="couleur" class="form-control" placeholder="اللون" required>
+                                <input ng-model="car.couleur" type="text" name="couleur" class="form-control" placeholder="اللون" required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -94,13 +94,7 @@
                                 <span class="required" aria-required="true"> * </span>
                             </label>
                             <div class="col-md-9">
-                                <select ng-model="car.porte" id="porte" class="form-control" required>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option selected>4</option>
-                                    <option>5</option>
-                                </select>
+                                <input data-placeholder="عدد الأبواب" ng-model="car.porte" range from="1" to="6" id="porte" required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -108,17 +102,7 @@
                                 <span class="required" aria-required="true"> * </span>
                             </label>
                             <div class="col-md-9">
-                                <select ng-model="car.place" id="place" class="form-control" required>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option >4</option>
-                                    <option selected>5</option>
-                                    <option >6</option>
-                                    <option >7</option>
-                                    <option >8</option>
-                                    <option >9</option>
-                                </select>
+                                <input data-placeholder="عدد الأبواب" ng-model="car.place" range from="1" to="10" id="place" required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -187,29 +171,25 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group mt-repeater">
+                    <div class="form-group ">
                         <label class="control-label col-md-2 ">الصور</label>
-                        <div data-repeater-list="images" class="col-md-7">
-                            <div data-repeater-item="" class="mt-repeater-item mt-overflow">
-                                <div class="mt-repeater-cell ">
-                                    <div class="input-group">
+                            <div class="col-md-8" id="input-images">
+                                <div class="input-group" ng-repeat="image in car.images track by $index" style="padding-bottom: 8px">
                                     <span class="input-group-addon">
                                         <i class="fa fa-image"></i>
                                     </span>
-                                        <input  name=""  type="text" placeholder="رابط الصورة" class="form-control mt-repeater-input-inline input-image ">
-                                    </div>
-                                    <a href="javascript:;" data-repeater-delete="" class="btn btn-danger mt-repeater-delete mt-repeater-del-right mt-repeater-btn-inline">
-                                        <i class="fa fa-close"></i>
-                                    </a>
+                                        <input  value="{{image}}" name=""  type="text" placeholder="رابط الصورة" class="form-control" style="height: 100%;padding: 8px">
+                                    <span class="input-group-btn btn-delete-img">
+                                        <button class="btn red btn-delete-img" ng-click="removeImage($index)" ><i class="fa fa-trash fa-2x"></i></button>
+                                    </span>
                                 </div>
                             </div>
-                        </div>
-                        <a href="javascript:;" data-repeater-create="" class="btn btn-primary mt-repeater-add col-md-2 ">
-                            <i class="fa fa-plus"></i>&nbsp;أضف صورة&nbsp;</a>
+                        <button role="button" id="btn-add-input" class="btn blue col-md-2 ">
+                            <i class="fa fa-plus"></i>&nbsp;أضف صورة&nbsp;</button>
                     </div>
                     <div class="margin-top-10 text-center">
-                        <button ng-disabled="form.$invalid" class="btn green btn-lg">حفظ بيانات</button>
-                        <button ng-click="initCar()" class="btn  btn-danger btn-lg ">إلغاء </button>
+                        <button ng-disabled="form.$invalid" class="btn btn-success">حفظ التغييرات</button>
+                        <button ng-click="initCar()" class="btn btn-danger">إلغاء </button>
                     </div>
                 </form>
             </div>
@@ -223,6 +203,26 @@
 <script type="text/javascript" src="/public/assets/js/main.js"></script>
 <script>
     $(document).ready(function () {
-        $('.mt-repeater').repeater()
+        $('#btn-add-input').click(function () {
+            $('#input-images').append(
+                        '<div class="input-group" style="padding-bottom: 8px">'+
+                            '<span class="input-group-addon">'+
+                                '<i class="fa fa-image"></i>'+
+                            '</span>'+
+                            '<input  name=""  type="text" placeholder="رابط الصورة" class="form-control" style="height: 100%;padding: 8px">'+
+                            '<span class="input-group-btn">'+
+                                '<button class="btn red btn-delete-img" type="button">' +
+                                    '<i class="fa fa-trash fa-2x"></i>' +
+                                '</button>'+
+                            '</span> ' +
+                        '</div>');
+        });
+
+
+        $(document).on("click", ".btn-delete-img", function() {
+            if($(this).parent().find('input').val()==null)
+                $(this).parent().parent().remove();
+        });
+
     });
 </script>

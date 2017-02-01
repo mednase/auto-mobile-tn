@@ -37,6 +37,7 @@
                 <table datatable="ng" class="table table-striped table-bordered table-hover  no-footer " dt-options="dtOptions" dt-column-defs="showCase.dtColumnDefs" cellspacing="0" width="100%">
                     <thead>
                     <tr>
+                        <th>تاريخ الإضافة</th>
                         <th>الماركة</th>
                         <th>الموديل</th>
                         <th>السنة </th>
@@ -45,11 +46,12 @@
                         <th> سعة المحرك</th>
                         <th>الطاقة</th>
                         <th>ناقل حركة</th>
-                        <th></th>
+                        <th>الخيرات</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr ng-repeat="car in cars track by $index">
+                        <td>{{car.date_publication|date:'dd-mm-yyyy' }}</td>
                         <td> {{ car.marque }}</td>
                         <td>{{ car.model }}</td>
                         <td>{{ car.annee }}</td>
@@ -58,9 +60,9 @@
                         <td>{{ car.capacite_moteur }}</td>
                         <td>{{ car.energie }}</td>
                         <td>{{ car.type_vitesse }}</td>
-                        <td>
-                            <button class="btn btn-sm green" >عرض</button>
-                            <button class="btn btn-sm red">تعديل</button>
+                        <td class="text-center">
+                            <button class="btn btn-primary" ui-sref="editCar({id:car._id})"><i class="fa fa-wrench" ></i> تعديل</button>
+                            <button class="btn btn-danger" ng-click="deleteCar(car,$index)">حذف <i class="fa fa-trash-o">  </i></button>
                         </td>
                     </tr>
                     </tbody>

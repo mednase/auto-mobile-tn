@@ -6,15 +6,15 @@ controller('loginController', ['$scope','$rootScope', 'authService', '$window','
     function ($scope, $rootScope,authService, $window,API_ENDPOINT,$state) {
 
         if (authService.isAuthenticated()) {
-            $state.go("admin",{},{reload:true});
+            $state.go("admin");
         }
 
         $scope.doLogin = function () {
-            $scope.loading=true;
             data = $scope.login;
             authService.login(data).then(function () {
-                $scope.loading=false;
-                $state.go("admin",{},{reload:true});
+                $rootScope.isLoading=true;
+                $scope.$parent.authenticated = true;
+                $state.go("admin");
             }, function (err) {
                 if(err==2){
                     $scope.errorMessage="معلومات الدخول خاطئة.";
@@ -39,10 +39,12 @@ controller('registerController', ['$scope', 'authService', '$state',
         }
 
     }]).
-controller('logoutController', ['authService', '$state', '$scope','$window','API_ENDPOINT', function (authService, $state, $scope,$window,API_ENDPOINT) {
-    authService.logout();
+controller('logoutController', ['authService', '$state', '$scope','$window','API_ENDPOINT','$rootScope', function (authService, $state, $scope,$window,API_ENDPOINT,$rootScope) {
     $scope.$parent.authenticated = false;
-    $window.location.href=API_ENDPOINT.domain;
+    authService.logout();
+    setTimeout(function () {
+        $state.go('home');
+    },500)
 }]).
 controller('forgotController',['authService','$scope',function (authService,$scope) {
     $scope.email="";

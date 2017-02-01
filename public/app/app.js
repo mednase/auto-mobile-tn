@@ -1,4 +1,5 @@
-var app = angular.module('AutoMobileTn', ['ui.router','ngAnimate', 'toastr','datatables']);
+var app = angular.module('AutoMobileTn', ['ui.router','ngAnimate', 'toastr','datatables','ui.bootstrap',
+'ngSweetAlert']);
 
 app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider',
     '$httpProvider', '$logProvider', '$locationProvider','toastrConfig',
@@ -36,6 +37,11 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
                 templateUrl: '/public/views/core/home.html',
                 controller: 'homeController'
             })
+            .state('marque_car', {
+                url: '/marque/:marque',
+                templateUrl: '/public/views/core/car.marque.html',
+                controller: 'marqueController'
+            })
             .state('login', {
                 url: '/login',
                 templateUrl: '/public/views/auth/login.html',
@@ -68,6 +74,7 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
             })
             .state('admin', {
                 url: '/admin',
+                controller: 'dashboardController',
                 templateUrl: '/public/views/admin/dashboard.html',
                 data: {
                     authenticate: true,
@@ -77,6 +84,23 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
                 url: '/admin/car/new',
                 templateUrl: '/public/views/admin/new.car.html',
                 controller: 'newCarController',
+                data: {
+                    authenticate: true,
+                }
+            })
+            .state('editCar', {
+                url: '/admin/car/:id/edit',
+                templateUrl: '/public/views/admin/edit.car.html',
+                controller: 'editCarController',
+                resolve: {
+                    car: function ($http, API_ENDPOINT, $stateParams, $state) {
+                        return $http.get(API_ENDPOINT.url + '/car/'+$stateParams.id).then(function (res) {
+                            return res.data;
+                        },function () {
+                            $state.go("error");
+                        });
+                    }
+                },
                 data: {
                     authenticate: true,
                 }
@@ -99,7 +123,7 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
                 }
             }) .
             state('show_car', {
-                url: '/car/:id',
+                url: '/car/:id/detail',
                 templateUrl: '/public/views/core/show_car.html',
                 controller: 'showCarController',
                 resolve: {
@@ -146,11 +170,18 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
                 target: 'body'
             });
 }])
-.run(['$rootScope','authService','$state', function ($rootScope,authService,$state) {
-    $rootScope.$on('$stateChangeStart', function (event, next,current) {
+.run(['$rootScope','authService','$state','uibPaginationConfig','$timeout',
+    function ($rootScope,authService,$state,uibPaginationConfig,$timeout) {
+        $rootScope.isLoading=true;
 
-        if(next.data==null && authService.isAuthenticated() )
+        $rootScope.$on('$stateChangeStart', function (event, next) {
+        uibPaginationConfig.nextText='التالي';
+        uibPaginationConfig.previousText='السابق';
+
+        if(next.data==null && authService.isAuthenticated() ){
+            $rootScope.isLoading=true;
             authService.logout();
+        }
 
         if (next.data && next.data.authenticate && !authService.isAuthenticated()) {
             event.preventDefault();
@@ -162,10 +193,19 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
             $rootScope.authenticated = true;
         } else
             $rootScope.stylesheet = "/public/assets/css/main.css";
-        $rootScope.$on('$stateChangeSuccess', function () {
+        $rootScope.$on('$stateChangeSuccess', function (event, next,current) {
+            $timeout(function () {
+                if(next.name!="logout")
+                $rootScope.isLoading=false;
+            },500);
             document.body.scrollTop = document.documentElement.scrollTop = 0;
         });
+        $rootScope.$on('$viewContentLoaded', function(event) {
+        });
+
+
     });
+
 
 
 }]);

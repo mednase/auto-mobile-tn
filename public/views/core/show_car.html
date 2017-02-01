@@ -1,4 +1,185 @@
-<section class="container-fluid">
-    <div class="row"  style="margin-top: 20px;background-color: whitesmoke;height: 100%;width: 100%">
+<div class="container-fluid" style="padding-top: 80px">
+    <aside class="col-md-3 side-box hidden-sm hidden-xs">
+        <section class="quick-search-box">
+            <header class="side-box_header">
+                <h2 class="side-box_title"> البحث السريع</h2>
+            </header>
+            <div class="content">
+                <form class="car-form">
+                    <div class="row">
+                        <div class="col-md-12 form-item">
+                            <label class="hidden col-md-4" for="edit-manufacturer">Make
+                            </label>
+                            <select ng-model="selectedMarque" id="edit-manufacturer" name="manufacturer"
+                                    class="form-select col-md-10 col-md-offset-1">
+                                <option value="" selected="selected">إختر الماركة…</option>
+                                <option ng-repeat="marque in marques track by $index" value="{{marque}}">{{marque.nom}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12 form-item ">
+                            <label class="hidden col-md-4">Model </label>
+                            <select ng-model="selectedModel" name="car" class="form-select disabled col-md-10 col-md-offset-1" ng-disabled="selectedMarque==null" >
+                                <option value="/car-reviews/find/make/bmw">جميع الموديلات…</option>
+                                <option ng-repeat="model in models track by $index" value="{{model}}">{{model}}</option>
+                            </select>
+                        </div>
+                        <button  class="search-btn">ابحث</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section id="related_cars" >
+            <header class="side-box_header">
+                <h2 class="side-box_title">شاهد أيضاً</h2>
+            </header>
+            <div>
+                <ul class="related_cars_list ">
+                    <li ng-repeat="other_car in other_cars track by $index">
+                        <article  class="car-item col-md-12" ui-sref="show_car({id:other_car._id})">
+                            <div class="push-item__image col-md-7">
+                                <div class="fixed-ratio">
+                                    <img ng-if="other_car.images.length>0" src="{{other_car.images[0]}}" class="img-responsive">
+                                    <img ng-if="other_car.images.length<1" src="/public/assets/img/car/no_image.png" >                                </div>
+                            </div>
+                            <div class="push-item__text-content col-md-4">
+                                <div class="push-item__manufacturer">{{other_car.marque}}</div>
+                                <div class="push-item__title">{{other_car.model}}</div>
+                                <div class="push-item__price">
+                                    <span class="price-range">
+                                        <span class="price-range__from">{{other_car.prix}} د.ت</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </aside>
+    <div id="main_area" class="col-md-9 boxed-content">
+        <!-- Slider -->
+        <div class="row" style="padding: 5px;">
+            <div id="thumbnail-preview-indicators" class="carousel slide col-md-8 " data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li ng-repeat="image in car.images track by $index" data-target="#thumbnail-preview-indicators"
+                        data-slide-to="{{$index}}" ng-class="$index==0?'active ':''">
+                        <div class="thumbnail">
+                            <img src="{{image}}">
+                        </div>
+                    </li>
+
+                </ol>
+                <div class="carousel-inner">
+                    <div ng-class="$index==0?'item slides active ':'item slides'"
+                         ng-repeat="image in car.images track by $index">
+                        <div class="slide">
+                            <img src="{{image}}" class="img-responsive" width="650">
+                        </div>
+                    </div>
+                    <div ng-if="car.images.length<1">
+                        <div class="slide">
+                            <img src="/public/assets/img/car/no_image.png" class="img-responsive" width="650">
+                        </div>
+                    </div>
+                </div>
+                <a class="left carousel-control" href="#thumbnail-preview-indicators" role="button"
+                   data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                <a class="right carousel-control" href="#thumbnail-preview-indicators" role="button"
+                   data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <b style="font-size: 45px" class="font-blue-steel">{{car.marque}} {{car.model}}</b>
+                <table class="table cartable">
+                    <tbody>
+                    <tr>
+                        <td class="col-md-4">الثمن</td>
+                        <td>{{car.prix}}&nbsp;(دت)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">الماركة</td>
+                        <td>{{car.marque}}</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">الموديل</td>
+                        <td>{{car.model}}</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">السنة</td>
+                        <td>{{car.annee}}</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">اللون</td>
+                        <td>{{car.coleur}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
         </div>
-    </section>
+        <div class="row car-details-default">
+            <ul class="col-md-12">
+                <li class="col-md-2">
+                    <img src="/public/assets/img/car/icon-carburant.png">
+                    <h3>{{car.energie}}</h3>
+                </li>
+                <li class="col-md-2">
+                    <img src="/public/assets/img/car/icon-places.png">
+                    <h3>{{car.porte}}</h3>
+                </li>
+                <li class="col-md-2">
+                    <img src="/public/assets/img/car/icon-engine.png">
+                    <h3>{{car.capacite_moteur}} Littres</h3>
+                </li>
+                <li class="col-md-2">
+                    <img src="/public/assets/img/car/icon-boite.png">
+                    <h3>{{car.type_vitesse}}</h3>
+                </li>
+                <li class="col-md-2 hidden-xs">
+                    <img src="/public/assets/img/car/icon-portes.png">
+                    <h3>{{car.porte}}</h3>
+                </li>
+            </ul>
+        </div>
+        <div class="row col-md-6 portlet light" style="margin-top: 20px">
+            <h2>المواصفات</h2>
+            <table class="table table-striped">
+                <tbody>
+                <tr>
+                    <td class="col-md-4">وسائد هوائية</td>
+                    <td class="col-md-4">{{car.caracteristique.airbag?'متوفر':'غير متوفر'}}</td>
+                </tr>
+                <tr>
+                    <td>مثبت سرعة</td>
+                    <td class="col-md-4">{{car.caracteristique.regulateur_vitesse?'متوفر':'غير متوفر'}}</td>
+                </tr>
+                <tr>
+                    <td>انذار</td>
+                    <td class="col-md-4">{{car.caracteristique.alarm?'متوفر':'غير متوفر'}}</td>
+                </tr>
+                <tr>
+                    <td>نظام فرامل ABS</td>
+                    <td class="col-md-4">{{car.caracteristique.frein_abs?'متوفر':'غير متوفر'}}</td>
+                </tr>
+                <tr>
+                    <td>توزيع اليكتروني للفرامل EBD</td>
+                    <td class="col-md-4">{{car.caracteristique.EBD?'متوفر':'غير متوفر'}}</td>
+                </tr>
+                <tr>
+                    <td>تكييف</td>
+                    <td class="col-md-4">{{car.caracteristique.climatisation?'متوفر':'غير متوفر'}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function ($) {
+
+        $('.carousel').carousel({
+            interval: 5000
+        });
+    });
+</script>

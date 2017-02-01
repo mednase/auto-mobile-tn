@@ -1,12 +1,12 @@
 /**
  * Created by medna on 09/10/2016.
  */
-app.controller('dashboardController',['$scope','$http','API_ENDPOINT',
-    function ($scope,$http,API_ENDPOINT) {
+app.controller('dashboardController',['$scope','$http','API_ENDPOINT','$rootScope',
+    function ($scope,$http,API_ENDPOINT,$rootScope) {
 
 }]).
-controller('newCarController',['$scope','$http','API_ENDPOINT','toastr',
-    function ($scope,$http,API_ENDPOINT,toastr) {
+controller('newCarController',['$scope','$http','API_ENDPOINT','toastr','$state',
+    function ($scope,$http,API_ENDPOINT,toastr,$state) {
         $scope.initCar=function(){
             $scope.car={};
             $scope.car.images=[];
@@ -30,18 +30,64 @@ controller('newCarController',['$scope','$http','API_ENDPOINT','toastr',
 
         $scope.addCar=function () {
             $('.input-image').each(function () {
-               $scope.car.images.push($(this).val());
+                if($(this).val().length>5)
+                    $scope.car.images.push($(this).val());
             });
             $scope.car.marque=JSON.parse($scope.marque).nom;
             $http.post(API_ENDPOINT.url+"/admin/car/new",$scope.car).then(function () {
                 toastr.success('لقد تم إضافة السيارة بنجاح ! ', 'إضافة السيارة');
                 $scope.initCar();
+                $state.go("cars");
+
             });
         }
 
 }]).
-controller('carListController',['Cars','$scope','DTOptionsBuilder',
-    function (Cars,$scope,DTOptionsBuilder) {
+controller('editCarController',['car','$scope','$http','API_ENDPOINT','toastr','$state',
+    function (car,$scope,$http,API_ENDPOINT,toastr,$state) {
+        $scope.car=angular.copy(car);
+        $scope.initCar=function(){
+            $scope.car.images=[];
+            $scope.car=angular.copy(car);
+
+        };
+        $scope.removeImage=function ($index) {
+            $scope.car.images.splice($index,1);
+        }
+
+        $http.get(API_ENDPOINT.url+"/marques").then(function (result) {
+            $scope.marques=result.data;
+            angular.forEach($scope.marques, function(mq, key) {
+                if(mq.nom==car.marque){
+                    $scope.marque=mq;
+                    $scope.models=mq.models
+                }
+            })
+        });
+
+        $scope.$watch("car.marque",function (new_marque) {
+            angular.forEach($scope.marques,function (mq) {
+                if(mq.nom==new_marque)
+                    $scope.models=mq.models;
+            });
+        });
+
+        $scope.editCar=function () {
+            $('.input-image').each(function () {
+                if($(this).val().length>5)
+                    $scope.car.images.push($(this).val());
+            });
+            $http.post(API_ENDPOINT.url+"/admin/car/update",$scope.car).then(function () {
+                toastr.success('لقد تم حفظ التعديلات ! ', 'تعديل السيارة');
+                $state.go("cars");
+            });
+        }
+
+
+
+    }]).
+controller('carListController',['Cars','$scope','DTOptionsBuilder','SweetAlert','$http','API_ENDPOINT',
+    function (Cars,$scope,DTOptionsBuilder,SweetAlert,$http,API_ENDPOINT) {
 
         $scope.cars=Cars;
 
@@ -65,12 +111,36 @@ controller('carListController',['Cars','$scope','DTOptionsBuilder',
 
         $scope.dtOptions = DTOptionsBuilder.newOptions()
             .withPaginationType('full_numbers')
-            .withDisplayLength(2)
+            .withDisplayLength(10)
             .withOption('order', [1, 'desc'])
-            .withLanguage(language)
+            .withLanguage(language);
 
+        $scope.deleteCar = function (car,$index) {
+            SweetAlert.swal({
+                    title: "هل أنت متأكد ؟",
+                    text: "هل تريد حذف هذه السيارة من قاعدة البيانات ؟",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55", confirmButtonText: "نعم ، إحذف !",
+                    cancelButtonText: "لا ، إلغاء الحذف",
+                    closeOnConfirm: false,
+                    closeOnCancel: false,
+                    showLoaderOnConfirm: true
 
-
+                }, function(isConfirm){
+                    if (isConfirm) {
+                        $http.post(API_ENDPOINT.url+"/admin/car/delete",{id:car._id}).then(function () {
+                            SweetAlert.swal("","لقد تم حذف هذه السيارة بنجاح ", "success");
+                            $scope.cars.splice($index,1);
+                        },function () {
+                            SweetAlert.swal("","حدث خطأ في النظام يرجى تكرار العملية","error");
+                        })
+                    } else {
+                        SweetAlert.swal("", "لقد تم إلغاء الحذف !", "Cancelled");
+                    }
+                    return false;
+                });
+        }
     }
 ]).
 controller('messagesController',['$scope','$http','API_ENDPOINT',

@@ -17,8 +17,10 @@
     <link href="/public/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
     <link href="/public/assets/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
     <link href="/public/assets/plugins/bootstrap/css/bootstrap-rtl.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/component/components-rtl.css"/>
+    <link rel="stylesheet" type="text/css" href="/public/assets/css/component/components-md-rtl.min.css"/>
     <link rel="stylesheet" type="text/css" href="/public/assets/css/component/typo.css">
+    <link href="/public/assets/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css">
+    <link href="/public/assets/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="/public/assets/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css">
     <link href="/public/assets/plugins/datatables/plugins/bootstrap/datatables.bootstrap-rtl.css">
     <link href="/public/assets/plugins/angular-datatable/angular.datatable.css" rel="stylesheet" type="text/css">
@@ -27,31 +29,33 @@
     <link rel="stylesheet" type="text/css" href="/public/assets/layout/css/themes/blue-rtl.min.css "/>
     <link rel="stylesheet" type="text/css" href="/public/assets/layout/css/custom-rtl.min.css"/>
     <link rel="stylesheet" type="text/css" href="/public/assets/layout/css/page/login-rtl.css">
+    <link rel="stylesheet" type="text/css" href="/public/assets/plugins/sweetAlert/bootstrap-sweetalert/sweetalert.css">
+    <link rel="stylesheet" type="text/css" href="/public/assets/css/page-loader.css"/>
 
     <link rel="stylesheet" href="/node_modules/angular-toastr/dist/angular-toastr.css" />
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/component/components-rtl.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/layout/css/layout-rtl.min.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/layout/css/themes/blue-rtl.min.css "/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/layout/css/custom-rtl.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/public/assets/css/car.detail.css"/>
 
     <link  rel="stylesheet" type="text/css" ng-href="{{stylesheet}}"  >
 
     <base href="/">
 
 </head>
-<body   ng-controller="homeController" class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-md">
-<div ng-include="authenticated?'/public/views/admin/admin.navbar.html':'/public/views/core/navbar.html'"></div>
+<body  ng-controller="homeController"  ng-class="isLoading?'loading':''" class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-md">
+<div  ng-hide="isLoading" ng-include="authenticated?'/public/views/admin/admin.navbar.html':'/public/views/core/navbar.html'"></div>
+
+<div ng-include="isLoading?'/public/views/core/loading-page.html':''"></div>
 
 
-<div class="page-container">
+<div  ng-cloak="isLoading" ng-class="'page-container'" ng-hide="isLoading">
     <div ng-include="authenticated?'/public/views/admin/menu.html':''"></div>
-    <div class="page-content-wrapper ">
-        <div class="page-content main">
-            <div ui-view=""></div>
+        <div ng-class="'page-content-wrapper'">
+            <div ng-class="authenticated?'page-content main':'main'">
+                <div ui-view=""></div>
         </div>
     </div>
 </div>
-<div ng-include="authenticated?'':'/public/views/core/footer.html'"></div>
+
+<div  ng-hide="isLoading" ng-include="authenticated?'':'/public/views/core/footer.html'"></div>
 
 <script type="text/javascript" src="/public/assets/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="/public/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
@@ -73,6 +77,10 @@
 <script type="text/javascript" src="/public/app/controllers/MainController.js"></script>
 <script type="text/javascript" src="/public/app/services/authService.js"></script>
 <script type="text/javascript" src="/public/app/directives/rangeDirective.js"></script>
+<script type="text/javascript" src="/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+
+<script src="/public/assets/plugins/sweetAlert/bootstrap-sweetalert/sweetalert.min.js"></script>
+<script src="/public/assets/plugins/sweetAlert/ngSweetAlert/SweetAlert.min.js"></script>
 
 <script src="/public/assets/plugins/angular-datatable/angular.datatable.js"></script>
 

@@ -1,0 +1,71 @@
+<div style="min-height: 500px">
+<section class="col-md-10 col-md-offset-1 nav-top ">
+    <div class="col-md-6">
+        <input ng-model="search" type="text" placeholder="ابحث عن ......." class="form-control input-lg">
+    </div>
+    <div class="col-md-4 col-md-offset-2 text-right">
+        <button class="btn grey btn-lg" style="margin-left: 20px">date</button>
+        <button class="btn red btn-lg" style="margin-left: 20px">prix</button>
+    </div>
+</section>
+<section class="container-fluid" style="margin-top: 20px">
+    <div class="row">
+        <div ng-repeat="car in cars|filter:search track by $index" class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <div class="portlet light portlet-fit  ">
+                <div class="portlet-body boxed">
+                    <div class="caption text-center">
+                        <h4 class="caption-subject font-green bold uppercase" style="overflow: hidden;max-lines: 2">
+                            {{car.marque+" "+ car.model+" ,"+car.annee}}</h4>
+                    </div>
+                    <hr>
+                    <div class="mt-element-overlay">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="mt-overlay-4" style="min-height: 180px;max-height: 180px">
+                                    <img src="{{car.images.length>0?car.images[0]:'/public/assets/img/car/no_image.png'}}">
+                                    <div class="image-number"><span>&nbsp;{{car.images.length}}</span></div>
+                                    <div class="mt-overlay">
+                                        <h2>{{car.marque+" "+ car.model}}</h2>
+                                        <a class="mt-info btn default btn-outline" ui-sref="show_car({id:car._id})">المزيد</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="car-details">
+                            <div class="prix">
+                                <h2>{{car.prix }} د.ت</h2>
+                            </div>
+                            <ul>
+                                <li>
+                                    <img src="/public/assets/img/car/icon-carburant.png">
+                                    <h5>{{car.energie}}</h5>
+                                </li>
+                                <li>
+                                    <img src="/public/assets/img/car/icon-places.png">
+                                    <h5>{{car.porte}}</h5>
+                                </li>
+                                <li>
+                                    <img src="/public/assets/img/car/icon-boite.png">
+                                    <h5>{{car.type_vitesse}}</h5>
+                                </li>
+                                <li>
+                                    <img src="/public/assets/img/car/icon-portes.png">
+                                    <h5>{{car.porte}}</h5>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ng-show="cars.length<1" class="col-md-12 text-center" style="margin-top: 100px;margin-bottom: 100px">
+            <h1 class="font-red-flamingo">لاتوجد سيارات لهذه الماركة حاليا .</h1>
+        </div>
+    </div>
+    <div class="row text-center">
+        <ul id="pagination" uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize"
+            class="pagination-sm" boundary-link-numbers="true" rotate="false"></ul>
+    </div>
+</section>
+</div>

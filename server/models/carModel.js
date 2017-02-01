@@ -9,6 +9,7 @@ var car_schema=new Schema({
     annee: Number,
     prix : Number,
     couleur:String,
+    place:Number,
     porte:{type:Number,default:4},
     energie:String,
     type_vitesse:String,

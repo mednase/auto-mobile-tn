@@ -9,28 +9,32 @@
 
 <section class="container-fluid" style="margin-top: 20px">
     <div class="row">
-        <div ng-repeat="car in cars track by $index" class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+        <div ng-repeat="car in cars track by $index" class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mt-element-ribbon">
+
             <div class="portlet light portlet-fit  ">
                 <div class="portlet-body boxed">
+                    <div ng-show="(car.date_publication | date:'d M') == (currentDate | date:'d M')" class="ribbon ribbon-vertical-left ribbon-border-dash-vert ribbon-color-danger uppercase" style="margin-top: -10px">
+                        <div class="ribbon-sub ribbon-bookmark"></div><b style="margin-right: -6px;">جديد</b>
+                    </div>
                     <div class="caption text-center">
-                        <h4 class="caption-subject font-green bold uppercase" style="overflow: hidden;max-lines: 2">{{car.marque+" "+ car.model+" ,"+car.annee}}</h4>
+                        <h4 class="caption-subject font-green bold uppercase" style="overflow: hidden;white-space: nowrap;">{{car.marque+" "+ car.model+" ,"+car.annee}}</h4>
                     </div>
                     <hr>
                     <div class="mt-element-overlay">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="mt-overlay-4">
-                                    <img src="{{car.images[0]}}">
+                                <div class="mt-overlay-4" style="min-height: 180px;max-height: 180px">
+                                    <img src="{{car.images.length>0?car.images[0]:'/public/assets/img/car/no_image.png'}}">
                                     <div class="image-number"><span>&nbsp;{{car.images.length}}</span></div>
                                     <div class="mt-overlay">
-                                        <h2>Overlay Title</h2>
+                                        <h2>{{car.marque+" "+ car.model}}</h2>
                                         <a class="mt-info btn default btn-outline" ui-sref="show_car({id:car._id})">المزيد</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="car-details">
-                            <div class="prix">
+                            <div class="prix text-center">
                                 <h2>{{car.prix }} د.ت</h2>
                             </div>
                             <ul>
@@ -57,57 +61,61 @@
             </div>
         </div>
     </div>
+    <div  class="row text-center">
+        <ul uib-pagination id="pagination"  total-items="totalCars" ng-model="currentPage" max-size="5"
+            class="pagination-sm" boundary-link-numbers="true" rotate="false" ng-change="pageChanged()"></ul>
+    </div>
 </section>
 
 <section class="marque-zone">
     <ul class="marque">
         <li>
-            <a href="/marques/audi/">
+            <a href="/marque/audi">
                 <img src="/public/assets/img/marques/audi-logo.png" alt="Audi" title="Audi">
             </a>
         </li>
         <li>
-            <a href="/marques/bmw/">
+            <a href="/marque/bmw">
                 <img src="/public/assets/img/marques/bmw-logo.png" alt="BMW" title="BMW">
             </a>
         </li>
         <li>
-            <a href="/marques/mercedes/">
+            <a href="/marque/mercedes">
                 <img src="/public/assets/img/marques/mercedes-logo.png" alt="Mercedes Benz" title="Mercedes Benz">
             </a>
         </li>
         <li>
-            <a href="/marques/peugeot/">
+            <a href="/marque/peugeot">
                 <img src="/public/assets/img/marques/peugeot-logo.png" alt="Peugeot" title="Peugeot">
             </a>
         </li>
         <li>
-            <a href="/marques/toyota/">
+            <a href="/marque/toyota">
                 <img src="/public/assets/img/marques/toyota-logo.png" alt="Toyota" title="Toyota">
             </a>
         </li>
         <li>
-            <a href="/marques/citroen/">
+            <a href="/marque/citroen">
                 <img src="/public/assets/img/marques/citroen-logo.png" alt="Citroen" title="Citroen">
             </a>
         </li>
         <li>
-            <a href="/marques/nissan/">
+            <a href="/marque/nissan">
                 <img src="/public/assets/img/marques/nissan-logo.png" alt="Nissan" title="Nissan">
             </a>
         </li>
         <li>
-            <a href="/marques/volkswagen/">
+            <a href="/marque/volkswagen">
                 <img src="/public/assets/img/marques/volkswagen-logo.png" alt="Volkswagen" title="Volkswagen">
             </a>
         </li>
         <li>
-            <a href="/marques/ford/">
+            <a href="/marque/ford">
                 <img src="/public/assets/img/marques/ford-logo.png" alt="Ford" title="Ford">
             </a>
         </li>
         <li>
-            <a href="/marques/renault/">
+            <a href="/marque/renault">
                 <img src="/public/assets/img/marques/renault-logo.png" alt="Renault" title="Renault">
             </a>
         </li>
