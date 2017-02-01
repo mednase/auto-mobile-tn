@@ -29,7 +29,7 @@ app.use(function(req, res, next) {
 });
 
 // Connect to database
-mongoose.connect(config.database);
+//mongoose.connect(config.database);
 
 
 /* Library */
