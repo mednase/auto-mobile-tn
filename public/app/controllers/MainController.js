@@ -76,10 +76,11 @@ controller('marqueController', ['$scope', '$http', 'API_ENDPOINT','$stateParams'
 controller('contactController',['$scope','NgMap',function ($scope,NgMap) {
     $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy03U_uM9tQyFlXna0b_WpuvPbwWufJAE";
 
-    setTimeout(function () {
-        NgMap.getMap({id:"map"}).then(function(map) {
-            map.showInfoWindow('bar', 'marker1');
-        });
-    },1000)
+    NgMap.getMap('mapID').then(function(map) {
+        console.log('map success', map);
+    }).catch(function(map){
+        console.log('map error', map);
+    });
+
 
 }]);
