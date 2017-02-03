@@ -141,13 +141,17 @@
 }
 #recaptcha {
     margin: 0px;
-    width: 304px;
     position: relative;
-    float: left;
+    float: inherit;
+    padding-top: 16px;
 }
 
 #recaptcha iframe {
-    position: absolute;
+    position: relative;
     left: 0px;
     top: 0px;
+}
+.g-recaptcha{
+    float: left;
+    margin-top: -61px;
 }
