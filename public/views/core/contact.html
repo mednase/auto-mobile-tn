@@ -59,19 +59,15 @@
                     <textarea ng-model="contact.message" rows="8" name="الرسالة" placeholder="اكتب رسالتك هنا ..."
                               class="input_message col-md-12" ng-minlength="10" ></textarea>
                 </div>
-                <button ng-disabled="form.$invalid" type="submit" class="btn blue col-md-4 col-lg-offset-3" style="margin-top: 10px">أرسل</button>
-                <button
-                        vc-recaptcha
+                <button vc-recaptcha
                         ng-model="recaptcha.response"
                         type="'image'"
                         theme="light"
                         size="normal"
                         key="recaptcha.key"
                         data-callback="YourOnSubmitFn"
-                        lang="ar"
-                        >
-                    Submit
-                </button>
+                        lang="ar" ng-disabled="form.$invalid" type="submit" class="btn blue col-md-4 col-lg-offset-3" style="margin-top: 10px">أرسل</button>
+
             </form>
 
         </div>
