@@ -81,6 +81,7 @@ controller('contactController',['$scope','NgMap','$timeout',function ($scope,NgM
             $scope.position = new google.maps.LatLng(35.690502,10.845789);
             $scope.map=map;
             google.maps.event.trigger(map,'resize');
+            $scope.map.showInfoWindow('bar', 'marker1');
         },1000);
     });
 }]);
