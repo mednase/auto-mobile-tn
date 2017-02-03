@@ -74,13 +74,12 @@ controller('marqueController', ['$scope', '$http', 'API_ENDPOINT','$stateParams'
 
 }]).
 controller('contactController',['$scope','NgMap','$timeout','GOVERNORATE',function ($scope,NgMap,$timeout,GOVERNORATE) {
-    $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy03U_uM9tQyFlXna0b_WpuvPbwWufJAE";
 
     $timeout(function(){
-        NgMap.getMap('mapID').then(function(map) {
-            $scope.position = new google.maps.LatLng(35.690502,10.845789);
+        NgMap.getMap('map').then(function(map) {
             $scope.map=map;
             google.maps.event.trigger(map,'resize');
+            console.log(map);
             $scope.map.showInfoWindow('bar', 'marker1');
         },1000);
     });

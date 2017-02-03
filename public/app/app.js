@@ -2,9 +2,12 @@ var app = angular.module('AutoMobileTn', ['ui.router','ngAnimate', 'toastr','dat
 'ngSweetAlert','ngMap']);
 
 app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider',
-    '$httpProvider', '$logProvider', '$locationProvider','toastrConfig',
+    '$httpProvider', '$logProvider', '$locationProvider','toastrConfig','$qProvider',
     function ($urlRouterProvider, $urlMatcherFactoryProvider, $stateProvider,
-              $httpProvider, $logProvider, $locationProvider,toastrConfig) {
+              $httpProvider, $logProvider, $locationProvider,toastrConfig,$qProvider) {
+
+
+        $qProvider.errorOnUnhandledRejections(false)
 
         $logProvider.debugEnabled(true);
 
