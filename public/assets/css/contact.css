@@ -40,3 +40,41 @@
 .c-map {
     padding: 0px;
 }
+.contact .c-message form input ,.contact .c-message form textarea{
+    margin-top: 10px;
+    resize: vertical;
+    box-shadow: none;
+    border: 1px solid #dfe2e2;
+    border-radius: 3px;
+    font-size: 16px;
+    padding: 12px 12px 12px 52px;
+    background: transparent no-repeat 15px center;
+}
+
+.contact .c-message form select{
+    border: 1px solid #dfe2e2;
+    color: #929494;
+    margin-top: 10px;
+    height: 48px;
+}
+
+.contact .c-message form select:focus,.contact .c-message form select:hover{
+    color: #282929;
+}
+
+.contact .c-message form .input_message{
+    background-image: url(/public/assets/img/contact_input_chat.png) ;
+    background-position: 15px 20px!important;
+    padding: 12px 12px 12px 52px;
+
+
+}
+.contact .c-message form .input_email {
+    background-image: url(/public/assets/img/contact_input_email.png);
+}
+.contact .c-message form .input_phone {
+    background-image: url(/public/assets/img/contact_input_phone.png);
+}
+.contact .c-message form .input_name {
+    background-image: url(/public/assets/img/contact_input_user.png);
+}

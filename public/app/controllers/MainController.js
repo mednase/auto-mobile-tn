@@ -73,7 +73,7 @@ controller('marqueController', ['$scope', '$http', 'API_ENDPOINT','$stateParams'
 
 
 }]).
-controller('contactController',['$scope','NgMap','$timeout',function ($scope,NgMap,$timeout) {
+controller('contactController',['$scope','NgMap','$timeout','GOVERNORATE',function ($scope,NgMap,$timeout,GOVERNORATE) {
     $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy03U_uM9tQyFlXna0b_WpuvPbwWufJAE";
 
     $timeout(function(){
@@ -84,4 +84,5 @@ controller('contactController',['$scope','NgMap','$timeout',function ($scope,NgM
             $scope.map.showInfoWindow('bar', 'marker1');
         },1000);
     });
+    $scope.cites=GOVERNORATE;
 }]);

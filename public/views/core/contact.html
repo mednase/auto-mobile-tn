@@ -25,22 +25,28 @@
             </div>
             <form action="#" class="col-md-7">
                 <div class="form-group">
-                    <input type="text" placeholder="Your Name" class="form-control input-md"> </div>
-                <div class="form-group">
-                    <input type="text" placeholder="Your Email" class="form-control input-md"> </div>
-                <div class="form-group">
-                    <input type="text" placeholder="Contact Phone" class="form-control input-md"> </div>
-                <div class="form-group">
-                    <textarea rows="8" name="message" placeholder="Write comment here ..." class="form-control input-md"></textarea>
+                    <input type="text" placeholder="الإسم " class="col-md-6 input_name">
+                    <select class="col-md-5 col-md-offset-1 x-select">
+                        <option selected>الولاية</option>
+                        <option ng-repeat="city in cites track by $index">{{city}}</option>
+                    </select>
                 </div>
-                <button type="submit" class="btn grey">Submit</button>
+                <div class="form-group">
+                    <input type="text" placeholder="البريد الإلكتروني " class="input_email col-md-12"></div>
+                <div class="form-group">
+                    <input type="text" placeholder="الهاتف" class="input_phone col-md-12"></div>
+                <div class="form-group">
+                    <textarea rows="8" name="الرسالة" placeholder="Write comment here ..."
+                              class="input_message col-md-12"></textarea>
+                </div>
+                <button type="submit" class="btn blue col-md-4 col-lg-offset-3" style="margin-top: 10px">أرسل</button>
             </form>
         </div>
     </section>
 
     <section class="col-md-12 c-map">
         <div map-lazy-load="https://maps.google.com/maps/api/js">
-            <ng-map id="mapID" center="[35.691263, 10.842443]" zoom="18" default-style="true" >
+            <ng-map id="mapID" center="[35.691263, 10.842443]" zoom="18" default-style="true">
                 <marker id="marker1" position="35.690502,10.845789"
                         animation="Animation.BOUNCE" animation="DROP" on-click="map.showInfoWindow('bar')">
                 </marker>
@@ -53,3 +59,17 @@
         </div>
     </section>
 </div>
+<script>
+    $(document).ready(function () {
+        var head = document.getElementsByTagName('head')[0];
+        var insertBefore = head.insertBefore;
+        head.insertBefore = function (newElement, referenceElement) {
+
+            if (newElement.href && newElement.href.indexOf('https://fonts.googleapis.com/css?family=Roboto') === 0) {
+                console.info('Prevented Roboto from loading!');
+                return;
+            }
+            insertBefore.call(head, newElement, referenceElement);
+        };
+    });
+</script>

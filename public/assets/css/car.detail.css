@@ -273,7 +273,7 @@
 .cars-form .form-item {
     display: block;
 }
-.car-form select {
+.x-select {
      -moz-appearance: none;
      -webkit-appearance: none;
      appearance: none;
@@ -290,7 +290,7 @@
     margin-bottom: 10px;
 }
 
-.car-form select:disabled {
+.x-select:disabled {
     color: #e6e6e6;
     cursor: default;
     background-image: url(/public/assets/img/select.svg);
