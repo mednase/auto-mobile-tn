@@ -43,23 +43,23 @@
                     from the form below and we will get back to you as soon as we can.
                 </p>
             </div>
-            <form action="#" class="col-md-7" ng-submit="sendMessage()">
+            <form name="form" class="col-md-7" ng-submit="sendMessage()">
                 <div class="form-group">
-                    <input ng-model="contact.nom" type="text" placeholder="الإسم " class="col-md-6 input_name">
+                    <input ng-model="contact.nom" type="text" placeholder="الإسم " class="col-md-6 input_name" ng-required="">
                     <select ng-model="contact.governorate" class="col-md-5 col-md-offset-1 x-select">
                         <option selected>الولاية</option>
                         <option ng-repeat="city in cites track by $index">{{city}}</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <input type="email" ng-model="contact.email" placeholder="البريد الإلكتروني " class="input_email col-md-12"></div>
+                    <input type="email" ng-model="contact.email" placeholder="البريد الإلكتروني " class="input_email col-md-12" ng-required=""></div>
                 <div class="form-group">
                     <input  ng-model="contact.phone" type="text" placeholder="الهاتف"  class="input_phone col-md-12"></div>
                 <div class="form-group">
                     <textarea ng-model="contact.message" rows="8" name="الرسالة" placeholder="اكتب رسالتك هنا ..."
-                              class="input_message col-md-12"></textarea>
+                              class="input_message col-md-12" ng-minlength="10" ></textarea>
                 </div>
-                <button type="submit" class="btn blue col-md-4 col-lg-offset-3" style="margin-top: 10px">أرسل</button>
+                <button ng-disabled="form.$invalid" type="submit" class="btn blue col-md-4 col-lg-offset-3" style="margin-top: 10px">أرسل</button>
                 <button
                         vc-recaptcha
                         ng-model="recaptcha.response"
