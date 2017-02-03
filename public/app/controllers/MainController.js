@@ -74,14 +74,47 @@ controller('marqueController', ['$scope', '$http', 'API_ENDPOINT','$stateParams'
 
 }]).
 controller('contactController',['$scope','NgMap','$timeout','GOVERNORATE',function ($scope,NgMap,$timeout,GOVERNORATE) {
-
+    $scope.recaptcha={};
+    $scope.recaptcha.key="6LdcSRQUAAAAAMyYVWuyDYn6eMp29m077xtkAuKS";
+    $scope.recaptcha.lang="ar";
+    $scope.recaptcha.type="image";
     $timeout(function(){
         NgMap.getMap('map').then(function(map) {
             $scope.map=map;
             google.maps.event.trigger(map,'resize');
-            console.log(map);
             $scope.map.showInfoWindow('bar', 'marker1');
         },1000);
     });
+    $scope.recaptcha.response=function () {
+        if($scope.recaptcha.getResponse() === ""){ //if string is empty
+            alert("Please resolve the captcha and submit!")
+        }else {
+            var post_data = {  //prepare payload for request
+                'name':vm.name,
+                'email':vm.email,
+                'password':vm.password,
+                'g-recaptcha-response':$scope.recaptcha.getResponse()  //send g-captcah-response to our server
+            };
+
+
+            /* MAKE AJAX REQUEST to our server with g-captcha-string */
+            $http.post('https://code.ciphertrick.com/demo/phpapi/api/signup',post_data).success(function(response){
+                if(response.error === 0){
+                    alert("Successfully verified and signed up the user");
+                }else{
+                    alert("User verification failed");
+                }
+            })
+                .error(function(error){
+
+                })
+        }
+    }
+
     $scope.cites=GOVERNORATE;
+
+    $scope.sendMessage=function () {
+
+    }
+
 }]);

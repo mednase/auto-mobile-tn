@@ -78,3 +78,64 @@
 .contact .c-message form .input_name {
     background-image: url(/public/assets/img/contact_input_user.png);
 }
+.c-block {
+    text-align: center;
+    color: white;
+    min-height: 200px;
+}
+.c-block .round-icon{
+    color: #ffffff!important;
+    background-color: rgba(255,255,255,0.5);
+    line-height: 98px;
+    height: 100px;
+    width: 100px;
+    border-width: 2px !important;
+    border-radius: 50%!important;
+    transition: all ease-in 0.2s;
+    display: inline-block;
+    text-align: center;
+    padding-top: 20px;
+}
+.c-block  .round-icon:hover {
+    color: #ffffff !important;
+    background-color: rgba(44, 185, 250, 0.5);
+}
+
+.round-icon .mk-box-icon-2-icon.size-48 {
+    line-height: 98px;
+    height: 100px;
+    width: 100px;
+}
+
+.c-block .title{
+    font-weight: bold;
+    font-size: 26px;
+    color: #ffffff;
+    padding: 10px 0 10px 0;
+}
+
+.c-block ul {
+    margin-right: 35px;
+    list-style: none;
+    direction: ltr;
+    font-size: 18px;
+}
+.c-block a.email{
+    color: #ffffff;text-decoration: none;
+    font-size: 18px;
+}
+.c-block p.location{
+    color: #ffffff;
+    font-size: 18px;
+}
+.contact form input:focus,.contact form select:focus,.contact form textarea:focus{
+    border:2px solid #2cb9fa !important;
+}
+.contact form .has-error{
+    border:2px solid #e73d4a !important;
+}
+.contact form .has-error:focus,
+.contact form .has-error:active{
+    outline: none;
+    box-shadow: 0px 1px 18px #e71618;
+}
