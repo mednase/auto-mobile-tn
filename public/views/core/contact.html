@@ -38,14 +38,16 @@
         </div>
     </section>
 
-    <section class="c-map col-md-12">
+    <section class="col-md-12 c-map">
         <div map-lazy-load="https://maps.google.com/maps/api/js">
-            <ng-map id="mapID" center="[35.690502, 10.845789]" zoom="16" >
-                <marker id="marker1" position="35.6903431,10.8464165"
-                        on-click="map.showInfoWindow('bar')">
+            <ng-map id="mapID" center="[35.691263, 10.842443
+
+]" zoom="18" default-style="true" >
+                <marker id="marker1" position="35.690502,10.845789"
+                        animation="Animation.BOUNCE" animation="DROP" on-click="map.showInfoWindow('bar')">
                 </marker>
                 <info-window id="bar">
-                    <div ng-non-bindable>
+                    <div ng-non-bindable="">
                         <b>Ahmed Auto , Inc.</b>Route de monastir, Ksibet Mediouni 5031 Monastir
                     </div>
                 </info-window>

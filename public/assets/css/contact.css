@@ -1,5 +1,6 @@
 .contact{
     background-color: white;
+    margin: 0!important;
 }
 .contact .c-information{
     padding-top: 100px;
@@ -35,4 +36,7 @@
     font-weight: bold;
     padding-top: 0px;
     padding-bottom: 20px;
+}
+.c-map {
+    padding: 0px;
 }
