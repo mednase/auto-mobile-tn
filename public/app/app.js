@@ -7,7 +7,7 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
               $httpProvider, $logProvider, $locationProvider,toastrConfig,$qProvider) {
 
 
-        $qProvider.errorOnUnhandledRejections(false)
+        $qProvider.errorOnUnhandledRejections(false);
 
         $logProvider.debugEnabled(true);
 
