@@ -10,10 +10,12 @@ controller('loginController', ['$scope','$rootScope', 'authService', '$window','
         }
 
         $scope.doLogin = function () {
+            $scope.loading=true;
             data = $scope.login;
             authService.login(data).then(function () {
                 $rootScope.isLoading=true;
                 $scope.$parent.authenticated = true;
+                $scope.loading=false;
                 $state.go("admin");
             }, function (err) {
                 if(err==2){

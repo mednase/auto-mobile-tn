@@ -3,7 +3,8 @@
  */
 app.controller('appController',['$scope',function ($scope) {
 }]);
-app.controller('homeController', ['$scope', '$http', 'API_ENDPOINT',
+app.
+controller('homeController', ['$scope', '$http', 'API_ENDPOINT',
     function ($scope,$http, API_ENDPOINT ) {
 
         $scope.currentDate=new Date();
@@ -30,7 +31,8 @@ app.controller('homeController', ['$scope', '$http', 'API_ENDPOINT',
         };
 
 
-}]).controller('showCarController', ['car','$scope','$http','API_ENDPOINT',
+}]).
+controller('showCarController', ['car','$scope','$http','API_ENDPOINT',
     function (car,$scope ,$http,API_ENDPOINT) {
         $scope.car = car;
 
@@ -47,7 +49,8 @@ app.controller('homeController', ['$scope', '$http', 'API_ENDPOINT',
             }
         });
 
-}]).controller('marqueController', ['$scope', '$http', 'API_ENDPOINT','$stateParams',
+}]).
+controller('marqueController', ['$scope', '$http', 'API_ENDPOINT','$stateParams',
     function ($scope,$http, API_ENDPOINT ,$stateParams) {
 
         $http.get(API_ENDPOINT.url+'/marque/'+$stateParams.marque).then(function (result) {
@@ -68,5 +71,15 @@ app.controller('homeController', ['$scope', '$http', 'API_ENDPOINT',
         $scope.maxSize = 12;
         $scope.bigCurrentPage = 1;
 
+
+}]).
+controller('contactController',['$scope','NgMap',function ($scope,NgMap) {
+    $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy03U_uM9tQyFlXna0b_WpuvPbwWufJAE";
+
+    setTimeout(function () {
+        NgMap.getMap({id:"map"}).then(function(map) {
+            map.showInfoWindow('bar', 'marker1');
+        });
+    },1000)
 
 }]);

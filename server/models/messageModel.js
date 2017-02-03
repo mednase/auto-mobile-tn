@@ -6,7 +6,9 @@ var Schema=mongoose.Schema;
 var message_schema=new Schema({
     name: String,
     email: String,
-    body: String,
+    phone: String,
+    message: String,
+    city:String,
     date: {type:Date , default:Date.now},
     seen:Boolean
 });

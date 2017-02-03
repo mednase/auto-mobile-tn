@@ -37,6 +37,8 @@
     "mongoose": "^4.7.8",
     "passport": "^0.3.2",
     "passport-jwt": "^2.2.1",
+    "ngmap": "^1.17.7",
     "sendgrid": "^4.7.1"
+
   }
 }

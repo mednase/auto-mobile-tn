@@ -1,5 +1,5 @@
 var app = angular.module('AutoMobileTn', ['ui.router','ngAnimate', 'toastr','datatables','ui.bootstrap',
-'ngSweetAlert']);
+'ngSweetAlert','ngMap']);
 
 app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider',
     '$httpProvider', '$logProvider', '$locationProvider','toastrConfig',
@@ -67,10 +67,10 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
                 templateUrl: '/public/views/core/reset.html',
                 controller: 'resetPasswordController'
             })
-            .state('contactUs', {
-                url: '/contactUs',
-                templateUrl: '/public/views/core/reset.html',
-                controller: 'contactUsController'
+            .state('contact', {
+                url: '/contact',
+                templateUrl: '/public/views/core/contact.html',
+                controller: 'contactController'
             })
             .state('admin', {
                 url: '/admin',
