@@ -104,8 +104,7 @@ controller('contactController',['$scope','NgMap','$timeout','GOVERNORATE','vcRec
     };
 
     $scope.sendMessage=function () {
-        var valid=$scope.contact.email.length>5 && $scope.contact.nom.length>1 && $scope.contact.message.length>9;
-       console.log(valid);
+        var valid=$scope.contact.email.length>5 && $scope.contact.name.length>1 && $scope.contact.message.length>9;
         if (valid) {
             $http.post(API_ENDPOINT.url+"/contact/new",$scope.contact).then(function (res) {
                 if(res.data.success){

@@ -50,8 +50,8 @@
             </div>
             <form role="form" name="form" class="col-md-7" ng-submit="sendMessage(contact)">
                 <div class="form-group">
-                    <input ng-model="contact.nom" type="text" placeholder="الإسم " class="col-md-6 input_name" ng-required="true"
-                           name="nom"   ng-class="{ 'has-error': form.nom.$dirty && form.nom.$invalid }">
+                    <input ng-model="contact.name" type="text" placeholder="الإسم " class="col-md-6 input_name" ng-required="true"
+                           name="name"   ng-class="{ 'has-error': form.name.$dirty && form.name.$invalid }">
                     <select ng-model="contact.governorate" class="col-md-5 col-md-offset-1 x-select">
                         <option selected>الولاية</option>
                         <option ng-repeat="city in cites track by $index">{{city}}</option>
@@ -72,6 +72,7 @@
                                 vc-recaptcha
                                 theme="'light'"
                                 key="recaptcha.key"
+                                lang="recaptcha.lang"
                                 on-create="setWidgetId(widgetId)"
                                 on-success="setResponse(response)"
                                 on-expire="cbExpiration()"
