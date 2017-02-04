@@ -1,13 +1,3 @@
-<!-- BEGIN PAGE HEAD-->
-<div class="page-head">
-    <!-- BEGIN PAGE TITLE -->
-    <h1 class="page-title">
-        قائمة الرسائل
-    </h1>
-    <!-- END PAGE TITLE -->
-</div>
-<!-- END PAGE HEAD-->
-<!-- BEGIN PAGE BREADCRUMB -->
 <div class="page-bar">
     <ul class="page-breadcrumb">
         <li>
@@ -21,5 +11,41 @@
 
     </ul>
 </div>
+<div class="m-heading-1 border-green m-bordered row" style="margin-bottom: 17px;">
+    <h2>     <span class="fa fa-envelope font-blue"></span>    &nbsp; قائمة الرسائل </h2>
+</div>
+<div class="portlet box blue">
+    <div class="portlet-title">
+        <div class="caption"></div>
+    </div>
+    <div class="portlet-body ">
+        <table datatable="ng" class="table table-striped table-bordered table-hover  no-footer " dt-options="dtOptions" dt-column-defs="showCase.dtColumnDefs" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>تاريخ الإرسال</th>
+                <th>الإسم</th>
+                <th>البريد الإلكتروني</th>
+                <th>الهاتف</th>
+                <th>الولاية</th>
+                <th>الخيارات</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="contact in contacts track by $index">
+                    <td>{{contact.date|date:"MM/dd/yyyy  hh:mm" }}</td>
+                    <td>{{contact.name}}</td>
+                    <td>{{contact.email}}</td>
+                    <td>{{contact.phone}}</td>
+                    <td>{{contact.governorate}}</td>
+                    <td>
+                        <a class="btn red">حذف</a>
+                        <a class="btn blue">عرض</a>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+
 <input type="hidden" value="" id="menuSelected" data-menu="page-messages">
 <script type="text/javascript" src="/public/assets/js/main.js"></script>

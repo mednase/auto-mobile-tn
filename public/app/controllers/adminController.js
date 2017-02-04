@@ -1,8 +1,9 @@
 /**
  * Created by medna on 09/10/2016.
  */
-app.controller('dashboardController',['$scope','$http','API_ENDPOINT','$rootScope',
-    function ($scope,$http,API_ENDPOINT,$rootScope) {
+app.controller('dashboardController',['$scope','authService','$http','API_ENDPOINT',
+            function ($scope,authService,$http,API_ENDPOINT) {
+
 
 }]).
 controller('newCarController',['$scope','$http','API_ENDPOINT','toastr','$state',
@@ -143,10 +144,39 @@ controller('carListController',['Cars','$scope','DTOptionsBuilder','SweetAlert',
         }
     }
 ]).
-controller('messagesController',['$scope','$http','API_ENDPOINT',
-    function ($scope,$http,API_ENDPOINT) {
+controller('messagesController',['$scope','authService','$http','API_ENDPOINT','DTOptionsBuilder',
+    function ($scope,authService,$http,API_ENDPOINT,DTOptionsBuilder) {
 
-}]).
+        $http.get(API_ENDPOINT.url+'/admin/contacts').then(function (res) {
+            $scope.contacts=res.data;
+        });
+
+
+        var language = {
+            "sProcessing": "جارٍ التحميل...",
+            "sLengthMenu": "أظهر _MENU_ مدخلات",
+            "sZeroRecords": "لم يعثر على أية سجلات",
+            "sInfo": "إظهار _START_ إلى _END_ من أصل _TOTAL_ مدخل",
+            "sInfoEmpty": "يعرض 0 إلى 0 من أصل 0 سجل",
+            "sInfoFiltered": "(منتقاة من مجموع _MAX_ مُدخل)",
+            "sInfoPostFix": "",
+            "sSearch": "ابحث:",
+            "sUrl": "",
+            "oPaginate": {
+                "sFirst": "الأول",
+                "sPrevious": "السابق",
+                "sNext": "التالي",
+                "sLast": "الأخير"
+            }
+        };
+
+        $scope.dtOptions = DTOptionsBuilder.newOptions()
+            .withPaginationType('full_numbers')
+            .withDisplayLength(10)
+            .withOption('order', [1, 'desc'])
+            .withLanguage(language);
+
+    }]).
 controller('settingsController',['$scope','$http','API_ENDPOINT',
     function ($scope,$http,API_ENDPOINT) {
         $http.get(API_ENDPOINT.url+"/marques").then(function (result) {

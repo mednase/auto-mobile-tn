@@ -1,13 +1,3 @@
-<!-- BEGIN PAGE HEAD-->
-<div class="page-head">
-    <!-- BEGIN PAGE TITLE -->
-    <h1 class="page-title">
-        قائمة السيارات
-    </h1>
-    <!-- END PAGE TITLE -->
-</div>
-<!-- END PAGE HEAD-->
-<!-- BEGIN PAGE BREADCRUMB -->
 <div class="page-bar">
     <ul class="page-breadcrumb">
         <li>
@@ -21,15 +11,11 @@
 
     </ul>
 </div>
-<div class="row">
-    <div class="m-heading-1 border-green m-bordered row" style="margin-bottom: 17px;">
-        <h2>     <span class="fa fa-car"></span>    &nbsp; قائمة السيارات </h2>
-    </div>
-    <div class="col-md-12">
-        <!-- BEGIN EXAMPLE TABLE PORTLET-->
-        <!-- END EXAMPLE TABLE PORTLET-->
-        <!-- BEGIN EXAMPLE TABLE PORTLET-->
-        <div class="portlet box red">
+<div class="m-heading-1 border-green m-bordered row" style="margin-bottom: 17px;">
+    <h2>     <span class="fa fa-car"></span>    &nbsp; قائمة السيارات </h2>
+</div>
+
+<div class="portlet box red">
             <div class="portlet-title">
                 <div class="caption"></div>
             </div>
@@ -46,12 +32,12 @@
                         <th> سعة المحرك</th>
                         <th>الطاقة</th>
                         <th>ناقل حركة</th>
-                        <th>الخيرات</th>
+                        <th>الخيارات</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr ng-repeat="car in cars track by $index">
-                        <td>{{car.date_publication|date:'dd-mm-yyyy' }}</td>
+                        <td>{{car.date_publication|date:"MM/dd/yyyy"}} }}</td>
                         <td> {{ car.marque }}</td>
                         <td>{{ car.model }}</td>
                         <td>{{ car.annee }}</td>
@@ -69,8 +55,5 @@
                 </table>
             </div>
         </div>
-    </div>
-    <!-- END EXAMPLE TABLE PORTLET-->
-</div>
 <input type="hidden" value="" id="menuSelected" data-menu="page-list-cars">
 <script type="text/javascript" src="/public/assets/js/main.js"></script>

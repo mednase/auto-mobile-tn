@@ -44,7 +44,7 @@
     <base href="/">
 
 </head>
-<body  ng-controller="homeController"  ng-class="isLoading?'loading':''" class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-md">
+<body  ng-controller="appController"  ng-class="isLoading?'loading':''" class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-md">
 <div  ng-hide="isLoading" ng-include="authenticated?'/public/views/admin/admin.navbar.html':'/public/views/core/navbar.html'"></div>
 
 <div ng-include="isLoading?'/public/views/core/loading-page.html':''"></div>
@@ -81,6 +81,8 @@
 <script type="text/javascript" src="/public/app/controllers/MainController.js"></script>
 <script type="text/javascript" src="/public/app/services/authService.js"></script>
 <script type="text/javascript" src="/public/app/directives/rangeDirective.js"></script>
+<script type="text/javascript" src="/public/app/filters/timeFilter.js"></script>
+
 <script type="text/javascript" src="/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
 <script src="/public/assets/plugins/sweetAlert/bootstrap-sweetalert/sweetalert.min.js"></script>
 <script src="/public/assets/plugins/sweetAlert/ngSweetAlert/SweetAlert.min.js"></script>

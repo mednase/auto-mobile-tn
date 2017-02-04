@@ -5,6 +5,7 @@ var express = require('express'),
     User = require('../models/userModel'),
     Car = require('../models/carModel'),
     Marque = require('../models/marqueModel'),
+    Contact = require('../models/contactModel'),
     config = require('../config/params'),
     jwt = require('jwt-simple'),
     passport = require('passport'),
@@ -36,6 +37,22 @@ module.exports = (function () {
         } else
             return res.status(403).send({success: false, msg: 'No token provided.'});
 
+    });
+
+    router.get('/api/admin/notification',function (req,res) {
+
+        Contact.find({seen:false}).sort({date:-1}).exec(function (err,contacts) {
+            if(err)throw err;
+            return res.send(contacts);
+        }) ;
+    });
+
+    router.get('/api/admin/contacts',function (req,res) {
+
+        Contact.find().sort({date:-1}).exec(function (err,contacts) {
+            if(err)throw err;
+            return res.send(contacts);
+        }) ;
     });
 
     router.post('/api/admin/marque/new', function (req, res) {
@@ -115,6 +132,8 @@ module.exports = (function () {
         });
 
     });
+
+
 
     return router;
 })();

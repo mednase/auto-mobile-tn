@@ -1,7 +1,15 @@
 /**
  * Created by medna on 25/01/2017.
  */
-app.controller('appController',['$scope',function ($scope) {
+app.controller('appController',['$scope','authService','$http','API_ENDPOINT',
+    function ($scope,authService,$http,API_ENDPOINT) {
+        if(authService.isAuthenticated()){
+
+            $http.get(API_ENDPOINT.url+'/admin/notification').then(function (res) {
+                $scope.notifications=res.data;
+                console.log(res.data.length)
+            })
+        }
 }]);
 app.
 controller('homeController', ['$scope', '$http', 'API_ENDPOINT',
