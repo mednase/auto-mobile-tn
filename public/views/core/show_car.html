@@ -32,8 +32,8 @@
                 <h2 class="side-box_title">شاهد أيضاً</h2>
             </header>
             <div>
-                <ul class="related_cars_list ">
-                    <li ng-repeat="other_car in other_cars track by $index">
+                <ul class="related_cars_list  ">
+                    <li ng-repeat="other_car in other_cars track by $index" class="animated slideInRight">
                         <article  class="car-item col-md-12" ui-sref="show_car({id:other_car._id})">
                             <div class="push-item__image col-md-7">
                                 <div class="fixed-ratio">

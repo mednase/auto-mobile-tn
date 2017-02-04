@@ -34,8 +34,8 @@
         </div>
     </section>
     <section class="c-message col-md-10 col-lg-offset-1">
-        <div class="row">
-            <div class="c-message-body col-md-4 col-md-offset-1">
+        <div class="row animated fadeIn">
+            <div class="c-message-body col-md-4 col-md-offset-1 ">
                 <h3 class="title">أرسل إلينا</h3>
                 <p class="message">
                     Our helpline is always open to receive any inquiry or feedback.
@@ -43,27 +43,30 @@
                     from the form below and we will get back to you as soon as we can.
                 </p>
             </div>
-            <form name="form" class="col-md-7" ng-submit="sendMessage()">
+            <form role="form" name="form" class="col-md-7" ng-submit="sendMessage()">
                 <div class="form-group">
-                    <input ng-model="contact.nom" type="text" placeholder="الإسم " class="col-md-6 input_name" ng-required="">
+                    <input ng-model="contact.nom" type="text" placeholder="الإسم " class="col-md-6 input_name" ng-required="true"
+                           name="nom"   ng-class="{ 'has-error': form.nom.$dirty && form.nom.$invalid }">
                     <select ng-model="contact.governorate" class="col-md-5 col-md-offset-1 x-select">
                         <option selected>الولاية</option>
                         <option ng-repeat="city in cites track by $index">{{city}}</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <input type="email" ng-model="contact.email" placeholder="البريد الإلكتروني " class="input_email col-md-12" ng-required=""></div>
-                <div class="form-group">
+                    <input type="email" ng-model="contact.email" placeholder="البريد الإلكتروني " class="input_email col-md-12" ng-required="true"
+                           name="email"   ng-class="{ 'has-error': form.email.$dirty && form.email.$invalid }" ></div>
+                <div class="form-group" >
                     <input  ng-model="contact.phone" type="text" placeholder="الهاتف"  class="input_phone col-md-12"></div>
                 <div class="form-group">
                     <textarea ng-model="contact.message" rows="8" name="الرسالة" placeholder="اكتب رسالتك هنا ..."
-                              class="input_message col-md-12" ng-minlength="10" ></textarea>
+                              class="input_message col-md-12" ng-minlength="10" ng-required="true"
+                              name="message"   ng-class="{ 'has-error': form.message.$dirty && form.message.$invalid }" ></textarea>
                 </div>
                     <div id="recaptcha" class="col-md-12">
                         <button vc-recaptcha ng-model="recaptcha.response" ng-disabled="form.$invalid"
-                            type="'image'" theme="light" size="normal" key="recaptcha.key"
-                            data-callback="YourOnSubmitFn"
-                            lang="ar"  type="submit" class="btn blue col-md-3 g-recaptcha" >أرسل</button>
+                            type="recaptcha.typle" theme="light" size="normal" key="recaptcha.key"
+                            data-callback="recaptcha.response"
+                            lang="{{recaptcha.lang}}"  type="submit" class="btn blue col-md-3 g-recaptcha" >أرسل</button>
                     </div>
 
             </form>

@@ -78,6 +78,7 @@ controller('contactController',['$scope','NgMap','$timeout','GOVERNORATE',functi
     $scope.recaptcha.key="6LdcSRQUAAAAAMyYVWuyDYn6eMp29m077xtkAuKS";
     $scope.recaptcha.lang="ar";
     $scope.recaptcha.type="image";
+    $scope.recaptcha.valid=false;
     $timeout(function(){
         NgMap.getMap('map').then(function(map) {
             $scope.map=map;
