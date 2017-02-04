@@ -5,6 +5,7 @@ var express = require('express'),
     async = require('async'),
     Car = require('../models/carModel'),
     Marque = require('../models/marqueModel'),
+    Contact = require('../models/contactModel'),
     mongoose = require('mongoose'),
     config = require('../config/params');
 
@@ -88,6 +89,22 @@ module.exports = (function () {
             res.sendStatus(404);
     });
 
+    router.post('/api/contact/new',function (req,res) {
+        req.check('email', 'Email not valid ').isEmail();
+        req.check('nom', '').isLength({min: 1, max: 50});
+        req.check('message', '').isLength({min: 10, max: 500});
+        req.check('phone', '').isLength({ max: 15});
+        req.check('governorate', '').isLength({ max: 20});
+        var errors = req.validationErrors();
+        if (errors)
+            res.send({success: false});
+        else{
+            var contact = new Contact(req.body);
+            contact.save(function () {
+                return res.send({success: true})
+            });
+        }
+    });
 
     return router;
 })();

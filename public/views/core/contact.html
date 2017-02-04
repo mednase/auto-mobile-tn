@@ -1,3 +1,8 @@
+<style>
+    .toast {
+        margin-top: 70px;
+    }
+</style>
 <div class="contact row">
     <section class="c-information col-md-12">
         <h1> ابقى على تواصل</h1>
@@ -43,7 +48,7 @@
                     from the form below and we will get back to you as soon as we can.
                 </p>
             </div>
-            <form role="form" name="form" class="col-md-7" ng-submit="sendMessage()">
+            <form role="form" name="form" class="col-md-7" ng-submit="sendMessage(contact)">
                 <div class="form-group">
                     <input ng-model="contact.nom" type="text" placeholder="الإسم " class="col-md-6 input_name" ng-required="true"
                            name="nom"   ng-class="{ 'has-error': form.nom.$dirty && form.nom.$invalid }">
@@ -63,10 +68,16 @@
                               name="message"   ng-class="{ 'has-error': form.message.$dirty && form.message.$invalid }" ></textarea>
                 </div>
                     <div id="recaptcha" class="col-md-12">
-                        <button vc-recaptcha ng-model="recaptcha.response" ng-disabled="form.$invalid"
-                            type="recaptcha.typle" theme="light" size="normal" key="recaptcha.key"
-                            data-callback="recaptcha.response"
-                            lang="recaptcha.lang"  type="submit" class="btn blue col-md-3 g-recaptcha" >أرسل</button>
+                        <div
+                                vc-recaptcha
+                                theme="'light'"
+                                key="recaptcha.key"
+                                on-create="setWidgetId(widgetId)"
+                                on-success="setResponse(response)"
+                                on-expire="cbExpiration()"
+                        ></div>
+                        <button ng-disabled="form.$invalid"
+                             class="btn blue col-md-3 " >أرسل</button>
                     </div>
 
             </form>
@@ -90,16 +101,4 @@
     </section>
 </div>
 <script>
-    $(document).ready(function () {
-        var head = document.getElementsByTagName('head')[0];
-        var insertBefore = head.insertBefore;
-        head.insertBefore = function (newElement, referenceElement) {
-
-            if (newElement.href && newElement.href.indexOf('//fonts.googleapis.com/css?family=Roboto') === 0) {
-                console.info('Prevented Roboto from loading!');
-                return;
-            }
-            insertBefore.call(head, newElement, referenceElement);
-        };
-    });
 </script>

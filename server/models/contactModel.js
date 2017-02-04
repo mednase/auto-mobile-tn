@@ -3,15 +3,16 @@
  */
 var mongoose=require('mongoose');
 var Schema=mongoose.Schema;
-var message_schema=new Schema({
+var contact_schema=new Schema({
     name: String,
     email: String,
     phone: String,
+    governorate:String,
     message: String,
-    city:String,
     date: {type:Date , default:Date.now},
-    seen:Boolean
+    seen:{type:Boolean , default:false},
+    respond:{type:Boolean , default:false}
 });
 
-var Message = mongoose.model("Message",message_schema);
-module.exports=Message;
+var Contact = mongoose.model("Contact",contact_schema);
+module.exports=Contact;

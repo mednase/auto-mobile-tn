@@ -3,7 +3,7 @@ var express = require("express"),
     bodyParser = require('body-parser'),
     passport = require('passport'),
     mongoose = require('mongoose'),
-    session = require('express-session'),
+    validator = require('express-validator'),
     config = require('./server/config/params');
 
 // Port to connect to
@@ -31,6 +31,7 @@ app.use(function(req, res, next) {
 // Connect to database
 mongoose.connect(config.database);
 
+app.use(validator());
 
 /* Library */
 app.use('/public', express.static(__dirname + '/public'));

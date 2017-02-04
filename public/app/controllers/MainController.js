@@ -73,12 +73,15 @@ controller('marqueController', ['$scope', '$http', 'API_ENDPOINT','$stateParams'
 
 
 }]).
-controller('contactController',['$scope','NgMap','$timeout','GOVERNORATE',function ($scope,NgMap,$timeout,GOVERNORATE) {
+controller('contactController',['$scope','NgMap','$timeout','GOVERNORATE','vcRecaptchaService',
+    'toastr','$http','API_ENDPOINT',
+    function ($scope,NgMap,$timeout,GOVERNORATE,vcRecaptchaService,toastr,$http,API_ENDPOINT) {
     $scope.recaptcha={};
     $scope.recaptcha.key="6LdcSRQUAAAAAMyYVWuyDYn6eMp29m077xtkAuKS";
     $scope.recaptcha.lang="ar";
     $scope.recaptcha.type="image";
     $scope.recaptcha.valid=false;
+    $scope.contact={};
     $timeout(function(){
         NgMap.getMap('map').then(function(map) {
             $scope.map=map;
@@ -86,36 +89,38 @@ controller('contactController',['$scope','NgMap','$timeout','GOVERNORATE',functi
             $scope.map.showInfoWindow('bar', 'marker1');
         },1000);
     });
-    $scope.recaptcha.response=function () {
-        if($scope.recaptcha.getResponse() === ""){ //if string is empty
-            alert("Please resolve the captcha and submit!")
-        }else {
-            var post_data = {  //prepare payload for request
-                'name':vm.name,
-                'email':vm.email,
-                'password':vm.password,
-                'g-recaptcha-response':$scope.recaptcha.getResponse()  //send g-captcah-response to our server
-            };
-
-
-            /* MAKE AJAX REQUEST to our server with g-captcha-string */
-            $http.post('https://code.ciphertrick.com/demo/phpapi/api/signup',post_data).success(function(response){
-                if(response.error === 0){
-                    alert("Successfully verified and signed up the user");
-                }else{
-                    alert("User verification failed");
-                }
-            })
-                .error(function(error){
-
-                })
-        }
-    }
-
+    $scope.response = null;
+    $scope.widgetId = null;
     $scope.cites=GOVERNORATE;
+    $scope.setResponse = function (response) {
+        $scope.response = response;
+    };
+    $scope.setWidgetId = function (widgetId) {
+        $scope.widgetId = widgetId;
+    };
+    $scope.cbExpiration = function() {
+        vcRecaptchaService.reload($scope.widgetId);
+        $scope.response = null;
+    };
 
     $scope.sendMessage=function () {
+        var valid=$scope.contact.email.length>5 && $scope.contact.nom.length>1 && $scope.contact.message.length>9;
+       console.log(valid);
+        if (valid) {
+            $http.post(API_ENDPOINT.url+"/contact/new",$scope.contact).then(function (res) {
+                if(res.data.success){
+                toastr.success('لقد تم لقد تم إرسال الرسالة  بنجاح  ! ', 'أرسل إلينا ');
+                $scope.contact={};
+                vcRecaptchaService.reload($scope.widgetId);
+                }else {
+                    toastr.error('خطأ في إرسال المعطيات ! ', 'أرسل إلينا ');
+                    vcRecaptchaService.reload($scope.widgetId);
+                }
+            })
 
+        } else {
+            vcRecaptchaService.reload($scope.widgetId);
+        }
     }
 
 }]);
