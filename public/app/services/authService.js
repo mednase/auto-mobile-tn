@@ -36,18 +36,6 @@ app.service('authService', function($q, $http, API_ENDPOINT,$window) {
         window.localStorage.removeItem(LOCAL_TOKEN_KEY);
     }
 
-    var register = function(user) {
-        return $q(function(resolve, reject) {
-            $http.post(API_ENDPOINT.url + '/auth/register', user).then(function(result) {
-                if (result.data.success) {
-                    resolve(result.data);
-                } else {
-                    reject(result.data);
-                }
-            });
-        });
-    };
-
     var login = function(user) {
         return $q(function(resolve, reject) {
             $http.post(API_ENDPOINT.url + '/auth/login', user).then(function(result) {
@@ -55,7 +43,7 @@ app.service('authService', function($q, $http, API_ENDPOINT,$window) {
                     storeUserCredentials(result.data.token);
                     resolve(result.data.msg);
                 } else {
-                    reject(result.data.msg);
+                    reject(2);
                 }
             });
         });
@@ -65,56 +53,20 @@ app.service('authService', function($q, $http, API_ENDPOINT,$window) {
         destroyUserCredentials();
     };
 
-    var forgot = function (email) {
-        return $q(function(resolve, reject) {
-            $http.post(API_ENDPOINT.url+ '/auth/forgot',{email: email}).then(function (success) {
-                    resolve(success)
-                },function(err){
-                    reject(err);
-                }
-            );
-        });
-    };
-
     var getUser= function(callback){
         $http.get(API_ENDPOINT.url + '/user/getInformation').then(function(result) {
             callback(result.data.user);
         });
     };
 
-    var resetTokenV=function (token) {
-        return $q(function(resolve, reject) {
-            $http.get(API_ENDPOINT.url+ '/auth/reset/'+token).then(function (success) {
-                    resolve(success)
-                },function(err){
-                    reject(err);
-                }
-            );
-        });
-    };
-    var resetPassword=function (token,password,confirmpassword) {
-        var data={token: token,password: password,Cpassword: confirmpassword};
-        return $q(function(resolve, reject) {
-            $http.post(API_ENDPOINT.url+ '/auth/reset',data).then(function (success) {
-                    resolve(success)
-                },function(err){
-                    reject(err);
-                }
-            );
-        });
-    };
 
     loadUserCredentials();
 
     return {
         storeUserCredentials:storeUserCredentials,
         login: login,
-        register: register,
         logout: logout,
         getUser: getUser,
-        forgot: forgot,
-        resetTokenValid: resetTokenV,
-        resetPassword: resetPassword,
         isAuthenticated: function() {return isAuthenticated;}
     };
 })

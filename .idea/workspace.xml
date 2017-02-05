@@ -2,24 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1900678e-c48f-4beb-9e3c-fe5e68b42f30" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/img/car-dashboard.png" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/views/auth/register.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/constants.js" afterPath="$PROJECT_DIR$/public/app/constants.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/controllers/MainController.js" afterPath="$PROJECT_DIR$/public/app/controllers/MainController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/controllers/adminController.js" afterPath="$PROJECT_DIR$/public/app/controllers/adminController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/directives/rangeDirective.js" afterPath="$PROJECT_DIR$/public/app/directives/rangeDirective.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/admin.css" afterPath="$PROJECT_DIR$/public/assets/css/admin.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/main.css" afterPath="$PROJECT_DIR$/public/assets/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/main.js" afterPath="$PROJECT_DIR$/public/assets/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/admin/admin.navbar.html" afterPath="$PROJECT_DIR$/public/views/admin/admin.navbar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/admin/dashboard.html" afterPath="$PROJECT_DIR$/public/views/admin/dashboard.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/admin/list.cars.html" afterPath="$PROJECT_DIR$/public/views/admin/list.cars.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/admin/messages.html" afterPath="$PROJECT_DIR$/public/views/admin/messages.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/admin/settings.html" afterPath="$PROJECT_DIR$/public/views/admin/settings.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/core/home.html" afterPath="$PROJECT_DIR$/public/views/core/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/index.html" afterPath="$PROJECT_DIR$/public/views/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/routes/admin.js" afterPath="$PROJECT_DIR$/server/routes/admin.js" />
     </list>
     <ignored path="auto-mobile-tn.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,11 +48,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="constants.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="constants.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app/constants.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
-              <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+              <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="authController.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/app/controllers/authController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="69">
+              <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -641,16 +634,16 @@
       <workItem from="1486251254695" duration="3869000" />
       <workItem from="1486275928633" duration="958000" />
       <workItem from="1486261394620" duration="616000" />
-      <workItem from="1486290367371" duration="15204000" />
+      <workItem from="1486290367371" duration="15762000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="268559000" />
+    <option name="totallyTimeSpent" value="269117000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2246596" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -660,7 +653,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296131" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.492635" sideWeight="0.49394855" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.492635" sideWeight="0.49394855" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -751,13 +744,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="25" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/controllers/authController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -1115,7 +1101,15 @@
     <entry file="file://$PROJECT_DIR$/public/app/constants.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+          <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/controllers/authController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
           <folding />
         </state>
       </provider>

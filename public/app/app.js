@@ -55,21 +55,6 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
                 url: '/logout',
                 controller: 'logoutController'
             })
-            .state('register', {
-                url: '/register',
-                templateUrl: '/public/views/auth/register.html',
-                controller: 'registerController'
-            })
-            .state('forget', {
-                url: '/forget',
-                templateUrl: '/public/views/core/forget-password.html',
-                controller: 'forgotController'
-            })
-            .state('resetPassword', {
-                url: '/resetpassword/:token',
-                templateUrl: '/public/views/core/reset.html',
-                controller: 'resetPasswordController'
-            })
             .state('contact', {
                 url: '/contact',
                 templateUrl: '/public/views/core/contact.html',
@@ -173,8 +158,8 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
                 target: 'body'
             });
 }])
-.run(['$rootScope','authService','$state','uibPaginationConfig','$timeout',
-    function ($rootScope,authService,$state,uibPaginationConfig,$timeout) {
+.run(['$rootScope','authService','$state','uibPaginationConfig',
+    function ($rootScope,authService,$state,uibPaginationConfig) {
         $rootScope.isLoading=true;
 
         $rootScope.$on('$stateChangeStart', function (event, next) {
@@ -197,10 +182,9 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
         } else
             $rootScope.stylesheet = "/public/assets/css/main.css";
         $rootScope.$on('$stateChangeSuccess', function (event, next,current) {
-            $timeout(function () {
-                if(next.name!="logout")
+            if(next.name!="logout")
                 $rootScope.isLoading=false;
-            },500);
+
             document.body.scrollTop = document.documentElement.scrollTop = 0;
         });
         $rootScope.$on('$viewContentLoaded', function(event) {
