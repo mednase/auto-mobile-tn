@@ -1,15 +1,28 @@
 /**
  * Created by medna on 25/01/2017.
  */
-app.controller('appController',['$scope','authService','$http','API_ENDPOINT',
-    function ($scope,authService,$http,API_ENDPOINT) {
+app.controller('appController',['$scope','authService','$http','API_ENDPOINT','$timeout',
+    function ($scope,authService,$http,API_ENDPOINT,$timeout) {
         if(authService.isAuthenticated()){
-
+            $scope.unseen=0;
             $http.get(API_ENDPOINT.url+'/admin/notification').then(function (res) {
                 $scope.notifications=res.data;
-                console.log(res.data.length)
-            })
+                angular.forEach(res.data,function (index,notif) {
+                    if(notif.seen==false)
+                        $scope.unseen+=1;
+                })
+            });
+
+            $scope.setNotificationSeen=function () {
+                if($scope.unseen>0)
+                $http.post(API_ENDPOINT.url+'/admin/notification/seen').then(function () {
+                    $timeout(function () {
+                        $scope.unseen=0;
+                    },2000)
+                });
+            }
         }
+
 }]);
 app.
 controller('homeController', ['$scope', '$http', 'API_ENDPOINT',

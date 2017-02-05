@@ -29,14 +29,14 @@
                 <div class="col-md-3 col-sm-4">
 
                     <!-- START WIDGET MESSAGES -->
-                    <div class="widget widget-default widget-item-icon">
-                        <div class="widget-item-left">
-                            <img src="/public/assets/img/car-dashboard.png" class="img-responsive">
+                    <div class="widget widget-default widget-item-icon" style="padding-left: 14px;">
+                        <div class="widget-item-left" style="padding: 19px;padding-left: 34px;">
+                            <img src="/public/assets/img/car-dashboard.png" width="65" height="75">
                         </div>
                         <div class="widget-data">
-                            <div class="widget-int num-count">{{postedArticle}}</div>
-                            <div class="widget-title">Posted article</div>
-                            <div class="widget-subtitle">On your website</div>
+                            <div class="widget-int num-count">{{allCars}}</div>
+                            <div class="widget-title">عدد السيارت </div>
+                            <div class="widget-subtitle">في قاعدة البيانات</div>
                         </div>
                         <div class="widget-controls">
                             <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip"
@@ -46,27 +46,6 @@
                     <!-- END WIDGET MESSAGES -->
 
                 </div>
-                <div class="col-md-3 col-sm-3">
-
-                    <!-- START WIDGET REGISTRED -->
-                    <div class="widget widget-default widget-item-icon">
-                        <div class="widget-item-left">
-                            <span class="fa fa-user"></span>
-                        </div>
-                        <div class="widget-data">
-                            <div class="widget-int num-count">{{registered}}</div>
-                            <div class="widget-title">Registred users</div>
-                            <div class="widget-subtitle">On your website</div>
-                        </div>
-                        <div class="widget-controls">
-                            <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip"
-                               data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
-                        </div>
-                    </div>
-                    <!-- END WIDGET REGISTRED -->
-
-                </div>
-
 
                 <div class="col-md-3 col-sm-4">
 
@@ -76,9 +55,8 @@
                             <span class="fa fa-envelope"></span>
                         </div>
                         <div class="widget-data">
-                            <div class="widget-int num-count">48</div>
-                            <div class="widget-title">New messages</div>
-                            <div class="widget-subtitle">In your mailbox</div>
+                            <div class="widget-int num-count">{{unseen}}</div>
+                            <div class="widget-title">رسائل جديدة </div>
                         </div>
                         <div class="widget-controls">
                             <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip"

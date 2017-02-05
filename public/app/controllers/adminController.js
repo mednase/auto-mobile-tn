@@ -1,10 +1,28 @@
 /**
  * Created by medna on 09/10/2016.
  */
-app.controller('dashboardController',['$scope','authService','$http','API_ENDPOINT',
-            function ($scope,authService,$http,API_ENDPOINT) {
+app.controller('dashboardController',['$rootScope','authService','$http','API_ENDPOINT','$timeout',
+            function ($rootScope,authService,$http,API_ENDPOINT,$timeout) {
+                $rootScope.unseen=0;
+                $http.get(API_ENDPOINT.url+'/admin/notification').then(function (res) {
+                    $rootScope.notifications=res.data;
+                    angular.forEach(res.data,function (index,notif) {
+                        if(notif.seen==false)
+                            $rootScope.unseen+=1;
+                    })
+                });
 
+                $http.get(API_ENDPOINT.url+'/admin/car/count').then(function (res) {
+                    $rootScope.allCars=res.data.number;
+                });
 
+                $rootScope.setNotificationSeen=function () {
+                    if($rootScope.unseen>0)
+                        $http.post(API_ENDPOINT.url+'/admin/notification/seen').then(function () {
+                        $timeout(function () {
+                            $rootScope.unseen=0;
+                        },2000)                    });
+                }
 }]).
 controller('newCarController',['$scope','$http','API_ENDPOINT','toastr','$state',
     function ($scope,$http,API_ENDPOINT,toastr,$state) {
@@ -87,10 +105,13 @@ controller('editCarController',['car','$scope','$http','API_ENDPOINT','toastr','
 
 
     }]).
-controller('carListController',['Cars','$scope','DTOptionsBuilder','SweetAlert','$http','API_ENDPOINT',
-    function (Cars,$scope,DTOptionsBuilder,SweetAlert,$http,API_ENDPOINT) {
+controller('carListController',['$scope','DTOptionsBuilder','SweetAlert','$http','API_ENDPOINT',
+    function ($scope,DTOptionsBuilder,SweetAlert,$http,API_ENDPOINT) {
 
-        $scope.cars=Cars;
+         $http.get(API_ENDPOINT.url + '/cars').then(function (res) {
+             $scope.cars=res.data;
+         });
+
 
         var language = {
             "sProcessing": "جارٍ التحميل...",

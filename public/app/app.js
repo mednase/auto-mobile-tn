@@ -97,15 +97,6 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
                 url: '/admin/cars',
                 templateUrl: '/public/views/admin/list.cars.html',
                 controller: 'carListController',
-                resolve: {
-                    Cars: function ($http, API_ENDPOINT, $stateParams, $state) {
-                        return $http.get(API_ENDPOINT.url + '/cars').then(function (res) {
-                            return res.data;
-                        },function () {
-                            $state.go("error");
-                        });
-                    }
-                },
                 data: {
                     authenticate: true,
                 }
@@ -186,8 +177,6 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
                 $rootScope.isLoading=false;
 
             document.body.scrollTop = document.documentElement.scrollTop = 0;
-        });
-        $rootScope.$on('$viewContentLoaded', function(event) {
         });
 
 

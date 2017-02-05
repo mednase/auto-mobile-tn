@@ -41,10 +41,16 @@ module.exports = (function () {
 
     router.get('/api/admin/notification',function (req,res) {
 
-        Contact.find({seen:false}).sort({date:-1}).exec(function (err,contacts) {
+        Contact.find().sort({date:-1}).exec(function (err,contacts) {
             if(err)throw err;
             return res.send(contacts);
         }) ;
+    });
+
+    router.post('/api/admin/notification/seen',function (req,res) {
+       Contact.update({seen:false}, { $set: { seen: true }}).exec(function () {
+           res.sendStatus(200);
+       }) ;
     });
 
     router.get('/api/admin/contacts',function (req,res) {
@@ -132,6 +138,12 @@ module.exports = (function () {
             else
                 return res.sendStatus(500);
         });
+    });
+
+    router.get('/api/admin/car/count',function (req,res) {
+        Car.count(function (err,number) {
+            return res.send({number});
+        })
     });
 
     router.get('/api/admin/dashboard', function (req, res) {
