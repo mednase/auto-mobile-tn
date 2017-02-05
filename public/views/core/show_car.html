@@ -58,34 +58,36 @@
     <div id="main_area" class="col-md-9 boxed-content">
         <!-- Slider -->
         <div class="row" style="padding: 5px;">
-            <div id="thumbnail-preview-indicators" class="carousel slide col-md-8 " data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li ng-repeat="image in car.images track by $index" data-target="#thumbnail-preview-indicators"
-                        data-slide-to="{{$index}}" ng-class="$index==0?'active ':''">
-                        <div class="thumbnail">
-                            <img src="{{image}}">
-                        </div>
-                    </li>
+            <div class=" col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-0">
+                <div id="thumbnail-preview-indicators" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators hidden-xs">
+                        <li ng-repeat="image in car.images track by $index" data-target="#thumbnail-preview-indicators"
+                            data-slide-to="{{$index}}" ng-class="$index==0?'active ':''">
+                            <div class="thumbnail">
+                                <img src="{{image}}">
+                            </div>
+                        </li>
 
-                </ol>
-                <div class="carousel-inner">
-                    <div ng-class="$index==0?'item slides active ':'item slides'"
-                         ng-repeat="image in car.images track by $index">
-                        <div class="slide">
-                            <img src="{{image}}" class="img-responsive" width="650">
+                    </ol>
+                    <div class="carousel-inner">
+                        <div ng-class="$index==0?'item slides active ':'item slides'"
+                             ng-repeat="image in car.images track by $index">
+                            <div class="slide">
+                                <img src="{{image}}" class="img-responsive" width="650">
+                            </div>
+                        </div>
+                        <div ng-if="car.images.length<1" class="col-sm-8 col-sm-offset-2">
+                            <div class="slide">
+                                <img src="/public/assets/img/car/no_image.png" class="img-responsive" width="650">
+                            </div>
                         </div>
                     </div>
-                    <div ng-if="car.images.length<1">
-                        <div class="slide">
-                            <img src="/public/assets/img/car/no_image.png" class="img-responsive" width="650">
-                        </div>
-                    </div>
+                    <a class="left carousel-control" href="#thumbnail-preview-indicators" role="button"
+                       data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                    <a class="right carousel-control" href="#thumbnail-preview-indicators" role="button"
+                       data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
                 </div>
-                <a class="left carousel-control" href="#thumbnail-preview-indicators" role="button"
-                   data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-                <a class="right carousel-control" href="#thumbnail-preview-indicators" role="button"
-                   data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
             </div>
             <div class="col-md-4 col-sm-12">
                 <b style="font-size: 45px" class="font-blue-steel">{{car.marque}} {{car.model}}</b>
@@ -117,20 +119,20 @@
             </div>
         </div>
         <div class="row car-details-default">
-            <ul class="col-md-12">
-                <li class="col-md-2">
+            <ul class="">
+                <li class="col-md-2 col-xs-5 col-sm-2">
                     <img src="/public/assets/img/car/icon-carburant.png">
                     <h3>{{car.energie}}</h3>
                 </li>
-                <li class="col-md-2">
+                <li class="col-md-2 col-sm-2 col-xs-5">
                     <img src="/public/assets/img/car/icon-places.png">
                     <h3>{{car.porte}}</h3>
                 </li>
-                <li class="col-md-2">
+                <li class="col-md-2 col-sm-2 col-xs-5">
                     <img src="/public/assets/img/car/icon-engine.png">
                     <h3>{{car.capacite_moteur}} Littres</h3>
                 </li>
-                <li class="col-md-2">
+                <li class="col-md-2 col-sm-2 col-xs-5">
                     <img src="/public/assets/img/car/icon-boite.png">
                     <h3>{{car.type_vitesse}}</h3>
                 </li>

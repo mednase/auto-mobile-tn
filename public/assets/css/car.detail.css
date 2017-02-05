@@ -77,22 +77,12 @@
     padding: .5rem .5rem 0;
 }
 .car-details ul li{
-    -ms-flex: 1 1 20%;
-    -webkit-flex: 1 1 20%;
-    flex: 1 1 20%;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -ms-flex-direction: column;
-    -webkit-flex-direction: column;
-    flex-direction: column;
     -ms-flex-pack: justify;
     -webkit-justify-content: space-between;
     justify-content: space-between;
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
-    width: 20%;
     text-align: center;
     font-family: 'Karla',Verdana,Geneva,sans-serif;
     font-size: .625rem;
@@ -112,21 +102,11 @@
 }
 
 .car-details-default ul{
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -ms-flex-direction: row;
-    -webkit-flex-direction: row;
-    flex-direction: row;
-    -ms-flex-pack: justify;
     -webkit-justify-content: space-between;
     justify-content: space-between;
     padding: .5rem .5rem 0;
 }
 .car-details-default ul li{
-    -ms-flex: 1 1 20%;
-    -webkit-flex: 1 1 20%;
-    flex: 1 1 20%;
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
@@ -139,7 +119,6 @@
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
-    width: 20%;
     text-align: center;
     font-family: 'Karla',Verdana,Geneva,sans-serif;
     font-size: .625rem;
