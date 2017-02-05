@@ -181,7 +181,7 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
             $rootScope.authenticated = true;
         } else
             $rootScope.stylesheet = "/public/assets/css/main.css";
-        $rootScope.$on('$stateChangeSuccess', function (event, next,current) {
+        $rootScope.$on('$stateChangeSuccess', function (event, next) {
             if(next.name!="logout")
                 $rootScope.isLoading=false;
 
