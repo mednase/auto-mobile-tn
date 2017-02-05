@@ -77,12 +77,22 @@
     padding: .5rem .5rem 0;
 }
 .car-details ul li{
+    -ms-flex: 1 1 20%;
+    -webkit-flex: 1 1 20%;
+    flex: 1 1 20%;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
     -ms-flex-pack: justify;
     -webkit-justify-content: space-between;
     justify-content: space-between;
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
+    width: 20%;
     text-align: center;
     font-family: 'Karla',Verdana,Geneva,sans-serif;
     font-size: .625rem;
@@ -253,19 +263,19 @@
     display: block;
 }
 .x-select {
-     -moz-appearance: none;
-     -webkit-appearance: none;
-     appearance: none;
-     border-radius: 0;
-     background: #fff url(/public/assets/img/select.svg) 100% 50% no-repeat;
-     color: #454545;
-     cursor: pointer;
-     font-weight: bold;
-     font-size: 16px;
-     outline: 0;
-     height: 40px;
-     padding: 0 50px 0 15px;
-     text-indent: .01px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    background: #fff url(/public/assets/img/select.svg) 100% 50% no-repeat;
+    color: #454545;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    outline: 0;
+    height: 40px;
+    padding: 0 50px 0 15px;
+    text-indent: .01px;
     margin-bottom: 10px;
 }
 
@@ -310,9 +320,9 @@
     background: #1f87ff;
 }
 .fixed-ratio{
-display: block;
-position: relative;
-overflow: hidden;
+    display: block;
+    position: relative;
+    overflow: hidden;
 }
 .push-item__text-content {
     padding: 6px 4px 0 10px;
@@ -338,20 +348,20 @@ overflow: hidden;
     line-height: 21px;
 }
 .push-item__title {
-     display: block;
-     border: 0;
-     text-transform: none;
-     padding-bottom: 0;
-     text-align: left;
-     margin: 1em 0;
-     min-width: 0;
-     max-height: 96px;
-     overflow: hidden;
-     position: relative;
-     display: block;
-     font-size: 16px;
-     line-height: 18px;
-     font-weight: bold;
-     margin: 0;
-     color: inherit;
- }
+    display: block;
+    border: 0;
+    text-transform: none;
+    padding-bottom: 0;
+    text-align: left;
+    margin: 1em 0;
+    min-width: 0;
+    max-height: 96px;
+    overflow: hidden;
+    position: relative;
+    display: block;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: bold;
+    margin: 0;
+    color: inherit;
+}
