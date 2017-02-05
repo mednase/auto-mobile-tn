@@ -19,10 +19,76 @@
 <div class="row">
     <div class="col-md-12">
         <div class=" portlet light">
-            <div class="portlet-body" style="min-height: 400px"></div>
+            <div class="portlet-body" style="min-height: 400px">
 
+                <div class="col-md-3 col-sm-4">
+                    <!-- START WIDGET CLOCK -->
+                    <clock></clock>
+                    <!-- END WIDGET CLOCK -->
+                </div>
+                <div class="col-md-3 col-sm-4">
+
+                    <!-- START WIDGET MESSAGES -->
+                    <div class="widget widget-default widget-item-icon">
+                        <div class="widget-item-left">
+                            <img src="/public/assets/img/car-dashboard.png" class="img-responsive">
+                        </div>
+                        <div class="widget-data">
+                            <div class="widget-int num-count">{{postedArticle}}</div>
+                            <div class="widget-title">Posted article</div>
+                            <div class="widget-subtitle">On your website</div>
+                        </div>
+                        <div class="widget-controls">
+                            <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip"
+                               data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
+                        </div>
+                    </div>
+                    <!-- END WIDGET MESSAGES -->
+
+                </div>
+                <div class="col-md-3 col-sm-3">
+
+                    <!-- START WIDGET REGISTRED -->
+                    <div class="widget widget-default widget-item-icon">
+                        <div class="widget-item-left">
+                            <span class="fa fa-user"></span>
+                        </div>
+                        <div class="widget-data">
+                            <div class="widget-int num-count">{{registered}}</div>
+                            <div class="widget-title">Registred users</div>
+                            <div class="widget-subtitle">On your website</div>
+                        </div>
+                        <div class="widget-controls">
+                            <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip"
+                               data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
+                        </div>
+                    </div>
+                    <!-- END WIDGET REGISTRED -->
+
+                </div>
+
+
+                <div class="col-md-3 col-sm-4">
+
+                    <!-- START WIDGET MESSAGES -->
+                    <div class="widget widget-default widget-item-icon">
+                        <div class="widget-item-left">
+                            <span class="fa fa-envelope"></span>
+                        </div>
+                        <div class="widget-data">
+                            <div class="widget-int num-count">48</div>
+                            <div class="widget-title">New messages</div>
+                            <div class="widget-subtitle">In your mailbox</div>
+                        </div>
+                        <div class="widget-controls">
+                            <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip"
+                               data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
+                        </div>
+                    </div>
+                    <!-- END WIDGET MESSAGES -->
+                </div>
+            </div>
         </div>
-    </div>
 </div>
 
 <input type="hidden" value="" id="menuSelected" data-menu="page-dashboard">

@@ -8,7 +8,12 @@
 </section>
 
 <section class="container-fluid" style="margin-top: 20px">
-    <div class="row">
+    <div ng-if="loading" class="col-md-12 text-center text-info load-container">
+        <div class="loader-a ">
+
+        </div>
+    </div>
+    <div ng-if="!loading" class="row">
         <div ng-repeat="car in cars track by $index" class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mt-element-ribbon animated zoomIn">
 
             <div class="portlet light portlet-fit  ">
@@ -61,7 +66,7 @@
             </div>
         </div>
     </div>
-    <div  class="row text-center">
+    <div   ng-if="!loading" class="row text-center">
         <ul uib-pagination id="pagination"  total-items="totalCars" ng-model="currentPage" max-size="5"
             class="pagination-sm" boundary-link-numbers="true" rotate="false" ng-change="pageChanged()"></ul>
     </div>

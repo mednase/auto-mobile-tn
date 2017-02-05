@@ -23,12 +23,11 @@
                             <li class="external">
                                 <h3>
                                     <span class="bold" >{{notifications.length}} </span>اشعارات جديدة</h3>
-                                <a href="page_user_profile_1.html">اظهار الكل</a>
                             </li>
                             <li>
                                 <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 250px;"><ul class="dropdown-menu-list scroller" style="height: 250px; overflow: hidden; width: auto;" data-handle-color="#637283" data-initialized="1">
                                     <li ng-repeat="notif in notifications track by $index">
-                                        <a href="javascript:;">
+                                        <a ui-sref="messages">
                                             <span class="time" style="max-width: 100px!important;padding: 5px">{{notif.date|timeago:'fr':false}}</span>
                                             <span class="details">
                                                         <span class="label label-sm label-icon label-success">

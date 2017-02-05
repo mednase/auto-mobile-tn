@@ -82,6 +82,16 @@ module.exports = (function () {
         });
     });
 
+    router.post('/api/admin/contact/replay', function (req, res) {
+        console.log(req.body);
+        return res.sendStatus(200);
+    });
+
+    router.post('/api/admin/contact/delete', function (req, res) {
+        console.log(req.body);
+        return res.sendStatus(200);
+    });
+
     router.post('/api/admin/car/new', function (req, res) {
         var car = new Car(req.body);
         car.save();

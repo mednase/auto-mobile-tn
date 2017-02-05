@@ -125,7 +125,7 @@ controller('carListController',['Cars','$scope','DTOptionsBuilder','SweetAlert',
                     confirmButtonColor: "#DD6B55", confirmButtonText: "نعم ، إحذف !",
                     cancelButtonText: "لا ، إلغاء الحذف",
                     closeOnConfirm: false,
-                    closeOnCancel: false,
+                    closeOnCancel: true,
                     showLoaderOnConfirm: true
 
                 }, function(isConfirm){
@@ -136,16 +136,15 @@ controller('carListController',['Cars','$scope','DTOptionsBuilder','SweetAlert',
                         },function () {
                             SweetAlert.swal("","حدث خطأ في النظام يرجى تكرار العملية","error");
                         })
-                    } else {
-                        SweetAlert.swal("", "لقد تم إلغاء الحذف !", "Cancelled");
                     }
                     return false;
                 });
         }
     }
 ]).
-controller('messagesController',['$scope','authService','$http','API_ENDPOINT','DTOptionsBuilder',
-    function ($scope,authService,$http,API_ENDPOINT,DTOptionsBuilder) {
+controller('messagesController',['$rootScope','$scope','authService','$http','API_ENDPOINT','DTOptionsBuilder',
+    '$uibModal','toastr','SweetAlert',
+    function ($rootScope,$scope,authService,$http,API_ENDPOINT,DTOptionsBuilder,$uibModal,toastr,SweetAlert) {
 
         $http.get(API_ENDPOINT.url+'/admin/contacts').then(function (res) {
             $scope.contacts=res.data;
@@ -176,6 +175,64 @@ controller('messagesController',['$scope','authService','$http','API_ENDPOINT','
             .withOption('order', [1, 'desc'])
             .withLanguage(language);
 
+
+        $scope.openMessageModal = function (contact) {
+            $rootScope.messageModal=$uibModal.open({
+                animation: true,
+                templateUrl: 'messageModal.html',
+                size: 'lg',
+                controller: function($scope) {
+                    $scope.contact=contact;
+                    $scope.openSendModal = function (contact) {
+                        $rootScope.messageModal.close('a');
+                        $rootScope.sendModal=$uibModal.open({
+                            animation: true,
+                            templateUrl: 'sendModal.html',
+                            size: 'lg',
+                            controller: function($scope) {
+                                $scope.contact=contact;
+                                $scope.message="";
+                                $scope.sendMessage=function () {
+                                    $http.post(API_ENDPOINT.url+'/admin/contact/replay',{email:contact.email,
+                                        message:$scope.message,title:$scope.title}).then(function () {
+                                        $rootScope.sendModal.dismiss('cancel');
+                                        toastr.success('لقد تم بعث الرسالة بنجاح','إتصل بنا :')
+                                    })
+                                };
+                                $scope.closeSendModal=function () {
+                                    $rootScope.sendModal.dismiss('cancel');
+                                }
+                            }
+                        });
+                    };
+                }
+            });
+        };
+
+        $scope.deleteMessage = function (contact,$index) {
+            SweetAlert.swal({
+                title: "هل أنت متأكد ؟",
+                text: "هل تريد حذف هذه الرسالة من قاعدة البيانات ؟",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55", confirmButtonText: "نعم ، إحذف !",
+                cancelButtonText: "لا ، إلغاء الحذف",
+                closeOnConfirm: false,
+                closeOnCancel: true,
+                showLoaderOnConfirm: true
+
+            }, function(isConfirm){
+                if (isConfirm) {
+                    $http.post(API_ENDPOINT.url+"/admin/contact/delete",{id:contact._id}).then(function () {
+                        SweetAlert.swal("","لقد تم حذف هذه الرسالة بنجاح ", "success");
+                        $scope.contacts.splice($index,1);
+                    },function () {
+                        SweetAlert.swal("","حدث خطأ في النظام يرجى تكرار العملية","error");
+                    })
+                }
+                return false;
+            });
+        }
     }]).
 controller('settingsController',['$scope','$http','API_ENDPOINT',
     function ($scope,$http,API_ENDPOINT) {
@@ -213,5 +270,10 @@ controller('settingsController',['$scope','$http','API_ENDPOINT',
                     $scope.addMarqueError=true;
                 }
             });
+        };
+
+        $scope.password={};
+        $scope.changePassword=function () {
+            console.log($scope.password);
         };
     }]);

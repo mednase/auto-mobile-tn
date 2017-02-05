@@ -14,18 +14,18 @@ app.controller('appController',['$scope','authService','$http','API_ENDPOINT',
 app.
 controller('homeController', ['$scope', '$http', 'API_ENDPOINT',
     function ($scope,$http, API_ENDPOINT ) {
-
         $scope.currentDate=new Date();
         $scope.currentPage = 1;
-
-
         var setPage = function (pageNo) {
             $scope.currentPage = pageNo;
+            $scope.loading=true;
 
             $http.get(API_ENDPOINT.url + '/cars/'+pageNo).then(function (res) {
+                $scope.loading=false;
                 $scope.cars= res.data.cars;
                 $scope.totalCars=res.data.total;
                 if(!$scope.$$phase){$scope.$apply();}
+
             });
         };
 

@@ -22,30 +22,114 @@
         <table datatable="ng" class="table table-striped table-bordered table-hover  no-footer " dt-options="dtOptions" dt-column-defs="showCase.dtColumnDefs" cellspacing="0" width="100%">
             <thead>
             <tr>
-                <th>تاريخ الإرسال</th>
-                <th>الإسم</th>
-                <th>البريد الإلكتروني</th>
+                <th class="hidden-xs">تاريخ الإرسال</th>
+                <th >الإسم</th>
+                <th class="hidden-xs">البريد الإلكتروني</th>
                 <th>الهاتف</th>
                 <th>الولاية</th>
-                <th>الخيارات</th>
+                <th class="text-center">الخيارات</th>
             </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="contact in contacts track by $index">
-                    <td>{{contact.date|date:"MM/dd/yyyy  hh:mm" }}</td>
+                    <td class="hidden-xs">{{contact.date|date:"MM/dd/yyyy  hh:mm" }}</td>
                     <td>{{contact.name}}</td>
-                    <td>{{contact.email}}</td>
+                    <td class="hidden-xs">{{contact.email}}</td>
                     <td>{{contact.phone}}</td>
                     <td>{{contact.governorate}}</td>
-                    <td>
-                        <a class="btn red">حذف</a>
-                        <a class="btn blue">عرض</a>
+                    <td class="text-center">
+                        <a class="btn red" ng-click="deleteMessage(contact,$index)">حذف</a>
+                        <a class="btn blue" ng-click="openMessageModal(contact)">عرض</a>
                     </td>
                 </tr>
             </tbody>
             </table>
         </div>
     </div>
+<script type="text/ng-template" id="messageModal.html">
+    <div class="modal-header " style="margin-top: 100px">
+        <div class="col-md-10 col-xs-9 col-sm-10">
+            <h2 class="modal-title col-md-8 font-blue-hoki col-sm-6 col-xs-12">
+                <i class="fa fa-envelope-o"></i> <span>من طرف : </span> {{contact.name}}
+            </h2>
+            <div class="fa font-blue-chambray bold col-md-3 col-sm-6 col-xs-10" style="padding-top: 12px;font-size: 22px">
+                <i class="fa fa-clock-o"></i> {{contact.date|date:'yyyy-MM-dd'}}
+            </div>
+        </div>
+        <div class="col-md-2 col-xs-3 col-sm-2" style="padding-top: 12px;padding-left: 0!important;">
+            <button class="btn btn-sm blue bold" ng-click="openSendModal(contact)" data-dismiss="modal">
+                <i class="fa fa-send-o"></i> الرد</button>
+        </div>
+    </div>
+    <div class="modal-body " style="padding: 10px;">
+        <table class="table">
+            <tr>
+                <td>الإسم </td>
+                <td>{{contact.name}}</td>
+                <td>الهاتف </td>
+                <td>{{contact.phone}}</td>
+            </tr>
+            <tr>
+                <td>البريد الإلكتروني </td>
+                <td>{{contact.email}}</td>
+                <td>الولاية</td>
+                <td>{{contact.governorate}}</td>
+            </tr>
+        </table>
+        <div class="well row" style="margin:10px;border-radius: 5%">
+            <div class="col-md-2">
+                <b style="font-size: 16px">الرسالة :</b>
+            </div>
+            <div class="col-md-8">
+                {{contact.message}}
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="sendModal.html">
+    <div class="modal-header" style="margin-top: 100px">
+        <div class="col-md-11">
+            <h2 class="modal-title col-md-8 font-blue-hoki col-sm-6 col-xs-6"> <span>من طرف : </span> {{contact.name}}</h2>
+            <div class="fa font-blue-chambray bold col-md-3 col-sm-4 col-xs-5" style="padding-top: 12px;font-size: 22px">
+                <i class="fa fa-clock-o"></i> {{contact.date|date:'yyyy-MM-dd'}}
+            </div>
+       </div>
+        <div style="padding-top: 12px;">
+            <button type="button" class="btn red " ng-click="closeSendModal()">&times;</button>
+        </div>
+    </div>
+    <div class="modal-body " style="padding: 10px;">
+        <form ng-submit="sendMessage()" name="form" role="form">
+            <div class="row">
+                <div class="form-group input-icon right " style="margin:10px;border-radius: 5%"  ng-class="{ 'has-error': form.title.$dirty && form.title.$invalid }">
+                    <i ng-show="form.title.$dirty && form.title.$invalid "  class="fa fa-warning font-red"></i>
+                    <input ng-model="title" placeholder="الموضوع"
+                              class=" form-control has-feedback" name="title"
+                              ng-minlength="6"   ng-required="true"
+                              uib-tooltip=" على الأقل 6 أحرف "
+                              tooltip-placement="bottom"
+                              tooltip-trigger="'focus mouseover'"
+                              tooltip-enable="form.title.$dirty && form.title.$invalid"
+
+                    >
+                </div>
+            <div class="form-group input-icon right " style="margin:10px;border-radius: 5%"  ng-class="{ 'has-error': form.message.$dirty && form.message.$invalid }">
+                <i ng-show="form.message.$dirty && form.message.$invalid "  class="fa fa-warning font-red"></i>
+                <textarea id="textarea1" ng-model="message" placeholder="الرسالة ..........."
+                     class=" form-control has-feedback" name="message" rows="10"
+                          ng-minlength="10"   ng-required="true"
+                          uib-tooltip=" على الأقل 10 أحرف "
+                          tooltip-placement="bottom"
+                          tooltip-trigger="'focus mouseover'"
+                          tooltip-enable="form.message.$dirty && form.message.$invalid"
+
+                ></textarea>
+            </div>
+                <button ng-disabled="form.$invalid" class="btn btn-success col-md-4 col-md-offset-1" style="margin-top: 10px">ارسل </button>
+            </div>
+        </form>
+    </div>
+</script>
 
 <input type="hidden" value="" id="menuSelected" data-menu="page-messages">
 <script type="text/javascript" src="/public/assets/js/main.js"></script>
