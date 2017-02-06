@@ -26,12 +26,10 @@ module.exports.sendEmail=function (name,message,destination,title) {
 
         var sg = sendgrid(params.sendgateApi);
 
-        var requestBody = email;
-        var emptyRequest = require('sendgrid-rest').request;
         var requestPost = JSON.parse(JSON.stringify(emptyRequest));
         requestPost.method = 'POST';
         requestPost.path = '/v3/mail/send';
-        requestPost.body = requestBody;
+        requestPost.body = email;
 
         sg.API(requestPost, function (error, response) {
             if(error)
