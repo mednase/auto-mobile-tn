@@ -94,9 +94,10 @@ module.exports = (function () {
         var message=req.body.message;
         var title=req.body.title;
         var destination=req.body.email;
-
-        mailer.sendEmail(name,message,destination,title, function (result) {
-            return res.send(result);
+        console.log(req.body);
+        mailer.sendEmail(name,message,destination,title, function (err,result) {
+            if(err) throw err;
+            return res.sendStatus(200);
         });
 
     });
