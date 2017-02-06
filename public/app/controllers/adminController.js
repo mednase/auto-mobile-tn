@@ -215,10 +215,10 @@ controller('messagesController',['$rootScope','$scope','authService','$http','AP
                                 $scope.message="";
                                 $scope.sendMessage=function () {
                                     toastr.info('يرجى الانتظار البريد الإلكتروني بصدد الإرسال','إتصل بنا :', {progressBar: true});
-                                    $rootScope.sendModal.dismiss('cancel');
                                     $http.post(API_ENDPOINT.url+'/admin/contact/replay',{email:contact.email,
                                         message:$scope.message,title:$scope.title,name:contact.name}).then(function () {
-                                        toastr.close();
+                                        $rootScope.sendModal.dismiss('cancel');
+                                        toastr.clear();
                                         toastr.success('لقد تم بعث الرسالة بنجاح','إتصل بنا :')
                                     },function (err) {
                                         toastr.error('وقع خطأ في نظام بعث الرسائل الرجاء إعادة المحاولة ','إتصل بنا :')
