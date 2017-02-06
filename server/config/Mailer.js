@@ -26,11 +26,11 @@ module.exports.sendEmail=function (name,message,destination,title) {
 
         var sg = sendgrid(params.sendgateApi);
 
-        var requestPost = JSON.parse(JSON.stringify(emptyRequest));
-        requestPost.method = 'POST';
-        requestPost.path = '/v3/mail/send';
-        requestPost.body = email;
-
+        var requestPost = sendgrid.emptyRequest({
+            method: 'POST',
+            path: '/v3/mail/send',
+            body: email
+        });
         sg.API(requestPost, function (error, response) {
             if(error)
                 callback({success:false ,msg: 'failed to sent the email try again !'});
