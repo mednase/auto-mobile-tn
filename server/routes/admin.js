@@ -10,6 +10,7 @@ var express = require('express'),
     jwt = require('jwt-simple'),
     passport = require('passport'),
     async = require('async'),
+    mailer = require('../config/Mailer'),
     mongoose = require('mongoose');
 
 var router = express.Router();
@@ -94,8 +95,15 @@ module.exports = (function () {
     });
 
     router.post('/api/admin/contact/delete', function (req, res) {
-        console.log(req.body);
-        return res.sendStatus(200);
+        var name=req.body.name;
+        var message=req.body.message;
+        var title=req.body.title;
+        var destination=req.body.email;
+
+        mailer.sendEmail(name,message,destination,title, function (result) {
+            return res.send(result);
+        });
+
     });
 
     router.post('/api/admin/car/new', function (req, res) {

@@ -215,7 +215,7 @@ controller('messagesController',['$rootScope','$scope','authService','$http','AP
                                 $scope.message="";
                                 $scope.sendMessage=function () {
                                     $http.post(API_ENDPOINT.url+'/admin/contact/replay',{email:contact.email,
-                                        message:$scope.message,title:$scope.title}).then(function () {
+                                        message:$scope.message,title:$scope.title,name:contact.name}).then(function () {
                                         $rootScope.sendModal.dismiss('cancel');
                                         toastr.success('لقد تم بعث الرسالة بنجاح','إتصل بنا :')
                                     })
