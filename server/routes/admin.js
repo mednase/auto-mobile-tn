@@ -90,11 +90,6 @@ module.exports = (function () {
     });
 
     router.post('/api/admin/contact/replay', function (req, res) {
-        console.log(req.body);
-        return res.sendStatus(200);
-    });
-
-    router.post('/api/admin/contact/delete', function (req, res) {
         var name=req.body.name;
         var message=req.body.message;
         var title=req.body.title;
@@ -104,6 +99,11 @@ module.exports = (function () {
             return res.send(result);
         });
 
+    });
+
+    router.post('/api/admin/contact/delete', function (req, res) {
+        console.log(req.body);
+        return res.sendStatus(200);
     });
 
     router.post('/api/admin/car/new', function (req, res) {
