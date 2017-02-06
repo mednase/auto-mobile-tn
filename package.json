@@ -2,6 +2,10 @@
   "name": "auto-mobile-tn",
   "version": "1.0.0",
   "description": "site de vente des voitures",
+  "engines": {
+    "node": "4.4.7",
+    "npm": "2.15.x"
+  },
   "main": "server.js",
   "scripts": {
     "test": "node server.js"
@@ -34,7 +38,7 @@
     "express": "^4.14.0",
     "express-session": "^1.15.0",
     "express-validator": "^3.1.2",
-    "hogan-express": "^0.5.2",
+    "hogan": "^1.0.2",
     "jwt-simple": "^0.5.1",
     "mongoose": "^4.7.8",
     "ngmap": "^1.17.7",

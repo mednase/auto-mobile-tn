@@ -1,6 +1,6 @@
 var sendgrid = require("sendgrid"),
     fs= require('fs'),
-    hogan= require('hogan-express'),
+    hogan= require('hogan'),
     params= require('../config/params');
 
 
