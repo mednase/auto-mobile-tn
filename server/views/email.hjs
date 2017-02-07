@@ -9,7 +9,6 @@
 
 <body style="background-color:rgba(210, 212, 212, 0.16)">
 <div class="x_content" style="display:block; max-width:600px; margin:0 auto; padding:10px">
-        <center><img width=250 src="{{image_64}}"></center>
     <div class="x_header" style="width:100%; margin-bottom:30px; margin-top:15px">
         <table width="100%" style="width:100%; border-spacing:0; border-collapse:separate!important">
             <tbody>

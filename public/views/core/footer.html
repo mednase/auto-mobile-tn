@@ -1,9 +1,52 @@
 <footer>
-    <div class="footer-body">
+    <!--<div style="background: linear-gradient(rgb(230, 149, 149), #ca1e11);height: 106px;">
+
+    </div>-->
+    <div class="footer-body " style="padding: 10px">
+        <div class="col-md-4 col-md-offset-1">
+            <h2>No marques</h2>
+            <p style="color: whitesmoke;">
+                Bienvenue à AHMED AUTO le premier salon d'exposition de voitures neuves et occasions à Monastir. C'est
+                un magasin d'exposition (show room) permettant de présenter un assortiment ou la totalité des voitures
+                proposés à la vente. Il offre éventuellement la possibilité de passer commande pour le client visiteur.
+            </p>
+        </div>
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-4 col-md-offset-1">
+            <h2> الموقع</h2>
+            <ul style="">
+                <li>
+                    <span class="fa fa-mobile-phone"></span> Tel:
+                    <ul>
+                        <li>73 550 352</li>
+                        <li>53 850 850</li>
+                        <li>29 850 830</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="fa fa-envelope-o"></span> Tel:
+                    ahmedauto2012@yahoo.fr
+                </li>
+            </ul>
+                <button ng-show="lang == 'en'" ng-click="changeLanguage('ar')" translate="BUTTON_LANG_AR"></button>
+                <button ng-show="lang == 'ar'" ng-click="changeLanguage('fr')" translate="BUTTON_LANG_EN"></button>
+        </div>
 
     </div>
 
     <div class="copyright" style="z-index: 99999">
-        جميع الحقوق محفوظة © 2017
+        <div class="col-md-6" style="padding: 16px;font-size: 18px;">
+            {{'FOOTER_COPYRIGHT'|translate}} © 2017
+        </div>
+        <div class="col-md-6">
+            <ul class="social-icon list-inline pull-right" style="width:inherit!important;">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            </ul>
+        </div>
     </div>
 </footer>

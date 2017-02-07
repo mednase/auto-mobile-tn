@@ -17,7 +17,7 @@ function InitEmail(name,destination,title,message){
     to_email = new helper.Email(destination);
     subject = title;
     content = new helper.Content("text/html",
-        compiledTemplate.render({firstname: name,message: message,siteUrl: params.server_url,year:year,image_64:params.logo_64}));
+        compiledTemplate.render({firstname: name,message: message,siteUrl: params.server_url,year:year}));
 
       mail = new helper.Mail(from_email, subject, to_email, content);
 

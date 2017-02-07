@@ -1,22 +1,27 @@
-<div class="page-header navbar navbar-fixed-top " id="navbar" style="max-height: 68px;position: absolute">
+<div style="background-color: #0b0000;position: relative;height: 25px;padding: 5px;display: none" >
+    <a ui-sref="login" style="color: white;font-weight: 700;padding-left: 20px">
+        {{'NAVBAR_LOGIN'|translate}}
+    </a>
+</div>
+<div class="page-header navbar navbar-fixed-top " id="navbar" style="max-height: 68px;position: relative;background: url(/public/assets/img/bg_header.jpg)no-repeat">
     <!-- BEGIN HEADER INNER -->
     <div class="page-header-inner ">
-        <div style="position: absolute" class="hidden-xs">
+        <div  class="hidden-ssm hidden-ssm nav navbar-nav pull-left">
             <a href="/">
-                <img src="/public/assets/img/logo-2.png" alt="logo" width="200" height="75"> </a>
+                <img id="logo" src="/public/assets/img/logo.png" alt="logo" width="200" height="68"> </a>
         </div>
         <div class="top-menu">
             <ul class="nav navbar-nav pull-left">
                 <li >
-                    <a ui-sref="home" class="navbar-button">الرئيسية</a>
+                    <a ui-sref="home" class="navbar-button">{{'NAVBAR_HOME'|translate}}</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav pull-right">
-                <li >
-                    <a ui-sref="login" class="navbar-button">تسجيل الدخول</a>
+                <li class="hidden-xxs">
+                    <a ui-sref="login" class="navbar-button">{{'NAVBAR_LOGIN'|translate}}</a>
                 </li>
-                <li >
-                    <a ui-sref="contact" class="navbar-button">إتصل بنا</a>
+                <li>
+                    <a ui-sref="contact" class="navbar-button">{{'NAVBAR_CONTACT'|translate}}</a>
                 </li>
             </ul>
         </div>
@@ -24,3 +29,12 @@
     </div>
     <!-- END HEADER INNER -->
 </div>
+<script>
+    $("#logo").on('mouseover',function () {
+        $(this).attr('src','/public/assets/img/logo-blur.png')
+    });
+
+    $("#logo").on('mouseleave',function () {
+        $(this).attr('src','/public/assets/img/logo.png')
+    })
+</script>

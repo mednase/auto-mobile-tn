@@ -365,3 +365,19 @@
     margin: 0;
     color: inherit;
 }
+#lightSlider {
+    list-style: none outside none;
+    padding-left: 0;
+    margin-bottom:0;
+}
+#lightSlider li {
+    display: block;
+    float: left;
+    margin-right: 6px;
+    cursor:pointer;
+}
+#lightSlider img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}

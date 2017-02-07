@@ -1,4 +1,4 @@
-<div class="container-fluid" style="padding-top: 80px">
+<div class="container-fluid" style="padding-top: 10px">
     <aside class="col-md-3 side-box hidden-sm hidden-xs">
         <section class="quick-search-box">
             <header class="side-box_header">
@@ -59,35 +59,16 @@
         <!-- Slider -->
         <div class="row" style="padding: 5px;">
             <div class=" col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-0">
-                <div id="thumbnail-preview-indicators" class="carousel slide" data-ride="carousel">
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators hidden-xs">
-                        <li ng-repeat="image in car.images track by $index" data-target="#thumbnail-preview-indicators"
-                            data-slide-to="{{$index}}" ng-class="$index==0?'active ':''">
-                            <div class="thumbnail">
-                                <img src="{{image}}">
-                            </div>
+                <ul  id="lightSlider" class=" ">
+                        <li class="text-center" ng-repeat="image in car.images track by $index" data-thumb="{{image}}" >
+                                <img src="{{image}}" class="img-responsive ">
                         </li>
-
-                    </ol>
-                    <div class="carousel-inner">
-                        <div ng-class="$index==0?'item slides active ':'item slides'"
-                             ng-repeat="image in car.images track by $index">
-                            <div class="slide">
-                                <img src="{{image}}" class="img-responsive" width="650">
-                            </div>
-                        </div>
-                        <div ng-if="car.images.length<1" class="col-sm-8 col-sm-offset-2">
+                        <li ng-if="car.images.length<1" class="col-sm-8 col-sm-offset-2">
                             <div class="slide">
                                 <img src="/public/assets/img/car/no_image.png" class="img-responsive" width="650">
                             </div>
-                        </div>
-                    </div>
-                    <a class="left carousel-control" href="#thumbnail-preview-indicators" role="button"
-                       data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-                    <a class="right carousel-control" href="#thumbnail-preview-indicators" role="button"
-                       data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-                </div>
+                        </li>
+                </ul>
             </div>
             <div class="col-md-4 col-sm-12">
                 <b style="font-size: 45px" class="font-blue-steel">{{car.marque}} {{car.model}}</b>
@@ -177,10 +158,12 @@
 </div>
 
 <script>
-    $(document).ready(function ($) {
-
-        $('.carousel').carousel({
-            interval: 5000
+    $(document).ready(function() {
+        $('#lightSlider').lightSlider({
+            gallery: true,
+            item: 1,
+            slideMargin: 1,
+            thumbItem: 10
         });
     });
 </script>

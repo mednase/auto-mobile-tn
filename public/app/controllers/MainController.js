@@ -2,7 +2,8 @@
  * Created by medna on 25/01/2017.
  */
 app.controller('appController',['$scope','authService','$http','API_ENDPOINT','$timeout',
-    function ($scope,authService,$http,API_ENDPOINT,$timeout) {
+    '$translate','$rootScope',
+    function ($scope,authService,$http,API_ENDPOINT,$timeout,$translate,$rootScope) {
         if(authService.isAuthenticated()){
             $scope.unseen=0;
             $http.get(API_ENDPOINT.url+'/admin/notification').then(function (res) {
@@ -22,6 +23,26 @@ app.controller('appController',['$scope','authService','$http','API_ENDPOINT','$
                 });
             }
         }
+
+        $scope.changeLanguage = function(langKey) {
+            $translate.use(langKey);
+        };
+
+        $rootScope.$on('$translateChangeSuccess', function(event, data) {
+            var language = data.language;
+
+            $rootScope.lang = language;
+
+            $rootScope.default_direction = language === 'ar' ? '-rtl' : '';
+            $rootScope.opposite_direction = language === 'ar' ? 'ltr' : 'rtl';
+
+            $rootScope.default_float = language === 'ar' ? 'right' : 'left';
+            $rootScope.opposite_float = language === 'ar' ? 'left' : 'right';
+
+            console.log($rootScope.default_direction);
+        });
+
+
 
 }]);
 app.

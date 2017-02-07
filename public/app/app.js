@@ -1,11 +1,19 @@
 var app = angular.module('AutoMobileTn', ['ui.router','ngAnimate', 'toastr','datatables','ui.bootstrap',
-'ngSweetAlert','ngMap','vcRecaptcha']);
+'ngSweetAlert','ngMap','vcRecaptcha','pascalprecht.translate','ngCookies']);
 
 app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider',
-    '$httpProvider', '$logProvider', '$locationProvider','toastrConfig','$qProvider',
+    '$httpProvider', '$logProvider', '$locationProvider','toastrConfig','$qProvider','$translateProvider',
     function ($urlRouterProvider, $urlMatcherFactoryProvider, $stateProvider,
-              $httpProvider, $logProvider, $locationProvider,toastrConfig,$qProvider) {
+              $httpProvider, $logProvider, $locationProvider,toastrConfig,$qProvider,$translateProvider) {
 
+        $translateProvider
+            .useStaticFilesLoader({
+                prefix: '/public/app/translations/',
+                suffix: '.json'
+            })
+            .preferredLanguage('ar')
+            .useLocalStorage()
+            .useMissingTranslationHandlerLog();
 
         $qProvider.errorOnUnhandledRejections(false);
 

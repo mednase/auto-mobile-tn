@@ -4,7 +4,7 @@
 <!--[if IE 9]>
 <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
-<html lang="en" dir="rtl" ng-app="AutoMobileTn">
+<html lang="{{ lang }}" dir="{{default_direction}}" ng-app="AutoMobileTn">
 <!--<![endif]-->
 <!-- BEGIN HEAD -->
 <head>
@@ -16,22 +16,23 @@
     <link href="/public/assets/css/fonts/open-sans.css" rel="stylesheet" type="text/css">
     <link href="/public/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
     <link href="/public/assets/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
-    <link href="/public/assets/plugins/bootstrap/css/bootstrap-rtl.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/component/components-md-rtl.min.css"/>
+    <link ng-href="/public/assets/plugins/bootstrap/css/bootstrap{{default_direction}}.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" ng-href="/public/assets/css/component/components-md{{default_direction}}.min.css"/>
     <link rel="stylesheet" type="text/css" href="/public/assets/css/component/typo.css">
     <link href="/public/assets/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css">
     <link href="/public/assets/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="/public/assets/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css">
-    <link href="/public/assets/plugins/datatables/plugins/bootstrap/datatables.bootstrap-rtl.css">
+    <link ng-href="/public/assets/plugins/datatables/plugins/bootstrap/datatables.bootstrap{{default_direction}}.css">
     <link href="/public/assets/plugins/angular-datatable/angular.datatable.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/node_modules/angular-toastr/dist/angular-toastr.css" />
-    <link rel="stylesheet" type="text/css" href="/public/assets/layout/css/layout-rtl.min.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/layout/css/themes/blue-rtl.min.css "/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/layout/css/custom-rtl.min.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/layout/css/page/login-rtl.css">
+    <link rel="stylesheet" type="text/css" ng-href="/public/assets/layout/css/layout{{default_direction}}.min.css"/>
+    <link rel="stylesheet" type="text/css" ng-href="/public/assets/layout/css/themes/blue{{default_direction}}.min.css "/>
+    <link rel="stylesheet" type="text/css" ng-href="/public/assets/layout/css/custom{{default_direction}}.min.css"/>
+    <link rel="stylesheet" type="text/css" ng-href="/public/assets/layout/css/page/login{{default_direction}}.css">
     <link rel="stylesheet" type="text/css" href="/public/assets/plugins/sweetAlert/bootstrap-sweetalert/sweetalert.css">
     <link rel="stylesheet" type="text/css" href="/public/assets/css/page-loader.css"/>
     <link rel="stylesheet" type="text/css" href="/public/assets/css/annimation.css"/>
+    <link rel="stylesheet" type="text/css" href="/public/assets/plugins/lightslider-master/css/lightslider.css">
 
     <link rel="stylesheet" href="/node_modules/angular-toastr/dist/angular-toastr.css" />
     <link rel="stylesheet" type="text/css" href="/public/assets/css/car.detail.css"/>
@@ -39,6 +40,7 @@
     <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
             async defer>
     </script>
+
     <link  rel="stylesheet" type="text/css" ng-href="{{stylesheet}}"  >
 
     <base href="/">
@@ -69,6 +71,7 @@
 
 <script src="/public/assets/plugins/bootstrap-table/bootstrap-table.min.js"></script>
 <script src="/public/assets/plugins/datatables/datatables.min.js"></script>
+<script src="/public/assets/plugins/lightslider-master/js/lightslider.js"></script>
 
 <script type="text/javascript" src="/node_modules/angular/angular.js"></script>
 <script type="text/javascript" src="/node_modules/angular-ui-router/release/angular-ui-router.js"></script>
@@ -83,6 +86,15 @@
 <script type="text/javascript" src="/public/app/directives/rangeDirective.js"></script>
 <script type="text/javascript" src="/public/app/filters/timeFilter.js"></script>
 <script type="text/javascript" src="/public/assets/js/main.js"></script>
+
+<!-- Translation Library -->
+<script src="/node_modules/angular-cookies/angular-cookies.js"></script>
+<script src="/node_modules/angular-translate/dist/angular-translate.js"></script>
+<script src="/node_modules/angular-translate-handler-log/angular-translate-handler-log.js"></script>
+<script src="/node_modules/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+<script src="/node_modules/angular-translate-storage-local/angular-translate-storage-local.js"></script>
+<script src="/node_modules/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+
 
 <script type="text/javascript" src="/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
 <script type="text/javascript" src="/public/assets/plugins/sweetAlert/bootstrap-sweetalert/sweetalert.min.js"></script>
