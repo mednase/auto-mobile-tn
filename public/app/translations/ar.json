@@ -3,6 +3,15 @@
   "NAVBAR_HOME": "الرئيسية",
   "NAVBAR_CONTACT": "إتصل بنا",
   "FOOTER_COPYRIGHT": "كل الحقوق محفوظة",
-  "HOME_TITLE": "ابحث عن سيارة أحلامك"
+  "HOME_TITLE": "ابحث عن سيارة أحلامك",
+  "HOME_SEARCH_TITLE": "ابحث عن سيارة تتناسب مع ذوقك",
+  "HOME_SEARCH_BTN":"ابحث",
+  "HOME_SEARCH_FORM_MARQUE":"الماركة",
+  "HOME_SEARCH_FORM_MODEL":"الموديل",
+  "HOME_SEARCH_FORM_YEAR":"السنة",
+  "HOME_SEARCH_FORM_TYPE":"الحالة",
+  "HOME_SEARCH_FORM_PRICE":"الثمن بين (د ت) :",
+  "HOME_SEARCH_FORM_NEW":"جديدة",
+  "HOME_SEARCH_FORM_USED":"مستعملة"
 
 }

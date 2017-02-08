@@ -1,0 +1,41 @@
+.login-form .form-group.input-icon i {
+    margin-top: 15px;
+    -webkit-transition: all .4s ease;
+    transition: all .4s ease;
+}
+
+#username:focus, #password:focus {
+    background-color: #dde3ec;
+    box-shadow: 0 0 8px 1px rgba(222, 7, 19, 0.94) !important;
+    color: #8290a3;
+    height: 43px;
+    -webkit-transition: all .4s ease;
+    transition: all .4s ease;
+}
+.page-login{
+    background: url("/public/assets/img/login-bg.png") center;
+    height: 100%;
+    padding-top: 50px;
+    padding-bottom: 150px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+.page-login .login-box{
+    margin-top: 100px;
+    min-height: 300px;
+    background-color: rgba(0, 0, 0, 0.39);
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+    border-radius: 7px;
+    padding: 30px;
+    padding-top: 10px;
+    overflow: hidden;
+    position: relative;
+}
+.page-login .login-box input{
+    padding: 22px!important;
+    padding-left: 30px!important;
+
+}

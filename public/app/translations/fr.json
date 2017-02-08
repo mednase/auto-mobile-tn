@@ -3,6 +3,15 @@
   "NAVBAR_HOME" : "Acceuil",
   "NAVBAR_CONTACT" : "Contact",
   "FOOTER_COPYRIGHT" : "tous les droits sont réservés",
-  "HOME_TITLE": "Trouver la voiture de vos rêves"
+  "HOME_TITLE": "Trouver la voiture de vos rêves",
+  "HOME_SEARCH_TITLE": "Trouver une voiture à votre goût",
+  "HOME_SEARCH_BTN": "Recherche",
+  "HOME_SEARCH_FORM_MARQUE":"Marque",
+  "HOME_SEARCH_FORM_MODEL":"Modéle",
+  "HOME_SEARCH_FORM_YEAR":"Année",
+  "HOME_SEARCH_FORM_TYPE":"Type",
+  "HOME_SEARCH_FORM_PRICE":"Prix entre (DT) :",
+  "HOME_SEARCH_FORM_NEW":"Neuf",
+  "HOME_SEARCH_FORM_USED":"Occasion"
 
 }

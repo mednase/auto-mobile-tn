@@ -8,6 +8,78 @@
 </section>
 
 <section class="container-fluid" style="margin-top: 20px">
+    <div class="col-md-12">
+        <div class="box-speed-search {{default_direction}}">
+            <h2 style="margin-bottom: 20px;height: auto;">{{'HOME_SEARCH_TITLE'|translate}}</h2>
+            <div class="row">
+                <form class="form{{default_direction}}" >
+                    <div class="col-md-9">
+                    <div class="form-group col-md-4 col-sm-4 black_input col-xs-6">
+                        <div class="select">
+                            <select class="form-control">
+                                <option>{{'HOME_SEARCH_FORM_MARQUE'|translate}}</option>
+                                <option>Audi</option>
+                                <option>BMW</option>
+                                <option>Nissan</option>
+                                <option>Toyota</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4 col-sm-4 black_input col-xs-6">
+                        <div class="select">
+                            <select class="form-control">
+                                <option>{{'HOME_SEARCH_FORM_MODEL'|translate}}</option>
+                                <option>Series 1</option>
+                                <option>Series 2</option>
+                                <option>Series 3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4 col-sm-4 black_input col-xs-6">
+                        <div class="select">
+                            <select class="form-control">
+                                <option>{{'HOME_SEARCH_FORM_YEAR'|translate}} </option>
+                                <option>2016</option>
+                                <option>2015</option>
+                                <option>2014</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4 col-sm-6 col-xs-6 black_input hidden-sm hidden-md hidden-lg">
+                            <div class="select">
+                                <select class="form-control">
+                                    <option>{{'HOME_SEARCH_FORM_TYPE'|translate}} </option>
+                                    <option>New Car</option>
+                                    <option>Used Car</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div  class="form-group col-md-8 col-sm-6 col-xs-12 black_input">
+                        <label class="form-label">{{'HOME_SEARCH_FORM_PRICE'|translate}}</label>
+                        <div class="slider slider-horizontal"  >
+                            <input id="price_range" data-slide-rtl="true" data-slider-handle="round" type="text" class="span2" value="1000,5000" data-slider-min="50" data-slider-max="6000" data-slider-step="5" data-slider-value="[1000,5000]" style="display: none;" data-value="1000,5000">
+                        </div>
+
+                    </div>
+                    <div class="form-group col-md-4 col-sm-6 col-xs-6 black_input hidden-xs">
+                        <div class="select">
+                            <select class="form-control">
+                                <option>{{'HOME_SEARCH_FORM_TYPE'|translate}} </option>
+                                <option>{{'HOME_SEARCH_FORM_NEW'|translate}}</option>
+                                <option>{{'HOME_SEARCH_FORM_USED'|translate}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="form-group col-md-3 col-sm-6 col-sm-offset-3 col-xs-6 col-md-offset-0 col-xs-offset-3">
+                        <button id="searchBtn" type="submit" class="btn btn-block red"><i class="fa fa-search" aria-hidden="true"></i> {{'HOME_SEARCH_BTN'|translate}} </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <div ng-if="loading" class="col-md-12 text-center text-info load-container">
         <div class="loader-a ">
 
@@ -68,7 +140,7 @@
     </div>
     <div   ng-if="!loading" class="row text-center">
         <ul uib-pagination id="pagination"  total-items="totalCars" ng-model="currentPage" max-size="5"
-            class="pagination-sm" boundary-link-numbers="true" rotate="false" ng-change="pageChanged()"></ul>
+            class="pagination-sm"  boundary-link-numbers="true" rotate="false" ng-change="pageChanged()"></ul>
     </div>
 </section>
 
@@ -126,3 +198,6 @@
         </li>
     </ul>
 </section>
+<script>
+    $("#price_range").slider();
+</script>
