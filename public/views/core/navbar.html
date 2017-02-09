@@ -5,13 +5,17 @@
                     {{'NAVBAR_LOGIN'|translate}}
                 </a>
             </li>
-            <li class="col-md-6 col-sm-6 row">
+            <li class="col-md-6 col-sm-6 row hidden-xxs">
                     <span id="ar-lng" >العربية</span>
                     <label class="switch ">
-                        <input type="checkbox" ng-checked="lang == 'fr'" ng-click="switchLanguage()">
+                        <input id="chbtn" type="checkbox" ng-checked="lang == 'fr'" ng-click="switchLanguage()">
                         <div class="slider round"></div>
                     </label>
                     <span id="fr-lng-{{dir}}" >Français</span>
+            </li>
+            <li class="col-md-6 col-sm-6 row shown-xxs">
+                <span ng-if="dir=='ltr'" onclick="$('#chbtn').click()"   style="color: white;">العربية</span>
+                <span ng-if="dir=='rtl'" onclick="$('#chbtn').click()" style="color: white;" >Français</span>
             </li>
         </ul>
 </div>
