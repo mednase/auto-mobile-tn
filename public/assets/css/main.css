@@ -11,10 +11,9 @@ body{
 }
 footer .footer-body{
     width: 100%;
-    min-height: 200px;
-    background: #222222 none repeat scroll 0 0;
+    background: #111 none repeat scroll 0 0;
     color: #9d9d9d;
-    padding: 80px 0;
+    line-height: 1.5;
 }
 .marque {
     border-top: 1px solid #d9d9d9;
@@ -232,4 +231,106 @@ a, button, code, div, img, input, label, li, p, pre, select, span, svg, table, t
 .copyright .social li a i:hover {
     color:red
 }
+.no-padding{
+    padding: 0!important;
+}
+.footer-body .heading-1 {
+    margin-top: 15px;
+    border-bottom: 2px solid #222;
+}
+.footer-body .heading-1 h3 {
+    color: white;
+    padding: 15px 0px;
+    margin: -2px;
+    font-weight: 500;
+    line-height: 1.3;
+    text-transform: uppercase;
+    border-bottom: 2px solid #d11717;
+    font-size: 22px;
+    display: inline-block;
+}
 
+.footer-body ul{
+    margin-top: -15px;
+    margin-bottom: 20px;
+}
+.footer-body .list-default li, .footer-body p {
+    color: #999;
+}
+.list-default li {
+    font-size: 16px;
+    padding: 10px 0px;
+    display: block;
+    border-bottom-width: 1px;
+    border-bottom-style: dashed;
+}
+.list-default li i {
+    color: inherit;
+    width: 20px;
+}
+.heading-2 h3{
+    background: #d50808;
+    color: #fff;
+    border-left-color: #d50808;
+}
+.ltr .heading-2 h3::after {
+    position: absolute;
+    top: -1px;
+    right: -46px;
+    content: '';
+    border-width: 23px;
+    border-style: solid;
+    border-top-color: rgb(34, 34, 34);
+    border-right-color: rgb(34, 34, 34);
+    border-left-color: rgba(0,0,0,0);
+    border-bottom-color: rgba(0,0,0,0);
+    border-left-color: #d50808;
+    border-bottom-color: #d50808;
+}
+.car-filter {
+    background: #d50808;
+    display: inline-block;
+    padding: 10px;
+}
+.car-filter .form-group label{
+    color: white;
+    font-size: 18px;
+    margin-top: 7px;
+}
+.car-filter .form-group{
+    margin-bottom: 0;
+    margin-top: 8px;
+}
+.car-f-btm{
+    border: 3px solid #222;
+    margin-top: 30px;
+}
+.car-f-top {
+    position: absolute;
+    margin-top: -13px;
+    border-top: 1px solid #222;
+    border-left: 3px solid #222;
+    z-index: 9999;
+}
+.rtl .car-f-top {
+    position: absolute;
+    margin-top: -13px;
+    border-top: 1px solid #222;
+    border-right: 3px solid #222;
+    border-left: none!important;
+    z-index: 99;
+}
+.rtl .heading-2 h3::before {
+    position: absolute;
+    top: -1px;
+    left: -45px;
+    content: '';
+    border-width: 23px;
+    border-style: solid;
+    border-top-color: rgb(34, 34, 34);
+    border-bottom-color: rgb(34, 34, 34);
+    border-left-color: rgb(34, 34, 34);
+    border-bottom-color: rgb(213, 8, 8);
+    border-right-color: #d50808;
+    border-bottom-color: #d50808;
+}

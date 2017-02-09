@@ -9,7 +9,6 @@
 
 .nav-top{
     margin-top: 80px;
-    height:60px;
     background-color: whitesmoke;
     border-radius: 5px;
     font-size: 20px;
@@ -29,41 +28,22 @@
     font-size: 26px;
     color: white;
 }
-.nb-ltr .nav>li>a:hover,.nb-ltr .nav>li>a:active,.nb-ltr .nav>li>a:focus,.nb-ltr .nav>li>a:visited{
+ .nav li a:hover,.nav li a:active, .nav li a:focus,.nav li a:visited{
     display: block;
     color: #fff;
     height: 35px;
     line-height: 33px;
     padding: 0 25px;
     position: relative;
-    transform: skew(34deg, 0deg) ;
-    -webkit-transform: skew(34deg, 0deg) ;
-    -moz-transform: skew(34deg, 0deg) ;
-    -o-transform: skew(34deg, 0deg) ;
-    -ms-transform: skew(34deg, 0deg) ;
     background-color: rgba(231, 22, 24, 1)!important;
 }
 .nb-ltr .nav>li.open{
     background-color: transparent!important;
 }
-.nb-rtl .nav>li>a:hover,.nb-rtl .nav>li>a:active,.nb-rtl .nav>li>a:focus,.nb-rtl .nav>li>a:visited{
-    display: block;
-    color: #fff;
-    height: 35px;
-    line-height: 33px;
-    padding: 0 25px;
-    position: relative;
-    transform: skew(-34deg, 0deg) ;
-    -webkit-transform: skew(-34deg, 0deg) ;
-    -moz-transform: skew(-34deg, 0deg) ;
-    -o-transform: skew(-34deg, 0deg) ;
-    -ms-transform: skew(-34deg, 0deg) ;
-    background-color: rgba(231, 22, 24, 1)!important;
-}
 @media (min-width:400px ) {
 .nb-ltr .nav ul{
     overflow: hidden;
-    left: 59px;
+    left: 35px;
     top: 67px;
     border-top: none!important;
     width: 200px!important;
@@ -76,7 +56,7 @@
     box-shadow:none!important;
 }
 .nb-rtl .nav ul{
-    right: 59px;
+    right: 35px;
     top: 67px;
     overflow: hidden;
     border-top: none!important;
