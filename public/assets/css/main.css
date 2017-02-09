@@ -117,7 +117,7 @@ a, button, code, div, img, input, label, li, p, pre, select, span, svg, table, t
 }
 .loader-a {
     color: #2cb9fa;
-    font-size: 20px;
+    font-size: 10px;
     margin: 50px auto;
     width: 1em;
     height: 1em;
@@ -200,7 +200,7 @@ a, button, code, div, img, input, label, li, p, pre, select, span, svg, table, t
         display: inherit !important;
     }
 }
-@media (max-width: 750px) {
+@media (max-width: 800px) {
     .search-title{
         font-size: 45px!important;
     }

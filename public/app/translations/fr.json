@@ -12,6 +12,12 @@
   "HOME_SEARCH_FORM_TYPE":"Type",
   "HOME_SEARCH_FORM_PRICE":"Prix entre (DT) :",
   "HOME_SEARCH_FORM_NEW":"Neuf",
-  "HOME_SEARCH_FORM_USED":"Occasion"
+  "HOME_SEARCH_FORM_USED":"Occasion",
+  "HOME_CAR_TYPE_TITLE_USED":"Voitures D'occasion",
+  "HOME_CAR_TYPE_TITLE_NEW":"Voitures Neuves",
+  "NAVBAR_CARS":"Voitures",
+  "NAVBAR_CARS_NEW":"Neuves",
+  "NAVBAR_CARS_USED":"Occasion"
+
 
 }

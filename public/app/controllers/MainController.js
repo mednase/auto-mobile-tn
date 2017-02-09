@@ -2,8 +2,11 @@
  * Created by medna on 25/01/2017.
  */
 app.controller('appController',['$scope','authService','$http','API_ENDPOINT','$timeout',
-    '$translate','$rootScope',
-    function ($scope,authService,$http,API_ENDPOINT,$timeout,$translate,$rootScope) {
+    '$translate','$rootScope','$state',
+    function ($scope,authService,$http,API_ENDPOINT,$timeout,$translate,$rootScope,$state) {
+
+        $rootScope.dateYear=new Date().getFullYear();
+
         if(authService.isAuthenticated()){
             $scope.unseen=0;
             $http.get(API_ENDPOINT.url+'/admin/notification').then(function (res) {
@@ -29,6 +32,9 @@ app.controller('appController',['$scope','authService','$http','API_ENDPOINT','$
                 $translate.use('fr');
             else
                 $translate.use('ar')
+
+            $state.reload();
+
         };
 
         $rootScope.$on('$translateChangeSuccess', function(event, data) {
@@ -36,21 +42,20 @@ app.controller('appController',['$scope','authService','$http','API_ENDPOINT','$
 
             $rootScope.lang = language;
 
+            $rootScope.dir= language === 'ar' ? 'rtl' : 'ltr';
             $rootScope.default_direction = language === 'ar' ? '-rtl' : '';
             $rootScope.opposite_direction = language === 'ar' ? 'ltr' : 'rtl';
 
             $rootScope.default_float = language === 'ar' ? 'right' : 'left';
             $rootScope.opposite_float = language === 'ar' ? 'left' : 'right';
 
-            console.log($rootScope.default_direction);
         });
 
 
 
 }]);
-app.
-controller('homeController', ['$scope', '$http', 'API_ENDPOINT',
-    function ($scope,$http, API_ENDPOINT ) {
+app.controller('homeController', ['$scope', '$http', 'API_ENDPOINT','$rootScope',
+    function ($scope,$http, API_ENDPOINT,$rootScope ) {
         $scope.currentDate=new Date();
         $scope.currentPage = 1;
         var setPage = function (pageNo) {
@@ -62,6 +67,39 @@ controller('homeController', ['$scope', '$http', 'API_ENDPOINT',
                 $scope.cars= res.data.cars;
                 $scope.totalCars=res.data.total;
                 if(!$scope.$$phase){$scope.$apply();}
+
+                setTimeout(function () {
+                    $('.lightSlider').lightSlider({
+                        gallery: false,
+                        slideMove: 1,
+                        item: 3,
+                        rtl:$rootScope.dir=='rtl',
+                        pager:false,
+                        slideMargin: 10,
+                        prevHtml:'<div class="swiper-button-prev"><i class="fa fa-angle-left"></i></div>',
+                        nextHtml:'<div class="swiper-button-next"><i class="fa fa-angle-right"></i></div>',
+                        responsive : [
+                            {
+                                breakpoint:800,
+                                settings: {
+                                    item:2,
+                                    slideMove:1,
+                                    slideMargin:6,
+                                }
+                            },
+                            {
+                                breakpoint:480,
+                                settings: {
+                                    item:1,
+                                    slideMove:1
+                                }
+                            }
+                        ]
+                    });
+                },200);
+
+                window.resize()
+
 
             });
         };

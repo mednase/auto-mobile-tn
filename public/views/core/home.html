@@ -7,141 +7,176 @@
 
 </section>
 
-<section class="container-fluid" style="margin-top: 20px">
-    <div class="col-md-12">
+<section class="container-fluid " style="margin-top: 20px">
+    <div class="row">
         <div class="box-speed-search {{default_direction}}">
             <h2 style="margin-bottom: 20px;height: auto;">{{'HOME_SEARCH_TITLE'|translate}}</h2>
             <div class="row">
-                <form class="form{{default_direction}}" >
+                <form class="form{{default_direction}}">
                     <div class="col-md-9">
-                    <div class="form-group col-md-4 col-sm-4 black_input col-xs-6">
-                        <div class="select">
-                            <select class="form-control">
-                                <option>{{'HOME_SEARCH_FORM_MARQUE'|translate}}</option>
-                                <option>Audi</option>
-                                <option>BMW</option>
-                                <option>Nissan</option>
-                                <option>Toyota</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group col-md-4 col-sm-4 black_input col-xs-6">
-                        <div class="select">
-                            <select class="form-control">
-                                <option>{{'HOME_SEARCH_FORM_MODEL'|translate}}</option>
-                                <option>Series 1</option>
-                                <option>Series 2</option>
-                                <option>Series 3</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group col-md-4 col-sm-4 black_input col-xs-6">
-                        <div class="select">
-                            <select class="form-control">
-                                <option>{{'HOME_SEARCH_FORM_YEAR'|translate}} </option>
-                                <option>2016</option>
-                                <option>2015</option>
-                                <option>2014</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group col-md-4 col-sm-6 col-xs-6 black_input hidden-sm hidden-md hidden-lg">
+                        <div class="form-group col-md-4 col-sm-4 black_input col-xs-6">
                             <div class="select">
                                 <select class="form-control">
-                                    <option>{{'HOME_SEARCH_FORM_TYPE'|translate}} </option>
+                                    <option>{{'HOME_SEARCH_FORM_MARQUE'|translate}}</option>
+                                    <option>Audi</option>
+                                    <option>BMW</option>
+                                    <option>Nissan</option>
+                                    <option>Toyota</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4 col-sm-4 black_input col-xs-6">
+                            <div class="select">
+                                <select class="form-control">
+                                    <option>{{'HOME_SEARCH_FORM_MODEL'|translate}}</option>
+                                    <option>Series 1</option>
+                                    <option>Series 2</option>
+                                    <option>Series 3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4 col-sm-4 black_input col-xs-6">
+                            <div class="select">
+                                <select class="form-control">
+                                    <option>{{'HOME_SEARCH_FORM_YEAR'|translate}}</option>
+                                    <option>2016</option>
+                                    <option>2015</option>
+                                    <option>2014</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-6 black_input hidden-sm hidden-md hidden-lg">
+                            <div class="select">
+                                <select class="form-control">
+                                    <option>{{'HOME_SEARCH_FORM_TYPE'|translate}}</option>
                                     <option>New Car</option>
                                     <option>Used Car</option>
                                 </select>
                             </div>
                         </div>
 
-                        <div  class="form-group col-md-8 col-sm-6 col-xs-12 black_input">
-                        <label class="form-label">{{'HOME_SEARCH_FORM_PRICE'|translate}}</label>
-                        <div class="slider slider-horizontal"  >
-                            <input id="price_range" data-slide-rtl="true" data-slider-handle="round" type="text" class="span2" value="1000,5000" data-slider-min="50" data-slider-max="6000" data-slider-step="5" data-slider-value="[1000,5000]" style="display: none;" data-value="1000,5000">
-                        </div>
+                        <div class="form-group col-md-8 col-sm-6 col-xs-12 black_input">
+                            <label class="form-label">{{'HOME_SEARCH_FORM_PRICE'|translate}}</label>
+                            <div class="slider slider-horizontal">
+                                <input id="price_range" data-slide-rtl="true" data-slider-handle="round" type="text"
+                                       class="span2" value="1000,5000" data-slider-min="50" data-slider-max="6000"
+                                       data-slider-step="5" data-slider-value="[1000,5000]" style="display: none;"
+                                       data-value="1000,5000">
+                            </div>
 
-                    </div>
-                    <div class="form-group col-md-4 col-sm-6 col-xs-6 black_input hidden-xs">
-                        <div class="select">
-                            <select class="form-control">
-                                <option>{{'HOME_SEARCH_FORM_TYPE'|translate}} </option>
-                                <option>{{'HOME_SEARCH_FORM_NEW'|translate}}</option>
-                                <option>{{'HOME_SEARCH_FORM_USED'|translate}}</option>
-                            </select>
                         </div>
-                    </div>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-6 black_input hidden-xs">
+                            <div class="select">
+                                <select class="form-control">
+                                    <option>{{'HOME_SEARCH_FORM_TYPE'|translate}}</option>
+                                    <option>{{'HOME_SEARCH_FORM_NEW'|translate}}</option>
+                                    <option>{{'HOME_SEARCH_FORM_USED'|translate}}</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group col-md-3 col-sm-6 col-sm-offset-3 col-xs-6 col-md-offset-0 col-xs-offset-3">
-                        <button id="searchBtn" type="submit" class="btn btn-block red"><i class="fa fa-search" aria-hidden="true"></i> {{'HOME_SEARCH_BTN'|translate}} </button>
+                        <button id="searchBtn" type="submit" class="btn btn-block red"><i class="fa fa-search"
+                                                                                          aria-hidden="true"></i>
+                            {{'HOME_SEARCH_BTN'|translate}}
+                        </button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    <div ng-if="loading" class="col-md-12 text-center text-info load-container">
+
+<div class="col-md-12 light-show" style="margin-top: 20px">
+    <div class="home-type-title col-md-10 col-md-offset-1 text-center">
+        <h3>{{'HOME_CAR_TYPE_TITLE_NEW'|translate}}</h3>
+    </div>
+    <div ng-if="loading" class="col-md-10 col-md-offset-1 text-center text-info load-container">
         <div class="loader-a ">
 
         </div>
     </div>
-    <div ng-if="!loading" class="row">
-        <div ng-repeat="car in cars track by $index" class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mt-element-ribbon animated zoomIn">
-
-            <div class="portlet light portlet-fit  ">
-                <div class="portlet-body boxed">
-                    <div ng-show="(car.date_publication | date:'d M') == (currentDate | date:'d M')" class="ribbon ribbon-vertical-left ribbon-border-dash-vert ribbon-color-danger uppercase" style="margin-top: -10px">
-                        <div class="ribbon-sub ribbon-bookmark"></div><b style="margin-right: -6px;">جديد</b>
-                    </div>
-                    <div class="caption text-center">
-                        <h4 class="caption-subject font-green bold uppercase" style="overflow: hidden;white-space: nowrap;">{{car.marque+" "+ car.model+" ,"+car.annee}}</h4>
-                    </div>
-                    <hr>
-                    <div class="mt-element-overlay">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="mt-overlay-4" style="min-height: 180px;max-height: 180px">
-                                    <img src="{{car.images.length>0?car.images[0]:'/public/assets/img/car/no_image.png'}}">
-                                    <div class="image-number"><span>&nbsp;{{car.images.length}}</span></div>
-                                    <div class="mt-overlay">
-                                        <h2>{{car.marque+" "+ car.model}}</h2>
-                                        <a class="mt-info btn default btn-outline" ui-sref="show_car({id:car._id})">المزيد</a>
-                                    </div>
-                                </div>
+    <div ng-if="!loading" class="container">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="lightSlider" data-rtl="{{dir=='rtl'}}">
+                <div  style="height: auto!important;" ng-repeat="car in cars track by $index">
+                    <div class="thumbnail no-border no-padding thumbnail-car-card">
+                        <div class="media">
+                            <div class="media-link" data-gal="prettyPhoto" >
+                                <img src="{{car.images.length>0?car.images[0]:'/public/assets/img/car/no_image.png'}}" class="img-responsive">
+                                <span class="icon-view" ui-sref="show_car({id:car._id})">
+                                    <strong>
+                                        <i class="fa fa-eye"></i>
+                                    </strong>
+                                </span>
                             </div>
                         </div>
-                        <div class="car-details">
-                            <div class="prix text-center">
-                                <h2>{{car.prix }} د.ت</h2>
+                        <div class="caption text-center">
+                            <h4 class="caption-title">{{car.marque+" "+ car.model+" ,"+car.annee}}</h4>
+                            <div class="caption-text">{{car.prix }} د.ت</div>
+                            <div class="buttons">
+                                <a class="btn btn-theme ripple-effect red" ui-sref="show_car({id:car._id})">المزيد</a>
                             </div>
-                            <ul>
-                                <li>
-                                   <img src="/public/assets/img/car/icon-carburant.png">
-                                    <h5>{{car.energie}}</h5>
-                                </li>
-                                <li>
-                                    <img src="/public/assets/img/car/icon-places.png">
-                                    <h5>{{car.porte}}</h5>
-                                </li>
-                                <li>
-                                    <img src="/public/assets/img/car/icon-boite.png">
-                                    <h5>{{car.type_vitesse}}</h5>
-                                </li>
-                                <li>
-                                    <img src="/public/assets/img/car/icon-portes.png">
-                                   <h5>{{car.porte}}</h5>
-                                </li>
-                            </ul>
+                            <table class="table">
+                                <tbody>
+                                <tr>
+
+                                </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div   ng-if="!loading" class="row text-center">
-        <ul uib-pagination id="pagination"  total-items="totalCars" ng-model="currentPage" max-size="5"
-            class="pagination-sm"  boundary-link-numbers="true" rotate="false" ng-change="pageChanged()"></ul>
+
+
+    <div class="home-type-title col-md-10 col-md-offset-1 text-center">
+        <h3>{{'HOME_CAR_TYPE_TITLE_USED'|translate}}</h3>
     </div>
+    <div ng-if="loading" class="col-md-10 col-md-offset-1 text-center text-info load-container">
+        <div class="loader-a ">
+
+        </div>
+    </div>
+
+
+    <div ng-if="!loading" class="container">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="lightSlider" data-rtl="{{dir=='rtl'}}">
+                <div  style="height: auto!important;" ng-repeat="car in cars track by $index">
+                    <div class="thumbnail no-border no-padding thumbnail-car-card">
+                        <div class="media">
+                            <div class="media-link" data-gal="prettyPhoto" >
+                                <img src="{{car.images.length>0?car.images[0]:'/public/assets/img/car/no_image.png'}}" class="img-responsive">
+                                <span class="icon-view" ui-sref="show_car({id:car._id})">
+                                    <strong>
+                                        <i class="fa fa-eye"></i>
+                                    </strong>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="caption text-center">
+                            <h4 class="caption-title">{{car.marque+" "+ car.model+" ,"+car.annee}}</h4>
+                            <div class="caption-text">{{car.prix }} د.ت</div>
+                            <div class="buttons">
+                                <a class="btn btn-theme ripple-effect red" ui-sref="show_car({id:car._id})">المزيد</a>
+                            </div>
+                            <table class="table">
+                                <tbody>
+                                <tr>
+
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </section>
 
 <section class="marque-zone">
@@ -199,5 +234,7 @@
     </ul>
 </section>
 <script>
-    $("#price_range").slider();
+    $(document).ready(function () {
+        $("#price_range").slider();
+        });
 </script>

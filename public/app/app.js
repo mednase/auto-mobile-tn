@@ -164,8 +164,10 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
         $rootScope.$on('$stateChangeStart', function (event, next) {
         uibPaginationConfig.nextText='التالي';
         uibPaginationConfig.previousText='السابق';
+            $rootScope.isLoading=true;
 
-        if(next.data==null && authService.isAuthenticated() ){
+
+            if(next.data==null && authService.isAuthenticated() ){
             $rootScope.isLoading=true;
             authService.logout();
         }

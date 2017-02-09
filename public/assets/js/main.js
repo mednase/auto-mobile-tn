@@ -2,6 +2,7 @@
  * Created by medna on 25/01/2017.
  */
 $("document").ready(function () {
+
     if($(window).width()<1100){
         $('.page-sidebar-menu').addClass('page-sidebar-menu-closed');
        $('body').toggleClass('page-sidebar-closed');

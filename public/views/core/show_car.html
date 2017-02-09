@@ -59,15 +59,15 @@
         <!-- Slider -->
         <div class="row" style="padding: 5px;">
             <div class=" col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-0">
-                <ul  id="lightSlider" class=" ">
-                        <li class="text-center" ng-repeat="image in car.images track by $index" data-thumb="{{image}}" >
-                                <img src="{{image}}" class="img-responsive ">
-                        </li>
-                        <li ng-if="car.images.length<1" class="col-sm-8 col-sm-offset-2">
-                            <div class="slide">
-                                <img src="/public/assets/img/car/no_image.png" class="img-responsive" width="650">
-                            </div>
-                        </li>
+                <ul  id="lightSlider" class=" " data-rtl="{{dir=='rtl'}}">
+                    <li class="text-center" ng-repeat="image in car.images track by $index" data-thumb="{{image}}" >
+                        <img src="{{image}}" class="img-responsive ">
+                    </li>
+                    <li ng-if="car.images.length<1" class="col-sm-8 col-sm-offset-2">
+                        <div class="slide">
+                            <img src="/public/assets/img/car/no_image.png" class="img-responsive" width="650">
+                        </div>
+                    </li>
                 </ul>
             </div>
             <div class="col-md-4 col-sm-12">
@@ -159,11 +159,14 @@
 
 <script>
     $(document).ready(function() {
-        $('#lightSlider').lightSlider({
-            gallery: true,
-            item: 1,
-            slideMargin: 1,
-            thumbItem: 10
-        });
+        setTimeout(function () {
+            $('#lightSlider').lightSlider({
+                gallery: true,
+                item: 1,
+                rtl:$('#lightSlider').data('rtl'),
+                slideMargin: 1,
+                thumbItem: 10
+            })
+        },200);
     });
 </script>

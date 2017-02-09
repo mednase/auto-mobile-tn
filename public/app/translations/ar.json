@@ -12,6 +12,12 @@
   "HOME_SEARCH_FORM_TYPE":"الحالة",
   "HOME_SEARCH_FORM_PRICE":"الثمن بين (د ت) :",
   "HOME_SEARCH_FORM_NEW":"جديدة",
-  "HOME_SEARCH_FORM_USED":"مستعملة"
+  "HOME_SEARCH_FORM_USED":"مستعملة",
+  "HOME_CAR_TYPE_TITLE_USED":"سيارات مستعملة",
+  "HOME_CAR_TYPE_TITLE_NEW":"سيارات جديدة",
+  "NAVBAR_CARS":"السيارات",
+  "NAVBAR_CARS_NEW":"الجديدة",
+  "NAVBAR_CARS_USED":"المستعملة"
+
 
 }

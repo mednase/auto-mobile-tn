@@ -1,24 +1,24 @@
-<div style="background-color: #1c1c1c;position: relative;height: 40px;" id="top-nav" class="top{{default_direction}}">
-        <ul class="col-md-6 col-xs-12 col-sm-8 pull-right " id="top-top-nav">
-            <li class="col-md-4 col-xs-6">
+<div style="background-color: #1c1c1c;position: relative;height: 40px;" id="top-nav" class="top-{{dir}}">
+        <ul class="col-md-8 col-xs-12 col-sm-8 pull-left " id="top-top-nav">
+            <li class="col-md-3 col-xs-6">
                 <a ui-sref="login" style="color: white;font-weight: 700;padding-left: 20px">
                     {{'NAVBAR_LOGIN'|translate}}
                 </a>
             </li>
-            <li class="col-md-4 col-xs-6">
-                    <label id="ar-lng">العربية</label>
-                    <label class="switch">
+            <li class="col-md-6 col-sm-6 row">
+                    <span id="ar-lng" >العربية</span>
+                    <label class="switch ">
                         <input type="checkbox" ng-checked="lang == 'fr'" ng-click="switchLanguage()">
                         <div class="slider round"></div>
                     </label>
-                    <label id="fr-lng">Français</label>
+                    <span id="fr-lng-{{dir}}" >Français</span>
             </li>
         </ul>
 </div>
-<div class="page-header navbar navbar-fixed-top " id="navbar">
+<div class="page-header navbar navbar-fixed-top nb-{{dir}}" id="navbar">
     <!-- BEGIN HEADER INNER -->
     <div class="page-header-inner ">
-        <div class="col-md-4 hidden-ssm hidden-ssm nav navbar-nav pull-left text-center div-logo{{default_direction}}">
+        <div class="col-md-4 hidden-ssm hidden-ssm nav navbar-nav pull-right text-center div-logo{{default_direction}}">
             <a href="/">
                 <img id="logo" src="/public/assets/img/logo.png" alt="logo" width="200" height="68"> </a>
         </div>
@@ -26,6 +26,14 @@
             <ul class="nav navbar-nav pull-left">
                 <li>
                     <a ui-sref="home" class="navbar-button">{{'NAVBAR_HOME'|translate}}</a>
+                </li>
+                <li>
+                    <a class="dropdown-toggle navbar-button" data-toggle="dropdown" href="#">{{'NAVBAR_CARS'|translate}}
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu ">
+                        <li><a href="#">{{'NAVBAR_CARS_NEW'|translate}}</a></li>
+                        <li><a href="#">{{'NAVBAR_CARS_USED'|translate}}</a></li>
+                    </ul>
                 </li>
             </ul>
             <ul class="nav navbar-nav pull-right">
