@@ -60,6 +60,7 @@
     -ms-transform: skew(-34deg, 0deg) ;
     background-color: rgba(231, 22, 24, 1)!important;
 }
+@media (min-width:400px ) {
 .nb-ltr .nav ul{
     overflow: hidden;
     left: 59px;
@@ -87,6 +88,7 @@
     -ms-transform: skew(-34deg, 0deg)!important ;
     background-color:  rgba(173, 25, 26, 1)!important;
     box-shadow:none!important;
+}
 }
 .nb-ltr .nav ul li{
     width: 120%;
@@ -153,22 +155,22 @@
 #top-top-nav li a {
     text-decoration: none;
 }
-@media (max-width:350px ) {
-    #navbar .nav ul{
-        left: 44px;
+@media (max-width:400px ) {
+    .nb-ltr .nav ul{
+        overflow: hidden;
+        left: 0px;
         top: 67px;
         border-top: none!important;
-        width: 100%!important;
-        transform: none!important ;
-
-        -webkit-transform: skew(34deg, 0deg)!important ;
-        -moz-transform: skew(34deg, 0deg)!important ;
-        -o-transform: skew(34deg, 0deg)!important ;
-        -ms-transform: skew(34deg, 0deg)!important ;
-        background-color: rgba(231, 22, 24, 1)!important;
-        -moz-box-shadow: 5px 9px 25px #000000!important;
-        -webkit-box-shadow: 5px 9px 25px #000000!important;
-        box-shadow: 5px 9px 25px #000000!important;
+        background-color:  rgba(173, 25, 26, 1)!important;
+        box-shadow:none!important;
+    }
+    .nb-rtl .nav ul{
+        overflow: hidden;
+        right: 0px;
+        top: 67px;
+        border-top: none!important;
+        background-color:  rgba(173, 25, 26, 1)!important;
+        box-shadow:none!important;
     }
 }
 @media (min-width: 768px) {
