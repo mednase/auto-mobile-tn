@@ -48,9 +48,9 @@
                         <div class="form-group col-md-4 col-sm-6 col-xs-6 black_input hidden-sm hidden-md hidden-lg">
                             <div class="select">
                                 <select class="form-control">
-                                    <option>{{'HOME_SEARCH_FORM_TYPE'|translate}}</option>
-                                    <option>New Car</option>
-                                    <option>Used Car</option>
+                                    <option>{{'HOME_SEARCH_FORM_CONDITION'|translate}}</option>
+                                    <option>{{'HOME_SEARCH_FORM_NEW'|translate}}</option>
+                                    <option>{{'HOME_SEARCH_FORM_USED'|translate}}</option>
                                 </select>
                             </div>
                         </div>
@@ -58,17 +58,21 @@
                         <div class="form-group col-md-8 col-sm-6 col-xs-12 black_input">
                             <label class="form-label">{{'HOME_SEARCH_FORM_PRICE'|translate}}</label>
                             <div class="slider slider-horizontal">
-                                <input id="price_range" data-slide-rtl="true" data-slider-handle="round" type="text"
-                                       class="span2" value="1000,5000" data-slider-min="50" data-slider-max="6000"
-                                       data-slider-step="5" data-slider-value="[1000,5000]" style="display: none;"
-                                       data-value="1000,5000">
+                                <input ng-model="slideValue" id="price_range"
+                                       data-slide-rtl="{{dir=='rtl'}}"
+                                       data-slider-handle="round" type="text"
+                                       class="span2"
+                                       data-slider-min="5"
+                                       data-slider-max="300"
+                                       data-slider-step="1"
+                                       data-slider-value="[20,80]">
                             </div>
 
                         </div>
                         <div class="form-group col-md-4 col-sm-6 col-xs-6 black_input hidden-xs">
                             <div class="select">
                                 <select class="form-control">
-                                    <option>{{'HOME_SEARCH_FORM_TYPE'|translate}}</option>
+                                    <option>{{'HOME_SEARCH_FORM_CONDITION'|translate}}</option>
                                     <option>{{'HOME_SEARCH_FORM_NEW'|translate}}</option>
                                     <option>{{'HOME_SEARCH_FORM_USED'|translate}}</option>
                                 </select>
@@ -126,7 +130,7 @@
                             <h4 class="product-name col-md-7 col-xs-6">
                                 {{car.marque+" "+ car.model+" ,"+car.annee}}
                             </h4>
-                            <span class="product-price {{dir}} col-md-5">{{car.prix }} د.ت</span>
+                            <span class="product-price {{dir}} col-md-5">{{car.prix }} {{'MONEY'|translate}}</span>
                         </div>
                     </div>
                 </div>
@@ -241,6 +245,13 @@
 </section>
 <script>
     $(document).ready(function () {
-        $("#price_range").slider();
+        $("#price_range").slider({
+            formatter: function(value) {
+                if($("html").attr('dir')=='rtl'){
+                    return value[0]+",000"+" و "+value[1]+",000" +" د ت  ";
+                }else
+                    return value[0]+",000"+" et "+value[1]+",000"+" DT  ";
+                }
         });
+    });
 </script>

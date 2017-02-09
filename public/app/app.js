@@ -138,6 +138,14 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
                 data: {
                     authenticate: true,
                 }
+            })
+            .state('marques',{
+                url: '/admin/marques',
+                templateUrl: '/public/views/admin/marques.html',
+                controller: 'marquesController',
+                data: {
+                    authenticate: true,
+                }
             }).
             state('error', {
                 url: '/error',

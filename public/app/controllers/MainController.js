@@ -33,7 +33,6 @@ app.controller('appController',['$scope','authService','$http','API_ENDPOINT','$
             else
                 $translate.use('ar')
 
-            $state.reload();
 
         };
 

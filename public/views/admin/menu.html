@@ -7,27 +7,34 @@
                 <li class="nav-item start page-dashboard">
                     <a ui-sref="admin" class="nav-link nav-toggle">
                         <i class="icon-home"></i>
-                        <span class="title">الصفحة الرئيسية</span>
+                        <span class="title">{{'ADMIN_MENU_DASHBOARD'|translate}}</span>
                         <span class="arrow"></span>
                     </a>
                 </li>
                 <li class="nav-item start page-new-car page-list-cars">
                     <a class="nav-link nav-toggle">
                         <i class="fa fa-car "></i>
-                        <span class="title">السيارات</span>
+                        <span class="title">{{'ADMIN_MENU_CARS'|translate}}</span>
                         <span class="arrow"></span>
                     </a>
                     <ul class="sub-menu ">
                         <li class="nav-item page-new-car">
                             <a ui-sref="newCar" class="nav-link ">
                                 <i class="fa fa-plus"></i>
-                                <span class="title">أضف سيارة</span>
+                                <span class="title">{{'ADMIN_MENU_CARS_ADD'|translate}}</span>
                             </a>
                         </li>
                         <li class="nav-item page-list-cars">
                             <a ui-sref="cars" class="nav-link ">
                                 <i class="fa fa-list"></i>
-                                <span class="title">قائمة السيارات</span>
+                                <span class="title">{{'ADMIN_MENU_CARS_NEW'|translate}}</span>
+
+                            </a>
+                        </li>
+                        <li class="nav-item page-list-cars">
+                            <a ui-sref="cars" class="nav-link ">
+                                <i class="fa fa-list"></i>
+                                <span class="title">{{'ADMIN_MENU_CARS_OLD'|translate}}</span>
 
                             </a>
                         </li>
@@ -36,21 +43,28 @@
                 <li class="nav-item start page-messages">
                     <a ui-sref="messages" class="nav-link nav-toggle">
                         <i class="fa fa-envelope"></i>
-                        <span class="title">الرسائل</span>
+                        <span class="title">{{'ADMIN_MENU_MESSAGES'|translate}}</span>
+                        <span class="arrow"></span>
+                    </a>
+                </li>
+                <li class="nav-item start page-list-marques">
+                    <a ui-sref="marques" class="nav-link nav-toggle">
+                        <i class="fa fa-wrench"></i>
+                        <span class="title">{{'ADMIN_MENU_MARQUE_MODELS'|translate}}</span>
                         <span class="arrow"></span>
                     </a>
                 </li>
                 <li class="nav-item start page-settings">
                     <a ui-sref="settings" class="nav-link nav-toggle">
                         <i class="fa fa-cogs"></i>
-                        <span class="title">الإعدادات</span>
+                        <span class="title">{{'ADMIN_MENU_PARAMETERS'|translate}}</span>
                         <span class="arrow"></span>
                     </a>
                 </li>
                 <li class="nav-item start">
                     <a ui-sref="logout" class="nav-link nav-toggle">
                         <i class="icon-key"></i>
-                        <span class="title">تسجيل خروج</span>
+                        <span class="title">{{'ADMIN_MENU_LOGOUT'|translate}}</span>
                         <span class="arrow"></span>
                     </a>
                 </li>

@@ -191,6 +191,7 @@ a, button, code, div, img, input, label, li, p, pre, select, span, svg, table, t
 @media (max-width: 380px) {
     .hidden-xxs {
         display: none !important;
+        z-index: -99999;
     }
     .search-title{
         font-size: 35px!important;
@@ -257,80 +258,20 @@ a, button, code, div, img, input, label, li, p, pre, select, span, svg, table, t
 .footer-body .list-default li, .footer-body p {
     color: #999;
 }
-.list-default li {
-    font-size: 16px;
-    padding: 10px 0px;
-    display: block;
-    border-bottom-width: 1px;
-    border-bottom-style: dashed;
+
+ul.pagination>li>a{
+    background: #333!important;
+    color: #fff!important;
 }
-.list-default li i {
-    color: inherit;
-    width: 20px;
-}
-.heading-2 h3{
-    background: #d50808;
+ul.pagination>li.active{
+    background: #d11717;
     color: #fff;
-    border-left-color: #d50808;
 }
-.ltr .heading-2 h3::after {
-    position: absolute;
-    top: -1px;
-    right: -46px;
-    content: '';
-    border-width: 23px;
-    border-style: solid;
-    border-top-color: rgb(34, 34, 34);
-    border-right-color: rgb(34, 34, 34);
-    border-left-color: rgba(0,0,0,0);
-    border-bottom-color: rgba(0,0,0,0);
-    border-left-color: #d50808;
-    border-bottom-color: #d50808;
+ul.pagination>li>a:hover{
+    color: #d11717;
 }
-.car-filter {
-    background: #d50808;
-    display: inline-block;
-    padding: 10px;
-}
-.car-filter .form-group label{
-    color: white;
-    font-size: 18px;
-    margin-top: 7px;
-}
-.car-filter .form-group{
-    margin-bottom: 0;
-    margin-top: 8px;
-}
-.car-f-btm{
-    border: 3px solid #222;
-    margin-top: 30px;
-}
-.car-f-top {
-    position: absolute;
-    margin-top: -13px;
-    border-top: 1px solid #222;
-    border-left: 3px solid #222;
-    z-index: 9999;
-}
-.rtl .car-f-top {
-    position: absolute;
-    margin-top: -13px;
-    border-top: 1px solid #222;
-    border-right: 3px solid #222;
-    border-left: none!important;
-    z-index: 99;
-}
-.rtl .heading-2 h3::before {
-    position: absolute;
-    top: -1px;
-    left: -45px;
-    content: '';
-    border-width: 23px;
-    border-style: solid;
-    border-top-color: rgb(34, 34, 34);
-    border-bottom-color: rgb(34, 34, 34);
-    border-left-color: rgb(34, 34, 34);
-    border-bottom-color: rgb(213, 8, 8);
-    border-right-color: #d50808;
-    border-bottom-color: #d50808;
+@media (min-width: 1200px){
+    .col-lg-4 {
+        width: 35.33333%!important;
+    }
 }

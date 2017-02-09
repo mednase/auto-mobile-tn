@@ -12,6 +12,23 @@ var express = require('express'),
 var router = express.Router();
 
 module.exports = (function () {
+    router.get('/api/home',function (req,res) {
+        var usedCarQuery = function(callback){
+            Car.find({nouveau:false}).sort({date_publication:-1}).limit(10).exec(function (err,cars) {
+                callback(err, cars);
+            });
+        };
+        var newCarQuery = function(callback){
+            Car.find({nouveau:true}).sort({date_publication:-1}).limit(10).exec(function (err,cars) {
+                callback(err, cars);
+            });
+        };
+        async.parallel([usedCarQuery, newCarQuery], function(err, results){
+            return res.json({newCars:results[1],usedCars:results[0]});
+        });
+
+    });
+
     router.get('/api/marques', function (req, res) {
         Marque.find().exec(function (err, result) {
             res.json(result);

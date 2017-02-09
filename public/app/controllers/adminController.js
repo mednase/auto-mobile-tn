@@ -301,4 +301,42 @@ controller('settingsController',['$scope','$http','API_ENDPOINT',
         $scope.changePassword=function () {
             console.log($scope.password);
         };
-    }]);
+    }]).
+controller('marquesController',['$scope','$http','API_ENDPOINT',
+    function ($scope,$http,API_ENDPOINT) {
+        $http.get(API_ENDPOINT.url+"/marques").then(function (result) {
+            $scope.marques=result.data;
+        });
+
+        $scope.addModel=function () {
+            $http.post(API_ENDPOINT.url+"/admin/model/new",{marque_id:$scope.marque,model_name:$scope.model}).then(function (msg) {
+                if(msg.data.success){
+                    $scope.addModelSuccess=true;
+                    $scope.addModelError=false;
+                    $http.get(API_ENDPOINT.url+"/marques").then(function (result) {
+                        $scope.marques=result.data;
+                    });
+                    $scope.new_model="";
+                }else{
+                    $scope.addModelSuccess=false;
+                    $scope.addModelError=true;
+                }
+                $scope.marque=null;
+            });
+        };
+        $scope.addMarque=function () {
+            $http.post(API_ENDPOINT.url+"/admin/marque/new",{nom_marque:$scope.nom_marque}).then(function (msg) {
+                if(msg.data.success){
+                    $scope.addMarqueSuccess=true;
+                    $scope.addMarqueError=false;
+                    $http.get(API_ENDPOINT.url+"/marques").then(function (result) {
+                        $scope.marques=result.data;
+                    });
+                    $scope.nom_marque="";
+                }else{
+                    $scope.addMarqueSuccess=false;
+                    $scope.addMarqueError=true;
+                }
+            });
+        };
+}]);

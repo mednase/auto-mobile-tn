@@ -1,83 +1,165 @@
-<div style="min-height: 500px">
-
-<section class="col-md-10 col-md-offset-1 {{dir}}" style="margin-top: 50px">
-    <div class="heading-2 col-md-4 car-filter car-f-top">
-        <h3 class="p-l-lg-20" style="margin: 0px;">New Cars (45)</h3>
-    </div>
-    <div class="col-md-12 col-sm-12 col-xs-12 car-filter car-f-btm">
-        <div class="col-md-4 col-xs-12 ">
-            <input ng-model="search" type="text" placeholder="ابحث عن ......." class="form-control input-lg">
-        </div>
-        <div class="col-md-7 col-md-offset-1 col-xs-12 text-right  ">
-            <div class="pull-right col-md-12">
-                <div class="form-group col-md-6">
-                    <label class="col-md-5"><i class="fa fa-sort-alpha-asc"></i>Filter : </label>
-                    <div class="col-md-7 black_input" style="padding: 0px;">
-                        <select class="select  form-control">
-                            <option value="Prix">Prix</option>
-                            <option value="Année">Année</option>
-                            <option value="Kilométrage">Kilométrage</option>
+<section class="container-fluid">
+    <div class="col-sm-3 col-md-3 col-lg-3 col-xs-12">
+        <!-- Search option -->
+        <div class="side-search">
+            <form class="car-form">
+                <div class="row">
+                    <div class="col-md-12 col-xs-12  form-item">
+                        <label class="hidden col-md-4" for="car-manufacturer">Make
+                        </label>
+                        <select ng-model="selectedMarque" id="car-manufacturer" class="form-select col-md-10 col-xs-10 col-xs-offset-1 col-md-offset-1 x-select">
+                            <option value="" selected="selected">{{"HOME_SEARCH_FORM_MARQUE"|translate}}</option>
+                            <option ng-repeat="marque in marques track by $index" value="{{marque}}">{{marque.nom}}</option>
                         </select>
                     </div>
-
-                </div>
-                <div class="form-group col-md-6">
-                    <label class="col-md-5"><i class="fa fa-sort-alpha-asc"></i>Show : </label>
-                    <div class="col-md-7 black_input">
-                        <select class="select  form-control">
-                            <option value="8">8</option>
-                            <option value="16">16</option>
-                            <option value="24">24</option>
+                    <div class="col-md-12 col-xs-12 form-item ">
+                        <label class="hidden col-md-4"  for="car-model">{{""|translate}}</label>
+                        <select ng-model="selectedModel" name="car" id="car-model" class="form-select disabled col-md-10 col-xs-10 col-md-offset-1 col-xs-offset-1 x-select" ng-disabled="selectedMarque==null" >
+                            <option value="" selected="selected">{{"HOME_SEARCH_FORM_MODEL"|translate}}</option>
+                            <option ng-repeat="model in models track by $index" value="{{model}}">{{model}}</option>
                         </select>
+                    </div>
+                    <div class="col-md-12 col-xs-12 form-item">
+                        <label class="hidden col-md-4" for="car-year">Make
+                        </label>
+                        <select  id="car-year" class="form-select col-md-10 col-xs-10 col-md-offset-1 col-xs-offset-1 x-select">
+                            <option value="" selected="selected">{{"HOME_SEARCH_FORM_YEAR"|translate}}</option>
+                            <option >2014</option>
+                            <option >2015</option>
+                            <option >2016</option>
+                            <option >2017</option>
+
+                        </select>
+                    </div>
+                    <div class="col-md-12 col-xs-12 form-item">
+                        <label class="hidden col-md-4" for="car-transition">Make
+                        </label>
+                        <select  id="car-transition" class="form-select col-md-10 col-xs-10 col-xs-offset-1 col-md-offset-1 x-select">
+                            <option value="" selected="selected">{{"CARS_SEARCH_FORM_TRANSITION"|translate}}</option>
+                            <option value="auto">{{'CARS_SEARCH_FORM_TRANSITION_AUTOMATIC'|translate}}</option>
+                            <option value="semi-auto">{{'CARS_SEARCH_FORM_TRANSITION_SEMI_AUTOMATIC'|translate}}</option>
+                            <option value="manual">{{'CARS_SEARCH_FORM_TRANSITION_MANUAL'|translate}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12 col-xs-12 form-item">
+                        <label class="hidden col-md-4" for="car-state">Make
+                        </label>
+                        <select  id="car-state" class="form-select col-md-10 col-xs-10 col-xs-offset-1 col-md-offset-1 x-select">
+                            <option value="" selected="selected">{{"HOME_SEARCH_FORM_CONDITION"|translate}}</option>
+                            <option value="new">{{"HOME_SEARCH_FORM_NEW"|translate}}</option>
+                            <option value="old">{{"HOME_SEARCH_FORM_USED"|translate}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12 col-xs-12 slider slider-horizontal" style="margin-top: 20px">
+                        <span> </span>
+                        <input ng-model="slideValue" id="price_range"
+                               data-slide-rtl="{{dir=='rtl'}}"
+                               data-slider-handle="round" type="text"
+                               class="span2"
+
+                               data-slider-min="5"
+                               data-slider-max="300"
+                               data-slider-step="1"
+                               data-slider-value="[20,80]">
+                    </div>
+                    <button class="search-btn">{{'HOME_SEARCH_BTN'|translate}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-9 col-sm-9 col-xs-12 container-fluid">
+        <div class="col-md-12  {{dir}}" style="margin-top: 50px">
+            <div class="heading-2 col-md-4 car-filter car-f-top">
+                <h3 class="p-l-lg-20" style="margin: 0px;">{{"SHOW_CARS_NEW_CARS"|translate}}</h3>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 car-filter car-f-btm">
+                <div class="col-md-4 col-xs-12 ">
+                    <input ng-model="search" type="text" placeholder="ابحث عن ......." class="form-control input-lg">
+                </div>
+                <div class="col-md-8 col-xs-12 text-right  ">
+                    <div class="pull-right col-md-12 col-xs-12">
+                        <div class="form-group col-md-6 col-xs-6">
+                            <label class="col-md-5 col-xs-6"><i class="fa fa-sort-alpha-asc"></i>Filter : </label>
+                            <div class="col-md-7 col-xs-6 black_input" style="padding: 0px;">
+                                <select class="select  form-control">
+                                    <option value="Prix">Prix</option>
+                                    <option value="Année">Année</option>
+                                    <option value="Kilométrage">Kilométrage</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="form-group col-md-6 col-xs-6">
+                            <label class="col-md-5 col-xs-6"><i class="fa fa-sort-alpha-asc"></i>Show : </label>
+                            <div class="col-md-7 col-xs-6 black_input">
+                                <select class="select  form-control">
+                                    <option value="8">8</option>
+                                    <option value="16">16</option>
+                                    <option value="24">24</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>    </div>
 
-
-
-</section>
-<section class="container-fluid" >
-    <div class="col-md-12" style="margin-top: 20px">
-        <div ng-repeat="car in cars|filter:search track by $index" class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                <div class="thumbnail no-border no-padding thumbnail-car-card">
-                    <div class="media">
-                        <div class="media-link" data-gal="prettyPhoto" >
-                            <img src="{{car.images.length>0?car.images[0]:'/public/assets/img/car/no_image.png'}}" class="img-responsive">
-                            <span class="icon-view" ui-sref="show_car({id:car._id})">
+            <div class="col-md-12" style="margin-top: 20px">
+                <div ng-repeat="car in cars|filter:search track by $index" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="thumbnail no-border no-padding thumbnail-car-card">
+                        <div class="media">
+                            <div class="media-link" data-gal="prettyPhoto">
+                                <img src="{{car.images.length>0?car.images[0]:'/public/assets/img/car/no_image.png'}}"
+                                     class="img-responsive">
+                                <span class="icon-view" ui-sref="show_car({id:car._id})">
                                     <strong>
                                         <i class="fa fa-eye"></i>
                                     </strong>
                                 </span>
+                            </div>
+                        </div>
+                        <div>
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <td><i class="fa fa-car"></i> {{car.annee}}</td>
+                                    <td><i class="fa fa-dashboard"></i> {{car.energie}}</td>
+                                    <td><i class="fa fa-cog"></i> {{car.type_vitesse}}</td>
+                                    <td><i class="fa fa-road"></i> 25000</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="product-caption row no-margin">
+                            <h4 class="product-name col-md-7 col-xs-6">
+                                {{car.marque+" "+ car.model+" ,"+car.annee}}
+                            </h4>
+                            <span class="product-price {{dir}} col-md-5">{{car.prix }} د.ت</span>
                         </div>
                     </div>
-                    <div>
-                        <table class="table">
-                            <tbody><tr>
-                                <td><i class="fa fa-car"></i> {{car.annee}}</td>
-                                <td><i class="fa fa-dashboard"></i> {{car.energie}}</td>
-                                <td><i class="fa fa-cog"></i> {{car.type_vitesse}}</td>
-                                <td><i class="fa fa-road"></i> 25000</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="product-caption row no-margin" >
-                        <h4 class="product-name col-md-7 col-xs-6">
-                            {{car.marque+" "+ car.model+" ,"+car.annee}}
-                        </h4>
-                        <span class="product-price {{dir}} col-md-5">{{car.prix }} د.ت</span>
-                    </div>
                 </div>
-        </div>
 
-        <div ng-show="cars.length<1" class="col-md-12 text-center" style="margin-top: 100px;margin-bottom: 100px">
-            <h1 class="font-red-flamingo">لاتوجد سيارات لهذه الماركة حاليا .</h1>
+                <div ng-show="cars.length<1" class="col-md-12 text-center"
+                     style="margin-top: 100px;margin-bottom: 100px">
+                    <h1 class="font-red-flamingo">لاتوجد سيارات لهذه الماركة حاليا .</h1>
+                </div>
+            </div>
+            <div class="row text-center">
+                <ul id="pagination" uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage"
+                    max-size="maxSize"
+                    class="pagination-sm" boundary-link-numbers="true" rotate="false"></ul>
+            </div>
         </div>
-    </div>
-    <div class="row text-center">
-        <ul id="pagination" uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize"
-            class="pagination-sm" boundary-link-numbers="true" rotate="false"></ul>
     </div>
 </section>
-</div>
+<script>
+    $(document).ready(function () {
+        $("#price_range").slider({
+            formatter: function(value) {
+                if($("html").attr('dir')=='rtl'){
+                    return value[0]+",000"+" و "+value[1]+",000" +" د ت  ";
+                }else
+                    return value[0]+",000"+" et "+value[1]+",000"+" DT  ";
+            }
+        });
+    });
+</script>

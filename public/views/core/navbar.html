@@ -1,6 +1,6 @@
 <div style="background-color: #1c1c1c;position: relative;height: 40px;" id="top-nav" class="top-{{dir}}">
         <ul class="col-md-8 col-xs-12 col-sm-8 pull-left " id="top-top-nav">
-            <li class="col-md-3 col-xs-6">
+            <li class="col-md-3 col-xs-6" style="z-index: 99;">
                 <a ui-sref="login" style="color: white;font-weight: 700;padding-left: 20px">
                     {{'NAVBAR_LOGIN'|translate}}
                 </a>
@@ -34,7 +34,7 @@
                 <li>
                     <a class="dropdown-toggle navbar-button" data-toggle="dropdown" href="#"><b>{{'NAVBAR_CARS'|translate}}</b>
                         <span class="caret"></span></a>
-                    <ul class="dropdown-menu ">
+                    <ul class="dropdown-menu cstm ">
                         <li><a href="#"><b>{{'NAVBAR_CARS_NEW'|translate}}</b></a></li>
                         <li><a href="#"><b>{{'NAVBAR_CARS_USED'|translate}}</b></a></li>
                     </ul>

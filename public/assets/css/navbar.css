@@ -20,7 +20,7 @@
     border-radius: 5px!important;
 }
 
-#navbar .navbar-button{
+ .navbar-button{
     font-weight: 700;
     height: 68px !important;
     text-align: center;
@@ -28,7 +28,7 @@
     font-size: 26px;
     color: white;
 }
- .nav li a:hover,.nav li a:active, .nav li a:focus,.nav li a:visited{
+#navbar .nav li a:hover,#navbar .nav li a:active,#navbar .nav li a:focus,#navbar .nav li a:visited{
     display: block;
     color: #fff;
     height: 35px;
@@ -90,15 +90,15 @@
     -o-transform: skew(34deg, 0deg)!important ;
     -ms-transform: skew(34deg, 0deg)!important ;
 }
-.nav ul li:hover>a{
+.dropdown-menu.cstm li:hover>a{
     background: transparent!important;
 }
-.nav ul li a{
+.dropdown-menu.cstm li a{
     color: #ffffff!important;
     font-weight: 900;
     font-size: 22px;
 }
-.nav ul li a:hover,.nav ul li a:focus{
+.dropdown-menu.cstm li a:hover,.nav ul li a:focus{
     clear: both;
     background: inherit!important;
     background-color: #5a1111!important;
@@ -136,6 +136,7 @@
     text-decoration: none;
 }
 @media (max-width:400px ) {
+
     .nb-ltr .nav ul{
         overflow: hidden;
         left: 0px;
@@ -258,4 +259,13 @@
 #fr-lng-ltr{
     margin-left: 60px;
     color: #efefef;
+}
+@media (min-width:500px) {
+    .nb-ltr .top-menu{
+        padding-left: 100px!important;
+    }
+    .nb-rtl .top-menu{
+        padding-right: 100px!important;
+    }
+
 }

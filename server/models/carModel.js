@@ -4,6 +4,8 @@
 var mongoose=require('mongoose');
 var Schema=mongoose.Schema;
 var car_schema=new Schema({
+    nouveau:{type:Boolean,default:true},
+    titre:String,
     marque: String,
     model: String,
     annee: Number,

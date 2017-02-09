@@ -34,8 +34,28 @@
             <div class="portlet-body" style="height: auto;">
                 <form role="form" ng-submit="addCar()" class="form-horizontal" name="form">
                     <div class="form-body">
-                        <div class="form-group">
-                            <label for="marque" class="col-md-2 control-label">الماركة
+                        <div class="form-group col-md-6">
+                            <label for="marque" class="col-md-3 control-label">{{'ADMIN_FORM_ADD_CAR_TITLE'|translate}}
+                                <span class="required" aria-required="true"> * </span>
+                            </label>
+                            <div  class=" col-md-8">
+                                <input class="form-control" placeholder="{{'ADMIN_FORM_ADD_CAR_TITLE'|translate}}">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="marque" class="col-md-3 control-label">{{'HOME_SEARCH_FORM_CONDITION'|translate}}
+                                <span class="required" aria-required="true"> * </span>
+                            </label>
+                            <div class=" col-md-6">
+                                <select  ng-model="car.nouveau"  class="form-control" required>
+                                    <option value="true">{{'HOME_SEARCH_FORM_NEW'|translate}}</option>
+                                    <option value="false">{{'HOME_SEARCH_FORM_USED'|translate}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="marque" class="col-md-3 control-label">{{'HOME_SEARCH_FORM_MARQUE'|translate}}
                                 <span class="required" aria-required="true"> * </span>
                             </label>
                             <div class=" col-md-9">
@@ -44,8 +64,8 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="model" class="col-md-2 control-label">الموديل
+                        <div class="form-group col-md-6">
+                            <label for="model" class="col-md-3 control-label">{{'HOME_SEARCH_FORM_MODEL'|translate}}
                                 <span class="required" aria-required="true"> * </span>
                             </label>
                             <div class=" col-md-9">
@@ -54,8 +74,8 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="date" class="control-label col-md-2">السنة
+                        <div class="form-group col-md-6">
+                            <label for="date" class="control-label col-md-3">{{'HOME_SEARCH_FORM_YEAR'|translate}}
                                 <span class="required" aria-required="true"> * </span>
                             </label>
                             <div class="col-md-9">
@@ -65,19 +85,18 @@
                                      </span>
                                     <input data-placeholder="السنة" ng-model="car.annee" range from="2000"  id="date" required>
                                 </div>
-                                <span class="help-block hidden">إختر سنة الصنع</span>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label">اللون
+                        <div class="form-group col-md-6">
+                            <label class="col-md-3 control-label">{{'ADMIN_FORM_ADD_CAR_COLOR'|translate}}
                                 <span class="required" aria-required="true"> * </span>
                             </label>
                             <div class="col-md-9">
                                     <input ng-model="car.couleur" type="text" name="couleur" class="form-control" placeholder="اللون" required>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label">الثمن
+                        <div class="form-group col-md-6">
+                            <label class="col-md-3 control-label">{{'HOME_SEARCH_FORM_PRICE'|translate}}
                                 <span class="required" aria-required="true"> * </span>
                             </label>
                             <div class="col-md-9">
@@ -89,8 +108,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="porte" class="control-label col-md-2">عدد الأبواب
+                        <div class="form-group col-md-6">
+                            <label for="porte" class="control-label col-md-3">عدد الأبواب
                                 <span class="required" aria-required="true"> * </span>
                             </label>
                             <div class="col-md-9">
@@ -103,8 +122,8 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="place" class="control-label col-md-2">عدد الأماكن
+                        <div class="form-group col-md-6">
+                            <label for="place" class="control-label col-md-3">عدد الأماكن
                                 <span class="required" aria-required="true"> * </span>
                             </label>
                             <div class="col-md-9">
@@ -121,16 +140,16 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="capacite" class="col-md-2 control-label">سعة المحرك
+                        <div class="form-group col-md-6">
+                            <label for="capacite" class="col-md-3 control-label">سعة المحرك
                             </label>
                             <div class="col-md-9">
                                 <input ng-model="car.capacite_moteur" id="capacite" type="number" name="capacite" class="form-control"
                                        placeholder="سعة المحرك باللتر" required>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="energie" class="control-label col-md-2">الطاقة
+                        <div class="form-group col-md-6">
+                            <label for="energie" class="control-label col-md-3">الطاقة
                             </label>
                             <div class="col-md-9">
                                 <select  ng-model="car.energie" id="energie" class="form-control" required>
@@ -141,8 +160,8 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="vitesse" class="control-label col-md-2">ناقل حركة
+                        <div class="form-group col-md-6">
+                            <label for="vitesse" class="control-label col-md-3">ناقل حركة
                             </label>
                             <div class="col-md-9">
                                 <select  ng-model="car.type_vitesse" id="vitesse" class="form-control" required>
@@ -204,7 +223,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="javascript:;" data-repeater-create="" class="btn btn-primary mt-repeater-add col-md-2 ">
+                        <a href="javascript:;" data-repeater-create="" class="btn btn-primary mt-repeater-add col-md-3 ">
                             <i class="fa fa-plus"></i>&nbsp;أضف صورة&nbsp;</a>
                     </div>
                     <div class="margin-top-10 text-center">
