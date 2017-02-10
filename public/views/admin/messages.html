@@ -2,17 +2,17 @@
     <ul class="page-breadcrumb">
         <li>
             <i class="icon-home"></i>
-            <a ui-sref="admin">الرئيسية</a>
+            <a ui-sref="admin">{{'ADMIN_MENU_DASHBOARD'|translate}}</a>
             <i class="fa fa-angle-right"></i>
         </li>
         <li>
-            <span>قائمة الرسائل</span>
+            <span>{{'ADMIN_PAGE_CARS_MESSAGES_TITLE'|translate}}</span>
         </li>
 
     </ul>
 </div>
 <div class="m-heading-1 border-green m-bordered row" style="margin-bottom: 17px;">
-    <h2>     <span class="fa fa-envelope font-blue"></span>    &nbsp; قائمة الرسائل </h2>
+    <h2>     <span class="fa fa-envelope font-blue"></span>    &nbsp; {{'ADMIN_PAGE_CARS_MESSAGES_TITLE'|translate}} </h2>
 </div>
 <div class="portlet box blue">
     <div class="portlet-title">
@@ -22,12 +22,12 @@
         <table datatable="ng" class="table table-striped table-bordered table-hover  no-footer " dt-options="dtOptions" dt-column-defs="showCase.dtColumnDefs" cellspacing="0" width="100%">
             <thead>
             <tr>
-                <th class="hidden-xs">تاريخ الإرسال</th>
-                <th >الإسم</th>
-                <th class="hidden-xs">البريد الإلكتروني</th>
-                <th>الهاتف</th>
-                <th>الولاية</th>
-                <th class="text-center">الخيارات</th>
+                <th class="hidden-xs">{{'ADMIN_PAGE_CARS_MESSAGES_TABLE_DATE_SEND'|translate}}</th>
+                <th >{{'ADMIN_PAGE_CARS_MESSAGES_TABLE_NAME'|translate}}</th>
+                <th class="hidden-xs">{{'ADMIN_PAGE_CARS_MESSAGES_TABLE_EMAIL'|translate}}</th>
+                <th>{{'ADMIN_PAGE_CARS_MESSAGES_TABLE_TEL'|translate}}</th>
+                <th>{{'ADMIN_PAGE_CARS_MESSAGES_TABLE_GOVERNORATE'|translate}}</th>
+                <th class="text-center">{{'ADMIN_PAGE_MARQUE_MODULE_MARQUES_TABLE_ACTION'|translate}}</th>
             </tr>
             </thead>
             <tbody>
@@ -38,8 +38,8 @@
                     <td>{{contact.phone}}</td>
                     <td>{{contact.governorate}}</td>
                     <td class="text-center">
-                        <a class="btn red" ng-click="deleteMessage(contact,$index)">حذف</a>
-                        <a class="btn blue" ng-click="openMessageModal(contact)">عرض</a>
+                        <a class="btn red" ng-click="deleteMessage(contact,$index)">{{'DELETE'|translate}}</a>
+                        <a class="btn blue" ng-click="openMessageModal(contact)">{{'SHOW'|translate}}</a>
                     </td>
                 </tr>
             </tbody>
@@ -50,7 +50,7 @@
     <div class="modal-header " style="margin-top: 100px">
         <div class="col-md-10 col-xs-9 col-sm-10">
             <h2 class="modal-title col-md-8 font-blue-hoki col-sm-6 col-xs-12">
-                <i class="fa fa-envelope-o"></i> <span>من طرف : </span> {{contact.name}}
+                <i class="fa fa-envelope-o"></i> <span>{{'ADMIN_PAGE_CARS_MESSAGES_MODAL_FROM'|translate}} : </span> {{contact.name}}
             </h2>
             <div class="fa font-blue-chambray bold col-md-3 col-sm-6 col-xs-10" style="padding-top: 12px;font-size: 22px">
                 <i class="fa fa-clock-o"></i> {{contact.date|date:'yyyy-MM-dd'}}
@@ -58,27 +58,27 @@
         </div>
         <div class="col-md-2 col-xs-3 col-sm-2" style="padding-top: 12px;padding-left: 0!important;">
             <button class="btn btn-sm blue bold" ng-click="openSendModal(contact)" data-dismiss="modal">
-                <i class="fa fa-send-o"></i> الرد</button>
+                <i class="fa fa-send-o"></i> {{'ADMIN_PAGE_CARS_MESSAGES_MODAL_REPLY'|translate}}</button>
         </div>
     </div>
     <div class="modal-body " style="padding: 10px;">
         <table class="table">
             <tr>
-                <td>الإسم </td>
+                <td>{{'ADMIN_PAGE_CARS_MESSAGES_TABLE_NAME'|translate}} </td>
                 <td>{{contact.name}}</td>
-                <td>الهاتف </td>
+                <td>{{'ADMIN_PAGE_CARS_MESSAGES_TABLE_TEL'|translate}} </td>
                 <td>{{contact.phone}}</td>
             </tr>
             <tr>
-                <td>البريد الإلكتروني </td>
+                <td>{{'ADMIN_PAGE_CARS_MESSAGES_TABLE_EMAIL'|translate}}</td>
                 <td>{{contact.email}}</td>
-                <td>الولاية</td>
+                <td>{{'ADMIN_PAGE_CARS_MESSAGES_TABLE_GOVERNORATE'|translate}}</td>
                 <td>{{contact.governorate}}</td>
             </tr>
         </table>
         <div class="well row" style="margin:10px;border-radius: 5%">
             <div class="col-md-2">
-                <b style="font-size: 16px">الرسالة :</b>
+                <b style="font-size: 16px">{{'ADMIN_PAGE_CARS_MESSAGES_MODAL_MESSAGE'|translate}} :</b>
             </div>
             <div class="col-md-8">
                 {{contact.message}}
@@ -89,7 +89,7 @@
 <script type="text/ng-template" id="sendModal.html">
     <div class="modal-header" style="margin-top: 100px">
         <div class="col-md-11">
-            <h2 class="modal-title col-md-8 font-blue-hoki col-sm-6 col-xs-6"> <span>من طرف : </span> {{contact.name}}</h2>
+            <h2 class="modal-title col-md-8 font-blue-hoki col-sm-6 col-xs-6"> <span>{{'ADMIN_PAGE_CARS_MESSAGES_MODAL_FROM'|translate}} : </span> {{contact.name}}</h2>
             <div class="fa font-blue-chambray bold col-md-3 col-sm-4 col-xs-5" style="padding-top: 12px;font-size: 22px">
                 <i class="fa fa-clock-o"></i> {{contact.date|date:'yyyy-MM-dd'}}
             </div>
@@ -103,10 +103,10 @@
             <div class="row">
                 <div class="form-group input-icon right " style="margin:10px;border-radius: 5%"  ng-class="{ 'has-error': form.title.$dirty && form.title.$invalid }">
                     <i ng-show="form.title.$dirty && form.title.$invalid "  class="fa fa-warning font-red"></i>
-                    <input ng-model="title" placeholder="الموضوع"
+                    <input ng-model="title" placeholder="{{'ADMIN_PAGE_CARS_MESSAGES_MODAL_SUBJECT'|translate}}"
                               class=" form-control has-feedback" name="title"
                               ng-minlength="6"   ng-required="true"
-                              uib-tooltip=" على الأقل 6 أحرف "
+                              uib-tooltip="{{'ADMIN_PAGE_CARS_MESSAGES_MODAL_SUBJECT_ERROR'|translate}}"
                               tooltip-placement="bottom"
                               tooltip-trigger="'focus mouseover'"
                               tooltip-enable="form.title.$dirty && form.title.$invalid"
@@ -115,17 +115,17 @@
                 </div>
             <div class="form-group input-icon right " style="margin:10px;border-radius: 5%"  ng-class="{ 'has-error': form.message.$dirty && form.message.$invalid }">
                 <i ng-show="form.message.$dirty && form.message.$invalid "  class="fa fa-warning font-red"></i>
-                <textarea id="textarea1" ng-model="message" placeholder="الرسالة ..........."
+                <textarea id="textarea1" ng-model="message" placeholder="{{'ADMIN_PAGE_CARS_MESSAGES_MODAL_MESSAGE'|translate}} ..........."
                      class=" form-control has-feedback" name="message" rows="10"
                           ng-minlength="10"   ng-required="true"
-                          uib-tooltip=" على الأقل 10 أحرف "
+                          uib-tooltip="{{'ADMIN_PAGE_CARS_MESSAGES_MODAL_MESSAGE_ERROR'|translate}}"
                           tooltip-placement="bottom"
                           tooltip-trigger="'focus mouseover'"
                           tooltip-enable="form.message.$dirty && form.message.$invalid"
 
                 ></textarea>
             </div>
-                <button ng-disabled="form.$invalid" class="btn btn-success col-md-4 col-md-offset-1" style="margin-top: 10px">ارسل </button>
+                <button ng-disabled="form.$invalid" class="btn btn-success col-md-4 col-md-offset-1" style="margin-top: 10px">{{'ADMIN_PAGE_CARS_MESSAGES_MODAL_SEND'|translate}} </button>
             </div>
         </form>
     </div>

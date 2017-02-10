@@ -41,8 +41,12 @@
   "ADMIN_PAGE_MARQUE_MODELS":" قائمة الماركات و الموديلات",
   "DELETE":"حذف ",
   "ADD":"أضف",
+  "EDIT":"تعديل",
   "SAVE":"حفظ البيانات",
   "CANCEL":"إلغاء",
+  "SHOW":"عرض",
+  "ARABIC":"عربي",
+  "FRENCH":"فرنسي",
   "ADMIN_PAGE_MARQUE_MODULE_MARQUES":"قائمة الماركات",
   "ADMIN_PAGE_MARQUE_MODULE_MODELS":"قائمة الموديلات",
   "ADMIN_PAGE_MARQUE_MODULE_MARQUES_TABLE_NOM":"الإسم",
@@ -85,6 +89,23 @@
   "ADMIN_PAGE_PARAMETER_CHANGE_PASS_CONFIRM_ERROR":"لا  تتطابق  مع  كلمة المرور الجديدة",
 
   "ADMIN_PAGE_PARAMETER_CHANGE_LANG":"تغيير اللغة",
-  "ARABIC":"عربي",
-  "FRENCH":"فرنسي"
+
+  "ADMIN_PAGE_CARS_TABLE_DATE_ADD":"تاريخ الإضافة",
+  "ADMIN_PAGE_CARS_MESSAGES_TITLE":"قائمة الرسائل",
+  "ADMIN_PAGE_CARS_MESSAGES_TABLE_DATE_SEND":"تاريخ الإرسال",
+  "ADMIN_PAGE_CARS_MESSAGES_TABLE_NAME":"الإسم",
+  "ADMIN_PAGE_CARS_MESSAGES_TABLE_EMAIL":"البريد الإلكتروني",
+  "ADMIN_PAGE_CARS_MESSAGES_TABLE_TEL":"الهاتف",
+  "ADMIN_PAGE_CARS_MESSAGES_TABLE_GOVERNORATE":"الولاية",
+  "ADMIN_PAGE_CARS_MESSAGES_MODAL_FROM":"من طرف",
+  "ADMIN_PAGE_CARS_MESSAGES_MODAL_REPLY":"الرد",
+  "ADMIN_PAGE_CARS_MESSAGES_MODAL_MESSAGE":"الرسالة",
+  "ADMIN_PAGE_CARS_MESSAGES_MODAL_SEND":"ارسل",
+  "ADMIN_PAGE_CARS_MESSAGES_MODAL_SUBJECT":"الموضوع",
+  "ADMIN_PAGE_CARS_MESSAGES_MODAL_SUBJECT_ERROR":" على الأقل 6 أحرف ",
+  "ADMIN_PAGE_CARS_MESSAGES_MODAL_MESSAGE_ERROR":" على الأقل 10 أحرف ",
+
+  "ADMIN_PAGE_DASHBOARD_NB_CARS":"عدد السيارت ",
+  "ADMIN_PAGE_DASHBOARD_NB_CARS_SUB":"في قاعدة البيانات",
+  "ADMIN_PAGE_DASHBOARD_NEW_MESSAGES":"رسائل جديدة"
 }

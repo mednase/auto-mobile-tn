@@ -31,15 +31,15 @@ app.controller('appController',['$scope','authService','$http','API_ENDPOINT','$
             if($translate.use()=='ar')
                 $translate.use('fr');
             else
-                $translate.use('ar')
+                $translate.use('ar');
         };
 
         $rootScope.changeLanguage=function (lng) {
-            console.log("aaaaaaaaaa")
             $translate.use(lng);
         }
 
         $rootScope.$on('$translateChangeSuccess', function(event, data) {
+
             var language = data.language;
 
             $rootScope.lang = language;
@@ -51,6 +51,7 @@ app.controller('appController',['$scope','authService','$http','API_ENDPOINT','$
             $rootScope.default_float = language === 'ar' ? 'right' : 'left';
             $rootScope.opposite_float = language === 'ar' ? 'left' : 'right';
 
+            $state.reload();
         });
 
 

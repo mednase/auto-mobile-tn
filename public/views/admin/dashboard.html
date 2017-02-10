@@ -2,7 +2,7 @@
 <div class="page-head">
     <!-- BEGIN PAGE TITLE -->
     <h1 class="page-title">
-        الرئيسية
+        {{'ADMIN_MENU_DASHBOARD'|translate}}
     </h1>
     <!-- END PAGE TITLE -->
 </div>
@@ -12,7 +12,7 @@
     <ul class="page-breadcrumb">
         <li>
             <i class="icon-home"></i>
-            <a ui-sref="dashboard">الرئيسية</a>
+            <a ui-sref="dashboard">{{'ADMIN_MENU_DASHBOARD'|translate}}</a>
         </li>
     </ul>
 </div>
@@ -35,8 +35,8 @@
                         </div>
                         <div class="widget-data">
                             <div class="widget-int num-count">{{allCars}}</div>
-                            <div class="widget-title">عدد السيارت </div>
-                            <div class="widget-subtitle">في قاعدة البيانات</div>
+                            <div class="widget-title">{{'ADMIN_PAGE_DASHBOARD_NB_CARS'|translate}} </div>
+                            <div class="widget-subtitle">{{'ADMIN_PAGE_DASHBOARD_NB_CARS_SUB'|translate}}</div>
                         </div>
                         <div class="widget-controls">
                             <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip"
@@ -56,7 +56,7 @@
                         </div>
                         <div class="widget-data">
                             <div class="widget-int num-count">{{unseen}}</div>
-                            <div class="widget-title">رسائل جديدة </div>
+                            <div class="widget-title">{{'ADMIN_PAGE_DASHBOARD_NEW_MESSAGES'|translate}}</div>
                         </div>
                         <div class="widget-controls">
                             <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip"
