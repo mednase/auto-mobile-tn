@@ -12,7 +12,9 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
                 suffix: '.json'
             })
             .preferredLanguage('ar')
-            .useLocalStorage();
+            .useLocalStorage()
+            .useMissingTranslationHandlerLog()
+            .useSanitizeValueStrategy('escapeParameters');
 
         $qProvider.errorOnUnhandledRejections(false);
 
