@@ -6,24 +6,29 @@ var Schema=mongoose.Schema;
 var car_schema=new Schema({
     nouveau:{type:Boolean,default:true},
     titre:String,
+    kilometrage:{type:Number,default:0},
     marque: String,
     model: String,
     annee: Number,
     prix : Number,
     couleur:String,
-    place:Number,
+    place:{type:Number,default:5},
     porte:{type:Number,default:4},
     energie:String,
-    type_vitesse:String,
-    capacite_moteur:Number,
-    caracteristique:{
-        climatisation:{type: Boolean,default:false},
+    transmission:String,
+    cylindre:Number,
+    security:{
         frein_abs:{type: Boolean,default:false},
         alarm:{type: Boolean,default:false},
-        regulateur_vitesse:{type: Boolean,default:false},
-        toit_ouvrant:{type: Boolean,default:false},
         airbag:{type: Boolean,default:false},
-        EBD:{type: Boolean,default:false}
+        frein_ebd:{type: Boolean,default:false}
+    },
+    fonctional:{
+        climatisation:{type: Boolean,default:false},
+        fermuture_centralise:{type: Boolean,default:false},
+        toit_ouvrant:{type: Boolean,default:false},
+        regulateur_vitesse:{type: Boolean,default:false},
+        vitre_electrique:{type: Boolean,default:false},
     },
     images : [],
     date_publication:{type:Date, default:Date.now}

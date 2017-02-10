@@ -2,7 +2,7 @@
     <ul class="page-breadcrumb">
         <li>
             <i class="icon-home"></i>
-            <a ui-sref="admin">الرئيسية</a>
+            <a ui-sref="admin">{{'ADMIN_MENU_DASHBOARD'|translate}}</a>
             <i class="fa fa-angle-right"></i>
         </li>
         <li>
@@ -17,19 +17,19 @@
 <div class="portlet box red">
     <div class="portlet-title">
         <div class="caption">
-            <i class="fa fa-cogs"></i>Table </div>
+            <i class="fa fa-cogs"></i>{{'ADMIN_PAGE_MARQUE_MODULE_MARQUES'|translate}} </div>
         <div class="actions">
-            <a href="javascript:;" class="btn btn-default btn-sm">
-                <i class="fa fa-plus"></i> Add </a>
+            <a id="btnAddMarque" class="btn btn-default btn-sm">
+                <i class="fa fa-plus"></i> {{'ADD'|translate}} </a>
         </div>
     </div>
     <div class="portlet-body ">
-        <table datatable="ng" class="table table-striped table-bordered table-hover  no-footer " dt-options="dtOptions" dt-column-defs="showCase.dtColumnDefs" cellspacing="0" width="100%">
+        <table  id="tableMarque" datatable="ng" class="table table-striped table-bordered table-hover  no-footer " dt-options="dtOptions" dt-column-defs="showCase.dtColumnDefs" cellspacing="0" width="100%">
             <thead>
             <tr>
-                <th>الإسم </th>
-                <th>عدد الموديلات</th>
-                <th>الخيارات</th>
+                <th>{{'ADMIN_PAGE_MARQUE_MODULE_MARQUES_TABLE_NOM'|translate}} </th>
+                <th>{{'ADMIN_PAGE_MARQUE_MODULE_MARQUES_TABLE_NB_MODEL'|translate}}</th>
+                <th>{{'ADMIN_PAGE_MARQUE_MODULE_MARQUES_TABLE_ACTION'|translate}}</th>
             </tr>
             </thead>
             <tbody>
@@ -37,11 +37,43 @@
                 <td> {{ marque.nom }}</td>
                 <td>{{ marque.models.length }}</td>
                 <td class="text-center">
-                    <button class="btn btn-danger">{{'DELETE'|translate}} <i class="fa fa-trash-o">  </i></button>
+                    <button ng-click="deleteMarque(marque)" class="btn btn-danger">{{'DELETE'|translate}} <i class="fa fa-trash-o">  </i></button>
                 </td>
             </tr>
             </tbody>
         </table>
     </div>
 </div>
+<div class="portlet box green">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-cogs"></i>{{'ADMIN_PAGE_MARQUE_MODULE_MODELS'|translate}} </div>
+        <div class="actions">
+            <a id="btnAddModel" class="btn btn-default btn-sm">
+                <i class="fa fa-plus"></i> {{'ADD'|translate}} </a>
+        </div>
+    </div>
+    <div class="portlet-body ">
+        <table id="tableModel" datatable="ng" class="table table-striped table-bordered table-hover  no-footer " dt-options="dtOptions" dt-column-defs="showCase.dtColumnDefs" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>{{'ADMIN_PAGE_MARQUE_MODULE_MARQUES_TABLE_NOM'|translate}} </th>
+                <th>{{'ADMIN_PAGE_MARQUE_MODULE_MODEL_MARQUE'|translate}}</th>
+                <th>{{'ADMIN_PAGE_MARQUE_MODULE_MARQUES_TABLE_ACTION'|translate}}</th>
+            </tr>
+            </thead>
+            <tbody ng-repeat="marque in marques track by $index">
+                <tr ng-repeat="model in marque.models track by $index">
+                    <td> {{ model }}</td>
+                    <td>{{ marque.nom }}</td>
+                    <td class="text-center">
+                        <button ng-click="deleteModel(model,marque)" class="btn btn-danger">{{'DELETE'|translate}} <i class="fa fa-trash-o">  </i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 <input type="hidden" value="" id="menuSelected" data-menu="page-list-marques">
+<script>
+</script>

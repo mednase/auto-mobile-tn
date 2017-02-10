@@ -62,6 +62,7 @@ module.exports = (function () {
         }) ;
     });
 
+
     router.post('/api/admin/marque/new', function (req, res) {
         Marque.findOne({nom: new RegExp('^'+req.body.nom_marque+'$', "i")}).exec(function (err,marque) {
             if(err)throw err;
@@ -76,6 +77,32 @@ module.exports = (function () {
         });
     });
     router.post('/api/admin/model/new', function (req, res) {
+        Marque.findOne({_id:req.body.marque_id }).exec(function (err,marque) {
+            if(err)throw err;
+            if(marque!=null && (marque.models.indexOf(req.body.model_name)==-1)){
+                marque.models.push(req.body.model_name);
+                marque.save();
+                return res.send({success:true});
+
+            } else
+                return res.send({success:false});
+
+        });
+    });
+
+    router.post('/api/admin/marque/delete', function (req, res) {
+        Marque.findOne({_id:req.body._id},function (err, marque) {
+            if (err)throw  err;
+            if(marque)
+                marque.remove(function (err) {
+                    if(err) throw err;
+                    return res.sendStatus(200);
+                });
+            else
+                return res.sendStatus(500);
+        });
+    });
+    router.post('/api/admin/model/delete', function (req, res) {
         Marque.findOne({_id:req.body.marque_id }).exec(function (err,marque) {
             if(err)throw err;
             if(marque!=null && (marque.models.indexOf(req.body.model_name)==-1)){

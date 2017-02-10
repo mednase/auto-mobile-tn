@@ -29,7 +29,8 @@ controller('newCarController',['$scope','$http','API_ENDPOINT','toastr','$state'
         $scope.initCar=function(){
             $scope.car={};
             $scope.car.images=[];
-            $scope.car.caracteristique={};
+            $scope.car.security={};
+            $scope.car.fonctional={};
             $('.input-image').each(function () {
                 $(this).val("");
             });
@@ -302,8 +303,8 @@ controller('settingsController',['$scope','$http','API_ENDPOINT',
             console.log($scope.password);
         };
     }]).
-controller('marquesController',['$scope','$http','API_ENDPOINT',
-    function ($scope,$http,API_ENDPOINT) {
+controller('marquesController',['$scope','$http','API_ENDPOINT','$compile',
+    function ($scope,$http,API_ENDPOINT,$compile) {
         $http.get(API_ENDPOINT.url+"/marques").then(function (result) {
             $scope.marques=result.data;
         });
@@ -339,4 +340,69 @@ controller('marquesController',['$scope','$http','API_ENDPOINT',
                 }
             });
         };
-}]);
+
+
+
+        $("#btnAddMarque").click(function () {
+            $("#tableMarque tbody").prepend($compile("" +
+                "<tr><td colspan='2'><input ng-model='newMarque' placeholder='le nom de la marque a ajouté' class='form-control' type='text'></td><td>" +
+                "<button ng-class='newMarque ?\"\":\"disabled\"' class='btn btn-primary' ng-click='addMarque()'>{{'SAVE'|translate}} <i class='fa fa-save'>  </i></button>"+
+                "<button class='btn btn-warning' onclick='$(this).closest(\"tr\").remove()' >{{'CANCEL'|translate}} <i class='fa fa-times'>  </i></button>" +
+                "</td></tr>")($scope));
+
+            $scope.$apply();
+
+        });
+        $("#btnAddModel").click(function () {
+            $("#tableModel").children('tbody:first').prepend($compile("" +
+                "<tr><td><input ng-show='marque' ng-model='newModel' placeholder='le nom de modele a ajouté' class='form-control' type='text'></td><td><select ng-model='marque'  class='form-control select2'>"+
+            "<option ng-repeat='mq in marques track by $index' value='{{mq._id}}'>{{mq.nom}}</option>"+
+            "</select></td><td>" +
+                "<button class='btn btn-primary' ng-class='marque && newModel ?\"\":\"disabled\"' ng-click='addModel()'>{{ 'SAVE'|translate }} <i class='fa fa-save'>  </i></button>"+
+                "<button class='btn btn-warning' onclick='$(this).closest(\"tr\").remove()' >{{'CANCEL'|translate}} <i class='fa fa-times'>  </i></button>" +
+                "</td></tr>")($scope));
+
+            $scope.$apply();
+
+        });
+
+        $scope.addModel=function () {
+            $http.post(API_ENDPOINT.url+"/admin/model/new",{marque_id:$scope.marque,model_name:$scope.newModel}).then(function (msg) {
+                if(msg.data.success){
+                    $scope.addModelSuccess=true;
+                    $scope.addModelError=false;
+                    $http.get(API_ENDPOINT.url+"/marques").then(function (result) {
+                        $scope.marques=result.data;
+                    });
+                    $scope.newModel="";
+                }else{
+                    $scope.addModelSuccess=false;
+                    $scope.addModelError=true;
+                }
+                $scope.marque=null;
+            });
+        };
+        $scope.addMarque=function () {
+            $http.post(API_ENDPOINT.url+"/admin/marque/new",{nom_marque:$scope.newMarque}).then(function (msg) {
+                if(msg.data.success){
+                    $scope.addMarqueSuccess=true;
+                    $scope.addMarqueError=false;
+                    $http.get(API_ENDPOINT.url+"/marques").then(function (result) {
+                        $scope.marques=result.data;
+                    });
+                    $scope.newMarque="";
+                }else{
+                    $scope.addMarqueSuccess=false;
+                    $scope.addMarqueError=true;
+                }
+            });
+        };
+        $scope.deleteModel=function (model,marque) {
+            $scope.marques[$scope.marques.indexOf(marque)].models.splice(
+                $scope.marques[$scope.marques.indexOf(marque)].models.indexOf(model),1
+            );
+        };
+        $scope.deleteMarque=function (marque) {
+            $scope.marques.splice($scope.marques.indexOf(marque),1);
+        };
+    }]);

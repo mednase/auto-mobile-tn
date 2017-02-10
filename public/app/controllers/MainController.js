@@ -32,9 +32,12 @@ app.controller('appController',['$scope','authService','$http','API_ENDPOINT','$
                 $translate.use('fr');
             else
                 $translate.use('ar')
-
-
         };
+
+        $rootScope.changeLanguage=function (lng) {
+            console.log("aaaaaaaaaa")
+            $translate.use(lng);
+        }
 
         $rootScope.$on('$translateChangeSuccess', function(event, data) {
             var language = data.language;
