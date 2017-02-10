@@ -1,5 +1,5 @@
 var app = angular.module('AutoMobileTn', ['ui.router','ngAnimate', 'toastr','datatables','ui.bootstrap',
-'ngSweetAlert','ngMap','vcRecaptcha','ngCookies']);
+'ngSweetAlert','ngMap','vcRecaptcha','pascalprecht.translate','ngCookies']);
 
 app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider',
     '$httpProvider', '$logProvider', '$locationProvider','toastrConfig','$qProvider','$translateProvider',
