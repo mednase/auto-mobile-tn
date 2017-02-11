@@ -16,33 +16,25 @@
                     <div class="col-md-9">
                         <div class="form-group col-md-4 col-sm-4 black_input col-xs-6">
                             <div class="select">
-                                <select class="form-control">
-                                    <option>{{'HOME_SEARCH_FORM_MARQUE'|translate}}</option>
-                                    <option>Audi</option>
-                                    <option>BMW</option>
-                                    <option>Nissan</option>
-                                    <option>Toyota</option>
+                                <select ng-model="marque" class="form-control">
+                                    <option value="">{{'HOME_SEARCH_FORM_MARQUE'|translate}}</option>
+                                    <option ng-repeat="m in marques track by $index" value="{{m}}">{{m.nom}}
+                                    </option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group col-md-4 col-sm-4 black_input col-xs-6">
                             <div class="select">
-                                <select class="form-control">
-                                    <option>{{'HOME_SEARCH_FORM_MODEL'|translate}}</option>
-                                    <option>Series 1</option>
-                                    <option>Series 2</option>
-                                    <option>Series 3</option>
+                                <select ng-model="car.model" id="model" class="form-control" required>
+                                    <option value="">{{'HOME_SEARCH_FORM_MODEL'|translate}}</option>
+                                    <option ng-repeat="mdl in models track by $index" value="{{mdl}}">{{mdl}}</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group col-md-4 col-sm-4 black_input col-xs-6">
                             <div class="select">
-                                <select class="form-control">
-                                    <option>{{'HOME_SEARCH_FORM_YEAR'|translate}}</option>
-                                    <option>2016</option>
-                                    <option>2015</option>
-                                    <option>2014</option>
-                                </select>
+                                <input ng-model="search.year" drange from="2000" id="date"
+                                       required>
                             </div>
                         </div>
                         <div class="form-group col-md-4 col-sm-6 col-xs-6 black_input hidden-sm hidden-md hidden-lg">
@@ -56,16 +48,18 @@
                         </div>
 
                         <div class="form-group col-md-8 col-sm-6 col-xs-12 black_input">
-                            <label class="form-label">{{'HOME_SEARCH_FORM_PRICE'|translate}}</label>
+                            <h3 style="margin-top: 0px">{{'HOME_SEARCH_FORM_PRICE'|translate}} <span
+                                    id="minPrice">30000</span>&nbsp; {{'AND'|translate}} &nbsp;<span id="maxPrice">200000</span>&nbsp;
+                                {{'MONEY'|translate}}</h3>
                             <div class="slider slider-horizontal">
                                 <input ng-model="slideValue" id="price_range"
                                        data-slide-rtl="{{dir=='rtl'}}"
                                        data-slider-handle="round" type="text"
                                        class="span2"
-                                       data-slider-min="5"
-                                       data-slider-max="300"
-                                       data-slider-step="1"
-                                       data-slider-value="[20,80]">
+                                       data-slider-min="5000"
+                                       data-slider-max="300000"
+                                       data-slider-step="100"
+                                       data-slider-value="[30000,200000]">
                             </div>
 
                         </div>
@@ -91,102 +85,106 @@
         </div>
     </div>
 
-<div class="col-md-12 light-show" style="margin-top: 20px">
-    <div class="home-type-title col-md-10 col-md-offset-1 text-center">
-        <h3>{{'HOME_CAR_TYPE_TITLE_NEW'|translate}}</h3>
-    </div>
-    <div ng-if="loading" class="col-md-10 col-md-offset-1 text-center text-info load-container">
-        <div class="loader-a ">
-
+    <div class="col-md-12 light-show" style="margin-top: 20px">
+        <div class="home-type-title col-md-10 col-md-offset-1 text-center">
+            <h3>{{'HOME_CAR_TYPE_TITLE_NEW'|translate}}</h3>
         </div>
-    </div>
-    <div ng-if="!loading" class="container">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="lightSlider" data-rtl="{{dir=='rtl'}}">
-                <div  style="height: auto!important;" ng-repeat="car in newCars track by $index">
-                    <div class="thumbnail no-border no-padding thumbnail-car-card">
-                        <div class="media">
-                            <div class="media-link" data-gal="prettyPhoto" >
-                                <img src="{{car.images.length>0?car.images[0]:'/public/assets/img/car/no_image.png'}}" class="img-responsive">
-                                <span class="icon-view" ui-sref="show_car({id:car._id})">
+        <div ng-if="loading" class="col-md-10 col-md-offset-1 text-center text-info load-container">
+            <div class="loader-a ">
+
+            </div>
+        </div>
+        <div ng-if="!loading" class="container">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="lightSlider" data-rtl="{{dir=='rtl'}}">
+                    <div style="height: auto!important;" ng-repeat="car in newCars track by $index">
+                        <div class="thumbnail no-border no-padding thumbnail-car-card">
+                            <div class="media">
+                                <div class="media-link" data-gal="prettyPhoto">
+                                    <img src="{{car.images.length>0?car.images[0]:'/public/assets/img/car/no_image.png'}}"
+                                         class="img-responsive">
+                                    <span class="icon-view" ui-sref="show_car({id:car._id})">
                                     <strong>
                                         <i class="fa fa-eye"></i>
                                     </strong>
                                 </span>
+                                </div>
+                            </div>
+                            <div>
+                                <table class="table">
+                                    <tbody>
+                                    <tr>
+                                        <td class="text-center"><i class="fa fa-car"></i> {{car.annee}}</td>
+                                        <td class="text-center"><i class="fa fa-dashboard"></i> {{car.energie}}</td>
+                                        <td class="text-center"><i class="fa fa-cog"></i> {{car.type_vitesse}}</td>
+                                        <td class="text-center"><i class="fa fa-road"></i> 25000</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="product-caption row no-margin">
+                                <h4 class="product-name col-md-7 col-xs-6">
+                                    {{car.marque+" "+ car.model+" ,"+car.annee}}
+                                </h4>
+                                <span class="product-price {{dir}} col-md-5">{{car.prix }} {{'MONEY'|translate}}</span>
                             </div>
                         </div>
-                        <div>
-                            <table class="table">
-                                <tbody><tr>
-                                    <td class="text-center" ><i class="fa fa-car"></i> {{car.annee}}</td>
-                                    <td class="text-center" ><i class="fa fa-dashboard"></i> {{car.energie}}</td>
-                                    <td class="text-center" ><i class="fa fa-cog"></i> {{car.type_vitesse}}</td>
-                                    <td class="text-center" ><i class="fa fa-road"></i> 25000</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="product-caption row no-margin" >
-                            <h4 class="product-name col-md-7 col-xs-6">
-                                {{car.marque+" "+ car.model+" ,"+car.annee}}
-                            </h4>
-                            <span class="product-price {{dir}} col-md-5">{{car.prix }} {{'MONEY'|translate}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="home-type-title col-md-10 col-md-offset-1 text-center">
+            <h3>{{'HOME_CAR_TYPE_TITLE_USED'|translate}}</h3>
+        </div>
+        <div ng-if="loading" class="col-md-10 col-md-offset-1 text-center text-info load-container">
+            <div class="loader-a ">
+
+            </div>
+        </div>
+
+
+        <div ng-if="!loading" class="container">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="lightSlider" data-rtl="{{dir=='rtl'}}">
+                    <div style="height: auto!important;" ng-repeat="car in oldCars track by $index">
+                        <div class="thumbnail no-border no-padding thumbnail-car-card">
+                            <div class="media">
+                                <div class="media-link" data-gal="prettyPhoto">
+                                    <img src="{{car.images.length>0?car.images[0]:'/public/assets/img/car/no_image.png'}}"
+                                         class="img-responsive">
+                                    <span class="icon-view" ui-sref="show_car({id:car._id})">
+                                    <strong>
+                                        <i class="fa fa-eye"></i>
+                                    </strong>
+                                </span>
+                                </div>
+                            </div>
+                            <div>
+                                <table class="table">
+                                    <tbody>
+                                    <tr>
+                                        <td class="text-center"><i class="fa fa-car"></i> {{car.annee}}</td>
+                                        <td class="text-center"><i class="fa fa-dashboard"></i> {{car.energie}}</td>
+                                        <td class="text-center"><i class="fa fa-cog"></i> {{car.type_vitesse}}</td>
+                                        <td class="text-center"><i class="fa fa-road"></i> 25000</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="product-caption row no-margin">
+                                <h4 class="product-name {{dir}} col-md-7 col-xs-6">
+                                    {{car.marque+" "+ car.model+" ,"+car.annee}}
+                                </h4>
+                                <span class="product-price {{dir}} col-md-5">{{car.prix }} {{'MONEY'|translate}}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
-    <div class="home-type-title col-md-10 col-md-offset-1 text-center">
-        <h3>{{'HOME_CAR_TYPE_TITLE_USED'|translate}}</h3>
-    </div>
-    <div ng-if="loading" class="col-md-10 col-md-offset-1 text-center text-info load-container">
-        <div class="loader-a ">
-
-        </div>
-    </div>
-
-
-    <div ng-if="!loading" class="container">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="lightSlider" data-rtl="{{dir=='rtl'}}">
-                <div  style="height: auto!important;" ng-repeat="car in oldCars track by $index">
-                    <div class="thumbnail no-border no-padding thumbnail-car-card">
-                        <div class="media">
-                            <div class="media-link" data-gal="prettyPhoto" >
-                                <img src="{{car.images.length>0?car.images[0]:'/public/assets/img/car/no_image.png'}}" class="img-responsive">
-                                <span class="icon-view" ui-sref="show_car({id:car._id})">
-                                    <strong>
-                                        <i class="fa fa-eye"></i>
-                                    </strong>
-                                </span>
-                            </div>
-                        </div>
-                        <div>
-                            <table class="table">
-                                <tbody><tr>
-                                    <td class="text-center" ><i class="fa fa-car"></i> {{car.annee}}</td>
-                                    <td class="text-center" ><i class="fa fa-dashboard"></i> {{car.energie}}</td>
-                                    <td class="text-center" ><i class="fa fa-cog"></i> {{car.type_vitesse}}</td>
-                                    <td class="text-center" ><i class="fa fa-road"></i> 25000</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="product-caption row no-margin" >
-                            <h4 class="product-name {{dir}} col-md-7 col-xs-6">
-                                {{car.marque+" "+ car.model+" ,"+car.annee}}
-                            </h4>
-                            <span class="product-price {{dir}} col-md-5">{{car.prix }} {{'MONEY'|translate}}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 </section>
 
 <section class="marque-zone">
@@ -246,12 +244,16 @@
 <script>
     $(document).ready(function () {
         $("#price_range").slider({
-            formatter: function(value) {
-                if($("html").attr('dir')=='rtl'){
-                    return value[0]+",000"+" و "+value[1]+",000" +" د ت  ";
-                }else
-                    return value[0]+",000"+" et "+value[1]+",000"+" DT  ";
-                }
+            formatter: function (value) {
+                if ($("html").attr('dir') == 'rtl') {
+                    return value[0] + " و " + value[1] + " د ت  ";
+                } else
+                    return value[0] + " et " + value[1] + " DT  ";
+            }
+        }).on('change', function (ev) {
+            $('#minPrice').text(ev.value.newValue[0]);
+            $('#maxPrice').text(ev.value.newValue[1]);
+
         });
     });
 </script>

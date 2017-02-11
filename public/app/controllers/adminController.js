@@ -349,8 +349,8 @@ controller('settingsController',['$scope','$http','API_ENDPOINT',
             console.log($scope.password);
         };
     }]).
-controller('marquesController',['$scope','$http','API_ENDPOINT','$compile',
-    function ($scope,$http,API_ENDPOINT,$compile) {
+controller('marquesController',['$scope','$http','API_ENDPOINT','$compile','DTOptionsBuilder',
+    function ($scope,$http,API_ENDPOINT,$compile,DTOptionsBuilder) {
         $http.get(API_ENDPOINT.url+"/marques").then(function (result) {
             $scope.marques=result.data;
         });
@@ -387,12 +387,54 @@ controller('marquesController',['$scope','$http','API_ENDPOINT','$compile',
             });
         };
 
+        if($scope.dir=='rtl')
+            var language = {
+                "sProcessing": "جارٍ التحميل...",
+                "sLengthMenu": "أظهر _MENU_ مدخلات",
+                "sZeroRecords": "لم يعثر على أية سجلات",
+                "sInfo": "إظهار _START_ إلى _END_ من أصل _TOTAL_ مدخل",
+                "sInfoEmpty": "يعرض 0 إلى 0 من أصل 0 سجل",
+                "sInfoFiltered": "(منتقاة من مجموع _MAX_ مُدخل)",
+                "sInfoPostFix": "",
+                "sSearch": "ابحث:",
+                "sUrl": "",
+                "oPaginate": {
+                    "sFirst": "الأول",
+                    "sPrevious": "السابق",
+                    "sNext": "التالي",
+                    "sLast": "الأخير"
+                }
+            };
+        else
+            var language ={
+                "sProcessing":     "Traitement en cours...",
+                "sSearch":         "Rechercher&nbsp;:",
+                "sLengthMenu":     "Afficher _MENU_ &eacute;l&eacute;ments",
+                "sInfo":           "Affichage de l'&eacute;l&eacute;ment _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
+                "sInfoEmpty":      "Affichage de l'&eacute;l&eacute;ment 0 &agrave; 0 sur 0 &eacute;l&eacute;ment",
+                "sInfoFiltered":   "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
+                "sInfoPostFix":    "",
+                "sLoadingRecords": "Chargement en cours...",
+                "sZeroRecords":    "Aucun &eacute;l&eacute;ment &agrave; afficher",
+                "sEmptyTable":     "Aucune donn&eacute;e disponible dans le tableau",
+                "oPaginate": {
+                    "sFirst":      "Premier",
+                    "sPrevious":   "Pr&eacute;c&eacute;dent",
+                    "sNext":       "Suivant",
+                    "sLast":       "Dernier"
+                }
+            };
 
+        $scope.dtOptions = DTOptionsBuilder.newOptions()
+            .withPaginationType('full_numbers')
+            .withDisplayLength(10)
+            .withOption('order', [1, 'desc'])
+            .withLanguage(language);
 
         $("#btnAddMarque").click(function () {
             $("#tableMarque tbody").prepend($compile("" +
-                "<tr><td colspan='2'><input ng-model='newMarque' placeholder='le nom de la marque a ajouté' class='form-control' type='text'></td><td>" +
-                "<button ng-class='newMarque ?\"\":\"disabled\"' class='btn btn-primary' ng-click='addMarque()'>{{'SAVE'|translate}} <i class='fa fa-save'>  </i></button>"+
+                "<tr><td colspan='2'><input id='vMai' ng-model='newMarque' placeholder='le nom de la marque a ajouté' class='form-control' type='text'></td><td>" +
+                "<button ng-disabled='newMarque.length<1' ng-class='newMarque ?\"\":\"disabled\"' class='btn btn-primary' ng-click='addMarque()'>{{'SAVE'|translate}} <i class='fa fa-save'>  </i></button>"+
                 "<button class='btn btn-warning' onclick='$(this).closest(\"tr\").remove()' >{{'CANCEL'|translate}} <i class='fa fa-times'>  </i></button>" +
                 "</td></tr>")($scope));
 
@@ -401,10 +443,10 @@ controller('marquesController',['$scope','$http','API_ENDPOINT','$compile',
         });
         $("#btnAddModel").click(function () {
             $("#tableModel").children('tbody:first').prepend($compile("" +
-                "<tr><td><input ng-show='marque' ng-model='newModel' placeholder='le nom de modele a ajouté' class='form-control' type='text'></td><td><select ng-model='marque'  class='form-control select2'>"+
+                "<tr><td><input  id='vMoi' ng-show='marque' ng-model='newModel' placeholder='le nom de modele a ajouté' class='form-control' type='text' ng-required='true'></td><td><select ng-model='marque'  class='form-control select2'>"+
             "<option ng-repeat='mq in marques track by $index' value='{{mq._id}}'>{{mq.nom}}</option>"+
             "</select></td><td>" +
-                "<button class='btn btn-primary' ng-class='marque && newModel ?\"\":\"disabled\"' ng-click='addModel()'>{{ 'SAVE'|translate }} <i class='fa fa-save'>  </i></button>"+
+                "<button class='btn btn-primary' ng-disabled='newModel.length<1' ng-class='marque && newModel ?\"\":\"disabled\"' ng-click='addModel()'>{{ 'SAVE'|translate }} <i class='fa fa-save'>  </i></button>"+
                 "<button class='btn btn-warning' onclick='$(this).closest(\"tr\").remove()' >{{'CANCEL'|translate}} <i class='fa fa-times'>  </i></button>" +
                 "</td></tr>")($scope));
 
@@ -413,7 +455,8 @@ controller('marquesController',['$scope','$http','API_ENDPOINT','$compile',
         });
 
         $scope.addModel=function () {
-            $http.post(API_ENDPOINT.url+"/admin/model/new",{marque_id:$scope.marque,model_name:$scope.newModel}).then(function (msg) {
+            if($scope.new_model && $scope.newModel.length>0)
+                $http.post(API_ENDPOINT.url+"/admin/model/new",{marque_id:$scope.marque,model_name:$scope.newModel}).then(function (msg) {
                 if(msg.data.success){
                     $scope.addModelSuccess=true;
                     $scope.addModelError=false;
@@ -427,9 +470,12 @@ controller('marquesController',['$scope','$http','API_ENDPOINT','$compile',
                 }
                 $scope.marque=null;
             });
+            else
+                $('#vMoi').addClass('error-input');
         };
         $scope.addMarque=function () {
-            $http.post(API_ENDPOINT.url+"/admin/marque/new",{nom_marque:$scope.newMarque}).then(function (msg) {
+            if($scope.newMarque && $scope.newMarque.length>0)
+                $http.post(API_ENDPOINT.url+"/admin/marque/new",{nom_marque:$scope.newMarque}).then(function (msg) {
                 if(msg.data.success){
                     $scope.addMarqueSuccess=true;
                     $scope.addMarqueError=false;
@@ -442,13 +488,19 @@ controller('marquesController',['$scope','$http','API_ENDPOINT','$compile',
                     $scope.addMarqueError=true;
                 }
             });
+            else
+                $('#vMai').addClass('error-input');
         };
         $scope.deleteModel=function (model,marque) {
-            $scope.marques[$scope.marques.indexOf(marque)].models.splice(
-                $scope.marques[$scope.marques.indexOf(marque)].models.indexOf(model),1
-            );
+            $http.post(API_ENDPOINT.url+"/admin/model/delete",{marque_id:marque._id,model_name:model}).then(function () {
+                $scope.marques[$scope.marques.indexOf(marque)].models.splice(
+                    $scope.marques[$scope.marques.indexOf(marque)].models.indexOf(model),1
+                );
+            })
         };
         $scope.deleteMarque=function (marque) {
-            $scope.marques.splice($scope.marques.indexOf(marque),1);
-        };
+                $http.post(API_ENDPOINT.url+"/admin/marque/delete",marque).then(function () {
+                $scope.marques.splice($scope.marques.indexOf(marque),1);
+            })
+            };
     }]);

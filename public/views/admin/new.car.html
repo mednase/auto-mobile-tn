@@ -84,7 +84,7 @@
                                      <span class="input-group-addon">
                                          <i class="fa fa-calendar"></i>
                                      </span>
-                                    <input data-placeholder="{{'HOME_SEARCH_FORM_YEAR'|translate}}" ng-model="car.annee" range from="2000" id="date"
+                                    <input  ng-model="car.annee" drange from="2000" id="date"
                                            required>
                                 </div>
                             </div>
@@ -263,7 +263,7 @@
 </div>
 <input type="hidden" value="" id="menuSelected" data-menu="page-new-car">
 <script type="text/javascript"
-        src="/public/app/directives/rangeDirective.js"></script>
+        src="/public/app/directives/drangeDirective.js"></script>
 <script>
     $(document).ready(function () {
         $('.mt-repeater').repeater()

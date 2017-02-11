@@ -91,6 +91,8 @@ module.exports = (function () {
     });
 
     router.post('/api/admin/marque/delete', function (req, res) {
+        console.log(req.body);
+
         Marque.findOne({_id:req.body._id},function (err, marque) {
             if (err)throw  err;
             if(marque)
@@ -105,8 +107,8 @@ module.exports = (function () {
     router.post('/api/admin/model/delete', function (req, res) {
         Marque.findOne({_id:req.body.marque_id }).exec(function (err,marque) {
             if(err)throw err;
-            if(marque!=null && (marque.models.indexOf(req.body.model_name)==-1)){
-                marque.models.push(req.body.model_name);
+            if(marque!=null && (marque.models.indexOf(req.body.model_name)>-1)){
+                marque.models.splice(marque.models.indexOf(req.body.model_name),1);
                 marque.save();
                 return res.send({success:true});
 

@@ -59,7 +59,17 @@ app.controller('appController',['$scope','authService','$http','API_ENDPOINT','$
 app.controller('homeController', ['$scope', '$http', 'API_ENDPOINT','$rootScope','$timeout',
     function ($scope,$http, API_ENDPOINT,$rootScope,$timeout ) {
         $scope.currentDate=new Date();
+        $scope.search={};
+        $http.get(API_ENDPOINT.url+"/marques").then(function (result) {
+            $scope.marques=result.data;
+        });
+        $scope.marque=null;
 
+        $scope.$watch("marque",function (new_marque) {
+            if(new_marque){
+                $scope.models=JSON.parse(new_marque).models;
+            }
+        });
 
             $scope.loading=true;
 
