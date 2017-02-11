@@ -107,5 +107,12 @@
 
   "ADMIN_PAGE_DASHBOARD_NB_CARS":"عدد السيارت ",
   "ADMIN_PAGE_DASHBOARD_NB_CARS_SUB":"في قاعدة البيانات",
-  "ADMIN_PAGE_DASHBOARD_NEW_MESSAGES":"رسائل جديدة"
+  "ADMIN_PAGE_DASHBOARD_NEW_MESSAGES":"رسائل جديدة",
+
+  "FOOTER_TITLE_INFO":"معلومات",
+  "FOOTER_TITLE_LIEN":"روابط سريعة",
+  "FOOTER_TITLE_FACEBOOK":"صفحة الفيسبوك",
+  "FOOTER_TITLE_INFO_DESC":"أهلا وسهلا بك  على موقع ahmed auto الذي هو واجهةٌ لمعرضنا التجاري لبيع السيارات الجديدة والمستعملة الأول من نوعه في ولاية المنستير . لدينا من أجمل وأقوى السيارات المتدولة في العالم . يمكنك الإتصال بنا أو زيارة معرضنا على العنوان أسفله",
+  "FOOTER_ADDRESS":"طريق المنستير   قصيبة المديوني , 5031 المنستير",
+  "FOOTER_BOTTOM_DEVELOPED":"مبرمج من قبل"
 }

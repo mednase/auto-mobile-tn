@@ -269,3 +269,6 @@
     }
 
 }
+.top-rtl ul>li .slider:before{
+    left:30px!important;
+}

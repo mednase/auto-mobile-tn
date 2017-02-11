@@ -6,15 +6,11 @@
         <div class=" container">
             <div class="col-xs-12 col-sm-4 col-md-4 col-sm-5">
                 <div class="heading-1">
-                    <h3>Company Info</h3>
+                    <h3>{{'FOOTER_TITLE_INFO'|translate}}</h3>
                 </div>
-                <p>Bienvenue à AHMED AUTO le premier salon d'exposition de voitures neuves et occasions à Monastir.
-                    C'est
-                    un magasin d'exposition (show room) permettant de présenter un assortiment ou la totalité des
-                    voitures
-                    proposés à la vente.</p>
+                <p>{{'FOOTER_TITLE_INFO_DESC'|translate}}</p>
                 <ul class="list-default">
-                    <li><i class="fa fa-map-marker"></i>&nbsp;Route de monastir, Ksibet Mediou 5031 Monastir</li>
+                    <li><i class="fa fa-map-marker"></i>&nbsp;{{'FOOTER_ADDRESS'|translate}}</li>
                     <li><i class="fa fa-phone"></i>&nbsp;73 550 352 </li>
                     <li><i class="fa fa-mobile"></i>&nbsp;53 850 850&nbsp;&nbsp;--&nbsp;&nbsp;29 850 830 </li>
                     <li><i class="fa fa-envelope-o"></i>&nbsp;ahmedauto2012@yahoo.fr</li>
@@ -22,21 +18,21 @@
             </div>
             <div class="col-md-3 col-md-offset-1 col-sm-5 col-sm-offset-1">
                 <div class="heading-1">
-                    <h3>Lien Rapide</h3>
+                    <h3>{{'FOOTER_TITLE_LIEN'|translate}}</h3>
                     </div>
                     <ul class="list-default fast-link" style="margin-top: 40px">
-                        <li ui-sref="home"><i class="fa fa-chevron-right "></i>Acceuil</li>
-                        <li ui-sref="contact"><i class="fa fa-chevron-right "></i>Contacter Nous</li>
-                        <li ui-sref="new_cars"><i class="fa fa-chevron-right "></i>Nouvelles Voitures</li>
-                        <li ui-sref="old_cars"><i class="fa fa-chevron-right "></i>Voitures d'occasion</li>
-                        <li ui-sref="login"><i class="fa fa-chevron-right "></i>Se connecter </li>
+                        <li ui-sref="home"><i ng-class="dir=='ltr'?'fa fa-chevron-right':'fa fa-chevron-left' "></i>{{'NAVBAR_HOME'|translate}}</li>
+                        <li ui-sref="contact"><i  ng-class="dir=='ltr'?'fa fa-chevron-right':'fa fa-chevron-left' "></i>{{'NAVBAR_CONTACT'|translate}}</li>
+                        <li ui-sref="new_cars"><i  ng-class="dir=='ltr'?'fa fa-chevron-right':'fa fa-chevron-left' "></i>{{'HOME_CAR_TYPE_TITLE_NEW'|translate}}</li>
+                        <li ui-sref="old_cars"><i  ng-class="dir=='ltr'?'fa fa-chevron-right':'fa fa-chevron-left' "></i>{{'HOME_CAR_TYPE_TITLE_USED'|translate}}</li>
+                        <li ui-sref="login"><i  ng-class="dir=='ltr'?'fa fa-chevron-right':'fa fa-chevron-left' "></i>{{'NAVBAR_LOGIN'|translate}} </li>
 
                     </ul>
 
             </div>
             <div class="col-md-3 col-md-offset-1 col-sm-10 col-sm-offset-1" style="margin-bottom: 20px">
                 <div class="heading-1">
-                    <h3>Facebook Page</h3>
+                    <h3>{{'FOOTER_TITLE_FACEBOOK'|translate}}</h3>
                 </div>
                 <div style="margin-top: 40px" class="fb-page" data-href="https://www.facebook.com/AHMED-AUTO-196124490486019/?fref=ts"
                      data-tabs="timeline" data-width="180" data-height="70" data-small-header="false"
@@ -53,7 +49,7 @@
 
     <div class="copyright" style="z-index: 99999">
         <div class="col-md-3 developper">
-            Développé par <a href="https://www.facebook.com/mednaceur.marzouk">MedNaceur Marzouk</a>
+            {{'FOOTER_BOTTOM_DEVELOPED'|translate}} : <a href="https://www.facebook.com/mednaceur.marzouk">MedNaceur Marzouk</a>
         </div>
         <div class="col-md-4 col-xs-12 col-sm-6" style="padding: 16px;font-size: 18px;">
             {{'FOOTER_COPYRIGHT'|translate}} © {{dateYear}}

@@ -2,7 +2,6 @@
   "NAVBAR_LOGIN" : "Connecter" ,
   "NAVBAR_HOME" : "Acceuil",
   "NAVBAR_CONTACT" : "Contact",
-  "FOOTER_COPYRIGHT" : "tous les droits sont réservés",
   "HOME_TITLE": "Trouver la voiture de vos rêves",
   "HOME_SEARCH_TITLE": "Trouver une voiture à votre goût",
   "HOME_SEARCH_BTN": "Recherche",
@@ -106,8 +105,15 @@
 
   "ADMIN_PAGE_DASHBOARD_NB_CARS":"Nombre de voitures",
   "ADMIN_PAGE_DASHBOARD_NB_CARS_SUB":"En total",
-  "ADMIN_PAGE_DASHBOARD_NEW_MESSAGES":"Nouveaux Messages"
+  "ADMIN_PAGE_DASHBOARD_NEW_MESSAGES":"Nouveaux Messages",
 
+  "FOOTER_COPYRIGHT" : "Tous les droits sont réservés",
+  "FOOTER_TITLE_INFO":"Info",
+  "FOOTER_TITLE_LIEN":"Lien Rapide",
+  "FOOTER_TITLE_FACEBOOK":"Page Facebook",
+  "FOOTER_TITLE_INFO_DESC":"Bienvenue à AHMED AUTO le premier salon d'exposition de voitures neuves et occasions à Monastir. C'est un magasin d'exposition (show room) permettant de présenter un assortiment ou la totalité des voitures proposés à la vente .",
+  "FOOTER_ADDRESS":"Route de monastir, Ksibet Mediou 5031 Monastir",
+  "FOOTER_BOTTOM_DEVELOPED":"Développé par"
 
 
 
