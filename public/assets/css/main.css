@@ -278,3 +278,37 @@ ul.pagination>li>a:hover{
 .thumbnail .media-link .icon-view:hover{
     cursor: pointer;
 }
+
+.footer-body .fast-link{
+    margin-top: 40px;
+    padding-left: 10px!important;
+}
+.footer-body .fast-link li{
+    font-weight: 700;
+    font-size: 18px;
+}
+.footer-body .fast-link li:hover{
+    color: #d11717;
+    cursor: pointer;
+}
+.developper{
+    padding: 16px;
+    font-size: 14px;
+    color: #999;
+}
+.developper a{
+    text-decoration: none;
+    color: #d11717;
+    cursor: pointer;
+}
+.scroll-to-top{
+    background-color: rgba(27, 26, 26, 0.37);
+    border-radius: 74%;
+    z-index: 9999999;
+    display: block;
+    padding: 15px 10px;
+}
+.scroll-to-top i{
+    opacity: 1;
+    color:#d11717!important
+}
