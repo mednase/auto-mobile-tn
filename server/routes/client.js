@@ -58,6 +58,18 @@ module.exports = (function () {
         });
     });
 
+    router.get('/api/new-cars', function (req, res) {
+        Car.find({nouveau:true}).sort({date_publication:-1}).exec(function (err, result) {
+            res.json(result);
+        });
+    });
+
+    router.get('/api/old-cars', function (req, res) {
+        Car.find({nouveau:false}).sort({date_publication:-1}).exec(function (err, result) {
+            res.json(result);
+        });
+    });
+
     router.get('/api/marque/:marque', function (req, res) {
         Car.find({marque: new RegExp('^'+req.params.marque+'$', "i")}).sort({date_publication:-1}).exec(function (err, result) {
             if (result != null)

@@ -4,14 +4,14 @@
             <ul class="page-sidebar-menu  page-header-fixed page-sidebar-menu-hover-submenu  "
                 data-keep-expanded="false"
                 data-auto-scroll="true" data-slide-speed="200">
-                <li class="nav-item start page-dashboard">
+                <li class="nav-item active start page-dashboard">
                     <a ui-sref="admin" class="nav-link nav-toggle">
                         <i class="icon-home"></i>
                         <span class="title">{{'ADMIN_MENU_DASHBOARD'|translate}}</span>
                         <span class="arrow"></span>
                     </a>
                 </li>
-                <li class="nav-item start page-new-car page-list-cars">
+                <li class="nav-item nav-list  page-new-car page-list-cars-old page-list-cars-new">
                     <a class="nav-link nav-toggle">
                         <i class="fa fa-car "></i>
                         <span class="title">{{'ADMIN_MENU_CARS'|translate}}</span>
@@ -24,15 +24,15 @@
                                 <span class="title">{{'ADMIN_MENU_CARS_ADD'|translate}}</span>
                             </a>
                         </li>
-                        <li class="nav-item page-list-cars">
-                            <a ui-sref="cars" class="nav-link ">
+                        <li class="nav-item page-list-cars-new">
+                            <a ui-sref="admin_new_cars" class="nav-link ">
                                 <i class="fa fa-list"></i>
                                 <span class="title">{{'ADMIN_MENU_CARS_NEW'|translate}}</span>
 
                             </a>
                         </li>
-                        <li class="nav-item page-list-cars">
-                            <a ui-sref="cars" class="nav-link ">
+                        <li class="nav-item page-list-cars-old">
+                            <a ui-sref="admin_old_cars" class="nav-link ">
                                 <i class="fa fa-list"></i>
                                 <span class="title">{{'ADMIN_MENU_CARS_OLD'|translate}}</span>
 
@@ -40,28 +40,28 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item start page-messages">
+                <li class="nav-item  page-messages">
                     <a ui-sref="messages" class="nav-link nav-toggle">
                         <i class="fa fa-envelope"></i>
                         <span class="title">{{'ADMIN_MENU_MESSAGES'|translate}}</span>
                         <span class="arrow"></span>
                     </a>
                 </li>
-                <li class="nav-item start page-list-marques">
+                <li class="nav-item  page-list-marques">
                     <a ui-sref="marques" class="nav-link nav-toggle">
                         <i class="fa fa-wrench"></i>
                         <span class="title">{{'ADMIN_MENU_MARQUE_MODELS'|translate}}</span>
                         <span class="arrow"></span>
                     </a>
                 </li>
-                <li class="nav-item start page-settings">
+                <li class="nav-item  page-settings">
                     <a ui-sref="settings" class="nav-link nav-toggle">
                         <i class="fa fa-cogs"></i>
                         <span class="title">{{'ADMIN_MENU_PARAMETERS'|translate}}</span>
                         <span class="arrow"></span>
                     </a>
                 </li>
-                <li class="nav-item start">
+                <li class="nav-item ">
                     <a ui-sref="logout" class="nav-link nav-toggle">
                         <i class="icon-key"></i>
                         <span class="title">{{'ADMIN_MENU_LOGOUT'|translate}}</span>
@@ -74,3 +74,4 @@
         <!-- END SIDEBAR -->
     </div>
 </div>
+<script type="text/javascript" src="/public/assets/js/main.js"></script>

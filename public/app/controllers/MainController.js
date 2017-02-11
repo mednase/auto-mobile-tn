@@ -51,27 +51,23 @@ app.controller('appController',['$scope','authService','$http','API_ENDPOINT','$
             $rootScope.default_float = language === 'ar' ? 'right' : 'left';
             $rootScope.opposite_float = language === 'ar' ? 'left' : 'right';
 
-            $state.reload();
         });
 
 
 
 }]);
-app.controller('homeController', ['$scope', '$http', 'API_ENDPOINT','$rootScope',
-    function ($scope,$http, API_ENDPOINT,$rootScope ) {
+app.controller('homeController', ['$scope', '$http', 'API_ENDPOINT','$rootScope','$timeout',
+    function ($scope,$http, API_ENDPOINT,$rootScope,$timeout ) {
         $scope.currentDate=new Date();
-        $scope.currentPage = 1;
-        var setPage = function (pageNo) {
-            $scope.currentPage = pageNo;
+
+
             $scope.loading=true;
 
-            $http.get(API_ENDPOINT.url + '/cars/'+pageNo).then(function (res) {
+            $http.get(API_ENDPOINT.url + '/home').then(function (res) {
                 $scope.loading=false;
-                $scope.cars= res.data.cars;
-                $scope.totalCars=res.data.total;
-                if(!$scope.$$phase){$scope.$apply();}
-
-                setTimeout(function () {
+                $scope.newCars= res.data.newCars;
+                $scope.oldCars= res.data.usedCars;
+                $timeout(function () {
                     $('.lightSlider').lightSlider({
                         gallery: false,
                         slideMove: 1,
@@ -99,23 +95,9 @@ app.controller('homeController', ['$scope', '$http', 'API_ENDPOINT','$rootScope'
                             }
                         ]
                     });
-                },200);
-
-                window.resize()
-
-
+                },0);
+            window.resize()
             });
-        };
-
-        setPage($scope.currentPage);
-
-        /* pagination */
-        $scope.pageChanged = function () {
-            setPage($scope.currentPage);
-            $('html, body').animate({scrollTop : 0},1000);
-
-        };
-
 
 }]).
 controller('showCarController', ['car','$scope','$http','API_ENDPOINT',
@@ -154,8 +136,14 @@ controller('marqueController', ['$scope', '$http', 'API_ENDPOINT','$stateParams'
             $log.log('Page changed to: ' + $scope.currentPage);
         };
 
-        $scope.maxSize = 12;
-        $scope.bigCurrentPage = 1;
+
+        setPage($scope.currentPage);
+        /* pagination */
+        $scope.pageChanged = function () {
+            setPage($scope.currentPage);
+            $('html, body').animate({scrollTop : 0},1000);
+
+        };
 
 
 }]).
@@ -208,4 +196,40 @@ controller('contactController',['$scope','NgMap','$timeout','GOVERNORATE','vcRec
         }
     }
 
-}]);
+}]).
+controller('carsController', ['$scope', '$http', 'API_ENDPOINT','$state',
+    function ($scope,$http, API_ENDPOINT ,$state) {
+
+
+        if($state.current.name=="new_cars")
+            $http.get(API_ENDPOINT.url+'/new-cars').then(function (result) {
+                $scope.cars=result.data;
+                $scope.totalItems = $scope.cars.length;
+            });
+        else
+            $http.get(API_ENDPOINT.url+'/old-cars').then(function (result) {
+                $scope.cars=result.data;
+                $scope.totalItems = $scope.cars.length;
+            });
+
+        $scope.currentPage = 1;
+
+        $scope.setPage = function (pageNo) {
+            $scope.currentPage = pageNo;
+        };
+
+        $scope.pageChanged = function() {
+            $log.log('Page changed to: ' + $scope.currentPage);
+        };
+
+
+        $scope.setPage($scope.currentPage);
+        /* pagination */
+        $scope.pageChanged = function () {
+            $scope.setPage($scope.currentPage);
+            $('html, body').animate({scrollTop : 0},1000);
+
+        };
+
+
+    }]);

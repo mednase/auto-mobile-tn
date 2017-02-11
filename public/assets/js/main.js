@@ -8,11 +8,18 @@ $("document").ready(function () {
        $('body').toggleClass('page-sidebar-closed');
     }
     $('.nav-item').click(function () {
-        $(this).toggleClass('active');
+        if(!$(this).hasClass('nav-list'))
+            $('.active').each(function () {
+                $(this).removeClass("active");
+            });
+
+        $(this).addClass("active");
     });
+
     $('.active').each(function () {
         $(this).removeClass("active");
     });
+
     if ($("#menuSelected").length) {
         $("." + $("#menuSelected").data('menu')).addClass('active');
     }

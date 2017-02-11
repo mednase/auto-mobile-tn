@@ -54,6 +54,16 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
                 templateUrl: '/public/views/core/car.marque.html',
                 controller: 'marqueController'
             })
+            .state('new_cars', {
+                url: '/cars/new',
+                templateUrl: '/public/views/core/car.marque.html',
+                controller: 'carsController'
+            })
+            .state('old_cars', {
+                url: '/cars/old',
+                templateUrl: '/public/views/core/car.marque.html',
+                controller: 'carsController'
+            })
             .state('login', {
                 url: '/login',
                 templateUrl: '/public/views/auth/login.html',
@@ -102,14 +112,22 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
                     authenticate: true,
                 }
             })
-            .state('cars', {
-                url: '/admin/cars',
+            .state('admin_old_cars', {
+                url: '/admin/old-cars',
                 templateUrl: '/public/views/admin/list.cars.html',
                 controller: 'carListController',
                 data: {
                     authenticate: true,
                 }
-            }) .
+            })
+            .state('admin_new_cars', {
+                url: '/admin/new-cars',
+                templateUrl: '/public/views/admin/list.cars.html',
+                controller: 'carListController',
+                data: {
+                    authenticate: true,
+                }
+            }).
             state('show_car', {
                 url: '/car/:id/detail',
                 templateUrl: '/public/views/core/show_car.html',

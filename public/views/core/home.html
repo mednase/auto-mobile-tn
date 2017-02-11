@@ -103,7 +103,7 @@
     <div ng-if="!loading" class="container">
         <div class="col-md-10 col-md-offset-1">
             <div class="lightSlider" data-rtl="{{dir=='rtl'}}">
-                <div  style="height: auto!important;" ng-repeat="car in cars track by $index">
+                <div  style="height: auto!important;" ng-repeat="car in newCars track by $index">
                     <div class="thumbnail no-border no-padding thumbnail-car-card">
                         <div class="media">
                             <div class="media-link" data-gal="prettyPhoto" >
@@ -118,10 +118,10 @@
                         <div>
                             <table class="table">
                                 <tbody><tr>
-                                    <td><i class="fa fa-car"></i> {{car.annee}}</td>
-                                    <td><i class="fa fa-dashboard"></i> {{car.energie}}</td>
-                                    <td><i class="fa fa-cog"></i> {{car.type_vitesse}}</td>
-                                    <td><i class="fa fa-road"></i> 25000</td>
+                                    <td class="text-center" ><i class="fa fa-car"></i> {{car.annee}}</td>
+                                    <td class="text-center" ><i class="fa fa-dashboard"></i> {{car.energie}}</td>
+                                    <td class="text-center" ><i class="fa fa-cog"></i> {{car.type_vitesse}}</td>
+                                    <td class="text-center" ><i class="fa fa-road"></i> 25000</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -152,7 +152,7 @@
     <div ng-if="!loading" class="container">
         <div class="col-md-10 col-md-offset-1">
             <div class="lightSlider" data-rtl="{{dir=='rtl'}}">
-                <div  style="height: auto!important;" ng-repeat="car in cars track by $index">
+                <div  style="height: auto!important;" ng-repeat="car in oldCars track by $index">
                     <div class="thumbnail no-border no-padding thumbnail-car-card">
                         <div class="media">
                             <div class="media-link" data-gal="prettyPhoto" >
@@ -167,10 +167,10 @@
                         <div>
                             <table class="table">
                                 <tbody><tr>
-                                    <td><i class="fa fa-car"></i> {{car.annee}}</td>
-                                    <td><i class="fa fa-dashboard"></i> {{car.energie}}</td>
-                                    <td><i class="fa fa-cog"></i> {{car.type_vitesse}}</td>
-                                    <td><i class="fa fa-road"></i> 25000</td>
+                                    <td class="text-center" ><i class="fa fa-car"></i> {{car.annee}}</td>
+                                    <td class="text-center" ><i class="fa fa-dashboard"></i> {{car.energie}}</td>
+                                    <td class="text-center" ><i class="fa fa-cog"></i> {{car.type_vitesse}}</td>
+                                    <td class="text-center" ><i class="fa fa-road"></i> 25000</td>
                                 </tr>
                                 </tbody>
                             </table>

@@ -106,13 +106,21 @@ controller('editCarController',['car','$scope','$http','API_ENDPOINT','toastr','
 
 
     }]).
-controller('carListController',['$scope','DTOptionsBuilder','SweetAlert','$http','API_ENDPOINT',
-    function ($scope,DTOptionsBuilder,SweetAlert,$http,API_ENDPOINT) {
+controller('carListController',['$scope','DTOptionsBuilder','SweetAlert','$http','API_ENDPOINT'
+    ,'$state',
+    function ($scope,DTOptionsBuilder,SweetAlert,$http,API_ENDPOINT,$state) {
 
-         $http.get(API_ENDPOINT.url + '/cars').then(function (res) {
-             $scope.cars=res.data;
-         });
-
+        if($state.current.name=="admin_new_cars"){
+            $scope.NEWCARS=true;
+            $http.get(API_ENDPOINT.url + '/new-cars').then(function (res) {
+                 $scope.cars=res.data;
+             });
+        }else{
+            $scope.OLDCARS=true;
+            $http.get(API_ENDPOINT.url + '/old-cars').then(function (res) {
+                $scope.cars=res.data;
+            });
+        }
         if($scope.dir=='rtl')
             var language = {
                 "sProcessing": "جارٍ التحميل...",
