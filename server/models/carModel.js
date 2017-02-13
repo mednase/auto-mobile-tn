@@ -10,7 +10,7 @@ var car_schema=new Schema({
     marque: String,
     model: String,
     annee: Number,
-    prix : Number,
+    prix : {type:Number,default:0},
     couleur:String,
     place:{type:Number,default:5},
     porte:{type:Number,default:4},
