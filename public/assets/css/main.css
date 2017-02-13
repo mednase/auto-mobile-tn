@@ -263,12 +263,14 @@ ul.pagination>li>a{
     background: #333!important;
     color: #fff!important;
 }
-ul.pagination>li.active{
-    background: #d11717;
+ul.pagination>li.active>a{
+    background: #d11717!important;
     color: #fff;
+    border: 1px solid darkred;
 }
-ul.pagination>li>a:hover{
-    color: #d11717;
+ul.pagination>li:not(.active)>a:hover{
+    color: #d11717!important;
+    outline: none;
 }
 @media (min-width: 1200px){
     .col-lg-4 {

@@ -117,16 +117,29 @@
                                     <tbody>
                                     <tr>
                                         <td class="text-center"><i class="fa fa-car"></i> {{car.annee}}</td>
-                                        <td class="text-center"><i class="fa fa-dashboard"></i> {{car.energie}}</td>
-                                        <td class="text-center"><i class="fa fa-cog"></i> {{car.type_vitesse}}</td>
-                                        <td class="text-center"><i class="fa fa-road"></i> 25000</td>
+                                        <td class="text-center"><i class="fa fa-dashboard"></i>
+                                            <ANY ng-switch="car.energie">
+                                                <ANY ng-switch-when="diesel">{{'ADMIN_PAGE_ADD_CAR_FORM_ENERGIE_DIESEL'|translate}}</ANY>
+                                                <ANY ng-switch-when="essence">{{'ADMIN_PAGE_ADD_CAR_FORM_ENERGIE_ESSENCE'|translate}}</ANY>
+                                                <ANY ng-switch-when="electrique">{{'ADMIN_PAGE_ADD_CAR_FORM_ENERGIE_ELECTRIC'|translate}}</ANY>
+                                                <ANY ng-switch-when="lgp">{{'ADMIN_PAGE_ADD_CAR_FORM_ENERGIE_LGP'|translate}}</ANY>
+                                            </ANY>
+                                        </td>
+                                        <td class="text-center"><i class="fa fa-cog"></i>
+                                            <ANY ng-switch="car.transmission">
+                                                <ANY ng-switch-when="manuel">{{'CARS_SEARCH_FORM_TRANSITION_MANUAL'|translate}}</ANY>
+                                                <ANY ng-switch-when="semi-auto">{{'CARS_SEARCH_FORM_TRANSITION_SEMI_AUTOMATIC'|translate}}</ANY>
+                                                <ANY ng-switch-default>{{'CARS_SEARCH_FORM_TRANSITION_AUTOMATIC'|translate}}</ANY>
+                                            </ANY>
+                                        </td>
+                                        <td class="text-center"><i class="fa fa-road"></i> {{car.kilometrage}}.Km</td>
                                     </tr>
                                     </tbody>
                                 </table>
                             </div>
                             <div class="product-caption row no-margin">
                                 <h4 class="product-name col-md-7 col-xs-6">
-                                    {{car.marque+" "+ car.model+" ,"+car.annee}}
+                                    {{car.titre}}
                                 </h4>
                                 <span class="product-price {{dir}} col-md-5">{{car.prix }} {{'MONEY'|translate}}</span>
                             </div>
@@ -168,16 +181,29 @@
                                     <tbody>
                                     <tr>
                                         <td class="text-center"><i class="fa fa-car"></i> {{car.annee}}</td>
-                                        <td class="text-center"><i class="fa fa-dashboard"></i> {{car.energie}}</td>
-                                        <td class="text-center"><i class="fa fa-cog"></i> {{car.type_vitesse}}</td>
-                                        <td class="text-center"><i class="fa fa-road"></i> 25000</td>
+                                        <td class="text-center"><i class="fa fa-dashboard"></i>
+                                            <ANY ng-switch="car.energie">
+                                                <ANY ng-switch-when="diesel">{{'ADMIN_PAGE_ADD_CAR_FORM_ENERGIE_DIESEL'|translate}}</ANY>
+                                                <ANY ng-switch-when="essence">{{'ADMIN_PAGE_ADD_CAR_FORM_ENERGIE_ESSENCE'|translate}}</ANY>
+                                                <ANY ng-switch-when="electrique">{{'ADMIN_PAGE_ADD_CAR_FORM_ENERGIE_ELECTRIC'|translate}}</ANY>
+                                                <ANY ng-switch-when="lgp">{{'ADMIN_PAGE_ADD_CAR_FORM_ENERGIE_LGP'|translate}}</ANY>
+                                            </ANY>
+                                        </td>
+                                        <td class="text-center"><i class="fa fa-cog"></i>
+                                            <ANY ng-switch="car.transmission">
+                                                <ANY ng-switch-when="manuel">{{'CARS_SEARCH_FORM_TRANSITION_MANUAL'|translate}}</ANY>
+                                                <ANY ng-switch-when="semi-auto">{{'CARS_SEARCH_FORM_TRANSITION_SEMI_AUTOMATIC'|translate}}</ANY>
+                                                <ANY ng-switch-default>{{'CARS_SEARCH_FORM_TRANSITION_AUTOMATIC'|translate}}</ANY>
+                                            </ANY>
+                                        </td>
+                                        <td class="text-center"><i class="fa fa-road"></i> {{car.kilometrage}}.Km</td>
                                     </tr>
                                     </tbody>
                                 </table>
                             </div>
                             <div class="product-caption row no-margin">
                                 <h4 class="product-name {{dir}} col-md-7 col-xs-6">
-                                    {{car.marque+" "+ car.model+" ,"+car.annee}}
+                                    {{car.titre}}
                                 </h4>
                                 <span class="product-price {{dir}} col-md-5">{{car.prix }} {{'MONEY'|translate}}</span>
                             </div>

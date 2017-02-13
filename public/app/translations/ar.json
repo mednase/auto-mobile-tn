@@ -158,15 +158,13 @@
   "CAR_TOAST_EDIT_DONE":"لقد تم إجراء التعديلات بنجاح  ! ",
   "CAR_TOAST_EDIT":"تعديل السيارة",
 
+  "TOAST_WAIT_MESSAGE":"يرجى الانتظار",
+
   "MESSAGE_SWEETALERT_DELETE_QUESTION":"هل تريد حذف هذه الرسالة من قاعدة البيانات ؟",
   "MESSAGE_SWEETALERT_DELETE_DONE":"لقد تم حذف هذه الرسالة بنجاح ",
 
   "CAR_SWEETALERT_DELETE_DONE":"لقد تم حذف هذه السيارة بنجاح ",
   "CAR_SWEETALERT_DELETE_QUESTION":"هل تريد حذف هذه السيارة من قاعدة البيانات ؟",
-
-
-  "MESSAGE_TOAST_SEND_EMAIL_WAIT":"يرجى الانتظار البريد الإلكتروني بصدد الإرسال",
-  "MESSAGE_TOAST_SEND_EMAIL_DONE":"لقد تم بعث الرسالة بنجاح !",
 
   "ADD_MODEL_PLACEHOLDER":"إسم الموديل الجديد ",
   "ADD_MARQUE_PLACEHOLDER":"إسم الماركة الجديد ",
@@ -191,5 +189,13 @@
   "PAGE_CONTACT_ADDRESS_CITY":"قصيبة المديوني",
   "PAGE_CONTACT_ADDRESS_GOVERNORATE":" المنستير 5031  ",
   "PAGE_CONTACT_FORM_MESSAGE":"اكتب رسالتك هنا ...",
-  "PAGE_CONTACT_INFO":"خط المساعدة مفتوح دائما لتلقي أي استفسار أو ملاحظات. لا تتردد في ترك لنا رسالة بالبريد الالكتروني من النموذج أدناه وسوف نقوم بالرد عليك في أقرب وقت ممكن."
+  "PAGE_CONTACT_INFO":"خط المساعدة مفتوح دائما لتلقي أي استفسار أو ملاحظات. لا تتردد في ترك لنا رسالة بالبريد الالكتروني من النموذج أدناه وسوف نقوم بالرد عليك في أقرب وقت ممكن.",
+
+  "PAGE_SHOW_CAR_SEE_ALSO":"شاهد أيضاً",
+  "PAGE_SHOW_CAR_SPEED_SEARCH":"شاهد أيضاً",
+  "PAGE_SHOW_CAR_SPEED_SEARCH_PICK_MARQUE":"إختر الماركة…",
+  "PAGE_SHOW_CAR_SPEED_SEARCH_ALL_MODEL":"جميع الموديلات…",
+  "DOOR":"أبواب",
+  "PLACE":"مقاعد",
+  "CYLINDRE":"أسطوانات"
 }

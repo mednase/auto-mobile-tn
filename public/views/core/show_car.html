@@ -2,7 +2,7 @@
     <aside class="col-md-3 side-box hidden-sm hidden-xs">
         <section class="quick-search-box">
             <header class="side-box_header">
-                <h2 class="side-box_title"> البحث السريع</h2>
+                <h2 class="side-box_title">{{'PAGE_SHOW_CAR_SPEED_SEARCH'|translate}}</h2>
             </header>
             <div class="content">
                 <form class="car-form" ng-submit="searchCar()">
@@ -10,42 +10,46 @@
                         <div class="col-md-12 form-item">
                             <label class="hidden col-md-4" for="edit-manufacturer">Make
                             </label>
-                            <select ng-model="marque" id="edit-manufacturer" class="form-select col-md-10 col-md-offset-1 x-select">
-                                <option value="" selected="selected">إختر الماركة…</option>
+                            <select ng-model="marque" id="edit-manufacturer"
+                                    class="form-select col-md-10 col-md-offset-1 x-select">
+                                <option value="" selected="selected">{{'PAGE_SHOW_CAR_SPEED_SEARCH_PICK_MARQUE'|translate}}</option>
                                 <option ng-repeat="mq in marques track by $index" value="{{mq}}">{{mq.nom}}</option>
                             </select>
                         </div>
                         <div class="col-md-12 form-item ">
                             <label class="hidden col-md-4">Model </label>
-                            <select ng-model="search.model" name="car" class="form-select  col-md-10 col-md-offset-1 x-select" ng-disabled="marque==null" >
-                                <option value="" selected="selected">جميع الموديلات…</option>
+                            <select ng-model="search.model" name="car"
+                                    class="form-select  col-md-10 col-md-offset-1 x-select" ng-disabled="marque==null">
+                                <option value="" selected="selected">{{'PAGE_SHOW_CAR_SPEED_SEARCH_ALL_MODEL'|translate}}</option>
                                 <option ng-repeat="model in models track by $index" value="{{model}}">{{model}}</option>
                             </select>
                         </div>
-                        <button  class="search-btn">ابحث</button>
+                        <button class="search-btn">{{'SEARCH'|translate}}</button>
                     </div>
                 </form>
             </div>
         </section>
-        <section id="related_cars" >
+        <section id="related_cars">
             <header class="side-box_header">
-                <h2 class="side-box_title">شاهد أيضاً</h2>
+                <h2 class="side-box_title">{{'PAGE_SHOW_CAR_SPEED_SEARCH'|translate}}</h2>
             </header>
             <div>
                 <ul class="related_cars_list  ">
                     <li ng-repeat="other_car in other_cars track by $index" class="animated slideInRight">
-                        <article  class="car-item col-md-12" ui-sref="show_car({id:other_car._id})">
+                        <article class="car-item col-md-12" ui-sref="show_car({id:other_car._id})">
                             <div class="push-item__image col-md-7">
                                 <div class="fixed-ratio">
-                                    <img ng-if="other_car.images.length>0" src="{{other_car.images[0]}}" class="img-responsive">
-                                    <img ng-if="other_car.images.length<1" src="/public/assets/img/car/no_image.png" >                                </div>
+                                    <img ng-if="other_car.images.length>0" src="{{other_car.images[0]}}"
+                                         class="img-responsive">
+                                    <img ng-if="other_car.images.length<1" src="/public/assets/img/car/no_image.png">
+                                </div>
                             </div>
                             <div class="push-item__text-content col-md-4">
                                 <div class="push-item__manufacturer">{{other_car.marque}}</div>
                                 <div class="push-item__title">{{other_car.model}}</div>
                                 <div class="push-item__price">
                                     <span class="price-range">
-                                        <span class="price-range__from">{{other_car.prix}} د.ت</span>
+                                        <span class="price-range__from">{{other_car.prix}} {{'MONEY'|translate}}</span>
                                     </span>
                                 </div>
                             </div>
@@ -58,9 +62,12 @@
     <div id="main_area" class="col-md-9 boxed-content">
         <!-- Slider -->
         <div class="row" style="padding: 5px;">
+            <div class="col-md-12">
+                <b style="font-size: 45px" class="font-blue-steel">{{car.titre}}</b>
+            </div>
             <div class=" col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-0">
-                <ul  id="lightSlider" class=" " data-rtl="{{dir=='rtl'}}">
-                    <li class="text-center" ng-repeat="image in car.images track by $index" data-thumb="{{image}}" >
+                <ul id="lightSlider" class=" " data-rtl="{{dir=='rtl'}}">
+                    <li class="text-center" ng-repeat="image in car.images track by $index" data-thumb="{{image}}">
                         <img src="{{image}}" class="img-responsive ">
                     </li>
                     <li ng-if="car.images.length<1" class="col-sm-8 col-sm-offset-2">
@@ -71,28 +78,27 @@
                 </ul>
             </div>
             <div class="col-md-4 col-sm-12">
-                <b style="font-size: 45px" class="font-blue-steel">{{car.marque}} {{car.model}}</b>
                 <table class="table cartable">
                     <tbody>
                     <tr>
-                        <td class="col-md-4">الثمن</td>
+                        <td class="col-md-4">{{'PRICE'|translate}}</td>
                         <td>{{car.prix}}&nbsp;(دت)</td>
                     </tr>
                     <tr>
-                        <td class="col-md-4">الماركة</td>
+                        <td class="col-md-4">{{'HOME_SEARCH_FORM_MARQUE'|translate}}</td>
                         <td>{{car.marque}}</td>
                     </tr>
                     <tr>
-                        <td class="col-md-4">الموديل</td>
+                        <td class="col-md-4">{{'HOME_SEARCH_FORM_MODEL'|translate}}</td>
                         <td>{{car.model}}</td>
                     </tr>
                     <tr>
-                        <td class="col-md-4">السنة</td>
+                        <td class="col-md-4">{{'HOME_SEARCH_FORM_YEAR'|translate}}</td>
                         <td>{{car.annee}}</td>
                     </tr>
                     <tr>
-                        <td class="col-md-4">اللون</td>
-                        <td>{{car.coleur}}</td>
+                        <td class="col-md-4">{{'ADMIN_FORM_ADD_CAR_COLOR'|translate}}</td>
+                        <td>{{car.couleur}}</td>
                     </tr>
                     </tbody>
                 </table>
@@ -103,70 +109,125 @@
             <ul class="">
                 <li class="col-md-2 col-xs-5 col-sm-2">
                     <img src="/public/assets/img/car/icon-carburant.png">
-                    <h3>{{car.energie}}</h3>
+                    <h3>
+                        <ANY ng-switch="car.energie">
+                            <ANY ng-switch-when="diesel">{{'ADMIN_PAGE_ADD_CAR_FORM_ENERGIE_DIESEL'|translate}}</ANY>
+                            <ANY ng-switch-when="essence">{{'ADMIN_PAGE_ADD_CAR_FORM_ENERGIE_ESSENCE'|translate}}</ANY>
+                            <ANY ng-switch-when="electrique">{{'ADMIN_PAGE_ADD_CAR_FORM_ENERGIE_ELECTRIC'|translate}}</ANY>
+                            <ANY ng-switch-when="lgp">{{'ADMIN_PAGE_ADD_CAR_FORM_ENERGIE_LGP'|translate}}</ANY>
+                        </ANY>
+                    </h3>
+
                 </li>
                 <li class="col-md-2 col-sm-2 col-xs-5">
                     <img src="/public/assets/img/car/icon-places.png">
-                    <h3>{{car.porte}}</h3>
+                    <h3>{{car.place}}&nbsp;{{'PLACE'|translate}}</h3>
                 </li>
                 <li class="col-md-2 col-sm-2 col-xs-5">
                     <img src="/public/assets/img/car/icon-engine.png">
-                    <h3>{{car.capacite_moteur}} Littres</h3>
+                    <h3>{{car.cylindre}} {{'CYLINDRE'|translate}}</h3>
                 </li>
                 <li class="col-md-2 col-sm-2 col-xs-5">
                     <img src="/public/assets/img/car/icon-boite.png">
-                    <h3>{{car.type_vitesse}}</h3>
+                    <h3>
+                        <ANY ng-switch="car.transmission">
+                            <ANY ng-switch-when="manuel">{{'CARS_SEARCH_FORM_TRANSITION_MANUAL'|translate}}</ANY>
+                            <ANY ng-switch-when="semi-auto">{{'CARS_SEARCH_FORM_TRANSITION_SEMI_AUTOMATIC'|translate}}</ANY>
+                            <ANY ng-switch-default>{{'CARS_SEARCH_FORM_TRANSITION_AUTOMATIC'|translate}}</ANY>
+                        </ANY>
+                    </h3>
                 </li>
                 <li class="col-md-2 hidden-xs">
                     <img src="/public/assets/img/car/icon-portes.png">
-                    <h3>{{car.porte}}</h3>
+                    <h3>{{car.porte}}&nbsp;{{'DOOR'|translate}}</h3>
                 </li>
             </ul>
         </div>
-        <div class="row col-md-6 portlet light" style="margin-top: 20px">
-            <h2>المواصفات</h2>
-            <table class="table table-striped">
-                <tbody>
-                <tr>
-                    <td class="col-md-4">وسائد هوائية</td>
-                    <td class="col-md-4">{{car.caracteristique.airbag?'متوفر':'غير متوفر'}}</td>
-                </tr>
-                <tr>
-                    <td>مثبت سرعة</td>
-                    <td class="col-md-4">{{car.caracteristique.regulateur_vitesse?'متوفر':'غير متوفر'}}</td>
-                </tr>
-                <tr>
-                    <td>انذار</td>
-                    <td class="col-md-4">{{car.caracteristique.alarm?'متوفر':'غير متوفر'}}</td>
-                </tr>
-                <tr>
-                    <td>نظام فرامل ABS</td>
-                    <td class="col-md-4">{{car.caracteristique.frein_abs?'متوفر':'غير متوفر'}}</td>
-                </tr>
-                <tr>
-                    <td>توزيع اليكتروني للفرامل EBD</td>
-                    <td class="col-md-4">{{car.caracteristique.EBD?'متوفر':'غير متوفر'}}</td>
-                </tr>
-                <tr>
-                    <td>تكييف</td>
-                    <td class="col-md-4">{{car.caracteristique.climatisation?'متوفر':'غير متوفر'}}</td>
-                </tr>
-                </tbody>
-            </table>
+        <div class="row col-md-12 portlet light" style="margin-top: 20px">
+            <div class="col-md-6">
+                <h3>{{'ADMIN_PAGE_ADD_CAR_FORM_SECURITY'|translate}}</h3>
+                <table class="table table-striped table-bordered ">
+                    <tbody>
+                    <tr>
+                        <td>{{'ADMIN_PAGE_ADD_CAR_FORM_ACCESSOIR_ABS'|translate}}</td>
+                        <td class="text-center">
+                            <img ng-src="{{car.security.frein_abs?'/public/assets/img/check.png':'/public/assets/img/wrong.png'}}" width="20"
+                                 height="20">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>{{'ADMIN_PAGE_ADD_CAR_FORM_ACCESSOIR_FR_ASSISTANCE'|translate}}</td>
+                        <td class="text-center">
+                            <img ng-src="{{car.security.frein_ebd?'/public/assets/img/check.png':'/public/assets/img/wrong.png'}}" width="20"
+                                 height="20">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>{{'ADMIN_PAGE_ADD_CAR_FORM_ACCESSOIR_AIRBAG'|translate}}</td>
+                        <td class="text-center">
+                            <img ng-src="{{car.security.airbag?'/public/assets/img/check.png':'/public/assets/img/wrong.png'}}" width="20" height="20">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>{{'ADMIN_PAGE_ADD_CAR_FORM_ACCESSOIR_ALARM'|translate}}</td>
+                        <td class="text-center">
+                            <img ng-src="{{car.security.alarm?'/public/assets/img/check.png':'/public/assets/img/wrong.png'}}" width="20" height="20">
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <h3>{{'ADMIN_PAGE_ADD_CAR_FORM_FONCTIONAL'|translate}}</h3>
+                <table class="table table-striped table-bordered">
+                    <tbody>
+                    <tr>
+                        <td>{{'ADMIN_PAGE_ADD_CAR_FORM_ACCESSOIR_CLIMATISATION'|translate}}</td>
+                        <td class="text-center">
+                            <img ng-src="{{car.fonctional.climatisation?'/public/assets/img/check.png':'/public/assets/img/wrong.png'}}" width="20" height="20">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>{{'ADMIN_PAGE_ADD_CAR_FORM_ACCESSOIR_LOCK'|translate}}</td>
+                        <td class="text-center">
+                            <img ng-src="{{car.fonctional.fermuture_centralise?'/public/assets/img/check.png':'/public/assets/img/wrong.png'}}" width="20" height="20">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> {{'ADMIN_PAGE_ADD_CAR_FORM_ACCESSOIR_REG_VITESSE'|translate}}</td>
+                        <td class="text-center">
+                            <img ng-src="{{car.fonctional.regulateur_vitesse?'/public/assets/img/check.png':'/public/assets/img/wrong.png'}}" width="20" height="20">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>{{'ADMIN_PAGE_ADD_CAR_FORM_ACCESSOIR_SUNROOF'|translate}}</td>
+                        <td class="text-center">
+                            <img ng-src="{{car.fonctional.toit_ouvrant?'/public/assets/img/check.png':'/public/assets/img/wrong.png'}}" width="20" height="20">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>{{'ADMIN_PAGE_ADD_CAR_FORM_ACCESSOIR_VITRE_ELECTRIC'|translate}}</td>
+                        <td class="text-center">
+                            <img ng-src="{{car.fonctional.vitre_electrique?'/public/assets/img/check.png':'/public/assets/img/wrong.png'}}" width="20" height="20">
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
 
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         setTimeout(function () {
             $('#lightSlider').lightSlider({
                 gallery: true,
                 item: 1,
-                rtl:$('#lightSlider').data('rtl'),
+                rtl: $('#lightSlider').data('rtl'),
                 slideMargin: 1,
                 thumbItem: 10
             })
-        },200);
+        }, 200);
     });
 </script>

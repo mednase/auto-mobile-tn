@@ -129,8 +129,16 @@ module.exports = (function () {
     });
 
     router.post('/api/admin/contact/delete', function (req, res) {
-        console.log(req.body);
-        return res.sendStatus(200);
+        Contact.findOne({_id:req.body.id},function (err, contact) {
+            if (err)throw  err;
+            if(contact)
+                contact.remove(function (err) {
+                    if(err) throw err;
+                    return res.sendStatus(200);
+                });
+            else
+                return res.sendStatus(500);
+        });
     });
 
     router.post('/api/admin/car/new', function (req, res) {
@@ -142,6 +150,7 @@ module.exports = (function () {
     router.post('/api/admin/car/update', function (req, res) {
         Car.findById(req.body._id, function (err, car) {
             if (err) return handleError(err);
+            car.titre=req.body.titre;
             car.marque = req.body.marque;
             car.model = req.body.model;
             car.porte = req.body.porte;
@@ -150,10 +159,11 @@ module.exports = (function () {
             car.couleur = req.body.couleur;
             car.place = req.body.place;
             car.energie = req.body.energie;
-            car.type_vitesse = req.body.type_vitesse;
-            car.capacite_moteur = req.body.capacite_moteur;
+            car.transmission = req.body.transmission;
+            car.cylindre = req.body.cylindre;
             car.images = req.body.images;
-            car.caracteristique = req.body.caracteristique;
+            car.security = req.body.security;
+            car.fonctional = req.body.fonctional;
 
             car.save(function (err, updatedCar) {
                 if (err) return handleError(err);

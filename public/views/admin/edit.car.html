@@ -114,12 +114,12 @@
                                 <span class="required" aria-required="true"> * </span>
                             </label>
                             <div class="col-md-9">
-                                <select ng-model="car.porte" id="porte" class="form-control" required>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option selected>4</option>
-                                    <option>5</option>
+                                <select ng-model="car.porte"  ng-selected="car.porte" id="porte" class="form-control" required>
+                                    <option value=1>1</option>
+                                    <option value=2>2</option>
+                                    <option value=3>3</option>
+                                    <option value=4>4</option>
+                                    <option value=5>5</option>
                                 </select>
                             </div>
                         </div>
@@ -129,15 +129,15 @@
                             </label>
                             <div class="col-md-9">
                                 <select ng-model="car.place" id="place" class="form-control" required>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option selected>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
+                                    <option value=1>1</option>
+                                    <option value=2>2</option>
+                                    <option ng-selected="true" value=3>3</option>
+                                    <option value=4>4</option>
+                                    <option value=5>5</option>
+                                    <option value=6>6</option>
+                                    <option value=7>7</option>
+                                    <option value=8>8</option>
+                                    <option value=9>9</option>
                                 </select>
                             </div>
                         </div>
@@ -146,8 +146,7 @@
                             </label>
                             <div class="col-md-9">
                                 <input ng-model="car.cylindre" id="cylindre" type="number" name="cylindre"
-                                       class="form-control"
-                                       placeholder="CC" required>
+                                       class="form-control" placeholder="CC" required>
                             </div>
                         </div>
                         <div class="form-group col-md-6">
@@ -206,7 +205,7 @@
                                     <span></span>
                                 </label>
                                 <label class="mt-checkbox">
-                                    <input ng-model="car.fonctional.airbag" type="checkbox" value="1" name="service">{{'ADMIN_PAGE_ADD_CAR_FORM_ACCESSOIR_CLIMATISATION'|translate}}
+                                    <input ng-model="car.fonctional.climatisation" type="checkbox" value="1" name="service">{{'ADMIN_PAGE_ADD_CAR_FORM_ACCESSOIR_CLIMATISATION'|translate}}
                                     <span></span>
                                 </label>
                                 <label class="mt-checkbox">

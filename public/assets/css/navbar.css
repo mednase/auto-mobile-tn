@@ -96,7 +96,7 @@
     font-weight: 900;
     font-size: 22px;
 }
-.dropdown-menu.cstm li a:hover,.nav ul li a:focus{
+.dropdown-menu.cstm li a:hover,.dropdown-menu.cstm ul li a:focus{
     clear: both;
     background: inherit!important;
     background-color: #5a1111!important;

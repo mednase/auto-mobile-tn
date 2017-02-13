@@ -14,12 +14,12 @@ var router = express.Router();
 module.exports = (function () {
     router.get('/api/home',function (req,res) {
         var usedCarQuery = function(callback){
-            Car.find({nouveau:false}).sort({date_publication:-1}).limit(10).exec(function (err,cars) {
+            Car.find({condition:"old"}).sort({date_publication:-1}).limit(10).exec(function (err,cars) {
                 callback(err, cars);
             });
         };
         var newCarQuery = function(callback){
-            Car.find({nouveau:true}).sort({date_publication:-1}).limit(10).exec(function (err,cars) {
+            Car.find({condition:"new"}).sort({date_publication:-1}).limit(10).exec(function (err,cars) {
                 callback(err, cars);
             });
         };
@@ -87,13 +87,13 @@ module.exports = (function () {
     });
 
     router.get('/api/new-cars', function (req, res) {
-        Car.find({nouveau:true}).sort({date_publication:-1}).exec(function (err, result) {
+        Car.find({condition:"new"}).sort({date_publication:-1}).exec(function (err, result) {
             res.json(result);
         });
     });
 
     router.get('/api/old-cars', function (req, res) {
-        Car.find({nouveau:false}).sort({date_publication:-1}).exec(function (err, result) {
+        Car.find({condition:"old"}).sort({date_publication:-1}).exec(function (err, result) {
             res.json(result);
         });
     });

@@ -1,5 +1,5 @@
 var app = angular.module('AutoMobileTn', ['ui.router','ngAnimate', 'toastr','datatables','ui.bootstrap',
-'ngSweetAlert','ngMap','vcRecaptcha','pascalprecht.translate','ngCookies']);
+'ngSweetAlert','ngMap','vcRecaptcha','pascalprecht.translate','ngCookies','blockUI']);
 
 app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider',
     '$httpProvider', '$logProvider', '$locationProvider','toastrConfig','$qProvider','$translateProvider',
@@ -189,13 +189,11 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
                 target: 'body'
             });
 }])
-.run(['$rootScope','authService','$state','uibPaginationConfig',
-    function ($rootScope,authService,$state,uibPaginationConfig) {
+.run(['$rootScope','authService','$state',
+    function ($rootScope,authService,$state) {
         $rootScope.isLoading=true;
 
         $rootScope.$on('$stateChangeStart', function (event, next) {
-        uibPaginationConfig.nextText='التالي';
-        uibPaginationConfig.previousText='السابق';
             $rootScope.isLoading=true;
 
 

@@ -39,9 +39,9 @@
   "AND":"Et",
   "PRICE":"Prix",
   "CARS_SEARCH_FORM_TRANSITION":"Transition",
-  "CARS_SEARCH_FORM_TRANSITION_AUTOMATIC":"Automatic",
-  "CARS_SEARCH_FORM_TRANSITION_SEMI_AUTOMATIC":"semi-automatic",
-  "CARS_SEARCH_FORM_TRANSITION_MANUAL":"Manuel",
+  "CARS_SEARCH_FORM_TRANSITION_AUTOMATIC":"Automatique",
+  "CARS_SEARCH_FORM_TRANSITION_SEMI_AUTOMATIC":"semi-automatique",
+  "CARS_SEARCH_FORM_TRANSITION_MANUAL":"Manuelle",
   "SHOW_CARS_NEW_CARS":"Nouvelles Voitrues",
   "SHOW_CARS_USED_CARS":"Voitures D'occasion",
   "SHOW_CARS_SEARCH":"Résultat de la recherche",
@@ -144,6 +144,8 @@
   "SWEETALERT_DELETE_CANCEL":"Non , annuler",
   "SYSTEM_FAIL":"Une erreur est survenue veuillez essayer a nouveau !",
 
+  "TOAST_WAIT_MESSAGE":"Veuillez patienter",
+
   "CAR_TOAST_ADD_DONE":"La voiture a été ajouté avec succès !",
   "CAR_TOAST_ADD":"Ajout de Voiture",
 
@@ -162,7 +164,7 @@
   "CAR_SWEETALERT_DELETE_QUESTION":"Voulez-vous supprimer cette voiture ?",
 
   "MESSAGE_TOAST_SEND_EMAIL_WAIT":"Veuillez patienter le courrier electronique est en train d'etre envoyer",
-  "MESSAGE_TOAST_SEND_EMAIL_DONE":"Le courrier electronique a été envoyer avec success !",
+  "MESSAGE_TOAST_SEND_EMAIL_DONE":"Le courrier electronique a été envoyer avec succès  !",
 
   "ADD_MODEL_PLACEHOLDER":"Nom du modèle a ajouter",
   "ADD_MARQUE_PLACEHOLDER":"Nom du marque a ajouter",
@@ -186,5 +188,12 @@
   "PAGE_CONTACT_ADDRESS_CITY":"Ksibet Mediou",
   "PAGE_CONTACT_ADDRESS_GOVERNORATE":"5031 Monastir",
   "PAGE_CONTACT_FORM_MESSAGE":"Ecrire votre message ici ...",
-  "PAGE_CONTACT_INFO":"Notre service d'assistance est toujours ouvert pour recevoir toute demande d'information ou toute rétroaction. N'hésitez pas à nous envoyer un courriel à partir du formulaire ci-dessous et nous vous répondrons dès que possible."
+  "PAGE_CONTACT_INFO":"Notre service d'assistance est toujours ouvert pour recevoir toute demande d'information ou toute rétroaction. N'hésitez pas à nous envoyer un courriel à partir du formulaire ci-dessous et nous vous répondrons dès que possible.",
+  "PAGE_SHOW_CAR_SEE_ALSO":"Voir aussiً",
+  "PAGE_SHOW_CAR_SPEED_SEARCH":"Recherche Rapide",
+  "PAGE_SHOW_CAR_SPEED_SEARCH_PICK_MARQUE":"Choisir la marque ..",
+  "PAGE_SHOW_CAR_SPEED_SEARCH_ALL_MODEL":"Tous les modèles ...",
+  "DOOR":"portes",
+  "PLACE":"places",
+  "CYLINDRE":"cylindres",
 }

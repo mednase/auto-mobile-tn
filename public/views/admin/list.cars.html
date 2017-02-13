@@ -30,7 +30,7 @@
                         <th>{{'HOME_SEARCH_FORM_MARQUE'|translate}}</th>
                         <th>{{'HOME_SEARCH_FORM_MODEL'|translate}}</th>
                         <th>{{'HOME_SEARCH_FORM_YEAR'|translate}}</th>
-                        <th>{{'HOME_SEARCH_FORM_PRICE'|translate}}</th>
+                        <th>{{'PRICE'|translate}}</th>
                         <th class="hidden-xs">{{'ADMIN_PAGE_ADD_CAR_FORM_NB_PORTE'|translate}}</th>
                         <th class="hidden-xs">{{'ADMIN_PAGE_ADD_CAR_FORM_CYLINDRE'|translate}}</th>
                         <th class="hidden-xs">{{'ADMIN_PAGE_ADD_CAR_FORM_ENERGIE'|translate}}</th>
@@ -46,9 +46,22 @@
                         <td>{{ car.annee }}</td>
                         <td>{{ car.prix }}</td>
                         <td class="hidden-xs">{{ car.porte }}</td>
-                        <td class="hidden-xs">{{ car.capacite_moteur }}</td>
-                        <td class="hidden-xs">{{ car.energie }}</td>
-                        <td class="hidden-xs">{{ car.type_vitesse }}</td>
+                        <td class="hidden-xs">{{ car.cylindre }}</td>
+                        <td class="hidden-xs">
+                            <ANY ng-switch="car.energie">
+                                <ANY ng-switch-when="diesel">{{'ADMIN_PAGE_ADD_CAR_FORM_ENERGIE_DIESEL'|translate}}</ANY>
+                                <ANY ng-switch-when="essence">{{'ADMIN_PAGE_ADD_CAR_FORM_ENERGIE_ESSENCE'|translate}}</ANY>
+                                <ANY ng-switch-when="electrique">{{'ADMIN_PAGE_ADD_CAR_FORM_ENERGIE_ELECTRIC'|translate}}</ANY>
+                                <ANY ng-switch-when="lgp">{{'ADMIN_PAGE_ADD_CAR_FORM_ENERGIE_LGP'|translate}}</ANY>
+                            </ANY>
+                        </td>
+                        <td class="hidden-xs">
+                            <ANY ng-switch="car.transmission">
+                                <ANY ng-switch-when="manuel">{{'CARS_SEARCH_FORM_TRANSITION_MANUAL'|translate}}</ANY>
+                                <ANY ng-switch-when="semi-auto">{{'CARS_SEARCH_FORM_TRANSITION_SEMI_AUTOMATIC'|translate}}</ANY>
+                                <ANY ng-switch-default>{{'CARS_SEARCH_FORM_TRANSITION_AUTOMATIC'|translate}}</ANY>
+                            </ANY>
+                        </td>
                         <td class="text-center">
                             <button class="btn btn-primary" ui-sref="editCar({id:car._id})"><i class="fa fa-wrench" ></i> {{'EDIT'|translate}}</button>
                             <button class="btn btn-danger" style="margin: 5px" ng-click="deleteCar(car,$index)">{{'DELETE'|translate}} <i class="fa fa-trash-o">  </i></button>

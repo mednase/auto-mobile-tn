@@ -11,7 +11,7 @@ app.controller('appController', ['$scope', 'authService', '$http', 'API_ENDPOINT
             $scope.unseen = 0;
             $http.get(API_ENDPOINT.url + '/admin/notification').then(function (res) {
                 $scope.notifications = res.data;
-                angular.forEach(res.data, function (index, notif) {
+                angular.forEach(res.data, function (notif) {
                     if (notif.seen == false)
                         $scope.unseen += 1;
                 })
@@ -141,6 +141,7 @@ controller('showCarController', ['car', '$scope', '$http', 'API_ENDPOINT','$stat
     }]).
 controller('marqueController', ['$scope', '$http', 'API_ENDPOINT', '$stateParams','$state',
     function ($scope, $http, API_ENDPOINT, $stateParams,$state) {
+        $scope.itemsPerPage=9;
 
         $scope.marque = null;
         $scope.search = {price:"30000,200000"};
@@ -162,20 +163,19 @@ controller('marqueController', ['$scope', '$http', 'API_ENDPOINT', '$stateParams
         });
 
         $scope.currentPage = 1;
+        $scope.maxSize = 5;
 
+        $scope.$watch('itemsPerPage',function (newP) {
+            $scope.currentPage=1;
+        })
         $scope.setPage = function (pageNo) {
             $scope.currentPage = pageNo;
         };
 
-        $scope.pageChanged = function () {
-            $log.log('Page changed to: ' + $scope.currentPage);
-        };
-
-
         $scope.setPage($scope.currentPage);
         /* pagination */
         $scope.pageChanged = function () {
-            setPage($scope.currentPage);
+            $scope.setPage($scope.currentPage);
             $('html, body').animate({scrollTop: 0}, 1000);
 
         };
@@ -247,7 +247,7 @@ controller('carsController', ['$scope', '$http', 'API_ENDPOINT', '$state',
         $http.get(API_ENDPOINT.url + "/marques").then(function (result) {
             $scope.marques = result.data;
         });
-
+        $scope.itemsPerPage=9;
         $scope.zone=$state.current.name;
 
         $scope.$watch("marque", function (new_marque) {
@@ -268,15 +268,14 @@ controller('carsController', ['$scope', '$http', 'API_ENDPOINT', '$state',
             });
 
         $scope.currentPage = 1;
+        $scope.maxSize = 5;
 
+        $scope.$watch('itemsPerPage',function (newP) {
+            $scope.currentPage=1;
+        })
         $scope.setPage = function (pageNo) {
             $scope.currentPage = pageNo;
         };
-
-        $scope.pageChanged = function () {
-            $log.log('Page changed to: ' + $scope.currentPage);
-        };
-
 
         $scope.setPage($scope.currentPage);
         /* pagination */
@@ -302,6 +301,7 @@ controller('searchController', ['$scope', '$state', '$stateParams', '$http', 'AP
 
         $http.get(API_ENDPOINT.url + '/search',{ params:  $stateParams}).then(function (result) {
             $scope.cars=result.data;
+            $scope.totalItems = $scope.cars.length;
             $scope.search=null;
             $scope.search = {
                 price:"30000,200000",
@@ -314,6 +314,25 @@ controller('searchController', ['$scope', '$state', '$stateParams', '$http', 'AP
 
 
         });
+        $scope.itemsPerPage=9;
+
+        $scope.currentPage = 1;
+        $scope.maxSize = 5;
+
+        $scope.$watch('itemsPerPage',function (newP) {
+            $scope.currentPage=1;
+        })
+        $scope.setPage = function (pageNo) {
+            $scope.currentPage = pageNo;
+        };
+
+        $scope.setPage($scope.currentPage);
+        /* pagination */
+        $scope.pageChanged = function () {
+            $scope.setPage($scope.currentPage);
+            $('html, body').animate({scrollTop: 0}, 1000);
+
+        };
 
         $scope.$watch("marque", function (new_marque) {
             if (new_marque){
