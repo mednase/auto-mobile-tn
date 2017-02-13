@@ -61,17 +61,15 @@
     </aside>
     <a href="#"
        socialshare
+       class="fb-share-button"
        socialshare-provider="facebook"
        socialshare-text="ahmed auto , vente voitrue"
-       socialshare-hashtags="{{car.titre}}"
+       socialshare-title="{{car.titre}}"
        socialshare-media="{{car.images[0]}}"
        socialshare-url="https://auto-mobile-tn.herokuapp.com/car/{{car._id}}/detail">
         {{'SHARE'|translate}}
     </a>
-    <div class="{{dir}} fb-share-button "
-         data-href="https://auto-mobile-tn.herokuapp.com/car/{{car._id}}/detail"
-         data-layout="button_count" data-size="large">
-    </div>
+
     <div id="main_area" class="col-md-9 boxed-content">
         <!-- Slider -->
         <div class="row" style="padding: 5px;">
