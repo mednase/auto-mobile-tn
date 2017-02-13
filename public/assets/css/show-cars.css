@@ -94,3 +94,15 @@
     background: #ad0601 none repeat scroll 0 0;
     fill: #fa2837;
 }
+.fb-share-button{
+position: fixed;
+top: 50%;
+left: -36px!important;
+transform: rotate(90deg);
+z-index: 99;
+    -webkit-transition: -webkit-transform .8s ease-in-out;
+    transition:         transform .8s ease-in-out;
+}
+.fb-share-button:hover{
+    transform: rotate(-90deg);
+}

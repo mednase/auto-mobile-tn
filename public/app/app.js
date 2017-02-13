@@ -176,9 +176,6 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
             state('error', {
                 url: '/error',
                 templateUrl: '/public/views/core/error.html',
-                controller:function ($window,API_ENDPOINT) {
-                    $window.location.href=API_ENDPOINT.domain+"error"
-                }
             });
             angular.extend(toastrConfig, {
                 autoDismiss: false,

@@ -197,5 +197,7 @@
   "PAGE_SHOW_CAR_SPEED_SEARCH_ALL_MODEL":"جميع الموديلات…",
   "DOOR":"أبواب",
   "PLACE":"مقاعد",
-  "CYLINDRE":"أسطوانات"
+  "CYLINDRE":"أسطوانات",
+  "PAGE_ERROR_MESSAGE":"الصفحة التي تبحث عنها غير موجودة.",
+  "PAGE_ERROR_BUTTON":"عد إلى الصفحة الرئسية"
 }

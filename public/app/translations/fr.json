@@ -195,5 +195,7 @@
   "PAGE_SHOW_CAR_SPEED_SEARCH_ALL_MODEL":"Tous les modèles ...",
   "DOOR":"portes",
   "PLACE":"places",
-  "CYLINDRE":"cylindres"
+  "CYLINDRE":"cylindres",
+  "PAGE_ERROR_MESSAGE":"Cette page n'existe pas !",
+  "PAGE_ERROR_BUTTON":"retourner a la page d'accueil"
 }

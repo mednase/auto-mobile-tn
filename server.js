@@ -43,12 +43,6 @@ var client = require('./server/routes/client');
 
 app.use('/',admin, auth,client);
 
-app.get('/error', function (req, res) {
-    return res.sendFile(__dirname + '/public/views/core/error.html')
-});
-
-
-
 
 /* run app from all route */
 app.get('*', function (req, res) {

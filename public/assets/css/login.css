@@ -43,3 +43,55 @@
     box-shadow: 0 0 8px 1px rgba(222, 7, 19, 0.94) !important;
     border: 1px solid rgb(222, 7, 19);
 }
+
+.error_text_m {
+    position:relative;
+    padding:50px 0;
+}
+.error_text_m h2 {
+    font-size:232px;
+    text-align:center;
+    color: #fa2837;
+    fill: #fa2837;
+}
+.error_text_m h2 span {
+    color:#111;
+    font-weight:900;
+}
+
+.background_icon {
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+}
+.background_icon i {
+    color: #e7e7e7;
+    font-size: 538px;
+    line-height: 400px;
+    vertical-align: top;
+}
+.error_icon {
+    margin-top: 107px;
+    width: 29%;
+}
+.error_icon i {
+    color:#cfcfcf;
+    font-size:130px;
+}
+.error_msg_div {
+    float: left;
+    width: 71%;
+    padding-top:15px;
+}
+.error_msg_div h3 {
+    font-size:60px;
+}
+.error_msg_div h3 span {
+    font-size:40px;
+    display:block;
+}
+.error_msg_div .btn {
+    margin-top:30px;
+}
