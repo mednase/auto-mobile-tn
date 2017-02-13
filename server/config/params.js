@@ -5,4 +5,4 @@ module.exports = {
     database:'mongodb://mednaceur:War789456789@ds157667.mlab.com:57667/tuni-env',
     server_url: 'https://auto-mobile-tn.herokuapp.com/',
     itemsPerPage: 8,
-};
+};f

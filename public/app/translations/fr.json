@@ -197,5 +197,7 @@
   "PLACE":"places",
   "CYLINDRE":"cylindres",
   "PAGE_ERROR_MESSAGE":"Cette page n'existe pas !",
-  "PAGE_ERROR_BUTTON":"retourner a la page d'accueil"
+  "PAGE_ERROR_BUTTON":"retourner a la page d'accueil",
+  "SHARE":"Partager"
+
 }
