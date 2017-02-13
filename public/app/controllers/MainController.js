@@ -188,8 +188,8 @@ controller('marqueController', ['$scope', '$http', 'API_ENDPOINT', '$stateParams
 
     }]).
 controller('contactController', ['$scope', 'NgMap', '$timeout', 'GOVERNORATE', 'vcRecaptchaService',
-    'toastr', '$http', 'API_ENDPOINT','$translate'
-    function ($scope, NgMap, $timeout, GOVERNORATE, vcRecaptchaService, toastr, $http, API_ENDPOINT) {
+    'toastr', '$http', 'API_ENDPOINT','$translate',
+    function ($scope, NgMap, $timeout, GOVERNORATE, vcRecaptchaService, toastr, $http, API_ENDPOINT,$translate) {
         $scope.recaptcha = {};
         $scope.recaptcha.key = "6LdcSRQUAAAAAMyYVWuyDYn6eMp29m077xtkAuKS";
         $scope.recaptcha.lang = $translate.use();
@@ -220,13 +220,16 @@ controller('contactController', ['$scope', 'NgMap', '$timeout', 'GOVERNORATE', '
         $scope.sendMessage = function () {
             var valid = $scope.contact.email.length > 5 && $scope.contact.name.length > 1 && $scope.contact.message.length > 9;
             if (valid) {
+                toastr.success($translate.instant('MESSAGE_TOAST_SEND_EMAIL_WAIT'), $translate.instant('PAGE_CONTACT_SEND_US'));
                 $http.post(API_ENDPOINT.url + "/contact/new", $scope.contact).then(function (res) {
                     if (res.data.success) {
-                        toastr.success('لقد تم لقد تم إرسال الرسالة  بنجاح  ! ', 'أرسل إلينا ');
+                        toastr.clear();
+                        toastr.success($translate.instant('MESSAGE_TOAST_SEND_EMAIL_DONE'), $translate.instant('PAGE_CONTACT_SEND_US'));
                         $scope.contact = {};
                         vcRecaptchaService.reload($scope.widgetId);
                     } else {
-                        toastr.error('خطأ في إرسال المعطيات ! ', 'أرسل إلينا ');
+                        toastr.clear();
+                        toastr.error($translate.instant('SYSTEM_FAIL'), $translate.instant('PAGE_CONTACT_SEND_US'));
                         vcRecaptchaService.reload($scope.widgetId);
                     }
                 })
@@ -322,7 +325,6 @@ controller('searchController', ['$scope', '$state', '$stateParams', '$http', 'AP
             if($scope.marque)
                 $scope.search.marque = JSON.parse($scope.marque).nom;
 
-            console.log($scope.search);
             $state.go($state.current, $scope.search, {reload: true});
         }
 
