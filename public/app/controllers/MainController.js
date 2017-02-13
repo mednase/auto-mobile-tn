@@ -115,9 +115,15 @@ controller('homeController', ['$scope', '$http', 'API_ENDPOINT', '$rootScope', '
 
 
         }]).
-controller('showCarController', ['car', '$scope', '$http', 'API_ENDPOINT','$state',
-    function (car, $scope, $http, API_ENDPOINT,$state) {
+controller('showCarController', ['car', '$scope', '$http', 'API_ENDPOINT','$state','$rootScope',
+    function (car, $scope, $http, API_ENDPOINT,$state,$rootScope) {
         $scope.car = car;
+        $rootScope.show_car_title=car.titre;
+        if(car.images.length>0)
+            $rootScope.show_car_image=car.images[0];
+        else
+            $rootScope.show_car_image=API_ENDPOINT.domain+"public/assets/img/no_image.png";
+
         $scope.search = {};
         $scope.marque = null;
         $http.get(API_ENDPOINT.url + "/related/" + $scope.car._id).then(function (result) {
