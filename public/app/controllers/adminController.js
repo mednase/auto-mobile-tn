@@ -37,7 +37,7 @@ controller('newCarController', ['$scope', '$http', 'API_ENDPOINT', 'toastr', '$s
             });
             $scope.marque = null;
         };
-        var myBlockUI = blockUI.instances.get('blockedUi');
+
         $scope.initCar();
         $http.get(API_ENDPOINT.url + "/marques").then(function (result) {
             $scope.marques = result.data;
@@ -49,8 +49,9 @@ controller('newCarController', ['$scope', '$http', 'API_ENDPOINT', 'toastr', '$s
             }
         });
 
+
         $scope.addCar = function () {
-            myBlockUI.start($translate.instant("TOAST_WAIT_MESSAGE"));
+            blockUI.start($translate.instant("TOAST_WAIT_MESSAGE")+"......");
             $('.input-image').each(function () {
                 if ($(this).val().length > 5)
                     $scope.car.images.push($(this).val());
@@ -59,10 +60,10 @@ controller('newCarController', ['$scope', '$http', 'API_ENDPOINT', 'toastr', '$s
             $http.post(API_ENDPOINT.url + "/admin/car/new", $scope.car).then(function () {
                 toastr.success($translate.instant("CAR_TOAST_ADD_DONE"), $translate.instant("CAR_TOAST_ADD"));
                 $scope.initCar();
-                myBlockUI.stop();
+                blockUI.stop();
             }, function () {
                 toastr.error($translate.instant("SYSTEM_FAIL"), $translate.instant("CHANGE_PASSWORD"));
-                myBlockUI.stop();
+                blockUI.stop();
 
             });
 
@@ -80,7 +81,6 @@ controller('editCarController', ['car', '$scope', '$http', 'API_ENDPOINT', 'toas
         $scope.removeImage = function ($index) {
             $scope.car.images.splice($index, 1);
         }
-        var myBlockUI = blockUI.instances.get('blockedUi');
 
         $http.get(API_ENDPOINT.url + "/marques").then(function (result) {
             $scope.marques = result.data;
@@ -100,17 +100,17 @@ controller('editCarController', ['car', '$scope', '$http', 'API_ENDPOINT', 'toas
         });
 
         $scope.editCar = function () {
-            myBlockUI.start($translate.instant("TOAST_WAIT_MESSAGE") + ".......");
+            blockUI.start($translate.instant("TOAST_WAIT_MESSAGE") + ".......");
             $('.input-image').each(function () {
                 if ($(this).val().length > 5)
                     $scope.car.images.push($(this).val());
             });
             $http.post(API_ENDPOINT.url + "/admin/car/update", $scope.car).then(function () {
                 toastr.success($translate.instant("CAR_TOAST_EDIT_DONE"), $translate.instant("CAR_TOAST_EDIT"));
-                myBlockUI.stop();
+                blockUI.stop();
             }, function () {
                 toastr.error($translate.instant("SYSTEM_FAIL"), $translate.instant("CAR_TOAST_EDIT"));
-                myBlockUI.stop();
+                blockUI.stop();
 
             });
 

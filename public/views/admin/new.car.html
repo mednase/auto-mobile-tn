@@ -14,7 +14,7 @@
 <div class="m-heading-1 border-green m-bordered row" style="margin-bottom: 17px;">
     <h2>     <span class="fa fa-car font-blue"></span>    &nbsp; {{'ADMIN_MENU_CARS_ADD'|translate}} </h2>
 </div>
-<div class="row"  block-ui="blockedUi">
+<div class="row" >
     <div class="col-md-12">
         <div class="portlet light bordered">
             <div class="portlet-title">
@@ -27,31 +27,31 @@
                 <form role="form" ng-submit="addCar()" class="form-horizontal" name="form">
                     <div class="form-body row">
                         <div class="form-group col-md-6">
-                            <label for="marque" class="col-md-3 control-label">{{'ADMIN_FORM_ADD_CAR_TITLE'|translate}}
+                            <label for="title" class="col-md-3 control-label">{{'ADMIN_FORM_ADD_CAR_TITLE'|translate}}
                                 <span class="required" aria-required="true"> * </span>
                             </label>
                             <div class=" col-md-9">
-                                <input ng-model="car.titre" class="form-control" ng-minlength="5"
+                                <input id="title" ng-model="car.titre" class="form-control" ng-minlength="5"
                                        placeholder="{{'ADMIN_FORM_ADD_CAR_TITLE'|translate}}">
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="marque" class="col-md-3 control-label">{{'HOME_SEARCH_FORM_CONDITION'|translate}}
+                            <label for="condition" class="col-md-3 control-label">{{'HOME_SEARCH_FORM_CONDITION'|translate}}
                                 <span class="required" aria-required="true"> * </span>
                             </label>
                             <div class=" col-md-9">
                                 <select ng-model="car.condition" class="form-control" required>
-                                    <option value="new" selected="selected">{{'HOME_SEARCH_FORM_NEW'|translate}}</option>
+                                    <option id="condition" value="new" selected="selected">{{'HOME_SEARCH_FORM_NEW'|translate}}</option>
                                     <option value="old">{{'HOME_SEARCH_FORM_USED'|translate}}</option>
                                 </select>
                             </div>
                         </div>
                         <div ng-show="car.condition=='old'" class="form-group col-md-12">
-                            <label for="marque" class="col-md-3 col-md-offset-1 control-label">{{'ADMIN_PAGE_ADD_CAR_FORM_KILOMETER'|translate}}
+                            <label for="kilometrage" class="col-md-3 col-md-offset-1 control-label">{{'ADMIN_PAGE_ADD_CAR_FORM_KILOMETER'|translate}}
                                 <span class="required" aria-required="true"> * </span>
                             </label>
                             <div class=" col-md-5">
-                                <input class="form-control" data-placeholder="{{'ADMIN_PAGE_ADD_CAR_FORM_KILOMETER'|translate}}" ng-model="car.kilometrage" id="kilometrage"
+                                <input  class="form-control" data-placeholder="{{'ADMIN_PAGE_ADD_CAR_FORM_KILOMETER'|translate}}" ng-model="car.kilometrage" id="kilometrage"
                                        required>
                             </div>
                         </div>
