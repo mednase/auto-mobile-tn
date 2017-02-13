@@ -2,31 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1900678e-c48f-4beb-9e3c-fe5e68b42f30" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/img/check.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/img/wrong.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/img/check.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/plugins/jquery-block-ui/jquery.blockui.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/app.js" afterPath="$PROJECT_DIR$/public/app/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/constants.js" afterPath="$PROJECT_DIR$/public/app/constants.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/controllers/MainController.js" afterPath="$PROJECT_DIR$/public/app/controllers/MainController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/controllers/adminController.js" afterPath="$PROJECT_DIR$/public/app/controllers/adminController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/translations/ar.json" afterPath="$PROJECT_DIR$/public/app/translations/ar.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/translations/fr.json" afterPath="$PROJECT_DIR$/public/app/translations/fr.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/main.css" afterPath="$PROJECT_DIR$/public/assets/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/navbar.css" afterPath="$PROJECT_DIR$/public/assets/css/navbar.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/services/authService.js" afterPath="$PROJECT_DIR$/public/app/services/authService.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/admin/edit.car.html" afterPath="$PROJECT_DIR$/public/views/admin/edit.car.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/admin/list.cars.html" afterPath="$PROJECT_DIR$/public/views/admin/list.cars.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/admin/new.car.html" afterPath="$PROJECT_DIR$/public/views/admin/new.car.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/core/car.marque.html" afterPath="$PROJECT_DIR$/public/views/core/car.marque.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/core/home.html" afterPath="$PROJECT_DIR$/public/views/core/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/core/show_car.html" afterPath="$PROJECT_DIR$/public/views/core/show_car.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/index.html" afterPath="$PROJECT_DIR$/public/views/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/config/params.js" afterPath="$PROJECT_DIR$/server/config/params.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/routes/admin.js" afterPath="$PROJECT_DIR$/server/routes/admin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/routes/client.js" afterPath="$PROJECT_DIR$/server/routes/client.js" />
     </list>
     <ignored path="auto-mobile-tn.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,32 +34,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="fr.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app/translations/fr.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="197" column="25" selection-start-line="197" selection-start-column="25" selection-end-line="197" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app/controllers/MainController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="13" column="57" selection-start-line="13" selection-start-column="57" selection-end-line="13" selection-end-column="57" />
-              <folding>
-                <element signature="e#2019#4448#0" expanded="false" />
-                <element signature="e#2744#4213#0" expanded="false" />
-                <element signature="e#4483#5335#0" expanded="false" />
-                <element signature="e#6935#9327#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="navbar.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="navbar.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/css/navbar.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="317">
@@ -90,88 +44,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/assets/css/main.css">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="274" column="27" selection-start-line="274" selection-start-column="27" selection-end-line="274" selection-end-column="27" />
+            <state relative-caret-position="3209">
+              <caret line="192" column="43" selection-start-line="192" selection-start-column="43" selection-end-line="192" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="car.marque.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/core/car.marque.html">
+      <file leaf-file-name="gulpfile.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gulpfile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="101" column="50" selection-start-line="101" selection-start-column="50" selection-end-line="101" selection-end-column="50" />
-              <folding>
-                <element signature="n#div#0;n#div#0;n#section#0;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/routes/admin.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="152" column="21" selection-start-line="152" selection-start-column="21" selection-end-line="152" selection-end-column="21" />
-              <folding>
-                <element signature="e#1471#1631#0" expanded="false" />
-                <element signature="e#1701#1832#0" expanded="false" />
-                <element signature="e#1892#2052#0" expanded="false" />
-                <element signature="e#2118#2550#0" expanded="false" />
-                <element signature="e#2613#3031#0" expanded="false" />
-                <element signature="e#5957#6300#0" expanded="false" />
-                <element signature="e#6361#6460#0" expanded="false" />
-                <element signature="e#6523#6732#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="adminController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app/controllers/adminController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="10" column="30" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="30" />
-              <folding>
-                <element signature="e#1249#2848#0" expanded="false" />
-                <element signature="e#2884#4820#0" expanded="false" />
-                <element signature="e#4855#7859#0" expanded="false" />
-                <element signature="e#8336#9306#0" expanded="false" />
-                <element signature="e#9587#11741#0" expanded="false" />
-                <element signature="e#13144#13983#0" expanded="false" />
-                <element signature="e#13220#13976#0" expanded="false" />
-                <element signature="e#14018#22606#0" expanded="false" />
-                <element signature="e#14633#15676#0" expanded="false" />
-                <element signature="e#15947#16628#0" expanded="false" />
-                <element signature="e#16675#17609#0" expanded="false" />
-                <element signature="e#17651#18956#0" expanded="false" />
-                <element signature="e#18997#19837#0" expanded="false" />
-                <element signature="e#19893#21144#0" expanded="false" />
-                <element signature="e#21194#22598#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin.navbar.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/admin/admin.navbar.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="34" column="102" selection-start-line="34" selection-start-column="102" selection-end-line="34" selection-end-column="102" />
+            <state relative-caret-position="180">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/admin/dashboard.html">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="57" column="70" selection-start-line="57" selection-start-column="64" selection-end-line="57" selection-end-column="70" />
+            <state relative-caret-position="-860">
+              <caret line="58" column="89" selection-start-line="58" selection-start-column="89" selection-end-line="58" selection-end-column="89" />
               <folding />
             </state>
           </provider>
@@ -180,18 +77,71 @@
       <file leaf-file-name="edit.car.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/views/admin/edit.car.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="33" column="58" selection-start-line="33" selection-start-column="53" selection-end-line="33" selection-end-column="58" />
+            <state relative-caret-position="135">
+              <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
               <folding>
                 <element signature="n#style#0;n#div#8;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#9;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#3;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-                <element signature="e#16496#16502#0" expanded="true" />
-                <element signature="e#16552#16558#0" expanded="true" />
-                <marker date="1486985965811" expanded="true" signature="17386:17405" ph="..." />
-                <marker date="1486985965811" expanded="true" signature="17662:17687" ph="..." />
+                <element signature="e#16518#16524#0" expanded="true" />
+                <element signature="e#16574#16580#0" expanded="true" />
+                <marker date="1486997597906" expanded="true" signature="17408:17427" ph="..." />
+                <marker date="1486997597906" expanded="true" signature="17684:17709" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="new.car.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/views/admin/new.car.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
+              <folding>
+                <element signature="n#div#13;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="false" />
+                <element signature="n#div#14;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="constants.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/constants.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="params.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/config/params.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="140">
+              <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="134">
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="timeFilter.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/filters/timeFilter.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1251">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -213,8 +163,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/server/views/email.hjs" />
-        <option value="$PROJECT_DIR$/public/assets/css/car.detail.css" />
         <option value="$PROJECT_DIR$/public/assets/plugins/bootstrap-slider/bootstrap-slider.css" />
         <option value="$PROJECT_DIR$/public/assets/plugins/bootstrap-slider/bootstrap-slider.js" />
         <option value="$PROJECT_DIR$/public/views/auth/login.html" />
@@ -244,14 +192,9 @@
         <option value="$PROJECT_DIR$/server/models/userModel.js" />
         <option value="$PROJECT_DIR$/public/views/admin/settings.html" />
         <option value="$PROJECT_DIR$/public/views/core/contact.html" />
-        <option value="$PROJECT_DIR$/server/config/params.js" />
-        <option value="$PROJECT_DIR$/server.js" />
-        <option value="$PROJECT_DIR$/public/app/constants.js" />
         <option value="$PROJECT_DIR$/public/views/index.html" />
         <option value="$PROJECT_DIR$/server/models/carModel.js" />
-        <option value="$PROJECT_DIR$/public/views/admin/new.car.html" />
         <option value="$PROJECT_DIR$/server/routes/client.js" />
-        <option value="$PROJECT_DIR$/public/views/admin/edit.car.html" />
         <option value="$PROJECT_DIR$/public/views/admin/list.cars.html" />
         <option value="$PROJECT_DIR$/public/views/core/show_car.html" />
         <option value="$PROJECT_DIR$/public/views/core/home.html" />
@@ -264,6 +207,13 @@
         <option value="$PROJECT_DIR$/public/app/controllers/adminController.js" />
         <option value="$PROJECT_DIR$/public/app/controllers/MainController.js" />
         <option value="$PROJECT_DIR$/public/assets/css/navbar.css" />
+        <option value="$PROJECT_DIR$/public/app/constants.js" />
+        <option value="$PROJECT_DIR$/server/config/params.js" />
+        <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/public/app/services/authService.js" />
+        <option value="$PROJECT_DIR$/gulpfile.js" />
+        <option value="$PROJECT_DIR$/public/views/admin/edit.car.html" />
+        <option value="$PROJECT_DIR$/public/views/admin/new.car.html" />
       </list>
     </option>
   </component>
@@ -325,6 +275,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="auto-mobile-tn" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auto-mobile-tn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auto-mobile-tn" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auto-mobile-tn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auto-mobile-tn" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -462,6 +444,72 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auto-mobile-tn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auto-mobile-tn" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="filters" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auto-mobile-tn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auto-mobile-tn" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="directives" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auto-mobile-tn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auto-mobile-tn" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -482,7 +530,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="javascript.nodejs.core.library.configured.version" value="4.4.7" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="SearchEverywhereHistoryKey" value="nav&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/assets/css/navbar.css&#10;edit&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/admin/edit.car.html&#10;admin&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/server/routes/admin.js&#10;main&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/assets/css/main.css&#10;mainC&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/app/controllers/MainController.js&#10;fr&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/app/translations/fr.json&#10;ar.js&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/app/translations/ar.json&#10;app&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/app/app.js&#10;home&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/core/home.html&#10;show&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/core/show_car.html&#10;new&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/admin/new.car.html&#10;mode&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/server/models/carModel.js&#10;App&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/app/app.js&#10;index&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/index.html&#10;server&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/server.js&#10;ar&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/app/translations/ar.json&#10;marqMo&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/server/models/marqueModel.js&#10;me&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/admin/menu.html&#10;navbar&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/assets/css/navbar.css&#10;ser&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/server.js&#10;in&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/index.html&#10;mar&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/core/car.marque.html&#10;footer&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/core/footer.html&#10;serv&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/server.js&#10;menu&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/admin/menu.html&#10;sett&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/admin/settings.html&#10;Ma&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/app/controllers/MainController.js&#10;ma&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/app/controllers/MainController.js&#10;hom&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/core/home.html&#10;ho&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/core/home.html&#10;inde&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/index.html&#10;na&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/core/navbar.html&#10;FOO&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/core/footer.html&#10;main.js&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/assets/js/main.js&#10;car&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/core/show_car.html&#10;f&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/app/translations/fr.json&#10;foot&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/core/footer.html&#10;mai&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/app/controllers/MainController.js&#10;home.css&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/assets/css/home.css&#10;navba&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/core/navbar.html&#10;dash&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/admin/dashboard.html&#10;login&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/auth/login.html&#10;h&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/assets/css/home.css&#10;navb&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/assets/css/navbar.css&#10;para&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/server/config/params.js&#10;cons&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/app/constants.js&#10;foo&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/core/footer.html&#10;ad&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/server/routes/admin.js&#10;co&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/assets/css/contact.css&#10;Main&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/app/controllers/MainController.js" />
+    <property name="SearchEverywhereHistoryKey" value="new&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/admin/new.car.html&#10;edit&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/admin/edit.car.html&#10;index&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/index.html&#10;ser&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/server.js&#10;nav&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/assets/css/navbar.css&#10;admin&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/server/routes/admin.js&#10;main&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/assets/css/main.css&#10;mainC&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/app/controllers/MainController.js&#10;fr&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/app/translations/fr.json&#10;ar.js&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/app/translations/ar.json&#10;app&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/app/app.js&#10;home&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/core/home.html&#10;show&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/core/show_car.html&#10;mode&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/server/models/carModel.js&#10;App&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/app/app.js&#10;server&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/server.js&#10;ar&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/app/translations/ar.json&#10;marqMo&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/server/models/marqueModel.js&#10;me&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/admin/menu.html&#10;navbar&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/assets/css/navbar.css&#10;in&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/index.html&#10;mar&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/core/car.marque.html&#10;footer&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/core/footer.html&#10;serv&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/server.js&#10;menu&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/admin/menu.html&#10;sett&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/admin/settings.html&#10;Ma&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/app/controllers/MainController.js&#10;ma&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/app/controllers/MainController.js&#10;hom&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/core/home.html&#10;ho&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/core/home.html&#10;inde&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/index.html&#10;na&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/core/navbar.html&#10;FOO&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/core/footer.html&#10;main.js&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/assets/js/main.js&#10;car&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/core/show_car.html&#10;f&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/app/translations/fr.json&#10;foot&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/core/footer.html&#10;mai&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/app/controllers/MainController.js&#10;home.css&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/assets/css/home.css&#10;navba&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/core/navbar.html&#10;dash&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/admin/dashboard.html&#10;login&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/auth/login.html&#10;h&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/assets/css/home.css&#10;navb&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/assets/css/navbar.css&#10;para&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/server/config/params.js&#10;cons&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/app/constants.js&#10;foo&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/views/core/footer.html&#10;ad&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/server/routes/admin.js&#10;co&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/assets/css/contact.css&#10;Main&#9;FILE&#9;file://D:/Web-projects/freelance/auto-mobile-tn/public/app/controllers/MainController.js" />
     <property name="jsx.switch.disabled" value="true" />
   </component>
   <component name="RecentsManager">
@@ -616,12 +664,12 @@
       <workItem from="1486755395457" duration="17824000" />
       <workItem from="1486805891129" duration="21322000" />
       <workItem from="1486894326992" duration="38430000" />
-      <workItem from="1486974751290" duration="18043000" />
+      <workItem from="1486974751290" duration="19469000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="546221000" />
+    <option name="totallyTimeSpent" value="547647000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -705,27 +753,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/bootstrap-slider/dist/bootstrap-slider.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-540">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/plugins/lightslider-master/js/angular-slider.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="3" column="69" selection-start-line="3" selection-start-column="69" selection-end-line="3" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/plugins/bootstrap-slider/bootstrap-slider.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="41" column="336" selection-start-line="41" selection-start-column="336" selection-end-line="41" selection-end-column="336" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/show-cars.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-546">
@@ -825,16 +852,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/directives/drangeDirective.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-          <folding>
-            <marker date="1486910112171" expanded="true" signature="1153:1170" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/common.rnc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
@@ -906,42 +923,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="31" column="18" selection-start-line="31" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/plugins/jquery-block-ui/jquery.blockui.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
           <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="58" column="89" selection-start-line="58" selection-start-column="89" selection-end-line="58" selection-end-column="89" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/config/params.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="45" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -976,18 +961,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/admin/new.car.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="48" column="57" selection-start-line="48" selection-start-column="57" selection-end-line="48" selection-end-column="57" />
-          <folding>
-            <element signature="n#style#0;n#div#9;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#div#13;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="false" />
-            <element signature="n#div#14;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/admin/list.cars.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -1000,14 +973,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
           <caret line="198" column="91" selection-start-line="198" selection-start-column="91" selection-end-line="198" selection-end-column="113" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="192" column="43" selection-start-line="192" selection-start-column="43" selection-end-line="192" selection-end-column="43" />
           <folding />
         </state>
       </provider>
@@ -1052,23 +1017,6 @@
           <caret line="101" column="50" selection-start-line="101" selection-start-column="50" selection-end-line="101" selection-end-column="50" />
           <folding>
             <element signature="n#div#0;n#div#0;n#section#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/admin/edit.car.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="33" column="58" selection-start-line="33" selection-start-column="53" selection-end-line="33" selection-end-column="58" />
-          <folding>
-            <element signature="n#style#0;n#div#8;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#9;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#3;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="e#16496#16502#0" expanded="true" />
-            <element signature="e#16552#16558#0" expanded="true" />
-            <marker date="1486985965811" expanded="true" signature="17386:17405" ph="..." />
-            <marker date="1486985965811" expanded="true" signature="17662:17687" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1148,6 +1096,108 @@
         <state relative-caret-position="317">
           <caret line="98" column="50" selection-start-line="98" selection-start-column="50" selection-end-line="98" selection-end-column="50" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/config/params.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/directives/drangeDirective.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-471">
+          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+          <folding>
+            <marker date="1486910112171" expanded="true" signature="1153:1170" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/services/authService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1420">
+          <caret line="71" column="2" selection-start-line="71" selection-start-column="2" selection-end-line="71" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/filters/timeFilter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1251">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3209">
+          <caret line="192" column="43" selection-start-line="192" selection-start-column="43" selection-end-line="192" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-860">
+          <caret line="58" column="89" selection-start-line="58" selection-start-column="89" selection-end-line="58" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/admin/edit.car.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
+          <folding>
+            <element signature="n#style#0;n#div#8;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#9;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#3;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="e#16518#16524#0" expanded="true" />
+            <element signature="e#16574#16580#0" expanded="true" />
+            <marker date="1486997597906" expanded="true" signature="17408:17427" ph="..." />
+            <marker date="1486997597906" expanded="true" signature="17684:17709" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/admin/new.car.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
+          <folding>
+            <element signature="n#div#13;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="false" />
+            <element signature="n#div#14;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

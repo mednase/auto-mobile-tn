@@ -2,7 +2,7 @@
  * Created by medna on 03/10/2016.
  */
 
-app.service('authService', function($q, $http, API_ENDPOINT,$window) {
+app.service('authService',['$q','$http','API_ENDPOINT','$window',function($q, $http, API_ENDPOINT,$window) {
 
     var LOCAL_TOKEN_KEY = 'user_token';
     var isAuthenticated = false;
@@ -69,9 +69,9 @@ app.service('authService', function($q, $http, API_ENDPOINT,$window) {
         getUser: getUser,
         isAuthenticated: function() {return isAuthenticated;}
     };
-})
+}])
 
-    .factory('AuthInterceptor', function ($rootScope, $q, AUTH_EVENTS) {
+    .factory('AuthInterceptor',['$rootScope','$q','AUTH_EVENTS', function ($rootScope, $q, AUTH_EVENTS) {
         return {
             responseError: function (response) {
                 $rootScope.$broadcast({
@@ -80,8 +80,7 @@ app.service('authService', function($q, $http, API_ENDPOINT,$window) {
                 return $q.reject(response);
             }
         };
-    })
-
-    .config(function ($httpProvider) {
+    }])
+    .config(['$httpProvider',function ($httpProvider) {
         $httpProvider.interceptors.push('AuthInterceptor');
-    });
+    }]);
