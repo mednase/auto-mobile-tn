@@ -1,4 +1,21 @@
 {
+  "TABLE_LANG": {
+    "sProcessing": "جارٍ التحميل...",
+    "sLengthMenu": "أظهر _MENU_ مدخلات",
+    "sZeroRecords": "لم يعثر على أية سجلات",
+    "sInfo": "إظهار _START_ إلى _END_ من أصل _TOTAL_ مدخل",
+    "sInfoEmpty": "يعرض 0 إلى 0 من أصل 0 سجل",
+    "sInfoFiltered": "(منتقاة من مجموع _MAX_ مُدخل)",
+    "sInfoPostFix": "",
+    "sSearch": "ابحث:",
+    "sUrl": "",
+    "oPaginate": {
+      "sFirst": "الأول",
+      "sPrevious": "السابق",
+      "sNext": "التالي",
+      "sLast": "الأخير"
+    }
+  },
   "NAVBAR_LOGIN": "تسجيل الدخول",
   "NAVBAR_HOME": "الرئيسية",
   "NAVBAR_CONTACT": "إتصل بنا",
@@ -19,6 +36,7 @@
   "NAVBAR_CARS_NEW":"الجديدة",
   "NAVBAR_CARS_USED":"المستعملة",
   "MONEY":"د ت",
+  "PRICE":"الثمن",
   "AND":"و",
   "CARS_SEARCH_FORM_TRANSITION":"ناقل الحركة",
   "CARS_SEARCH_FORM_TRANSITION_AUTOMATIC":"تلقائي",
@@ -26,6 +44,8 @@
   "CARS_SEARCH_FORM_TRANSITION_MANUAL":"يدوي",
   "SHOW_CARS_NEW_CARS":"السيارات الجديدة",
   "SHOW_CARS_USED_CARS":"السيارات المستعملة",
+  "SHOW_CARS_SEARCH":"نتائج البحث",
+  "SHOW_CARS_MARQUE":"الماركة   ",
   "ADMIN_MENU_DASHBOARD":"الرئيسية",
   "ADMIN_MENU_CARS":"السيارات",
   "ADMIN_MENU_CARS_NEW":"قائمة السيارات الجديدة",
@@ -40,6 +60,7 @@
   "ADMIN_FORM_ADD_CAR_TITLE":"العنوان",
   "ADMIN_FORM_ADD_CAR_COLOR":"اللون",
   "ADMIN_PAGE_MARQUE_MODELS":" قائمة الماركات و الموديلات",
+  "ADMIN_PAGE_EDIT_CAR_TITLE":"تعديل السيارة",
   "DELETE":"حذف ",
   "ADD":"أضف",
   "EDIT":"تعديل",
@@ -48,6 +69,7 @@
   "SHOW":"عرض",
   "ARABIC":"عربي",
   "FRENCH":"فرنسي",
+  "SAVE_CHANGES":"حفظ التغييرات",
   "ADMIN_PAGE_MARQUE_MODULE_MARQUES":"قائمة الماركات",
   "ADMIN_PAGE_MARQUE_MODULE_MODELS":"قائمة الموديلات",
   "ADMIN_PAGE_MARQUE_MODULE_MARQUES_TABLE_NOM":"الإسم",
@@ -115,5 +137,59 @@
   "FOOTER_TITLE_FACEBOOK":"صفحة الفيسبوك",
   "FOOTER_TITLE_INFO_DESC":"أهلا وسهلا بك  على موقع ahmed auto الذي هو واجهةٌ لمعرضنا التجاري لبيع السيارات الجديدة والمستعملة الأول من نوعه في ولاية المنستير . لدينا من أجمل وأقوى السيارات المتدولة في العالم . يمكنك الإتصال بنا أو زيارة معرضنا على العنوان أسفله",
   "FOOTER_ADDRESS":"طريق المنستير   قصيبة المديوني , 5031 المنستير",
-  "FOOTER_BOTTOM_DEVELOPED":"مبرمج من قبل"
+  "FOOTER_BOTTOM_DEVELOPED":"مبرمج من قبل",
+
+  "SWEETALERT_CONFIRM":"هل أنت متأكد ؟",
+  "SWEETALERT_DELETE_OK":"نعم ، إحذف !",
+  "SWEETALERT_DELETE_CANCEL":"لا ، إلغاء الحذف",
+  "SYSTEM_FAIL":"حدث خطأ في النظام يرجى تكرار العملية",
+
+  "MESSAGE_TOAST_SEND_EMAIL_WAIT":"يرجى الانتظار البريد الإلكتروني بصدد الإرسال",
+  "MESSAGE_TOAST_SEND_EMAIL_DONE":"لقد تم بعث الرسالة بنجاح",
+
+  "MODEL_SWEETALERT_DELETE_QUESTION":"هل تريد حذف هذه المودل من قاعدة البيانات ؟",
+  "MODEL_SWEETALERT_DELETE_DONE":"لقد تم حذف هذه االمودل بنجاح",
+  "MARQUE_SWEETALERT_DELETE_QUESTION":"هل تريد حذف هذه الماركة من قاعدة البيانات , جميع الموديلات التابعة لها سوف تحذف أيضاً !",
+  "MARQUE_SWEETALERT_DELETE_DONE":"لقد تم حذف هذه الماركة بنجاح",
+
+  "CAR_TOAST_ADD_DONE":"لقد تم إضافة السيارة بنجاح ! ",
+  "CAR_TOAST_ADD":"إضافة السيارة",
+
+  "CAR_TOAST_EDIT_DONE":"لقد تم إجراء التعديلات بنجاح  ! ",
+  "CAR_TOAST_EDIT":"تعديل السيارة",
+
+  "MESSAGE_SWEETALERT_DELETE_QUESTION":"هل تريد حذف هذه الرسالة من قاعدة البيانات ؟",
+  "MESSAGE_SWEETALERT_DELETE_DONE":"لقد تم حذف هذه الرسالة بنجاح ",
+
+  "CAR_SWEETALERT_DELETE_DONE":"لقد تم حذف هذه السيارة بنجاح ",
+  "CAR_SWEETALERT_DELETE_QUESTION":"هل تريد حذف هذه السيارة من قاعدة البيانات ؟",
+
+
+  "MESSAGE_TOAST_SEND_EMAIL_WAIT":"يرجى الانتظار البريد الإلكتروني بصدد الإرسال",
+  "MESSAGE_TOAST_SEND_EMAIL_DONE":"لقد تم بعث الرسالة بنجاح !",
+
+  "ADD_MODEL_PLACEHOLDER":"إسم الموديل الجديد ",
+  "ADD_MARQUE_PLACEHOLDER":"إسم الماركة الجديد ",
+
+  "MODEL_TOAST_ADD":"إضافة موديل",
+  "MARQUE_TOAST_ADD":"إضافة ماركة",
+  "MARQUE_TOAST_ADD_DONE":"لقد تم إضافة الماركة بنجاح ! ",
+  "MODEL_TOAST_ADD_DONE":"لقد تم إضافة الموديل بنجاح ! ",
+
+  "CHANGE_PASSWORD":"تغيير كلمة المرور ",
+  "CHANGE_PASSWORD_DONE":"لقد تم تغيير كلمة المرور بنجاح ! ",
+  "CHANGE_PASSWORD_WRONG_OLD":"خطأ كلمة المرور السابقة غير صحيحة",
+  "CHANGE_PASSWORD_WRONG_CONFIRM":"خطأ كلمات المرور لا تتشابه",
+
+  "TOAST_LOADING":"الرجاء الإنتظار ",
+  "NO_CARS_FOUND":"لم يتم العثور على سيارات ",
+
+  "PAGE_CONTACT_TITLE":"ابقى على تواصل",
+  "PAGE_CONTACT_SEND_US":"أرسل لنا",
+  "PAGE_CONTACT_ADDRESS":"العنوان",
+  "PAGE_CONTACT_ADDRESS_STREET":"طريق المنستير",
+  "PAGE_CONTACT_ADDRESS_CITY":"قصيبة المديوني",
+  "PAGE_CONTACT_ADDRESS_GOVERNORATE":" المنستير 5031  ",
+  "PAGE_CONTACT_FORM_MESSAGE":"اكتب رسالتك هنا ...",
+  "PAGE_CONTACT_INFO":"خط المساعدة مفتوح دائما لتلقي أي استفسار أو ملاحظات. لا تتردد في ترك لنا رسالة بالبريد الالكتروني من النموذج أدناه وسوف نقوم بالرد عليك في أقرب وقت ممكن."
 }

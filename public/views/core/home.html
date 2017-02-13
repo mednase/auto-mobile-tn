@@ -12,11 +12,11 @@
         <div class="box-speed-search {{default_direction}}">
             <h2 style="margin-bottom: 20px;height: auto;">{{'HOME_SEARCH_TITLE'|translate}}</h2>
             <div class="row">
-                <form class="form{{default_direction}}">
+                <form class="form{{default_direction}}" ng-submit="searchCar()">
                     <div class="col-md-9">
                         <div class="form-group col-md-4 col-sm-4 black_input col-xs-6">
                             <div class="select">
-                                <select ng-model="marque" class="form-control">
+                                <select ng-model="marque" class="form-control" ng-required="false">
                                     <option value="">{{'HOME_SEARCH_FORM_MARQUE'|translate}}</option>
                                     <option ng-repeat="m in marques track by $index" value="{{m}}">{{m.nom}}
                                     </option>
@@ -25,7 +25,7 @@
                         </div>
                         <div class="form-group col-md-4 col-sm-4 black_input col-xs-6">
                             <div class="select">
-                                <select ng-model="car.model" id="model" class="form-control" required>
+                                <select ng-model="search.model" id="model" class="form-control" ng-required="false">
                                     <option value="">{{'HOME_SEARCH_FORM_MODEL'|translate}}</option>
                                     <option ng-repeat="mdl in models track by $index" value="{{mdl}}">{{mdl}}</option>
                                 </select>
@@ -33,16 +33,16 @@
                         </div>
                         <div class="form-group col-md-4 col-sm-4 black_input col-xs-6">
                             <div class="select">
-                                <input ng-model="search.year" drange from="2000" id="date"
+                                <input ng-model="search.year" class="form-control" drange from="2000" id="date" ng-required="false"
                                        required>
                             </div>
                         </div>
                         <div class="form-group col-md-4 col-sm-6 col-xs-6 black_input hidden-sm hidden-md hidden-lg">
                             <div class="select">
-                                <select class="form-control">
+                                <select ng-model="search.condition" class="form-control" ng-required="false">
                                     <option>{{'HOME_SEARCH_FORM_CONDITION'|translate}}</option>
-                                    <option>{{'HOME_SEARCH_FORM_NEW'|translate}}</option>
-                                    <option>{{'HOME_SEARCH_FORM_USED'|translate}}</option>
+                                    <option value="new">{{'HOME_SEARCH_FORM_NEW'|translate}}</option>
+                                    <option value="old">{{'HOME_SEARCH_FORM_USED'|translate}}</option>
                                 </select>
                             </div>
                         </div>
@@ -52,7 +52,9 @@
                                     id="minPrice">30000</span>&nbsp; {{'AND'|translate}} &nbsp;<span id="maxPrice">200000</span>&nbsp;
                                 {{'MONEY'|translate}}</h3>
                             <div class="slider slider-horizontal">
-                                <input ng-model="slideValue" id="price_range"
+                                <input ng-model="search.price"
+                                       ng-required="false"
+                                       id="price_range"
                                        data-slide-rtl="{{dir=='rtl'}}"
                                        data-slider-handle="round" type="text"
                                        class="span2"
@@ -65,10 +67,10 @@
                         </div>
                         <div class="form-group col-md-4 col-sm-6 col-xs-6 black_input hidden-xs">
                             <div class="select">
-                                <select class="form-control">
+                                <select ng-model="search.condition" class="form-control" ng-required="false">
                                     <option>{{'HOME_SEARCH_FORM_CONDITION'|translate}}</option>
-                                    <option>{{'HOME_SEARCH_FORM_NEW'|translate}}</option>
-                                    <option>{{'HOME_SEARCH_FORM_USED'|translate}}</option>
+                                    <option value="new">{{'HOME_SEARCH_FORM_NEW'|translate}}</option>
+                                    <option value="old">{{'HOME_SEARCH_FORM_USED'|translate}}</option>
                                 </select>
                             </div>
                         </div>

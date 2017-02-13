@@ -5,20 +5,20 @@
                 <h2 class="side-box_title"> البحث السريع</h2>
             </header>
             <div class="content">
-                <form class="car-form">
+                <form class="car-form" ng-submit="searchCar()">
                     <div class="row">
                         <div class="col-md-12 form-item">
                             <label class="hidden col-md-4" for="edit-manufacturer">Make
                             </label>
-                            <select ng-model="selectedMarque" id="edit-manufacturer" class="form-select col-md-10 col-md-offset-1 x-select">
+                            <select ng-model="marque" id="edit-manufacturer" class="form-select col-md-10 col-md-offset-1 x-select">
                                 <option value="" selected="selected">إختر الماركة…</option>
-                                <option ng-repeat="marque in marques track by $index" value="{{marque}}">{{marque.nom}}</option>
+                                <option ng-repeat="mq in marques track by $index" value="{{mq}}">{{mq.nom}}</option>
                             </select>
                         </div>
                         <div class="col-md-12 form-item ">
                             <label class="hidden col-md-4">Model </label>
-                            <select ng-model="selectedModel" name="car" class="form-select disabled col-md-10 col-md-offset-1 x-select" ng-disabled="selectedMarque==null" >
-                                <option value="/car-reviews/find/make/bmw">جميع الموديلات…</option>
+                            <select ng-model="search.model" name="car" class="form-select  col-md-10 col-md-offset-1 x-select" ng-disabled="marque==null" >
+                                <option value="" selected="selected">جميع الموديلات…</option>
                                 <option ng-repeat="model in models track by $index" value="{{model}}">{{model}}</option>
                             </select>
                         </div>

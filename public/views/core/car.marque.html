@@ -2,40 +2,34 @@
     <div class="col-sm-3 col-md-3 col-lg-3 col-xs-12">
         <!-- Search option -->
         <div class="side-search">
-            <form class="car-form">
+            <form class="car-form" ng-submit="searchCar()">
                 <div class="row">
                     <div class="col-md-12 col-xs-12  form-item">
                         <label class="hidden col-md-4" for="car-manufacturer">Make
                         </label>
-                        <select ng-model="selectedMarque" id="car-manufacturer" class="form-select col-md-10 col-xs-10 col-xs-offset-1 col-md-offset-1 x-select">
-                            <option value="" selected="selected">{{"HOME_SEARCH_FORM_MARQUE"|translate}}</option>
+                        <select ng-model="marque" id="car-manufacturer" class="form-select col-md-10 col-xs-10 col-xs-offset-1 col-md-offset-1 x-select">
+                            <option value="">{{"HOME_SEARCH_FORM_MARQUE"|translate}}</option>
                             <option ng-repeat="marque in marques track by $index" value="{{marque}}">{{marque.nom}}</option>
                         </select>
                     </div>
                     <div class="col-md-12 col-xs-12 form-item ">
                         <label class="hidden col-md-4"  for="car-model">{{""|translate}}</label>
-                        <select ng-model="selectedModel" name="car" id="car-model" class="form-select disabled col-md-10 col-xs-10 col-md-offset-1 col-xs-offset-1 x-select" ng-disabled="selectedMarque==null" >
-                            <option value="" selected="selected">{{"HOME_SEARCH_FORM_MODEL"|translate}}</option>
+                        <select ng-model="search.model" name="car" id="car-model" class="form-select disabled col-md-10 col-xs-10 col-md-offset-1 col-xs-offset-1 x-select" ng-disabled="marque==null" >
+                            <option value="">{{"HOME_SEARCH_FORM_MODEL"|translate}}</option>
                             <option ng-repeat="model in models track by $index" value="{{model}}">{{model}}</option>
                         </select>
                     </div>
                     <div class="col-md-12 col-xs-12 form-item">
                         <label class="hidden col-md-4" for="car-year">Make
                         </label>
-                        <select  id="car-year" class="form-select col-md-10 col-xs-10 col-md-offset-1 col-xs-offset-1 x-select">
-                            <option value="" selected="selected">{{"HOME_SEARCH_FORM_YEAR"|translate}}</option>
-                            <option >2014</option>
-                            <option >2015</option>
-                            <option >2016</option>
-                            <option >2017</option>
-
-                        </select>
+                        <input ng-model="search.year" class="form-select col-md-10 col-xs-10 col-md-offset-1 col-xs-offset-1 x-select" drange from="2000" id="date" ng-required="false"
+                               required>
                     </div>
                     <div class="col-md-12 col-xs-12 form-item">
                         <label class="hidden col-md-4" for="car-transition">Make
                         </label>
-                        <select  id="car-transition" class="form-select col-md-10 col-xs-10 col-xs-offset-1 col-md-offset-1 x-select">
-                            <option value="" selected="selected">{{"CARS_SEARCH_FORM_TRANSITION"|translate}}</option>
+                        <select ng-model="search.transmission"  id="car-transition" class="form-select col-md-10 col-xs-10 col-xs-offset-1 col-md-offset-1 x-select">
+                            <option value="">{{"CARS_SEARCH_FORM_TRANSITION"|translate}}</option>
                             <option value="auto">{{'CARS_SEARCH_FORM_TRANSITION_AUTOMATIC'|translate}}</option>
                             <option value="semi-auto">{{'CARS_SEARCH_FORM_TRANSITION_SEMI_AUTOMATIC'|translate}}</option>
                             <option value="manual">{{'CARS_SEARCH_FORM_TRANSITION_MANUAL'|translate}}</option>
@@ -44,23 +38,28 @@
                     <div class="col-md-12 col-xs-12 form-item">
                         <label class="hidden col-md-4" for="car-state">Make
                         </label>
-                        <select  id="car-state" class="form-select col-md-10 col-xs-10 col-xs-offset-1 col-md-offset-1 x-select">
-                            <option value="" selected="selected">{{"HOME_SEARCH_FORM_CONDITION"|translate}}</option>
+                        <select ng-model="search.condition"   id="car-state" class="form-select col-md-10 col-xs-10 col-xs-offset-1 col-md-offset-1 x-select">
+                            <option value="">{{"HOME_SEARCH_FORM_CONDITION"|translate}}</option>
                             <option value="new">{{"HOME_SEARCH_FORM_NEW"|translate}}</option>
                             <option value="old">{{"HOME_SEARCH_FORM_USED"|translate}}</option>
                         </select>
                     </div>
-                    <div class="col-md-12 col-xs-12 slider slider-horizontal" style="margin-top: 20px">
-                        <span> </span>
-                        <input ng-model="slideValue" id="price_range"
-                               data-slide-rtl="{{dir=='rtl'}}"
-                               data-slider-handle="round" type="text"
-                               class="span2"
-
-                               data-slider-min="5"
-                               data-slider-max="300"
-                               data-slider-step="1"
-                               data-slider-value="[20,80]">
+                    <div class="col-md-12 col-xs-12 ">
+                        <h4 class="col-md-12" style="    color: white;">{{'HOME_SEARCH_FORM_PRICE'|translate}} <span
+                                id="minPrice">30000</span>&nbsp; {{'AND'|translate}} &nbsp;<span id="maxPrice">200000</span>&nbsp;
+                            {{'MONEY'|translate}}</h4>
+                        <div class="col-md-12 slider slider-horizontal">
+                            <input ng-model="search.price"
+                                   ng-required="false"
+                                   id="price_range"
+                                   data-slide-rtl="{{dir=='rtl'}}"
+                                   data-slider-handle="round" type="text"
+                                   class="span2"
+                                   data-slider-min="5000"
+                                   data-slider-max="300000"
+                                   data-slider-step="1000"
+                                   data-slider-value="[30000,200000]">
+                        </div>
                     </div>
                     <button class="search-btn">{{'HOME_SEARCH_BTN'|translate}}</button>
                 </div>
@@ -70,21 +69,26 @@
     <div class="col-md-9 col-sm-9 col-xs-12 container-fluid">
         <div class="col-md-12  {{dir}}" style="margin-top: 50px">
             <div class="heading-2 col-md-4 car-filter car-f-top">
-                <h3 class="p-l-lg-20" style="margin: 0px;">{{"SHOW_CARS_NEW_CARS"|translate}}</h3>
+                <h3 class="p-l-lg-20" style="margin: 0px;">
+                <span ng-if="zone=='new_cars'">{{"SHOW_CARS_NEW_CARS"|translate}}</span>
+                <span ng-if="zone=='old_cars'">{{"SHOW_CARS_USED_CARS"|translate}}</span>
+                <span ng-if="zone=='search'">{{"SHOW_CARS_SEARCH"|translate}}</span>
+                <span ng-if="zone=='marque_car'">{{"SHOW_CARS_MARQUE"|translate}} {{ selectedMarque }}</span>
+                </h3>
             </div>
             <div class="col-md-12 col-sm-12 col-xs-12 car-filter car-f-btm">
                 <div class="col-md-4 col-xs-12 ">
-                    <input ng-model="search" type="text" placeholder="ابحث عن ......." class="form-control input-lg">
+                    <input ng-model="searchText" type="text" placeholder="{{'HOME_SEARCH_BTN'|translate}}......." class="form-control input-lg">
                 </div>
                 <div class="col-md-8 col-xs-12 text-right  ">
                     <div class="pull-right col-md-12 col-xs-12">
                         <div class="form-group col-md-6 col-xs-6">
                             <label class="col-md-5 col-xs-6"><i class="fa fa-sort-alpha-asc"></i>Filter : </label>
                             <div class="col-md-7 col-xs-6 black_input" style="padding: 0px;">
-                                <select class="select  form-control">
-                                    <option value="Prix">Prix</option>
-                                    <option value="Année">Année</option>
-                                    <option value="Kilométrage">Kilométrage</option>
+                                <select ng-model="order" class="select  form-control">
+                                    <option value="-prix">Prix</option>
+                                    <option value="-annee">Année</option>
+                                    <option value="-kilometrage">Kilométrage</option>
                                 </select>
                             </div>
 
@@ -104,7 +108,7 @@
             </div>
 
             <div class="col-md-12" style="margin-top: 20px">
-                <div ng-repeat="car in cars|filter:search track by $index" class="col-lg-4  col-md-6 col-sm-10 col-sm-offset-1 col-md-offset-0 col-xs-12">
+                <div ng-repeat="car in cars|filter:searchText|orderBy:order track by $index" class="col-lg-4  col-md-6 col-sm-10 col-sm-offset-1 col-md-offset-0 col-xs-12">
                     <div class="thumbnail no-border no-padding thumbnail-car-card">
                         <div class="media">
                             <div class="media-link" data-gal="prettyPhoto">
@@ -140,7 +144,7 @@
 
                 <div ng-show="cars.length<1" class="col-md-12 text-center"
                      style="margin-top: 100px;margin-bottom: 100px">
-                    <h1 class="font-red-flamingo">لاتوجد سيارات لهذه الماركة حاليا .</h1>
+                    <h1 class="font-red-flamingo">{{'NO_CARS_FOUND'|translate}} .</h1>
                 </div>
             </div>
             <div class="row text-center">
@@ -154,12 +158,16 @@
 <script>
     $(document).ready(function () {
         $("#price_range").slider({
-            formatter: function(value) {
-                if($("html").attr('dir')=='rtl'){
-                    return value[0]+",000"+" و "+value[1]+",000" +" د ت  ";
-                }else
-                    return value[0]+",000"+" et "+value[1]+",000"+" DT  ";
+            formatter: function (value) {
+                if ($("html").attr('dir') == 'rtl') {
+                    return value[0] + " و " + value[1] + " د ت  ";
+                } else
+                    return value[0] + " et " + value[1] + " DT  ";
             }
+        }).on('change', function (ev) {
+            $('#minPrice').text(ev.value.newValue[0]);
+            $('#maxPrice').text(ev.value.newValue[1]);
+
         });
     });
 </script>

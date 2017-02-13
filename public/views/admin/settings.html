@@ -21,7 +21,7 @@
                 <div class="col-md-12">
                     <div class="col-md-6 col-md-offset-3 col-xs-12">
                         <h1 class="text-center blue-hoki"><i class="fa fa-lock"></i>{{'ADMIN_PAGE_PARAMETER_CHANGE_PASS'|translate}}</h1>
-                        <form ng-submit="changePassword()" class="form-horizontal" role="form" name="form">
+                        <form ng-submit="changePassword()" class="form-horizontal" name="form" role="form">
 
                             <div class="form-group margin-top-10 input-icon right" ng-class="{ 'has-error': form.oldPassword.$dirty && form.oldPassword.$invalid }">
                                 <i ng-show="form.oldPassword.$dirty && form.oldPassword.$invalid " class="fa fa-warning font-red" data-original-title="Please enter only digits."></i>
@@ -48,18 +48,18 @@
                                        tooltip-enable="form.newPassword.$dirty && form.newPassword.$invalid">
                             </div>
 
-                            <div class="form-group margin-top-10 input-icon right" ng-class="{ 'has-error':form.confirmPassword != form.newPassword  && form.confirmPassword.$dirty}">
-                                <i ng-show="form.confirmPassword != form.newPassword && form.confirmPassword.$dirty" class="fa fa-warning font-red " data-original-title="Please enter only digits."></i>
+                            <div class="form-group margin-top-10 input-icon right" ng-class="{ 'has-error':password.confirmPassword != password.newPassword  && form.confirmPassword.$dirty}">
+                                <i ng-show="password.confirmPassword != password.newPassword && form.confirmPassword.$dirty" class="fa fa-warning font-red " data-original-title="Please enter only digits."></i>
                                 <input ng-model="password.confirmPassword" type="password"
                                        class="form-control has-feedback" ng-required="true"
                                        placeholder="{{'ADMIN_PAGE_PARAMETER_CHANGE_PASS_CONFIRM'|translate}}"
                                        uib-tooltip="{{'ADMIN_PAGE_PARAMETER_CHANGE_PASS_CONFIRM_ERROR'|translate}}"
                                        tooltip-placement="left" name="confirmPassword"
                                        tooltip-trigger="'focus mouseleave'"
-                                       tooltip-enable="form.newPassword != form.confirmPassword "/>
+                                       tooltip-enable="password.newPassword != password.confirmPassword "/>
                             </div>
 
-                            <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary col-md-3 margin-top-10">{{'SAVE'|translate}}</button>
+                            <button type="submit" ng-disabled="form.$invalid || password.newPassword != password.confirmPassword" class="btn btn-primary col-md-3 margin-top-10">{{'SAVE'|translate}}</button>
                         </form>
                     </div>
                 </div>

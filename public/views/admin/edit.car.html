@@ -1,41 +1,62 @@
-<!-- BEGIN PAGE HEAD-->
-<div class="page-head">
-    <!-- BEGIN PAGE TITLE -->
-    <h1 class="page-title">
-        تعديل السيارة
-    </h1>
-    <!-- END PAGE TITLE -->
-</div>
-<!-- END PAGE HEAD-->
-<!-- BEGIN PAGE BREADCRUMB -->
 <div class="page-bar">
     <ul class="page-breadcrumb">
         <li>
             <i class="icon-home"></i>
-            <a ui-sref="admin">الرئيسية</a>
+            <a ui-sref="admin">{{'ADMIN_MENU_DASHBOARD'|translate}}</a>
             <i class="fa fa-angle-right"></i>
         </li>
         <li>
-            <span>تعديل السيارة</span>
+            <span>{{'ADMIN_PAGE_EDIT_CAR_TITLE'|translate}}</span>
         </li>
 
     </ul>
 </div>
-
+<div class="m-heading-1 border-green m-bordered row" style="margin-bottom: 17px;">
+    <h2>     <span class="fa fa-car font-blue"></span>    &nbsp; {{'ADMIN_PAGE_EDIT_CAR_TITLE'|translate}} </h2>
+</div>
 <div class="row">
     <div class="col-md-12">
         <div class="portlet light bordered">
             <div class="portlet-title">
                 <div class="caption">
                     <i class="icon-speech font-green"></i>
-                    <span class="caption-subject bold font-green uppercase">بيانات السيارة</span>
+                    <span class="caption-subject bold font-green uppercase">{{'ADMIN_PAGE_ADD_CAR_TITLE'|translate}}</span>
                 </div>
             </div>
             <div class="portlet-body" style="height: auto;">
                 <form role="form" ng-submit="editCar()" class="form-horizontal" name="form">
                     <div class="form-body">
-                        <div class="form-group">
-                            <label for="marque" class="col-md-2 control-label">الماركة
+                        <div class="form-group col-md-6">
+                            <label for="marque" class="col-md-3 control-label">{{'ADMIN_FORM_ADD_CAR_TITLE'|translate}}
+                                <span class="required" aria-required="true"> * </span>
+                            </label>
+                            <div class=" col-md-9">
+                                <input ng-model="car.titre" class="form-control" ng-minlength="5"
+                                       placeholder="{{'ADMIN_FORM_ADD_CAR_TITLE'|translate}}">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="marque" class="col-md-3 control-label">{{'HOME_SEARCH_FORM_CONDITION'|translate}}
+                                <span class="required" aria-required="true"> * </span>
+                            </label>
+                            <div class=" col-md-9">
+                                <select ng-model="car.condition" class="form-control" required>
+                                    <option value="new" selected="selected">{{'HOME_SEARCH_FORM_NEW'|translate}}</option>
+                                    <option value="old">{{'HOME_SEARCH_FORM_USED'|translate}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div ng-show="car.nouveau=='false'" class="form-group col-md-12">
+                            <label for="marque" class="col-md-3 col-md-offset-1 control-label">{{'ADMIN_PAGE_ADD_CAR_FORM_KILOMETER'|translate}}
+                                <span class="required" aria-required="true"> * </span>
+                            </label>
+                            <div class=" col-md-5">
+                                <input class="form-control" data-placeholder="{{'ADMIN_PAGE_ADD_CAR_FORM_KILOMETER'|translate}}" ng-model="car.kilometrage" id="kilometrage"
+                                       required>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="marque" class="col-md-3 control-label">{{'HOME_SEARCH_FORM_MARQUE'|translate}}
                                 <span class="required" aria-required="true"> * </span>
                             </label>
                             <div class=" col-md-9">
@@ -44,8 +65,8 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="model" class="col-md-2 control-label">الموديل
+                        <div class="form-group col-md-6">
+                            <label for="model" class="col-md-3 control-label">{{'HOME_SEARCH_FORM_MODEL'|translate}}
                                 <span class="required" aria-required="true"> * </span>
                             </label>
                             <div class=" col-md-9">
@@ -54,8 +75,8 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="date" class="control-label col-md-2">السنة
+                        <div class="form-group col-md-6">
+                            <label for="date" class="control-label col-md-3">{{'HOME_SEARCH_FORM_YEAR'|translate}}
                                 <span class="required" aria-required="true"> * </span>
                             </label>
                             <div class="col-md-9">
@@ -63,21 +84,20 @@
                                      <span class="input-group-addon">
                                          <i class="fa fa-calendar"></i>
                                      </span>
-                                    <input data-placeholder="السنة"  range from="2000"  id="date" required>
+                                    <input data-placeholder="{{'HOME_SEARCH_FORM_YEAR'|translate}}" class="form-control" drange from="2000"  id="date" required>
                                 </div>
-                                <span class="help-block hidden">إختر سنة الصنع</span>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label">اللون
+                        <div class="form-group col-md-6">
+                            <label class="col-md-3 control-label">{{'ADMIN_FORM_ADD_CAR_COLOR'|translate}}
                                 <span class="required" aria-required="true"> * </span>
                             </label>
                             <div class="col-md-9">
-                                <input ng-model="car.couleur" type="text" name="couleur" class="form-control" placeholder="اللون" required>
+                                <input ng-model="car.couleur" type="text" name="couleur" class="form-control" placeholder="{{'ADMIN_FORM_ADD_CAR_COLOR'|translate}}" required>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label">الثمن
+                        <div class="form-group col-md-6">
+                            <label class="col-md-3 control-label">{{'PRICE'|translate}}
                                 <span class="required" aria-required="true"> * </span>
                             </label>
                             <div class="col-md-9">
@@ -85,111 +105,144 @@
                                     <span class="input-group-addon">
                                         <i class="fa fa-dollar"></i>
                                     </span>
-                                    <input ng-model="car.prix" type="number" name="prix" class="form-control" placeholder="الثمن بالدينار" required>
+                                    <input ng-model="car.prix" type="number" name="prix" class="form-control" placeholder="{{'ADMIN_PAGE_ADD_CAR_FORM_PRICE_PLACEHOLDER'|translate}}" required>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="porte" class="control-label col-md-2">عدد الأبواب
+                        <div class="form-group col-md-6" style="max-height: 34px!important;">
+                            <label for="porte" class="control-label col-md-3">{{'ADMIN_PAGE_ADD_CAR_FORM_NB_PORTE'|translate}}
                                 <span class="required" aria-required="true"> * </span>
                             </label>
                             <div class="col-md-9">
-                                <input data-placeholder="عدد الأبواب" ng-model="car.porte" range from="1" to="6" id="porte" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="place" class="control-label col-md-2">عدد الأماكن
-                                <span class="required" aria-required="true"> * </span>
-                            </label>
-                            <div class="col-md-9">
-                                <input data-placeholder="عدد الأبواب" ng-model="car.place" range from="1" to="10" id="place" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="capacite" class="col-md-2 control-label">سعة المحرك
-                            </label>
-                            <div class="col-md-9">
-                                <input ng-model="car.capacite_moteur" id="capacite" type="number" name="capacite" class="form-control"
-                                       placeholder="سعة المحرك باللتر" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="energie" class="control-label col-md-2">الطاقة
-                            </label>
-                            <div class="col-md-9">
-                                <select  ng-model="car.energie" id="energie" class="form-control" required>
-                                    <option>ديزل</option>
-                                    <option>إيصنص</option>
-                                    <option>كهربائية</option>
-                                    <option>LGP</option>
+                                <select ng-model="car.porte" id="porte" class="form-control" required>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option selected>4</option>
+                                    <option>5</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="vitesse" class="control-label col-md-2">ناقل حركة
+                        <div class="form-group col-md-6" style="max-height: 34px!important;">
+                            <label for="place" class="control-label col-md-3">{{'ADMIN_PAGE_ADD_CAR_FORM_NB_PLACE'|translate}}
+                                <span class="required" aria-required="true"> * </span>
                             </label>
                             <div class="col-md-9">
-                                <select  ng-model="car.type_vitesse" id="vitesse" class="form-control" required>
-                                    <option selected>تلقائي</option>
-                                    <option>أوتوماتيكي</option>
+                                <select ng-model="car.place" id="place" class="form-control" required>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option selected>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="cylindre" class="control-label col-md-3 ">{{'ADMIN_PAGE_ADD_CAR_FORM_CYLINDRE'|translate}}
+                            </label>
+                            <div class="col-md-9">
+                                <input ng-model="car.cylindre" id="cylindre" type="number" name="cylindre"
+                                       class="form-control"
+                                       placeholder="CC" required>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="energie" class="control-label col-md-3">{{'ADMIN_PAGE_ADD_CAR_FORM_ENERGIE'|translate}}
+                            </label>
+                            <div class="col-md-9">
+                                <select ng-model="car.energie" id="energie" class="form-control" required>
+                                    <option value="diesel">{{'ADMIN_PAGE_ADD_CAR_FORM_ENERGIE_DIESEL'|translate}}</option>
+                                    <option value="essence">{{'ADMIN_PAGE_ADD_CAR_FORM_ENERGIE_ESSENCE'|translate}}</option>
+                                    <option value="electrique">{{'ADMIN_PAGE_ADD_CAR_FORM_ENERGIE_ELECTRIC'|translate}}</option>
+                                    <option value="lgp">{{'ADMIN_PAGE_ADD_CAR_FORM_ENERGIE_LGP'|translate}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="transmission" class="control-label col-md-3">{{'ADMIN_PAGE_ADD_CAR_FORM_BOITE'|translate}}
+                            </label>
+                            <div class="col-md-9">
+                                <select ng-model="car.transmission" id="transmission" class="form-control" required>
+                                    <option value="auto" selected>{{'CARS_SEARCH_FORM_TRANSITION_AUTOMATIC'|translate}}</option>
+                                    <option value="semi-auto">{{'CARS_SEARCH_FORM_TRANSITION_SEMI_AUTOMATIC'|translate}}</option>
+                                    <option value="manuel">{{'CARS_SEARCH_FORM_TRANSITION_MANUAL'|translate}}</option>
                                 </select>
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3"><b>المواصفات</b></label>
-                        <div class="col-md-4">
+                    <div class="form-group col-md-6">
+                        <label class="control-label col-md-4"><b>{{'ADMIN_PAGE_ADD_CAR_FORM_SECURITY'|translate}}</b></label>
+                        <div class="col-md-8">
                             <div class="mt-checkbox-list" data-error-container="#form_2_services_error">
                                 <label class="mt-checkbox">
-                                    <input ng-model="car.caracteristique.airbag"  type="checkbox" value="1" name="service"><small>airbag</small> وسائد هوائية
+                                    <input ng-model="car.security.frein_abs" type="checkbox" value="1" name="service">{{'ADMIN_PAGE_ADD_CAR_FORM_ACCESSOIR_ABS'|translate}}
                                     <span></span>
                                 </label>
                                 <label class="mt-checkbox">
-                                    <input ng-model="car.caracteristique.toit_ouvrant" type="checkbox" value="2" name="service"> فتحة سقف
+                                    <input ng-model="car.security.frein_ebd" type="checkbox" value="1" name="service">{{'ADMIN_PAGE_ADD_CAR_FORM_ACCESSOIR_FR_ASSISTANCE'|translate}}
                                     <span></span>
                                 </label>
                                 <label class="mt-checkbox">
-                                    <input ng-model="car.caracteristique.regulateur_vitesse" type="checkbox" value="3" name="service"> مثبت سرعة
+                                    <input ng-model="car.security.airbag" type="checkbox" value="1" name="service">{{'ADMIN_PAGE_ADD_CAR_FORM_ACCESSOIR_AIRBAG'|translate}}
                                     <span></span>
                                 </label>
                                 <label class="mt-checkbox">
-                                    <input ng-model="car.caracteristique.alarm" type="checkbox" value="4" name="service">انذار
+                                    <input ng-model="car.security.alarm" type="checkbox" value="1" name="service">{{'ADMIN_PAGE_ADD_CAR_FORM_ACCESSOIR_ALARM'|translate}}
+                                    <span></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label col-md-4"><b>{{'ADMIN_PAGE_ADD_CAR_FORM_FONCTIONAL'|translate}}</b></label>
+                        <div class="col-md-8">
+                            <div class="mt-checkbox-list" data-error-container="#form_2_services_error">
+                                <label class="mt-checkbox">
+                                    <input ng-model="car.fonctional.toit_ouvrant" type="checkbox" value="1" name="service">{{'ADMIN_PAGE_ADD_CAR_FORM_ACCESSOIR_SUNROOF'|translate}}
                                     <span></span>
                                 </label>
                                 <label class="mt-checkbox">
-                                    <input ng-model="car.caracteristique.frein_abs" type="checkbox" value="5" name="service">نظام فرامل ABS
+                                    <input ng-model="car.fonctional.airbag" type="checkbox" value="1" name="service">{{'ADMIN_PAGE_ADD_CAR_FORM_ACCESSOIR_CLIMATISATION'|translate}}
                                     <span></span>
                                 </label>
                                 <label class="mt-checkbox">
-                                    <input ng-model="car.caracteristique.EBD" type="checkbox" value="6" name="service">توزيع اليكتروني للفرامل EBD
+                                    <input ng-model="car.fonctional.fermuture_centralise" type="checkbox" value="1" name="service">{{'ADMIN_PAGE_ADD_CAR_FORM_ACCESSOIR_LOCK'|translate}}
                                     <span></span>
                                 </label>
                                 <label class="mt-checkbox">
-                                    <input ng-model="car.caracteristique.climatisation" type="checkbox" value="7" name="service">تكييف
+                                    <input ng-model="car.fonctional.regulateur_vitesse" type="checkbox" value="1" name="service">{{'ADMIN_PAGE_ADD_CAR_FORM_ACCESSOIR_REG_VITESSE'|translate}}
+                                    <span></span>
+                                </label>
+                                <label class="mt-checkbox">
+                                    <input ng-model="car.fonctional.vitre_electrique" type="checkbox" value="1" name="service">{{'ADMIN_PAGE_ADD_CAR_FORM_ACCESSOIR_VITRE_ELECTRIC'|translate}}
                                     <span></span>
                                 </label>
                             </div>
                         </div>
                     </div>
                     <div class="form-group ">
-                        <label class="control-label col-md-2 ">الصور</label>
-                            <div class="col-md-8" id="input-images">
-                                <div class="input-group" ng-repeat="image in car.images track by $index" style="padding-bottom: 8px">
+                        <label class="control-label col-md-2 ">{{'ADMIN_PAGE_ADD_CAR_FORM_IMAGES'|translate}}</label>
+                        <div class="col-md-8" id="input-images">
+                            <div class="input-group" ng-repeat="image in car.images track by $index" style="padding-bottom: 8px">
                                     <span class="input-group-addon">
                                         <i class="fa fa-image"></i>
                                     </span>
-                                        <input  value="{{image}}" name=""  type="text" placeholder="رابط الصورة" class="form-control" style="height: 100%;padding: 8px">
-                                    <span class="input-group-btn btn-delete-img">
+                                <input  value="{{image}}" name=""  type="text"  class="form-control" style="height: 100%;padding: 8px">
+                                <span class="input-group-btn btn-delete-img">
                                         <button class="btn red btn-delete-img" ng-click="removeImage($index)" ><i class="fa fa-trash fa-2x"></i></button>
                                     </span>
-                                </div>
                             </div>
+                        </div>
                         <button role="button" id="btn-add-input" class="btn blue col-md-2 ">
-                            <i class="fa fa-plus"></i>&nbsp;أضف صورة&nbsp;</button>
+                            <i class="fa fa-plus"></i>&nbsp;{{'ADMIN_PAGE_ADD_CAR_FORM_IMAGES_ADD'|translate}}&nbsp;</button>
                     </div>
                     <div class="margin-top-10 text-center">
-                        <button ng-disabled="form.$invalid" class="btn btn-success">حفظ التغييرات</button>
-                        <button ng-click="initCar()" class="btn btn-danger">إلغاء </button>
+                        <button ng-disabled="form.$invalid" class="btn btn-success">{{'SAVE_CHANGES'|translate}}</button>
+                        <button ng-click="initCar()" class="btn btn-danger">{{'CANCEL'|translate}} </button>
                     </div>
                 </form>
             </div>
@@ -208,7 +261,7 @@
                             '<span class="input-group-addon">'+
                                 '<i class="fa fa-image"></i>'+
                             '</span>'+
-                            '<input  name=""  type="text" placeholder="رابط الصورة" class="form-control" style="height: 100%;padding: 8px">'+
+                            '<input  name=""  type="text" class="form-control" style="height: 100%;padding: 8px">'+
                             '<span class="input-group-btn">'+
                                 '<button class="btn red btn-delete-img" type="button">' +
                                     '<i class="fa fa-trash fa-2x"></i>' +

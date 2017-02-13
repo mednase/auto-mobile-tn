@@ -6,15 +6,7 @@ var user_schema = new Schema({
     username: {type: String, unique: true},
     email: {type: String, unique: true},
     password: String,
-    firstname: String,
-    lastname: String,
-    phone: String,
-    avatar: String,
     role: {type: String, default: "user"},
-    dateJoin: {type: Date, default: Date.now},
-    lastLogin: {type: Date},
-    resetPasswordToken: String,
-    resetPasswordExpires: Date
 });
 
 user_schema.pre('save', function (next) {

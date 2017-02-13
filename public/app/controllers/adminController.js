@@ -24,8 +24,8 @@ app.controller('dashboardController',['$rootScope','authService','$http','API_EN
                         },2000)                    });
                 }
 }]).
-controller('newCarController',['$scope','$http','API_ENDPOINT','toastr','$state',
-    function ($scope,$http,API_ENDPOINT,toastr,$state) {
+controller('newCarController',['$scope','$http','API_ENDPOINT','toastr','$state','$translate',
+    function ($scope,$http,API_ENDPOINT,toastr,$state,$translate) {
         $scope.initCar=function(){
             $scope.car={};
             $scope.car.images=[];
@@ -55,7 +55,7 @@ controller('newCarController',['$scope','$http','API_ENDPOINT','toastr','$state'
             });
             $scope.car.marque=JSON.parse($scope.marque).nom;
             $http.post(API_ENDPOINT.url+"/admin/car/new",$scope.car).then(function () {
-                toastr.success('لقد تم إضافة السيارة بنجاح ! ', 'إضافة السيارة');
+                toastr.success($translate.instant("CAR_TOAST_ADD_DONE"), $translate.instant("CAR_TOAST_ADD"));
                 $scope.initCar();
                 $state.go("cars");
 
@@ -63,8 +63,8 @@ controller('newCarController',['$scope','$http','API_ENDPOINT','toastr','$state'
         }
 
 }]).
-controller('editCarController',['car','$scope','$http','API_ENDPOINT','toastr','$state',
-    function (car,$scope,$http,API_ENDPOINT,toastr,$state) {
+controller('editCarController',['car','$scope','$http','API_ENDPOINT','toastr','$state','$translate',
+    function (car,$scope,$http,API_ENDPOINT,toastr,$state,$translate) {
         $scope.car=angular.copy(car);
         $scope.initCar=function(){
             $scope.car.images=[];
@@ -98,7 +98,7 @@ controller('editCarController',['car','$scope','$http','API_ENDPOINT','toastr','
                     $scope.car.images.push($(this).val());
             });
             $http.post(API_ENDPOINT.url+"/admin/car/update",$scope.car).then(function () {
-                toastr.success('لقد تم حفظ التعديلات ! ', 'تعديل السيارة');
+                toastr.success($translate.instant("CAR_TOAST_EDIT_DONE"), $translate.instant("CAR_TOAST_EDIT"));
                 $state.go("cars");
             });
         }
@@ -107,8 +107,8 @@ controller('editCarController',['car','$scope','$http','API_ENDPOINT','toastr','
 
     }]).
 controller('carListController',['$scope','DTOptionsBuilder','SweetAlert','$http','API_ENDPOINT'
-    ,'$state',
-    function ($scope,DTOptionsBuilder,SweetAlert,$http,API_ENDPOINT,$state) {
+    ,'$state','$translate',
+    function ($scope,DTOptionsBuilder,SweetAlert,$http,API_ENDPOINT,$state,$translate) {
 
         if($state.current.name=="admin_new_cars"){
             $scope.NEWCARS=true;
@@ -121,43 +121,23 @@ controller('carListController',['$scope','DTOptionsBuilder','SweetAlert','$http'
                 $scope.cars=res.data;
             });
         }
-        if($scope.dir=='rtl')
-            var language = {
-                "sProcessing": "جارٍ التحميل...",
-                "sLengthMenu": "أظهر _MENU_ مدخلات",
-                "sZeroRecords": "لم يعثر على أية سجلات",
-                "sInfo": "إظهار _START_ إلى _END_ من أصل _TOTAL_ مدخل",
-                "sInfoEmpty": "يعرض 0 إلى 0 من أصل 0 سجل",
-                "sInfoFiltered": "(منتقاة من مجموع _MAX_ مُدخل)",
-                "sInfoPostFix": "",
-                "sSearch": "ابحث:",
-                "sUrl": "",
-                "oPaginate": {
-                    "sFirst": "الأول",
-                    "sPrevious": "السابق",
-                    "sNext": "التالي",
-                    "sLast": "الأخير"
-                }
-            };
-            else
-             var language ={
-                "sProcessing":     "Traitement en cours...",
-                "sSearch":         "Rechercher&nbsp;:",
-                "sLengthMenu":     "Afficher _MENU_ &eacute;l&eacute;ments",
-                "sInfo":           "Affichage de l'&eacute;l&eacute;ment _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
-                "sInfoEmpty":      "Affichage de l'&eacute;l&eacute;ment 0 &agrave; 0 sur 0 &eacute;l&eacute;ment",
-                "sInfoFiltered":   "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
-                "sInfoPostFix":    "",
-                "sLoadingRecords": "Chargement en cours...",
-                "sZeroRecords":    "Aucun &eacute;l&eacute;ment &agrave; afficher",
-                "sEmptyTable":     "Aucune donn&eacute;e disponible dans le tableau",
-                "oPaginate": {
-                    "sFirst":      "Premier",
-                    "sPrevious":   "Pr&eacute;c&eacute;dent",
-                    "sNext":       "Suivant",
-                    "sLast":       "Dernier"
+        var language ={
+            "sProcessing":    $translate.instant("TABLE_LANG.sProcessing"),
+            "sSearch":        $translate.instant("TABLE_LANG.sSearch"),
+            "sLengthMenu":     $translate.instant("TABLE_LANG.sLengthMenu"),
+            "sInfo":            $translate.instant("TABLE_LANG.sInfo"),
+            "sInfoEmpty":      $translate.instant("TABLE_LANG.sInfoEmpty"),
+            "sInfoFiltered":    $translate.instant("TABLE_LANG.sInfoFiltered"),
+            "sInfoPostFix":    "",
+            "sLoadingRecords":  $translate.instant("TABLE_LANG.sLoadingRecords"),
+            "sZeroRecords":     $translate.instant("TABLE_LANG.sZeroRecords"),
+            "oPaginate": {
+                "sFirst":      $translate.instant("TABLE_LANG.oPaginate.sFirst"),
+                "sPrevious":    $translate.instant("TABLE_LANG.oPaginate.sPrevious"),
+                "sNext":        $translate.instant("TABLE_LANG.oPaginate.sNext"),
+                "sLast":        $translate.instant("TABLE_LANG.oPaginate.sLast"),
             }
-            };
+        };
         $scope.dtOptions = DTOptionsBuilder.newOptions()
             .withPaginationType('full_numbers')
             .withDisplayLength(10)
@@ -166,12 +146,12 @@ controller('carListController',['$scope','DTOptionsBuilder','SweetAlert','$http'
 
         $scope.deleteCar = function (car,$index) {
             SweetAlert.swal({
-                    title: "هل أنت متأكد ؟",
-                    text: "هل تريد حذف هذه السيارة من قاعدة البيانات ؟",
+                    title: $translate.instant('SWEETALERT_CONFIRM'),
+                    text: $translate.instant('CAR_SWEETALERT_DELETE_QUESTION'),
                     type: "warning",
                     showCancelButton: true,
-                    confirmButtonColor: "#DD6B55", confirmButtonText: "نعم ، إحذف !",
-                    cancelButtonText: "لا ، إلغاء الحذف",
+                    confirmButtonColor: "#DD6B55", confirmButtonText: $translate.instant('SWEETALERT_DELETE_OK'),
+                    cancelButtonText: $translate.instant('SWEETALERT_DELETE_CANCEL'),
                     closeOnConfirm: false,
                     closeOnCancel: true,
                     showLoaderOnConfirm: true
@@ -179,10 +159,10 @@ controller('carListController',['$scope','DTOptionsBuilder','SweetAlert','$http'
                 }, function(isConfirm){
                     if (isConfirm) {
                         $http.post(API_ENDPOINT.url+"/admin/car/delete",{id:car._id}).then(function () {
-                            SweetAlert.swal("","لقد تم حذف هذه السيارة بنجاح ", "success");
+                            SweetAlert.swal("",$translate.instant('CAR_SWEETALERT_DELETE_DONE'), "success");
                             $scope.cars.splice($index,1);
                         },function () {
-                            SweetAlert.swal("","حدث خطأ في النظام يرجى تكرار العملية","error");
+                            SweetAlert.swal("",$translate.instant('SYSTEM_FAIL'),"error");
                         })
                     }
                     return false;
@@ -190,50 +170,31 @@ controller('carListController',['$scope','DTOptionsBuilder','SweetAlert','$http'
         }
     }
 ]).
-controller('messagesController',['$rootScope','$scope','authService','$http','API_ENDPOINT','DTOptionsBuilder',
-    '$uibModal','toastr','SweetAlert',
-    function ($rootScope,$scope,authService,$http,API_ENDPOINT,DTOptionsBuilder,$uibModal,toastr,SweetAlert) {
+controller('messagesController',['$rootScope','$scope','authService','$http','API_ENDPOINT',
+    'DTOptionsBuilder', '$uibModal','toastr','SweetAlert','$translate',
+    function ($rootScope,$scope,authService,$http,API_ENDPOINT,DTOptionsBuilder,$uibModal,
+              toastr,SweetAlert, $translate) {
 
         $http.get(API_ENDPOINT.url+'/admin/contacts').then(function (res) {
             $scope.contacts=res.data;
         });
 
 
-        if($scope.dir=='rtl')
-            var language = {
-                "sProcessing": "جارٍ التحميل...",
-                "sLengthMenu": "أظهر _MENU_ مدخلات",
-                "sZeroRecords": "لم يعثر على أية سجلات",
-                "sInfo": "إظهار _START_ إلى _END_ من أصل _TOTAL_ مدخل",
-                "sInfoEmpty": "يعرض 0 إلى 0 من أصل 0 سجل",
-                "sInfoFiltered": "(منتقاة من مجموع _MAX_ مُدخل)",
-                "sInfoPostFix": "",
-                "sSearch": "ابحث:",
-                "sUrl": "",
-                "oPaginate": {
-                    "sFirst": "الأول",
-                    "sPrevious": "السابق",
-                    "sNext": "التالي",
-                    "sLast": "الأخير"
-                }
-            };
-        else
-            var language ={
-                "sProcessing":     "Traitement en cours...",
-                "sSearch":         "Rechercher&nbsp;:",
-                "sLengthMenu":     "Afficher _MENU_ &eacute;l&eacute;ments",
-                "sInfo":           "Affichage de l'&eacute;l&eacute;ment _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
-                "sInfoEmpty":      "Affichage de l'&eacute;l&eacute;ment 0 &agrave; 0 sur 0 &eacute;l&eacute;ment",
-                "sInfoFiltered":   "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
+        var language ={
+                "sProcessing":    $translate.instant("TABLE_LANG.sProcessing"),
+                "sSearch":        $translate.instant("TABLE_LANG.sSearch"),
+                "sLengthMenu":     $translate.instant("TABLE_LANG.sLengthMenu"),
+                "sInfo":            $translate.instant("TABLE_LANG.sInfo"),
+                "sInfoEmpty":      $translate.instant("TABLE_LANG.sInfoEmpty"),
+                "sInfoFiltered":    $translate.instant("TABLE_LANG.sInfoFiltered"),
                 "sInfoPostFix":    "",
-                "sLoadingRecords": "Chargement en cours...",
-                "sZeroRecords":    "Aucun &eacute;l&eacute;ment &agrave; afficher",
-                "sEmptyTable":     "Aucune donn&eacute;e disponible dans le tableau",
+                "sLoadingRecords":  $translate.instant("TABLE_LANG.sLoadingRecords"),
+                "sZeroRecords":     $translate.instant("TABLE_LANG.sZeroRecords"),
                 "oPaginate": {
-                    "sFirst":      "Premier",
-                    "sPrevious":   "Pr&eacute;c&eacute;dent",
-                    "sNext":       "Suivant",
-                    "sLast":       "Dernier"
+                    "sFirst":      $translate.instant("TABLE_LANG.oPaginate.sFirst"),
+                    "sPrevious":    $translate.instant("TABLE_LANG.oPaginate.sPrevious"),
+                    "sNext":        $translate.instant("TABLE_LANG.oPaginate.sNext"),
+                    "sLast":        $translate.instant("TABLE_LANG.oPaginate.sLast"),
                 }
             };
 
@@ -261,14 +222,15 @@ controller('messagesController',['$rootScope','$scope','authService','$http','AP
                                 $scope.contact=contact;
                                 $scope.message="";
                                 $scope.sendMessage=function () {
-                                    toastr.info('يرجى الانتظار البريد الإلكتروني بصدد الإرسال','إتصل بنا :', {progressBar: true});
+                                    toastr.info($translate.instant("MESSAGE_TOAST_SEND_EMAIL_WAIT"),$translate.instant("NAVBAR_CONTACT"), {progressBar: true});
                                     $http.post(API_ENDPOINT.url+'/admin/contact/replay',{email:contact.email,
                                         message:$scope.message,title:$scope.title,name:contact.name}).then(function () {
                                         $rootScope.sendModal.dismiss('cancel');
                                         toastr.clear();
-                                        toastr.success('لقد تم بعث الرسالة بنجاح','إتصل بنا :')
+                                        toastr.success($translate.instant("MESSAGE_TOAST_SEND_EMAIL_DONE"),$translate.instant("NAVBAR_CONTACT"))
                                     },function (err) {
-                                        toastr.error('وقع خطأ في نظام بعث الرسائل الرجاء إعادة المحاولة ','إتصل بنا :')
+                                            toastr.error($translate.instant("SYSTEM_FAIL"),$translate.instant("NAVBAR_CONTACT"))
+
                                     })
                                 };
                                 $scope.closeSendModal=function () {
@@ -283,12 +245,12 @@ controller('messagesController',['$rootScope','$scope','authService','$http','AP
 
         $scope.deleteMessage = function (contact,$index) {
             SweetAlert.swal({
-                title: "هل أنت متأكد ؟",
-                text: "هل تريد حذف هذه الرسالة من قاعدة البيانات ؟",
+                title: $translate.instant('SWEETALERT_CONFIRM'),
+                text:  $translate.instant('MESSAGE_SWEETALERT_DELETE_QUESTION'),
                 type: "warning",
                 showCancelButton: true,
-                confirmButtonColor: "#DD6B55", confirmButtonText: "نعم ، إحذف !",
-                cancelButtonText: "لا ، إلغاء الحذف",
+                confirmButtonColor: "#DD6B55", confirmButtonText: $translate.instant('SWEETALERT_DELETE_OK'),
+                cancelButtonText: $translate.instant('SWEETALERT_DELETE_CANCEL'),
                 closeOnConfirm: false,
                 closeOnCancel: true,
                 showLoaderOnConfirm: true
@@ -296,135 +258,64 @@ controller('messagesController',['$rootScope','$scope','authService','$http','AP
             }, function(isConfirm){
                 if (isConfirm) {
                     $http.post(API_ENDPOINT.url+"/admin/contact/delete",{id:contact._id}).then(function () {
-                        SweetAlert.swal("","لقد تم حذف هذه الرسالة بنجاح ", "success");
+                        SweetAlert.swal("",$translate.instant('MESSAGE_SWEETALERT_DELETE_DONE'), "success");
                         $scope.contacts.splice($index,1);
                     },function () {
-                        SweetAlert.swal("","حدث خطأ في النظام يرجى تكرار العملية","error");
+                        SweetAlert.swal("",$translate.instant('SYSTEM_FAIL'),"error");
                     })
                 }
                 return false;
             });
         }
     }]).
-controller('settingsController',['$scope','$http','API_ENDPOINT',
-    function ($scope,$http,API_ENDPOINT) {
-        $http.get(API_ENDPOINT.url+"/marques").then(function (result) {
-            $scope.marques=result.data;
-        });
-
-        $scope.addModel=function () {
-            $http.post(API_ENDPOINT.url+"/admin/model/new",{marque_id:$scope.marque,model_name:$scope.model}).then(function (msg) {
-                if(msg.data.success){
-                    $scope.addModelSuccess=true;
-                    $scope.addModelError=false;
-                    $http.get(API_ENDPOINT.url+"/marques").then(function (result) {
-                        $scope.marques=result.data;
-                    });
-                    $scope.new_model="";
-                }else{
-                    $scope.addModelSuccess=false;
-                    $scope.addModelError=true;
-                }
-                $scope.marque=null;
-            });
-        };
-        $scope.addMarque=function () {
-            $http.post(API_ENDPOINT.url+"/admin/marque/new",{nom_marque:$scope.nom_marque}).then(function (msg) {
-                if(msg.data.success){
-                    $scope.addMarqueSuccess=true;
-                    $scope.addMarqueError=false;
-                    $http.get(API_ENDPOINT.url+"/marques").then(function (result) {
-                        $scope.marques=result.data;
-                    });
-                    $scope.nom_marque="";
-                }else{
-                    $scope.addMarqueSuccess=false;
-                    $scope.addMarqueError=true;
-                }
-            });
-        };
-
+controller('settingsController',['$scope','$http','API_ENDPOINT','toastr','$translate',
+    function ($scope,$http,API_ENDPOINT,toastr,$translate) {
         $scope.password={};
         $scope.changePassword=function () {
-            console.log($scope.password);
+            $http.post(API_ENDPOINT.url+'/admin/reset-password',$scope.password).then(function (res) {
+                if(res.data.error==0)
+                    toastr.success($translate.instant("CHANGE_PASSWORD_DONE"),$translate.instant("CHANGE_PASSWORD"));
+                if(res.data.error==1)
+                    toastr.error($translate.instant("CHANGE_PASSWORD_WRONG_OLD"),$translate.instant("CHANGE_PASSWORD"));
+                if(res.data.error==2)
+                    toastr.error($translate.instant("CHANGE_PASSWORD_WRONG_CONFIRM"),$translate.instant("CHANGE_PASSWORD"));
+
+            },function () {
+                toastr.error($translate.instant("SYSTEM_FAIL"),$translate.instant("CHANGE_PASSWORD"));
+            })
         };
     }]).
 controller('marquesController',['$scope','$http','API_ENDPOINT','$compile','DTOptionsBuilder',
-    function ($scope,$http,API_ENDPOINT,$compile,DTOptionsBuilder) {
+    '$translate','toastr','SweetAlert',
+    function ($scope,$http,API_ENDPOINT,$compile,DTOptionsBuilder,$translate,toastr,SweetAlert) {
+        $scope.models=[];
         $http.get(API_ENDPOINT.url+"/marques").then(function (result) {
             $scope.marques=result.data;
+            angular.forEach($scope.marques,function (data) {
+                angular.forEach(data.models,function (d) {
+                    $scope.models.push({marque:data,nom:d});
+                })
+            })
         });
 
-        $scope.addModel=function () {
-            $http.post(API_ENDPOINT.url+"/admin/model/new",{marque_id:$scope.marque,model_name:$scope.model}).then(function (msg) {
-                if(msg.data.success){
-                    $scope.addModelSuccess=true;
-                    $scope.addModelError=false;
-                    $http.get(API_ENDPOINT.url+"/marques").then(function (result) {
-                        $scope.marques=result.data;
-                    });
-                    $scope.new_model="";
-                }else{
-                    $scope.addModelSuccess=false;
-                    $scope.addModelError=true;
-                }
-                $scope.marque=null;
-            });
+        var language ={
+            "sProcessing":    $translate.instant("TABLE_LANG.sProcessing"),
+            "sSearch":        $translate.instant("TABLE_LANG.sSearch"),
+            "sLengthMenu":     $translate.instant("TABLE_LANG.sLengthMenu"),
+            "sInfo":            $translate.instant("TABLE_LANG.sInfo"),
+            "sInfoEmpty":      $translate.instant("TABLE_LANG.sInfoEmpty"),
+            "sInfoFiltered":    $translate.instant("TABLE_LANG.sInfoFiltered"),
+            "sInfoPostFix":    "",
+            "sLoadingRecords":  $translate.instant("TABLE_LANG.sLoadingRecords"),
+            "sZeroRecords":     $translate.instant("TABLE_LANG.sZeroRecords"),
+            "sEmptyTable":      $translate.instant("TABLE_LANG.sEmptyTable"),
+            "oPaginate": {
+                "sFirst":      $translate.instant("TABLE_LANG.oPaginate.sFirst"),
+                "sPrevious":    $translate.instant("TABLE_LANG.oPaginate.sPrevious"),
+                "sNext":        $translate.instant("TABLE_LANG.oPaginate.sNext"),
+                "sLast":        $translate.instant("TABLE_LANG.oPaginate.sLast"),
+            }
         };
-        $scope.addMarque=function () {
-            $http.post(API_ENDPOINT.url+"/admin/marque/new",{nom_marque:$scope.nom_marque}).then(function (msg) {
-                if(msg.data.success){
-                    $scope.addMarqueSuccess=true;
-                    $scope.addMarqueError=false;
-                    $http.get(API_ENDPOINT.url+"/marques").then(function (result) {
-                        $scope.marques=result.data;
-                    });
-                    $scope.nom_marque="";
-                }else{
-                    $scope.addMarqueSuccess=false;
-                    $scope.addMarqueError=true;
-                }
-            });
-        };
-
-        if($scope.dir=='rtl')
-            var language = {
-                "sProcessing": "جارٍ التحميل...",
-                "sLengthMenu": "أظهر _MENU_ مدخلات",
-                "sZeroRecords": "لم يعثر على أية سجلات",
-                "sInfo": "إظهار _START_ إلى _END_ من أصل _TOTAL_ مدخل",
-                "sInfoEmpty": "يعرض 0 إلى 0 من أصل 0 سجل",
-                "sInfoFiltered": "(منتقاة من مجموع _MAX_ مُدخل)",
-                "sInfoPostFix": "",
-                "sSearch": "ابحث:",
-                "sUrl": "",
-                "oPaginate": {
-                    "sFirst": "الأول",
-                    "sPrevious": "السابق",
-                    "sNext": "التالي",
-                    "sLast": "الأخير"
-                }
-            };
-        else
-            var language ={
-                "sProcessing":     "Traitement en cours...",
-                "sSearch":         "Rechercher&nbsp;:",
-                "sLengthMenu":     "Afficher _MENU_ &eacute;l&eacute;ments",
-                "sInfo":           "Affichage de l'&eacute;l&eacute;ment _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
-                "sInfoEmpty":      "Affichage de l'&eacute;l&eacute;ment 0 &agrave; 0 sur 0 &eacute;l&eacute;ment",
-                "sInfoFiltered":   "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
-                "sInfoPostFix":    "",
-                "sLoadingRecords": "Chargement en cours...",
-                "sZeroRecords":    "Aucun &eacute;l&eacute;ment &agrave; afficher",
-                "sEmptyTable":     "Aucune donn&eacute;e disponible dans le tableau",
-                "oPaginate": {
-                    "sFirst":      "Premier",
-                    "sPrevious":   "Pr&eacute;c&eacute;dent",
-                    "sNext":       "Suivant",
-                    "sLast":       "Dernier"
-                }
-            };
-
         $scope.dtOptions = DTOptionsBuilder.newOptions()
             .withPaginationType('full_numbers')
             .withDisplayLength(10)
@@ -433,7 +324,7 @@ controller('marquesController',['$scope','$http','API_ENDPOINT','$compile','DTOp
 
         $("#btnAddMarque").click(function () {
             $("#tableMarque tbody").prepend($compile("" +
-                "<tr><td colspan='2'><input id='vMai' ng-model='newMarque' placeholder='le nom de la marque a ajouté' class='form-control' type='text'></td><td>" +
+                "<tr><td colspan='2'><input id='vMai' ng-model='newMarque' placeholder='{{\"ADD_MARQUE_PLACEHOLDER\"|translate}}' class='form-control' type='text'></td><td>" +
                 "<button ng-disabled='newMarque.length<1' ng-class='newMarque ?\"\":\"disabled\"' class='btn btn-primary' ng-click='addMarque()'>{{'SAVE'|translate}} <i class='fa fa-save'>  </i></button>"+
                 "<button class='btn btn-warning' onclick='$(this).closest(\"tr\").remove()' >{{'CANCEL'|translate}} <i class='fa fa-times'>  </i></button>" +
                 "</td></tr>")($scope));
@@ -443,7 +334,7 @@ controller('marquesController',['$scope','$http','API_ENDPOINT','$compile','DTOp
         });
         $("#btnAddModel").click(function () {
             $("#tableModel").children('tbody:first').prepend($compile("" +
-                "<tr><td><input  id='vMoi' ng-show='marque' ng-model='newModel' placeholder='le nom de modele a ajouté' class='form-control' type='text' ng-required='true'></td><td><select ng-model='marque'  class='form-control select2'>"+
+                "<tr><td><input  id='vMoi' ng-show='marque' ng-model='newModel' placeholder='{{\"ADD_MODEL_PLACEHOLDER\"|translate}}' class='form-control' type='text' ng-required='true'></td><td><select ng-model='marque'  class='form-control select2'>"+
             "<option ng-repeat='mq in marques track by $index' value='{{mq._id}}'>{{mq.nom}}</option>"+
             "</select></td><td>" +
                 "<button class='btn btn-primary' ng-disabled='newModel.length<1' ng-class='marque && newModel ?\"\":\"disabled\"' ng-click='addModel()'>{{ 'SAVE'|translate }} <i class='fa fa-save'>  </i></button>"+
@@ -455,13 +346,18 @@ controller('marquesController',['$scope','$http','API_ENDPOINT','$compile','DTOp
         });
 
         $scope.addModel=function () {
-            if($scope.new_model && $scope.newModel.length>0)
+            if($scope.newModel && $scope.newModel.length>0)
                 $http.post(API_ENDPOINT.url+"/admin/model/new",{marque_id:$scope.marque,model_name:$scope.newModel}).then(function (msg) {
                 if(msg.data.success){
-                    $scope.addModelSuccess=true;
-                    $scope.addModelError=false;
+                    toastr.success($translate.instant("MODEL_TOAST_ADD_DONE"), $translate.instant("MODEL_TOAST_ADD"));
                     $http.get(API_ENDPOINT.url+"/marques").then(function (result) {
                         $scope.marques=result.data;
+                        $scope.models=[];
+                        angular.forEach($scope.marques,function (data) {
+                            angular.forEach(data.models,function (d) {
+                                $scope.models.push({marque:data,nom:d});
+                            })
+                        })
                     });
                     $scope.newModel="";
                 }else{
@@ -477,8 +373,7 @@ controller('marquesController',['$scope','$http','API_ENDPOINT','$compile','DTOp
             if($scope.newMarque && $scope.newMarque.length>0)
                 $http.post(API_ENDPOINT.url+"/admin/marque/new",{nom_marque:$scope.newMarque}).then(function (msg) {
                 if(msg.data.success){
-                    $scope.addMarqueSuccess=true;
-                    $scope.addMarqueError=false;
+                    toastr.success($translate.instant("MARQUE_TOAST_ADD_DONE"), $translate.instant("MARQUE_TOAST_ADD"));
                     $http.get(API_ENDPOINT.url+"/marques").then(function (result) {
                         $scope.marques=result.data;
                     });
@@ -492,15 +387,58 @@ controller('marquesController',['$scope','$http','API_ENDPOINT','$compile','DTOp
                 $('#vMai').addClass('error-input');
         };
         $scope.deleteModel=function (model,marque) {
-            $http.post(API_ENDPOINT.url+"/admin/model/delete",{marque_id:marque._id,model_name:model}).then(function () {
-                $scope.marques[$scope.marques.indexOf(marque)].models.splice(
-                    $scope.marques[$scope.marques.indexOf(marque)].models.indexOf(model),1
-                );
-            })
+            SweetAlert.swal({
+                title: $translate.instant('SWEETALERT_CONFIRM'),
+                text:  $translate.instant('MODEL_SWEETALERT_DELETE_QUESTION'),
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55", confirmButtonText: $translate.instant('SWEETALERT_DELETE_OK'),
+                cancelButtonText: $translate.instant('SWEETALERT_DELETE_CANCEL'),
+                closeOnConfirm: false,
+                closeOnCancel: true,
+                showLoaderOnConfirm: true
+
+            }, function(isConfirm){
+                if (isConfirm) {
+                    $http.post(API_ENDPOINT.url+"/admin/model/delete",{marque_id:marque._id,model_name:model.nom}).then(function () {
+                        $scope.models.splice($scope.models.indexOf(model),1);
+                        SweetAlert.swal("",$translate.instant('MODEL_SWEETALERT_DELETE_DONE'), "success");
+
+                    },function () {
+                        SweetAlert.swal("",$translate.instant('SYSTEM_FAIL'),"error");
+                    })
+                }
+                return false;
+            });
+
         };
         $scope.deleteMarque=function (marque) {
-                $http.post(API_ENDPOINT.url+"/admin/marque/delete",marque).then(function () {
-                $scope.marques.splice($scope.marques.indexOf(marque),1);
-            })
-            };
+            SweetAlert.swal({
+                title: $translate.instant('SWEETALERT_CONFIRM'),
+                text:  $translate.instant('MARQUE_SWEETALERT_DELETE_QUESTION'),
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55", confirmButtonText: $translate.instant('SWEETALERT_DELETE_OK'),
+                cancelButtonText: $translate.instant('SWEETALERT_DELETE_CANCEL'),
+                closeOnConfirm: false,
+                closeOnCancel: true,
+                showLoaderOnConfirm: true
+
+            }, function(isConfirm){
+                if (isConfirm) {
+                    $http.post(API_ENDPOINT.url+"/admin/marque/delete",marque).then(function () {
+                        $scope.marques.splice($scope.marques.indexOf(marque),1);
+                        SweetAlert.swal("",$translate.instant('MARQUE_SWEETALERT_DELETE_DONE'), "success");
+                        angular.forEach($scope.models,function (data,i) {
+                            if(data.marque.nom==marque.nom){
+                                $scope.models.splice(i,1);
+                            }
+                        });
+                    },function () {
+                        SweetAlert.swal("",$translate.instant('SYSTEM_FAIL'),"error");
+                    })
+                }
+                return false;
+            });
+        };
     }]);

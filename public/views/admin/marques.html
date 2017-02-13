@@ -62,12 +62,12 @@
                 <th>{{'ADMIN_PAGE_MARQUE_MODULE_MARQUES_TABLE_ACTION'|translate}}</th>
             </tr>
             </thead>
-            <tbody ng-repeat="marque in marques track by $index">
-                <tr ng-repeat="model in marque.models track by $index">
-                    <td> {{ model }}</td>
-                    <td>{{ marque.nom }}</td>
+            <tbody >
+                <tr ng-repeat="model in models track by $index">
+                    <td> {{ model.nom }}</td>
+                    <td>{{ model.marque.nom }}</td>
                     <td class="text-center">
-                        <button ng-click="deleteModel(model,marque)" class="btn btn-danger">{{'DELETE'|translate}} <i class="fa fa-trash-o">  </i></button>
+                        <button ng-click="deleteModel(model,model.marque)" class="btn btn-danger">{{'DELETE'|translate}} <i class="fa fa-trash-o">  </i></button>
                     </td>
                 </tr>
             </tbody>

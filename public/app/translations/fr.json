@@ -1,4 +1,22 @@
 {
+  "TABLE_LANG": {
+    "sProcessing":     "Traitement en cours...",
+    "sSearch":         "Rechercher&nbsp;:",
+    "sLengthMenu":     "Afficher _MENU_ &eacute;l&eacute;ments",
+    "sInfo":           "Affichage de l'&eacute;l&eacute;ment _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
+    "sInfoEmpty":      "Affichage de l'&eacute;l&eacute;ment 0 &agrave; 0 sur 0 &eacute;l&eacute;ment",
+    "sInfoFiltered":   "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
+    "sInfoPostFix":    "",
+    "sLoadingRecords": "Chargement en cours...",
+    "sZeroRecords":    "Aucun &eacute;l&eacute;ment &agrave; afficher",
+    "oPaginate": {
+      "sFirst":      "Premier",
+      "sPrevious":   "Pr&eacute;c&eacute;dent",
+      "sNext":       "Suivant",
+      "sLast":       "Dernier"
+    }
+  },
+
   "NAVBAR_LOGIN" : "Connecter" ,
   "NAVBAR_HOME" : "Acceuil",
   "NAVBAR_CONTACT" : "Contact",
@@ -19,12 +37,15 @@
   "NAVBAR_CARS_USED":"Occasion",
   "MONEY":"DT",
   "AND":"Et",
+  "PRICE":"Prix",
   "CARS_SEARCH_FORM_TRANSITION":"Transition",
   "CARS_SEARCH_FORM_TRANSITION_AUTOMATIC":"Automatic",
   "CARS_SEARCH_FORM_TRANSITION_SEMI_AUTOMATIC":"semi-automatic",
   "CARS_SEARCH_FORM_TRANSITION_MANUAL":"Manuel",
   "SHOW_CARS_NEW_CARS":"Nouvelles Voitrues",
   "SHOW_CARS_USED_CARS":"Voitures D'occasion",
+  "SHOW_CARS_SEARCH":"Résultat de la recherche",
+  "SHOW_CARS_MARQUE":"Marque De ",
   "ADMIN_MENU_DASHBOARD":"Tableau de bord",
   "ADMIN_MENU_CARS":"Les Voitures",
   "ADMIN_MENU_CARS_NEW":"Nouvelles Voitrues",
@@ -39,6 +60,7 @@
   "ADMIN_FORM_ADD_CAR_TITLE":"Titre",
   "ADMIN_FORM_ADD_CAR_COLOR":"Couleur",
   "ADMIN_PAGE_MARQUE_MODELS":" Liste Des Marques & Modèles",
+  "ADMIN_PAGE_EDIT_CAR_TITLE":"Modifier la voiture",
   "DELETE":"Supprimer",
   "EDIT":"Modifier",
   "SHOW":"Voir",
@@ -47,6 +69,7 @@
   "CANCEL":"Annuler",
   "ARABIC":"Arabe",
   "FRENCH":"Français",
+  "SAVE_CHANGES":"Enregister Modification",
   "ADMIN_PAGE_MARQUE_MODULE_MARQUES":"Liste Des Marques",
   "ADMIN_PAGE_MARQUE_MODULE_MODELS":"Liste Des Modèles",
   "ADMIN_PAGE_MARQUE_MODULE_MARQUES_TABLE_NOM":"Nom",
@@ -114,8 +137,54 @@
   "FOOTER_TITLE_FACEBOOK":"Page Facebook",
   "FOOTER_TITLE_INFO_DESC":"Bienvenue à AHMED AUTO le premier salon d'exposition de voitures neuves et occasions à Monastir. C'est un magasin d'exposition (show room) permettant de présenter un assortiment ou la totalité des voitures proposés à la vente .",
   "FOOTER_ADDRESS":"Route de monastir, Ksibet Mediou 5031 Monastir",
-  "FOOTER_BOTTOM_DEVELOPED":"Développé par"
+  "FOOTER_BOTTOM_DEVELOPED":"Développé par",
 
+  "SWEETALERT_CONFIRM":"Êtes-vous sûr ?",
+  "SWEETALERT_DELETE_OK":"Oui , supprimer",
+  "SWEETALERT_DELETE_CANCEL":"Non , annuler",
+  "SYSTEM_FAIL":"Une erreur est survenue veuillez essayer a nouveau !",
 
+  "CAR_TOAST_ADD_DONE":"La voiture a été ajouté avec succès !",
+  "CAR_TOAST_ADD":"Ajout de Voiture",
 
+  "CAR_TOAST_EDIT_DONE":"Toutes les modification ont été sauvegardées",
+  "CAR_TOAST_EDIT":"Modification de la voiture",
+
+  "MODEL_SWEETALERT_DELETE_QUESTION":"Voulez-vous supprimer ce modèle",
+  "MODEL_SWEETALERT_DELETE_DONE":" Ce modèle a été supprimé avec succès",
+  "MARQUE_SWEETALERT_DELETE_QUESTION":"Voulez-vous supprimer cette marque? tous les modèles de cette marque seront supprimer automatiquement ! ",
+  "MARQUE_SWEETALERT_DELETE_DONE":"Cette marque a été supprimé avec succès ainsi tous ces modèles",
+
+  "MESSAGE_SWEETALERT_DELETE_QUESTION":"Voulez-vous supprimer ce message ",
+  "MESSAGE_SWEETALERT_DELETE_DONE":"Le message a été supprimer avec succès !",
+
+  "CAR_SWEETALERT_DELETE_DONE":"La voiture a été supprimer avec succès !",
+  "CAR_SWEETALERT_DELETE_QUESTION":"Voulez-vous supprimer cette voiture ?",
+
+  "MESSAGE_TOAST_SEND_EMAIL_WAIT":"Veuillez patienter le courrier electronique est en train d'etre envoyer",
+  "MESSAGE_TOAST_SEND_EMAIL_DONE":"Le courrier electronique a été envoyer avec success !",
+
+  "ADD_MODEL_PLACEHOLDER":"Nom du modèle a ajouter",
+  "ADD_MARQUE_PLACEHOLDER":"Nom du marque a ajouter",
+
+  "MODEL_TOAST_ADD":"Ajout de Modèle",
+  "MARQUE_TOAST_ADD":"Ajout de Marque",
+  "MARQUE_TOAST_ADD_DONE":"La nouvelle marque a éte ajouté avec succès !",
+  "MODEL_TOAST_ADD_DONE":"Le nouveau modèle a éte ajouté avec succès !",
+  "CHANGE_PASSWORD":"Modification du mot de passe",
+  "CHANGE_PASSWORD_DONE":"Le mot de passe a été modifier avec succès !",
+  "CHANGE_PASSWORD_WRONG_OLD":"L'ancien mot de passe n'est pas correct !",
+  "CHANGE_PASSWORD_WRONG_CONFIRM":"Erreur les mots de passe ne sont pas equivalent",
+
+  "TOAST_LOADING":"Veuillez patienter",
+  "NO_CARS_FOUND":"Aucune voiture n'a été trouvé",
+
+  "PAGE_CONTACT_TITLE":"Rester en contact",
+  "PAGE_CONTACT_SEND_US":"Envoyez-nous",
+  "PAGE_CONTACT_ADDRESS":"Adresse",
+  "PAGE_CONTACT_ADDRESS_STREET":"Route de monastir",
+  "PAGE_CONTACT_ADDRESS_CITY":"Ksibet Mediou",
+  "PAGE_CONTACT_ADDRESS_GOVERNORATE":"5031 Monastir",
+  "PAGE_CONTACT_FORM_MESSAGE":"Ecrire votre message ici ...",
+  "PAGE_CONTACT_INFO":"Notre service d'assistance est toujours ouvert pour recevoir toute demande d'information ou toute rétroaction. N'hésitez pas à nous envoyer un courriel à partir du formulaire ci-dessous et nous vous répondrons dès que possible."
 }

@@ -12,7 +12,7 @@ app.directive("drange", function(){
     return{
         restrict: 'A',
         replace: true,
-        template: '<select  class="form-control" >' +
+        template: '<select >' +
         '<option value="">{{"HOME_SEARCH_FORM_YEAR"|translate}}</option>' +
         '<option ng-repeat="n in number track by $index" value="{{n}}">{{n}}</option>' +
         '</select>',

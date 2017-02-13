@@ -29,6 +29,35 @@ module.exports = (function () {
 
     });
 
+    router.get('/api/search',function (req,res) {
+        var marque=req.query.marque?req.query.marque:"";
+        var model=req.query.model?req.query.model:"";
+        var year=req.query.year?req.query.year:"";
+        var transmission=req.query.transmission?req.query.transmission:"";
+        var condition=req.query.condition?req.query.condition:"";
+        var yearQuery;
+        if(year.toString().length<2)
+            yearQuery="function() { return true;}";
+        else
+            yearQuery="function() { return this.annee.toString().match(/"+year+"/) != null;}";
+
+        Car.find({marque: new RegExp(marque, "i"),model:new RegExp(model, "i"),
+            "$where":yearQuery,
+            condition: new RegExp(condition, "i"),
+            transmission: new RegExp(transmission, "i")}).sort({date_publication:-1}).exec(function (err,data) {
+            if(err)throw err;
+            var price=[];
+            if(req.query.price)
+                 price=JSON.parse("[" + req.query.price + "]");
+
+            if(price.length==2)
+                data=data.filter(function (car) {
+                    return (car.prix>price[0] && car.prix<=price[1]);
+                });
+            return res.send(data);
+        });
+    });
+
     router.get('/api/marques', function (req, res) {
         Marque.find().exec(function (err, result) {
             res.json(result);
@@ -48,7 +77,6 @@ module.exports = (function () {
                         return res.json(result);
                 });
             }],function (err) {
-            console.log(err);
         });
     });
 

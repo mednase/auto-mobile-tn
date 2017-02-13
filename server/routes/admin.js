@@ -91,8 +91,6 @@ module.exports = (function () {
     });
 
     router.post('/api/admin/marque/delete', function (req, res) {
-        console.log(req.body);
-
         Marque.findOne({_id:req.body._id},function (err, marque) {
             if (err)throw  err;
             if(marque)
@@ -123,7 +121,6 @@ module.exports = (function () {
         var message=req.body.message;
         var title=req.body.title;
         var destination=req.body.email;
-        console.log(req.body);
         mailer.sendEmail(name,message,destination,title, function (err,result) {
             if(err) throw err;
             return res.sendStatus(200);
@@ -192,6 +189,28 @@ module.exports = (function () {
         });
 
     });
+
+
+    router.post('/api/admin/reset-password', function (req, res) {
+        if (req.body.newPassword == req.body.confirmPassword) {
+            User.findOne({role:"ROLE_ADMIN"}).exec(function (err, user) {
+                if(err)throw err;
+                User.comparePassword(req.body.oldPassword,user,function (err,result) {
+                    if(result){
+                        user.password = req.body.newPassword;
+                        user.save(function (err) {
+                            return res.json({error: 0});
+                        });
+                    }else
+                        return res.json({error: 1});
+                })
+
+            });
+
+        } else
+            return res.json({error:2});
+    });
+
 
     return router;
 })();

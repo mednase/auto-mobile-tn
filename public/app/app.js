@@ -59,6 +59,11 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
                 templateUrl: '/public/views/core/car.marque.html',
                 controller: 'carsController'
             })
+            .state('search', {
+                url: '/search?marque&model&year&price&transmission&condition',
+                templateUrl: '/public/views/core/car.marque.html',
+                controller: 'searchController'
+            })
             .state('old_cars', {
                 url: '/cars/old',
                 templateUrl: '/public/views/core/car.marque.html',
