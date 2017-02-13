@@ -2,8 +2,8 @@
  * Created by medna on 25/01/2017.
  */
 app.
-controller('loginController', ['$scope','$rootScope', 'authService', '$window','API_ENDPOINT','$state',
-    function ($scope, $rootScope,authService, $window,API_ENDPOINT,$state) {
+controller('loginController', ['$scope','$rootScope', 'authService', '$window','API_ENDPOINT','$state','$translate',
+    function ($scope, $rootScope,authService, $window,API_ENDPOINT,$state,$translate) {
 
         if (authService.isAuthenticated()) {
             $state.go("admin");
@@ -19,9 +19,9 @@ controller('loginController', ['$scope','$rootScope', 'authService', '$window','
                 $state.go("admin");
             }, function (err) {
                 if(err==2){
-                    $scope.errorMessage="معلومات الدخول خاطئة.";
+                    $scope.errorMessage=$translate.instant('AUTH_FAIL');
                 }else
-                    $scope.errorMessage="خطأ في الإتصال بقاعدة البيانات الرجاء إعادة المحاولة.";
+                    $scope.errorMessage=$translate.instant('AUTH_BD_FAIL');
                 $scope.loginError=true;
                 $scope.loading=false;
             });
