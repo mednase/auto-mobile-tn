@@ -107,13 +107,19 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
                 templateUrl: '/public/views/admin/edit.car.html',
                 controller: 'editCarController',
                 resolve: {
-                    car: function ($http, API_ENDPOINT, $stateParams, $state) {
+                    car: ['$rootScope','$http','API_ENDPOINT','$stateParams','$state',function ($rootScope,$http, API_ENDPOINT, $stateParams, $state) {
                         return $http.get(API_ENDPOINT.url + '/car/'+$stateParams.id).then(function (res) {
+                            $("#meta-title").attr("content",car.titre);
+                            $rootScope.show_car_title=res.data.titre;
+                            if(res.data.images.length>0)
+                                $("#meta-image").attr("content",res.data.images[0]);
+                            else
+                                $("#meta-image").attr("content",API_ENDPOINT.domain+"public/assets/img/no_image.png");
                             return res.data;
                         },function () {
                             $state.go("error");
                         });
-                    }
+                    }]
                 },
                 data: {
                     authenticate: true,

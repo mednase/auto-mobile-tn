@@ -118,12 +118,7 @@ controller('homeController', ['$scope', '$http', 'API_ENDPOINT', '$rootScope', '
 controller('showCarController', ['car', '$scope', '$http', 'API_ENDPOINT','$state','$rootScope',
     function (car, $scope, $http, API_ENDPOINT,$state,$rootScope) {
         $scope.car = car;
-        $("#meta-title").attr("content",car.titre);
-        $rootScope.show_car_title=car.titre;
-        if(car.images.length>0)
-            $("#meta-image").attr("content",car.images[0]);
-        else
-            $("#meta-image").attr("content",API_ENDPOINT.domain+"public/assets/img/no_image.png");
+
 
         $scope.search = {};
         $scope.marque = null;
