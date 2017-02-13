@@ -1,11 +1,13 @@
 var app = angular.module('AutoMobileTn', ['ui.router','ngAnimate', 'toastr','datatables','ui.bootstrap',
 'ngSweetAlert','ngMap','vcRecaptcha','pascalprecht.translate','ngCookies','blockUI']);
 
-app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider',
-    '$httpProvider', '$logProvider', '$locationProvider','toastrConfig','$qProvider','$translateProvider',
-    function ($urlRouterProvider, $urlMatcherFactoryProvider, $stateProvider,
-              $httpProvider, $logProvider, $locationProvider,toastrConfig,$qProvider,$translateProvider) {
+app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider', '$httpProvider',
+    '$logProvider', '$locationProvider','toastrConfig','$qProvider','$translateProvider','blockUIConfig',
+    function ($urlRouterProvider, $urlMatcherFactoryProvider, $stateProvider, $httpProvider,
+              $logProvider, $locationProvider,toastrConfig,$qProvider,$translateProvider,blockUIConfig) {
 
+
+        blockUIConfig.autoBlock=false;
         $translateProvider
             .useStaticFilesLoader({
                 prefix: '/public/app/translations/',
