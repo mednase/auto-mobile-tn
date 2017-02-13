@@ -188,11 +188,11 @@ controller('marqueController', ['$scope', '$http', 'API_ENDPOINT', '$stateParams
 
     }]).
 controller('contactController', ['$scope', 'NgMap', '$timeout', 'GOVERNORATE', 'vcRecaptchaService',
-    'toastr', '$http', 'API_ENDPOINT',
+    'toastr', '$http', 'API_ENDPOINT','$translate'
     function ($scope, NgMap, $timeout, GOVERNORATE, vcRecaptchaService, toastr, $http, API_ENDPOINT) {
         $scope.recaptcha = {};
         $scope.recaptcha.key = "6LdcSRQUAAAAAMyYVWuyDYn6eMp29m077xtkAuKS";
-        $scope.recaptcha.lang = "ar";
+        $scope.recaptcha.lang = $translate.use();
         $scope.recaptcha.type = "image";
         $scope.recaptcha.valid = false;
         $scope.contact = {};
