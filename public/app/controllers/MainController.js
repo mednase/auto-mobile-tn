@@ -57,7 +57,7 @@ app.controller('appController', ['$scope', 'authService', '$http', 'API_ENDPOINT
 controller('homeController', ['$scope', '$http', 'API_ENDPOINT', '$rootScope', '$timeout', '$state',
         function ($scope, $http, API_ENDPOINT, $rootScope, $timeout, $state) {
             $scope.currentDate = new Date();
-            $scope.search = {price:"30000,200000"};
+            $scope.search = {price:"0,200000"};
             $http.get(API_ENDPOINT.url + "/marques").then(function (result) {
                 $scope.marques = result.data;
             });
@@ -146,7 +146,7 @@ controller('marqueController', ['$scope', '$http', 'API_ENDPOINT', '$stateParams
         $scope.itemsPerPage=9;
 
         $scope.marque = null;
-        $scope.search = {price:"30000,200000"};
+        $scope.search = {price:"0,200000"};
         $http.get(API_ENDPOINT.url + "/marques").then(function (result) {
             $scope.marques = result.data;
         });
@@ -245,7 +245,7 @@ controller('contactController', ['$scope', 'NgMap', '$timeout', 'GOVERNORATE', '
 controller('carsController', ['$scope', '$http', 'API_ENDPOINT', '$state',
     function ($scope, $http, API_ENDPOINT, $state) {
         $scope.marque = null;
-        $scope.search = {price:"30000,200000"};
+        $scope.search = {price:"0,200000"};
         $http.get(API_ENDPOINT.url + "/marques").then(function (result) {
             $scope.marques = result.data;
         });
@@ -306,7 +306,7 @@ controller('searchController', ['$scope', '$state', '$stateParams', '$http', 'AP
             $scope.totalItems = $scope.cars.length;
             $scope.search=null;
             $scope.search = {
-                price:"30000,200000",
+                price:"0,200000",
                 marque:"",
                 model:"",
                 year:"",
