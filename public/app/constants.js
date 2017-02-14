@@ -1,7 +1,7 @@
 app.constant('AUTH_EVENTS', {
     notAuthenticated: 'auth-not-authenticated'
 }).constant('API_ENDPOINT', {
-    url: 'http://auto-mobile-tn.herokuapp.com/api',
+    url: 'https://auto-mobile-tn.herokuapp.com/api',
     domain: 'https://auto-mobile-tn.herokuapp.com/'
 }).constant('GOVERNORATE',["Monastir","Sousse","Tunis","Gafsa"
     ,"Mahdia","Sidi Bouzid","Ariana","Jendouba"
