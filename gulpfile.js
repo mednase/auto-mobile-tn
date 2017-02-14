@@ -5,17 +5,20 @@ var gulp         = require('gulp');
 var sass         = require('gulp-sass');
 var concat       = require('gulp-concat');
 var uglify       = require('gulp-uglify');
+var ngAnnotate   = require('gulp-ng-annotate');
 var runSequence  = require('run-sequence');
 var browserSync  = require('browser-sync');
 
-gulp.task('js', function(){
+gulp.task('main', function(){
     return gulp.src([
-        './node_modules/angular-translate/angular-translate.js',
-        './js/app.js'])
+        './public/app/*.js','./public/app/**/*.js'])
         .pipe(concat('app.min.js'))
+        .pipe(ngAnnotate())
+        .pipe(uglify({ mangle: false }))
         .pipe(uglify())
-        .pipe(gulp.dest('./js'))
+        .pipe(gulp.dest('./public/build/'))
 });
+
 
 gulp.task('serve', function() {
     browserSync({
@@ -26,7 +29,7 @@ gulp.task('serve', function() {
 });
 
 gulp.task('build', [], function() {
-    runSequence('js');
+    runSequence('main');
 });
 
 gulp.task('default', ['build'], function() {});

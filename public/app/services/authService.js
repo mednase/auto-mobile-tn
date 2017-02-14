@@ -69,9 +69,7 @@ app.service('authService',['$q','$http','API_ENDPOINT','$window',function($q, $h
         getUser: getUser,
         isAuthenticated: function() {return isAuthenticated;}
     };
-}])
-
-    .factory('AuthInterceptor',['$rootScope','$q','AUTH_EVENTS', function ($rootScope, $q, AUTH_EVENTS) {
+}]).factory('AuthInterceptor',['$rootScope','$q','AUTH_EVENTS', function ($rootScope, $q, AUTH_EVENTS) {
         return {
             responseError: function (response) {
                 $rootScope.$broadcast({

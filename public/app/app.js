@@ -2,9 +2,9 @@ var app = angular.module('AutoMobileTn', ['ui.router','ngAnimate', 'toastr','dat
 'ngSweetAlert','ngMap','vcRecaptcha','pascalprecht.translate','ngCookies','blockUI']);
 
 app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider', '$httpProvider',
-    '$logProvider', '$locationProvider','toastrConfig','$qProvider','$translateProvider','blockUIConfig',
-    function ($urlRouterProvider, $urlMatcherFactoryProvider, $stateProvider, $httpProvider,
-              $logProvider, $locationProvider,toastrConfig,$qProvider,$translateProvider,blockUIConfig) {
+     '$locationProvider','toastrConfig','$qProvider','$translateProvider','blockUIConfig',
+    function ($urlRouterProvider, $urlMatcherFactoryProvider, $stateProvider, $httpProvider
+        , $locationProvider,toastrConfig,$qProvider,$translateProvider,blockUIConfig) {
 
 
         blockUIConfig.autoBlock=false;
@@ -19,8 +19,6 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
             .useSanitizeValueStrategy('escapeParameters');
 
         $qProvider.errorOnUnhandledRejections(false);
-
-        $logProvider.debugEnabled(true);
 
         $httpProvider.interceptors.push(function ($q, $location) {
             return {
@@ -146,13 +144,13 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
                 templateUrl: '/public/views/core/show_car.html',
                 controller: 'showCarController',
                 resolve: {
-                    car: function ($http, API_ENDPOINT, $stateParams, $state) {
+                    car:['$http','API_ENDPOINT','$stateParams','$state', function ($http, API_ENDPOINT, $stateParams, $state) {
                         return $http.get(API_ENDPOINT.url + '/car/'+$stateParams.id).then(function (res) {
                             return res.data;
                         },function () {
                             $state.go("error");
                         });
-                    }
+                    }]
                 }
             })
             .state('messages', {

@@ -16,12 +16,12 @@ app.directive("drange", function(){
         '<option value="">{{"HOME_SEARCH_FORM_YEAR"|translate}}</option>' +
         '<option ng-repeat="n in number track by $index" value="{{n}}">{{n}}</option>' +
         '</select>',
-        controller : function($scope){
+        controller :['$scope',function($scope){
 
             $scope.scrollToTop = function(){
                 $('html, body').animate({scrollTop : 0},900);
             };
-        },
+        }],
         link:function (scope,elem,attrs) {
             if("to" in attrs)
                 scope.number = getRange(attrs.from,attrs.to);
