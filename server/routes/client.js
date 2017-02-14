@@ -52,7 +52,7 @@ module.exports = (function () {
 
             if(price.length==2)
                 data=data.filter(function (car) {
-                    return (car.prix>price[0] && car.prix<=price[1]);
+                    return (car.prix>=price[0] && car.prix<=price[1]);
                 });
             return res.send(data);
         });
