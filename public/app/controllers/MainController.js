@@ -116,8 +116,8 @@ controller('homeController', ['$scope', '$http', 'API_ENDPOINT', '$rootScope', '
 
 
         }]).
-controller('showCarController', ['car', '$scope', '$http', 'API_ENDPOINT','$state','$rootScope',
-    function (car, $scope, $http, API_ENDPOINT,$state,$rootScope) {
+controller('showCarController', ['car', '$scope', '$http', 'API_ENDPOINT','$state','$rootScope','$timeout',
+    function (car, $scope, $http, API_ENDPOINT,$state,$rootScope,$timeout) {
         $scope.car = car;
 
 
@@ -125,7 +125,22 @@ controller('showCarController', ['car', '$scope', '$http', 'API_ENDPOINT','$stat
         $scope.marque = null;
         $http.get(API_ENDPOINT.url + "/related/" + $scope.car._id).then(function (result) {
             $scope.other_cars = result.data;
+
+            $timeout(function () {
+                $('.lightSlider').lightSlider({
+                    gallery: true,
+                    slideMove: 1,
+                    rtl: $rootScope.dir == 'rtl',
+                    item: 1,
+                    loop:true,
+                    slideMargin: 2,
+                    thumbItem: 10,
+                });
+            }, 0);
+            window.resize()
         });
+
+
         $http.get(API_ENDPOINT.url + "/marques").then(function (result) {
             $scope.marques = result.data;
         });

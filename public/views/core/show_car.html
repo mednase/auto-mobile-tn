@@ -70,7 +70,7 @@
                 <b style="font-size: 45px" class="font-blue-steel">{{car.titre}}</b>
             </div>
             <div class=" col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-0">
-                <ul id="lightSlider" class=" " data-rtl="{{dir=='rtl'}}">
+                <ul  class="lightSlider " data-rtl="{{dir=='rtl'}}">
                     <li class="text-center" ng-repeat="image in car.images track by $index" data-thumb="{{image}}">
                         <img src="{{image}}" class="img-responsive ">
                     </li>
@@ -224,15 +224,5 @@
 
 <script>
     $(document).ready(function () {
-        setTimeout(function () {
-            $('#lightSlider').lightSlider({
-                gallery: true,
-                item: 1,
-                loop:true,
-                rtl: $('#lightSlider').data('rtl'),
-                slideMargin: 1,
-                thumbItem: 10
-            })
-        }, 200);
     });
 </script>
