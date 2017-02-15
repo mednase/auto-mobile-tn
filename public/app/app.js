@@ -1,10 +1,10 @@
 var app = angular.module('AutoMobileTn', ['ui.router','ngAnimate', 'toastr','datatables','ui.bootstrap',
-'ngSweetAlert','ngMap','vcRecaptcha','pascalprecht.translate','ngCookies','blockUI']);
+'ngSweetAlert','ngMap','vcRecaptcha','pascalprecht.translate','ngCookies','blockUI','ezfb']);
 
 app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider', '$httpProvider',
-     '$locationProvider','toastrConfig','$qProvider','$translateProvider','blockUIConfig',
+     '$locationProvider','toastrConfig','$qProvider','$translateProvider','blockUIConfig','ezfbProvider',
     function ($urlRouterProvider, $urlMatcherFactoryProvider, $stateProvider, $httpProvider
-        , $locationProvider,toastrConfig,$qProvider,$translateProvider,blockUIConfig) {
+        , $locationProvider,toastrConfig,$qProvider,$translateProvider,blockUIConfig,ezfbProvider) {
 
 
         blockUIConfig.autoBlock=false;
@@ -191,6 +191,12 @@ app.config(['$urlRouterProvider', '$urlMatcherFactoryProvider', '$stateProvider'
                 preventOpenDuplicates: false,
                 target: 'body'
             });
+        ezfbProvider.setLocale('fr_FR'); // if not en_US
+        ezfbProvider.setInitParams({
+            // This is my FB app id for plunker demo app
+            appId: '254799621627740',
+            version: 'v2.8'
+        });
 }])
 .run(['$rootScope','authService','$state',
     function ($rootScope,authService,$state) {
