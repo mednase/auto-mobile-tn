@@ -80,6 +80,7 @@ controller('homeController', ['$scope', '$http', 'API_ENDPOINT', '$rootScope', '
                         gallery: false,
                         slideMove: 1,
                         item: 3,
+                        loop:true,
                         rtl: $rootScope.dir == 'rtl',
                         pager: false,
                         slideMargin: 10,
