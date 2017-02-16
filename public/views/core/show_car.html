@@ -70,7 +70,7 @@
                 <b style="font-size: 45px" class="font-blue-steel">{{car.titre}}</b>
             </div>
             <div class=" col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-0">
-                <ul ng-if="!loading"  class="lightSlider " data-rtl="{{dir=='rtl'}}">
+                <ul ng-hide="loading"  class="lightSlider " data-rtl="{{dir=='rtl'}}">
                     <li class="text-center" ng-repeat="image in car.images track by $index" data-thumb="{{image}}">
                         <img src="{{image}}" class="img-responsive ">
                     </li>
@@ -81,7 +81,7 @@
                     </li>
                 </ul>
             </div>
-            <div ng-if="loading" class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-0 text-center text-info load-container">
+            <div ng-show="loading" class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-0 text-center text-info load-container">
                 <div class="loader-a ">
 
                 </div>

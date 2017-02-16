@@ -123,7 +123,6 @@ controller('homeController', ['$scope', '$http', 'API_ENDPOINT', '$rootScope', '
         }]).
 controller('showCarController', ['car', '$scope', '$http', 'API_ENDPOINT','$state','$rootScope','$timeout',
     function (car, $scope, $http, API_ENDPOINT,$state,$rootScope,$timeout) {
-        $scope.loading = true;
         $scope.car = car;
         $scope.search = {};
         $scope.marque = null;
@@ -133,15 +132,27 @@ controller('showCarController', ['car', '$scope', '$http', 'API_ENDPOINT','$stat
             $timeout(function () {
                 $('.lightSlider').lightSlider({
                     gallery: true,
-                    slideMove: 1,
                     rtl: $rootScope.dir == 'rtl',
                     item: 1,
+                    speed:1000,
+                    easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+                    slideMargin: 0,
+                    thumbItem: car.images.length,
+                    freeMove: true,
+                    swipeThreshold: 40,
+                    adaptiveHeight: true,
+                    auto:true,
                     loop:true,
-                    slideMargin: 2,
-                    thumbItem: 10,
+                    pauseOnHover: true,
+                    onBeforeSlide: function (el) {
+                        $('#current').text(el.getCurrentSlideCount());
+                    },
+                    onSliderLoad: function (el) {
+                        el.lightGallery({
+                            selector: '.lightSlider .lslide'
+                        });
+                    }
                 });
-                $scope.loading = false;
-
             }, 0);
             window.resize()
         });
