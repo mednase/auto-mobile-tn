@@ -29,10 +29,15 @@ app.controller('appController', ['$scope', 'authService', '$http', 'API_ENDPOINT
         $scope.zone=$state.current.name;
 
         $scope.switchLanguage = function () {
+            $scope.isLoading=true;
             if ($translate.use() == 'ar')
                 $translate.use('fr');
             else
                 $translate.use('ar');
+
+            $timeout(function () {
+                $scope.isLoading=false;
+            },2000)
         };
 
         $rootScope.changeLanguage = function (lng) {
@@ -118,9 +123,8 @@ controller('homeController', ['$scope', '$http', 'API_ENDPOINT', '$rootScope', '
         }]).
 controller('showCarController', ['car', '$scope', '$http', 'API_ENDPOINT','$state','$rootScope','$timeout',
     function (car, $scope, $http, API_ENDPOINT,$state,$rootScope,$timeout) {
+        $scope.loading = true;
         $scope.car = car;
-
-
         $scope.search = {};
         $scope.marque = null;
         $http.get(API_ENDPOINT.url + "/related/" + $scope.car._id).then(function (result) {
@@ -136,6 +140,8 @@ controller('showCarController', ['car', '$scope', '$http', 'API_ENDPOINT','$stat
                     slideMargin: 2,
                     thumbItem: 10,
                 });
+                $scope.loading = false;
+
             }, 0);
             window.resize()
         });
@@ -160,11 +166,12 @@ controller('showCarController', ['car', '$scope', '$http', 'API_ENDPOINT','$stat
 controller('marqueController', ['$scope', '$http', 'API_ENDPOINT', '$stateParams','$state',
     function ($scope, $http, API_ENDPOINT, $stateParams,$state) {
         $scope.itemsPerPage=9;
-
+        $scope.loading = true;
         $scope.marque = null;
         $scope.search = {price:"0,200000"};
         $http.get(API_ENDPOINT.url + "/marques").then(function (result) {
             $scope.marques = result.data;
+            $scope.loading = false;
         });
         $scope.zone=$state.current.name;
         $scope.selectedMarque=$stateParams.marque;
@@ -261,6 +268,7 @@ controller('contactController', ['$scope', 'NgMap', '$timeout', 'GOVERNORATE', '
 controller('carsController', ['$scope', '$http', 'API_ENDPOINT', '$state',
     function ($scope, $http, API_ENDPOINT, $state) {
         $scope.marque = null;
+        $scope.loading = true;
         $scope.search = {price:"0,200000"};
         $http.get(API_ENDPOINT.url + "/marques").then(function (result) {
             $scope.marques = result.data;
@@ -278,11 +286,13 @@ controller('carsController', ['$scope', '$http', 'API_ENDPOINT', '$state',
             $http.get(API_ENDPOINT.url + '/new-cars').then(function (result) {
                 $scope.cars = result.data;
                 $scope.totalItems = $scope.cars.length;
+                $scope.loading = false;
             });
         else
             $http.get(API_ENDPOINT.url + '/old-cars').then(function (result) {
                 $scope.cars = result.data;
                 $scope.totalItems = $scope.cars.length;
+                $scope.loading = false;
             });
 
         $scope.currentPage = 1;
@@ -312,6 +322,9 @@ controller('carsController', ['$scope', '$http', 'API_ENDPOINT', '$state',
     }]).
 controller('searchController', ['$scope', '$state', '$stateParams', '$http', 'API_ENDPOINT',
     function ($scope, $state, $stateParams, $http, API_ENDPOINT) {
+        $scope.loading = true;
+
+
         $http.get(API_ENDPOINT.url + "/marques").then(function (result) {
             $scope.marques = result.data;
         });
@@ -330,6 +343,7 @@ controller('searchController', ['$scope', '$state', '$stateParams', '$http', 'AP
                 condition:""
             };
 
+            $scope.loading = false;
 
         });
         $scope.itemsPerPage=9;

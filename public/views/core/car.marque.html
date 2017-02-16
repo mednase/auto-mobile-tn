@@ -83,7 +83,7 @@
                 <div class="col-md-8 col-xs-12 text-right  ">
                     <div class="pull-right col-md-12 col-xs-12">
                         <div class="form-group col-md-6 col-xs-6">
-                            <label class="col-md-5 col-xs-6"><i class="fa fa-sort-alpha-asc"></i>Filter : </label>
+                            <label class="col-md-5 col-xs-6"><i class="fa fa-sort-alpha-asc"></i>{{'SORT'|translate}} : </label>
                             <div class="col-md-7 col-xs-6 black_input" style="padding: 0px;">
                                 <select ng-model="order" class="select  form-control">
                                     <option value="-prix">Prix</option>
@@ -94,7 +94,7 @@
 
                         </div>
                         <div class="form-group col-md-6 col-xs-6">
-                            <label class="col-md-5 col-xs-6"><i class="fa fa-sort-alpha-asc"></i>Show : </label>
+                            <label class="col-md-5 col-xs-6"><i class="fa fa-sort-alpha-asc"></i>{{'SHOW'|translate}} :</label>
                             <div class="col-md-7 col-xs-6 black_input">
                                 <select ng-model="itemsPerPage" class="select  form-control">
                                     <option value=9>9</option>
@@ -106,8 +106,12 @@
                     </div>
                 </div>
             </div>
+            <div ng-if="loading" class="col-md-12 col-md-offset-1 text-center text-info load-container">
+                <div class="loader-a ">
 
-            <div class="col-md-12" style="margin-top: 20px">
+                </div>
+            </div>
+            <div ng-if="!loading" class="col-md-12" style="margin-top: 20px">
                 <div ng-repeat="car in cars.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))|filter:searchText|orderBy:order track by $index" class="col-lg-4  col-md-6 col-sm-10 col-sm-offset-1 col-md-offset-0 col-xs-12">
                     <div class="thumbnail no-border no-padding thumbnail-car-card">
                         <div class="media">

@@ -200,6 +200,7 @@
   "PAGE_ERROR_BUTTON":"retourner a la page d'accueil",
   "SHARE":"Partager",
   "AUTH_FAIL":"mauvais username ou mot de passe",
-  "AUTH_BD_FAIL":"erreur connexion au serveur essayer a nouveau"
+  "AUTH_BD_FAIL":"erreur connexion au serveur essayer a nouveau",
+  "SORT":"Trier"
 
 }
