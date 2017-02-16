@@ -89,7 +89,7 @@
             <div class="col-md-4 col-sm-12">
                 <table class="table cartable">
                     <tbody>
-                    <tr>
+                    <tr ng-if="car.prix>0">
                         <td class="col-md-4">{{'PRICE'|translate}}</td>
                         <td>{{car.prix}}&nbsp;{{'MONEY'|translate}}</td>
                     </tr>
