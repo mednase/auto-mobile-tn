@@ -146,11 +146,6 @@ controller('showCarController', ['car', '$scope', '$http', 'API_ENDPOINT','$stat
                     pauseOnHover: true,
                     onBeforeSlide: function (el) {
                         $('#current').text(el.getCurrentSlideCount());
-                    },
-                    onSliderLoad: function (el) {
-                        el.lightGallery({
-                            selector: '.lightSlider .lslide'
-                        });
                     }
                 });
             }, 0);
