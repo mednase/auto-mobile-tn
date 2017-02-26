@@ -151,6 +151,9 @@ module.exports = (function () {
         Car.findById(req.body._id, function (err, car) {
             if (err) return handleError(err);
             car.titre=req.body.titre;
+            car.titre_ar=req.body.titre_ar;
+            car.description=req.body.description;
+            car.description_ar=req.body.description_ar;
             car.marque = req.body.marque;
             car.model = req.body.model;
             car.porte = req.body.porte;
