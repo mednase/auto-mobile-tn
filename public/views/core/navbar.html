@@ -24,7 +24,7 @@
     <div class="page-header-inner ">
         <div class="col-md-4 hidden-ssm hidden-ssm nav navbar-nav pull-right text-center div-logo{{default_direction}}">
             <a href="/">
-                <img id="logo" src="/public/assets/img/logo.png" alt="logo" width="200" height="68"> </a>
+                <img id="logo" src="/public/assets/img/logo.png" alt="logo" ng-class="dir=='rtl'?'left-side':'right-side'"> </a>
         </div>
         <div class="top-menu" >
             <ul class="nav navbar-nav pull-left">
@@ -50,12 +50,3 @@
     </div>
     <!-- END HEADER INNER -->
 </div>
-<script>
-    $("#logo").on('mouseover', function () {
-        $(this).attr('src', '/public/assets/img/logo-blur.png')
-    });
-
-    $("#logo").on('mouseleave', function () {
-        $(this).attr('src', '/public/assets/img/logo.png')
-    })
-</script>

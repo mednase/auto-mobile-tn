@@ -196,7 +196,12 @@
     height: 25px;
     margin-top: 7px;
 }
-
+#logo{
+    position: absolute;
+    width: 300px;
+    height: 120px;
+    top: -27px;
+}
 /* Hide default HTML checkbox */
 #top-nav .switch input {display:none;}
 
@@ -269,4 +274,10 @@
 }
 .top-rtl ul>li .slider:before{
     left:30px!important;
+}
+.left-side{
+    left:0px;
+}
+.right-side{
+    right:0;
 }
