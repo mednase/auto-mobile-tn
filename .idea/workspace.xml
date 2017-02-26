@@ -3,13 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1900678e-c48f-4beb-9e3c-fe5e68b42f30" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/controllers/adminController.js" afterPath="$PROJECT_DIR$/public/app/controllers/adminController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/navbar.css" afterPath="$PROJECT_DIR$/public/assets/css/navbar.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/admin/admin.navbar.html" afterPath="$PROJECT_DIR$/public/views/admin/admin.navbar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/admin/edit.car.html" afterPath="$PROJECT_DIR$/public/views/admin/edit.car.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/admin/new.car.html" afterPath="$PROJECT_DIR$/public/views/admin/new.car.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/core/navbar.html" afterPath="$PROJECT_DIR$/public/views/core/navbar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/core/show_car.html" afterPath="$PROJECT_DIR$/public/views/core/show_car.html" />
     </list>
     <ignored path="auto-mobile-tn.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/public/app/controllers/adminController.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
-              <caret line="75" column="31" selection-start-line="75" selection-start-column="31" selection-end-line="75" selection-end-column="31" />
+              <caret line="75" column="30" selection-start-line="75" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
               <folding>
                 <element signature="e#4630#7634#0" expanded="false" />
                 <element signature="e#8111#9081#0" expanded="false" />
@@ -452,12 +445,12 @@
       <workItem from="1487522737434" duration="2257000" />
       <workItem from="1487932820006" duration="6000" />
       <workItem from="1487932844018" duration="153000" />
-      <workItem from="1488148276086" duration="3778000" />
+      <workItem from="1488148276086" duration="3850000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="595584000" />
+    <option name="totallyTimeSpent" value="595656000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1370" height="744" extended-state="0" />
@@ -905,7 +898,7 @@
     <entry file="file://$PROJECT_DIR$/public/app/controllers/adminController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="75" column="31" selection-start-line="75" selection-start-column="31" selection-end-line="75" selection-end-column="31" />
+          <caret line="75" column="30" selection-start-line="75" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
           <folding>
             <element signature="e#4630#7634#0" expanded="false" />
             <element signature="e#8111#9081#0" expanded="false" />
