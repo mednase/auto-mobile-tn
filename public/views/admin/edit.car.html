@@ -251,12 +251,13 @@
                                     </span>
                                 <input  value="{{image}}" name=""  type="text"  class="form-control" style="height: 100%;padding: 8px">
                                 <span class="input-group-btn btn-delete-img">
-                                        <button class="btn red btn-delete-img" ng-click="removeImage($index)" ><i class="fa fa-trash fa-2x"></i></button>
+                                        <button class="btn red btn-delete-img" role="button" ng-click="removeImage($index)" ><i class="fa fa-trash fa-2x"></i></button>
                                     </span>
                             </div>
                         </div>
-                        <button role="button" id="btn-add-input" class="btn blue col-md-2 ">
-                            <i class="fa fa-plus"></i>&nbsp;{{'ADMIN_PAGE_ADD_CAR_FORM_IMAGES_ADD'|translate}}&nbsp;</button>
+                        <a  href="javascript:;" id="btn-add-input"
+                           class="btn btn-primary mt-repeater-add col-md-2 ">
+                            <i class="fa fa-plus"></i>&nbsp;{{'ADMIN_PAGE_ADD_CAR_FORM_IMAGES_ADD'|translate}}&nbsp;</a>
                     </div>
                     <div class="margin-top-10 text-center">
                         <button ng-disabled="form.$invalid" class="btn btn-success">{{'SAVE_CHANGES'|translate}}</button>
