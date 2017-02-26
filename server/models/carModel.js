@@ -6,6 +6,9 @@ var Schema=mongoose.Schema;
 var car_schema=new Schema({
     condition:{type:String,default:"new"},
     titre:String,
+    titre_ar:String,
+    description:String,
+    description_ar:String,
     kilometrage:{type:Number,default:0},
     marque: String,
     model: String,

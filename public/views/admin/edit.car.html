@@ -32,7 +32,16 @@
                             </label>
                             <div class=" col-md-9">
                                 <input ng-model="car.titre" class="form-control" ng-minlength="5"
-                                       placeholder="{{'ADMIN_FORM_ADD_CAR_TITLE'|translate}}">
+                                       placeholder="{{'ADMIN_FORM_ADD_CAR_TITLE_FR'|translate}}">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="title_ar" class="col-md-3 control-label">{{'ADMIN_FORM_ADD_CAR_TITLE'|translate}}
+                                <span class="required" aria-required="true"> * </span>
+                            </label>
+                            <div class=" col-md-9">
+                                <input id="title_ar" ng-model="car.titre_ar" class="form-control" ng-minlength="5"
+                                       placeholder="{{'ADMIN_FORM_ADD_CAR_TITLE_AR'|translate}}">
                             </div>
                         </div>
                         <div class="form-group col-md-6">
@@ -172,6 +181,15 @@
                                 </select>
                             </div>
                         </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label class="control-label col-md-4"><b>{{'ADMIN_PAGE_ADD_CAR_FORM_PLUS_DESCRIPTION'|translate}}</b></label>
+                        <textarea ng-model="car.description" class="form-control" rows="4" placeholder="{{'ADMIN_PAGE_ADD_CAR_FORM_PLUS_DESCRIPTION_FR'|translate}}">
+
+                            </textarea>
+                        <textarea ng-model="car.description_ar" class="form-control" rows="4" placeholder="{{'ADMIN_PAGE_ADD_CAR_FORM_PLUS_DESCRIPTION_AR'|translate}}">
+
+                            </textarea>
                     </div>
                     <div class="form-group col-md-6">
                         <label class="control-label col-md-4"><b>{{'ADMIN_PAGE_ADD_CAR_FORM_SECURITY'|translate}}</b></label>
