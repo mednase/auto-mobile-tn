@@ -67,7 +67,8 @@
         <!-- Slider -->
         <div class="row" style="padding: 5px;">
             <div class="col-md-12">
-                <b style="font-size: 45px" class="font-blue-steel">{{car.titre}}</b>
+                <b style="font-size: 45px" class="font-blue-steel" ng-if="dir!='rtl'">{{car.titre}}</b>
+                <b style="font-size: 45px" class="font-blue-steel" ng-if="dir=='rtl'">{{car.titre_ar}}</b>
             </div>
             <div class=" col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-0">
                 <ul ng-hide="loading"  class="lightSlider " data-rtl="{{dir=='rtl'}}">
@@ -155,7 +156,7 @@
         <div class="col-md-12 well">
             <h3 class="font-red"  >{{'ADMIN_PAGE_ADD_CAR_FORM_PLUS_DESCRIPTION'|translate}} : </h3>
             <p class="col-md-10 col-md-offset-1 margin-top-10" ng-if="dir!='rtl'">{{car.description}}</p>
-            <p class="col-md-10 col-md-offset-1 margin-top-10" ng-if="dir=='rtl'">{{car.description}}</p>
+            <p class="col-md-10 col-md-offset-1 margin-top-10" ng-if="dir=='rtl'">{{car.description_ar}}</p>
         </div>
         <div class="row col-md-12 portlet light" style="margin-top: 20px">
             <div class="col-md-6">

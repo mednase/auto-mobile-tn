@@ -138,8 +138,9 @@
                                 </table>
                             </div>
                             <div class="product-caption row no-margin">
-                                <h4 ng-class="car.prix>0?'col-md-9':'col-md-12'" class="product-name">
-                                    {{car.titre}}
+                                <h4  ng-class="car.prix>0?'col-md-9':'col-md-12'" class="product-name">
+                                    <b ng-if="dir!='rtl'">{{car.titre}}</b>
+                                    <b ng-if="dir=='rtl'">{{car.titre_ar}}</b>
                                 </h4>
                                 <span ng-if="car.prix>0" class="product-price {{dir}} col-md-3">{{car.prix }} {{'MONEY'|translate}}</span>
                             </div>
@@ -203,7 +204,8 @@
                             </div>
                             <div class="product-caption row no-margin">
                                 <h4 ng-class="car.prix>0?'col-md-9':'col-md-12'" class="product-name col-md-9">
-                                    {{car.titre}}
+                                    <b ng-if="dir!='rtl'">{{car.titre}}</b>
+                                    <b ng-if="dir=='rtl'">{{car.titre_ar}}</b>
                                 </h4>
                                 <span ng-if="car.prix>0" class="product-price {{dir}} col-md-3">{{car.prix }} {{'MONEY'|translate}}</span>
                             </div>
