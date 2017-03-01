@@ -15,7 +15,7 @@ var router = express.Router();
 module.exports = (function () {
 
     router.get('/api/parameters',function (req,res) {
-        Parameters.find().exec(function (err,params) {
+        Parameters.findOne().exec(function (err,params) {
             if(err)throw err;
             return res.send(params);
         });
