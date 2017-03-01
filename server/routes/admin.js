@@ -42,9 +42,20 @@ module.exports = (function () {
     });
 
     router.post('/api/admin/change-params',function (req,res) {
-        Parameters.find({_id:req.body._id}).exec(function (err,param) {
+        if(req.body._id==undefined){
+            var param=new Parameters(req.body);
+            param.save(function (err,savedP) {
+                if(err)throw err;
+                return res.send(savedP);
+            })
+        }else
+        Parameters.findById({_id:req.body._id}).exec(function (err,param) {
             if(err)throw err;
-            param=req.body;
+            param.facebookUrl=req.body.facebookUrl;
+            param.email=req.body.email;
+            param.twitterUrl=req.body.twitterUrl;
+            param.youtubeUrl=req.body.youtubeUrl;
+            param.instagramUrl=req.body.instagramUrl;
             param.save(function (error,updatedParams) {
                 if(error)throw error;
                     return res.send(updatedParams)

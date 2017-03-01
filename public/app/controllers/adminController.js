@@ -284,10 +284,14 @@ controller('messagesController', ['$rootScope', '$scope', 'authService', '$http'
         }
     }]).
 controller('settingsController', ['$scope', '$http', 'API_ENDPOINT', 'toastr', '$translate','$rootScope',
-    function ($scope, $http, API_ENDPOINT, toastr, $translate,$rootScope) {
+    'blockUI',
+    function ($scope, $http, API_ENDPOINT, toastr, $translate,$rootScope,blockUI) {
         $scope.password = {};
         $scope.changePassword = function () {
+            blockUI.start($translate.instant("TOAST_WAIT_MESSAGE")+"......");
             $http.post(API_ENDPOINT.url + '/admin/reset-password', $scope.password).then(function (res) {
+                blockUI.stop();
+
                 if (res.data.error == 0)
                     toastr.success($translate.instant("CHANGE_PASSWORD_DONE"), $translate.instant("CHANGE_PASSWORD"));
                 if (res.data.error == 1)
@@ -296,15 +300,18 @@ controller('settingsController', ['$scope', '$http', 'API_ENDPOINT', 'toastr', '
                     toastr.error($translate.instant("CHANGE_PASSWORD_WRONG_CONFIRM"), $translate.instant("CHANGE_PASSWORD"));
 
             }, function () {
+                blockUI.stop();
                 toastr.error($translate.instant("SYSTEM_FAIL"), $translate.instant("CHANGE_PASSWORD"));
             })
         };
-        console.log($scope.parameters);
         $scope.changeParameters = function () {
+            blockUI.start($translate.instant("TOAST_WAIT_MESSAGE")+"......");
             $http.post(API_ENDPOINT.url+'/admin/change-params',$scope.parameters).then(function (res) {
                 $rootScope.parameters=res.data;
+                blockUI.stop();
                 toastr.success($translate.instant("CHANGE_PARAMS_DONE"), $translate.instant("CHANGE_PARAMS"));
             },function () {
+                blockUI.stop();
                 toastr.error($translate.instant("SYSTEM_FAIL"), $translate.instant("CHANGE_PARAMS"));
             });
         }
