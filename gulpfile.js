@@ -2,7 +2,6 @@
  * Created by medna on 06/02/2017.
  */
 var gulp         = require('gulp');
-var sass         = require('gulp-sass');
 var concat       = require('gulp-concat');
 var uglify       = require('gulp-uglify');
 var ngAnnotate   = require('gulp-ng-annotate');

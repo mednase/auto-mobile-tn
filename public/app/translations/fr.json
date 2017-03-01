@@ -206,6 +206,8 @@
   "SHARE":"Partager",
   "AUTH_FAIL":"mauvais username ou mot de passe",
   "AUTH_BD_FAIL":"erreur connexion au serveur essayer a nouveau",
-  "SORT":"Trier"
+  "SORT":"Trier",
+  "CHANGE_PARAMS_DONE":"Les parameter ont été changé",
+  "CHANGE_PARAMS":"Changement de parameters"
 
 }

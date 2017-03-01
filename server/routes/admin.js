@@ -6,6 +6,7 @@ var express = require('express'),
     Car = require('../models/carModel'),
     Marque = require('../models/marqueModel'),
     Contact = require('../models/contactModel'),
+    Parameters = require('../models/parametersModel'),
     config = require('../config/params'),
     jwt = require('jwt-simple'),
     passport = require('passport'),
@@ -38,6 +39,17 @@ module.exports = (function () {
         } else
             return res.status(403).send({success: false, msg: 'No token provided.'});
 
+    });
+
+    router.post('/api/admin/change-params',function (req,res) {
+        Parameters.find({_id:req.body._id}).exec(function (err,param) {
+            if(err)throw err;
+            param=req.body;
+            param.save(function (error,updatedParams) {
+                if(error)throw error;
+                    return res.send(updatedParams)
+            })
+        });
     });
 
     router.get('/api/admin/notification',function (req,res) {

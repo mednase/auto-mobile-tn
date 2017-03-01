@@ -5,6 +5,11 @@ app.controller('appController', ['$scope', 'authService', '$http', 'API_ENDPOINT
     '$translate', '$rootScope', '$state',
     function ($scope, authService, $http, API_ENDPOINT, $timeout, $translate, $rootScope, $state) {
 
+        $http.get(API_ENDPOINT.url + '/parameters').then(function (res) {
+           $rootScope.parameters=res.data;
+            console.log($rootScope.parameters);
+        });
+
         $rootScope.dateYear = new Date().getFullYear();
 
         if (authService.isAuthenticated()) {

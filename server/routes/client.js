@@ -7,11 +7,19 @@ var express = require('express'),
     Marque = require('../models/marqueModel'),
     Contact = require('../models/contactModel'),
     mongoose = require('mongoose'),
-    config = require('../config/params');
+    config = require('../config/params'),
+    Parameters=require('../models/parametersModel');
 
 var router = express.Router();
 
 module.exports = (function () {
+
+    router.get('/api/parameters',function (req,res) {
+        Parameters.find().exec(function (err,params) {
+            if(err)throw err;
+            return res.send(params);
+        });
+    });
     router.get('/api/home',function (req,res) {
         var usedCarQuery = function(callback){
             Car.find({condition:"old"}).sort({date_publication:-1}).limit(10).exec(function (err,cars) {

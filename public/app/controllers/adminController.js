@@ -25,8 +25,8 @@ app.controller('dashboardController', ['$rootScope', 'authService', '$http', 'AP
                 });
         }
     }]).
-controller('newCarController', ['$scope', '$http', 'API_ENDPOINT', 'toastr', '$state', '$translate', 'blockUI','$timeout',
-    function ($scope, $http, API_ENDPOINT, toastr, $state, $translate, blockUI,$timeout) {
+controller('newCarController', ['$scope', '$http', 'API_ENDPOINT', 'toastr', '$state', '$translate', 'blockUI',
+    function ($scope, $http, API_ENDPOINT, toastr, $state, $translate, blockUI) {
         $scope.initCar = function () {
             $scope.car = {};
             $scope.car.images = [];
@@ -272,7 +272,6 @@ controller('messagesController', ['$rootScope', '$scope', 'authService', '$http'
 
             }, function (isConfirm) {
                 if (isConfirm) {
-                    console.log(contact)
                     $http.post(API_ENDPOINT.url + "/admin/contact/delete", {id: contact._id}).then(function () {
                         SweetAlert.swal("", $translate.instant('MESSAGE_SWEETALERT_DELETE_DONE'), "success");
                         $scope.contacts.splice($index, 1);
@@ -283,8 +282,9 @@ controller('messagesController', ['$rootScope', '$scope', 'authService', '$http'
                 return false;
             });
         }
-    }]).controller('settingsController', ['$scope', '$http', 'API_ENDPOINT', 'toastr', '$translate',
-    function ($scope, $http, API_ENDPOINT, toastr, $translate) {
+    }]).
+controller('settingsController', ['$scope', '$http', 'API_ENDPOINT', 'toastr', '$translate','$rootScope',
+    function ($scope, $http, API_ENDPOINT, toastr, $translate,$rootScope) {
         $scope.password = {};
         $scope.changePassword = function () {
             $http.post(API_ENDPOINT.url + '/admin/reset-password', $scope.password).then(function (res) {
@@ -299,7 +299,17 @@ controller('messagesController', ['$rootScope', '$scope', 'authService', '$http'
                 toastr.error($translate.instant("SYSTEM_FAIL"), $translate.instant("CHANGE_PASSWORD"));
             })
         };
-    }]).controller('marquesController', ['$scope', '$http', 'API_ENDPOINT', '$compile', 'DTOptionsBuilder',
+        console.log($rootScope.parameters);
+        $scope.changeParameters = function () {
+            $http.post(API_ENDPOINT.url+'/admin/change-params',$scope.parameters).then(function (res) {
+                $rootScope.parameters=res.data;
+                toastr.success($translate.instant("CHANGE_PARAMS_DONE"), $translate.instant("CHANGE_PARAMS"));
+            },function () {
+                toastr.error($translate.instant("SYSTEM_FAIL"), $translate.instant("CHANGE_PARAMS"));
+            });
+        }
+    }]).
+controller('marquesController', ['$scope', '$http', 'API_ENDPOINT', '$compile', 'DTOptionsBuilder',
     '$translate', 'toastr', 'SweetAlert',
     function ($scope, $http, API_ENDPOINT, $compile, DTOptionsBuilder, $translate, toastr, SweetAlert) {
         $scope.models = [];

@@ -12,7 +12,7 @@
     </ul>
 </div>
 <div class="m-heading-1 border-green m-bordered row" style="margin-bottom: 17px;">
-    <h2>     <span class="fa fa-cog font-blue"></span>    &nbsp; {{'ADMIN_MENU_PARAMETERS'|translate}} </h2>
+    <h2><span class="fa fa-cog font-blue"></span> &nbsp; {{'ADMIN_MENU_PARAMETERS'|translate}} </h2>
 </div>
 <div class="row">
     <div class=" col-md-12">
@@ -20,15 +20,17 @@
             <div class="portlet-body row">
                 <div class="col-md-12">
                     <div class="col-md-6 col-md-offset-3 col-xs-12">
-                        <h1 class="text-center blue-hoki"><i class="fa fa-lock"></i>{{'ADMIN_PAGE_PARAMETER_CHANGE_PASS'|translate}}</h1>
+                        <h1 class="text-center blue-hoki"><i class="fa fa-lock"></i>&nbsp;  {{'ADMIN_PAGE_PARAMETER_CHANGE_PASS'|translate}}</h1>
                         <form ng-submit="changePassword()" class="form-horizontal" name="form" role="form">
 
-                            <div class="form-group margin-top-10 input-icon right" ng-class="{ 'has-error': form.oldPassword.$dirty && form.oldPassword.$invalid }">
-                                <i ng-show="form.oldPassword.$dirty && form.oldPassword.$invalid " class="fa fa-warning font-red" data-original-title="Please enter only digits."></i>
-                                <input ng-model="password.oldPassword"  type="password"
+                            <div class="form-group margin-top-10 input-icon right"
+                                 ng-class="{ 'has-error': form.oldPassword.$dirty && form.oldPassword.$invalid }">
+                                <i ng-show="form.oldPassword.$dirty && form.oldPassword.$invalid "
+                                   class="fa fa-warning font-red" data-original-title="Please enter only digits."></i>
+                                <input ng-model="password.oldPassword" type="password"
                                        class="form-control has-feedback"
                                        placeholder="{{'ADMIN_PAGE_PARAMETER_CHANGE_PASS_OLD'|translate}} "
-                                       ng-minlength="6"  name="oldPassword"  ng-required="true"
+                                       ng-minlength="6" name="oldPassword" ng-required="true"
                                        uib-tooltip=" {{'ADMIN_PAGE_PARAMETER_CHANGE_PASS_ERROR'|translate}}"
                                        tooltip-placement="bottom"
                                        tooltip-trigger="'focus mouseleave'"
@@ -36,20 +38,24 @@
 
                             </div>
 
-                            <div class="form-group margin-top-10 input-icon right" ng-class="{ 'has-error': form.newPassword.$dirty && form.newPassword.$invalid }">
-                                <i ng-show="form.newPassword.$dirty && form.newPassword.$invalid " class="fa fa-warning font-red" data-original-title="Please enter only digits."></i>
+                            <div class="form-group margin-top-10 input-icon right"
+                                 ng-class="{ 'has-error': form.newPassword.$dirty && form.newPassword.$invalid }">
+                                <i ng-show="form.newPassword.$dirty && form.newPassword.$invalid "
+                                   class="fa fa-warning font-red" data-original-title="Please enter only digits."></i>
                                 <input ng-model="password.newPassword" type="password"
                                        class="form-control  has-feedback"
                                        placeholder=" {{'ADMIN_PAGE_PARAMETER_CHANGE_PASS_NEW'|translate}} "
-                                       ng-minlength="6"  name="newPassword"  ng-required="true"
+                                       ng-minlength="6" name="newPassword" ng-required="true"
                                        uib-tooltip=" {{'ADMIN_PAGE_PARAMETER_CHANGE_PASS_ERROR'|translate}}"
                                        tooltip-placement="bottom"
                                        tooltip-trigger="'focus mouseleave'"
                                        tooltip-enable="form.newPassword.$dirty && form.newPassword.$invalid">
                             </div>
 
-                            <div class="form-group margin-top-10 input-icon right" ng-class="{ 'has-error':password.confirmPassword != password.newPassword  && form.confirmPassword.$dirty}">
-                                <i ng-show="password.confirmPassword != password.newPassword && form.confirmPassword.$dirty" class="fa fa-warning font-red " data-original-title="Please enter only digits."></i>
+                            <div class="form-group margin-top-10 input-icon right"
+                                 ng-class="{ 'has-error':password.confirmPassword != password.newPassword  && form.confirmPassword.$dirty}">
+                                <i ng-show="password.confirmPassword != password.newPassword && form.confirmPassword.$dirty"
+                                   class="fa fa-warning font-red " data-original-title="Please enter only digits."></i>
                                 <input ng-model="password.confirmPassword" type="password"
                                        class="form-control has-feedback" ng-required="true"
                                        placeholder="{{'ADMIN_PAGE_PARAMETER_CHANGE_PASS_CONFIRM'|translate}}"
@@ -59,15 +65,55 @@
                                        tooltip-enable="password.newPassword != password.confirmPassword "/>
                             </div>
 
-                            <button type="submit" ng-disabled="form.$invalid || password.newPassword != password.confirmPassword" class="btn btn-primary col-md-3 margin-top-10">{{'SAVE'|translate}}</button>
+                            <button type="submit"
+                                    ng-disabled="form.$invalid || password.newPassword != password.confirmPassword"
+                                    class="btn btn-primary col-md-3 margin-top-10">{{'SAVE'|translate}}
+                            </button>
                         </form>
                     </div>
                 </div>
+                <div class="col-md-6 col-md-offset-3 col-xs-12">
+                    <h1 class="text-center blue-hoki"><i class="fa fa-cog"></i>&nbsp;{{'CHANGE_PARAMS'|translate}}</h1>
+
+                    <form  class="form-horizontal" name="form" role="form" ng-submit="changeParameters()">
+                        <div class="input-group margin-top-10">
+                            <span class="input-group-addon">
+                                  <i class="fa fa-envelope"></i>
+                            </span>
+                            <input type="email" ng-model="parameters.email" name="email" class="form-control" placeholder="Email Address">
+                        </div>
+                        <div class="input-group margin-top-10">
+                            <span class="input-group-addon ">
+                                  <i class="fa fa-facebook"></i>
+                            </span>
+                            <input type="text" ng-model="parameters.facebookUrl" class="form-control" placeholder="Lien vers la page facebook">
+                        </div>
+                        <div class="input-group margin-top-10">
+                            <span class="input-group-addon">
+                                  <i class="fa fa-twitter"></i>
+                            </span>
+                            <input type="text" ng-model="parameters.twitterUrl"  class="form-control" placeholder="Lien vers le compte twitter">
+                        </div>
+                        <div class="input-group margin-top-10">
+                            <span class="input-group-addon">
+                                  <i class="fa fa-youtube"></i>
+                            </span>
+                            <input type="text" ng-model="parameters.youtubeUrl" class="form-control" placeholder="Lien vers la chaine youtube">
+                        </div>
+                        <div class="input-group margin-top-10">
+                            <span class="input-group-addon">
+                                  <i class="fa fa-instagram"></i>
+                            </span>
+                            <input type="text" ng-model="parameters.instagramUrl" class="form-control" placeholder="Lien vers le compte instagram ">
+                        </div>
+                        <button type="submit" class="btn btn blue margin-top-10">{{'SAVE'|translate}}</button>
+                    </form>
+                </div>
                 <div class="col-md-8 col-md-offset-2">
                     <h1 class="text-center blue-hoki"><i class="fa fa-globe">
-                    </i> {{'ADMIN_PAGE_PARAMETER_CHANGE_LANG'|translate}}   </h1>
-                    <select ng-model="dir" class="form-control" ng-change="switchLanguage()" >
-                        <option  ng-selected="dir=='rtl'" value="rtl">{{'ARABIC'|translate}}</option>
+                    </i> {{'ADMIN_PAGE_PARAMETER_CHANGE_LANG'|translate}} </h1>
+                    <select ng-model="dir" class="form-control" ng-change="switchLanguage()">
+                        <option ng-selected="dir=='rtl'" value="rtl">{{'ARABIC'|translate}}</option>
                         <option ng-selected="dir=='ltr'" value="ltr">{{'FRENCH'|translate}}</option>
                     </select>
                 </div>
