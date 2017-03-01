@@ -299,7 +299,7 @@ controller('settingsController', ['$scope', '$http', 'API_ENDPOINT', 'toastr', '
                 toastr.error($translate.instant("SYSTEM_FAIL"), $translate.instant("CHANGE_PASSWORD"));
             })
         };
-        console.log($rootScope.parameters);
+        console.log($scope.parameters);
         $scope.changeParameters = function () {
             $http.post(API_ENDPOINT.url+'/admin/change-params',$scope.parameters).then(function (res) {
                 $rootScope.parameters=res.data;

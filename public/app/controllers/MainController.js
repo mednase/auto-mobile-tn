@@ -4,10 +4,10 @@
 app.controller('appController', ['$scope', 'authService', '$http', 'API_ENDPOINT', '$timeout',
     '$translate', '$rootScope', '$state',
     function ($scope, authService, $http, API_ENDPOINT, $timeout, $translate, $rootScope, $state) {
-
+        $scope.parameters={facebookUrl:"",twitterUrl:"",email:"",youtubeUrl:"",instagramUrl:""};
         $http.get(API_ENDPOINT.url + '/parameters').then(function (res) {
-           $rootScope.parameters=res.data;
-            console.log($rootScope.parameters);
+            if(res.data)
+                $scope.parameters=res.data;
         });
 
         $rootScope.dateYear = new Date().getFullYear();
