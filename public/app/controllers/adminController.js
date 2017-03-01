@@ -71,9 +71,8 @@ controller('newCarController', ['$scope', '$http', 'API_ENDPOINT', 'toastr', '$s
 
     }]).
 controller('editCarController', ['car', '$scope', '$http', 'API_ENDPOINT', 'toastr', '$state',
-    '$translate', 'blockUI','$timeout',
-    function (car, $scope, $http, API_ENDPOINT, toastr, $state, $translate, blockUI,$timeout) {
-        console.log("aaaaaaa");
+    '$translate', 'blockUI',
+    function (car, $scope, $http, API_ENDPOINT, toastr, $state, $translate, blockUI) {
         $scope.car = angular.copy(car);
         $scope.initCar = function () {
             $scope.car.images = [];
