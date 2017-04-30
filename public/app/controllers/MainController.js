@@ -34,15 +34,25 @@ app.controller('appController', ['$scope', 'authService', '$http', 'API_ENDPOINT
         $scope.zone=$state.current.name;
 
         $scope.switchLanguage = function () {
-            $scope.isLoading=true;
+            window.loading_screen = window.pleaseWait({
+                logo: "/public/assets/img/logo.png",
+                backgroundColor: '#ed362f',
+                loadingHtml: "<p class='loading-message'>Veuillez patienter !</p><br>" +
+                "<div class='sk-spinner sk-spinner-wave'><div class='sk-rect1'></div><div class='sk-rect2'></div><div class='sk-rect3'></div><div class='sk-rect4'></div><div class='sk-rect5'></div></div>"
+            });
+
             if ($translate.use() == 'ar')
                 $translate.use('fr');
             else
                 $translate.use('ar');
 
+            jQuery(window).load(function () {
+                window.loading_screen.finish();
+            });
+
             $timeout(function () {
-                $scope.isLoading=false;
-            },2000)
+                window.loading_screen.finish();
+            },5000);
         };
 
         $rootScope.changeLanguage = function (lng) {
