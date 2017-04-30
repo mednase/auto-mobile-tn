@@ -245,7 +245,10 @@
                     <div class="form-group ">
                         <label class="control-label col-md-2 ">{{'ADMIN_PAGE_ADD_CAR_FORM_IMAGES'|translate}}</label>
                         <div class="col-md-8" id="input-images">
-                            <div class="input-group" ng-repeat="image in car.images track by $index" style="padding-bottom: 8px">
+                            <div class="animated fadeOut" style="position: absolute;left: 40%;z-index: 9999">
+                                <img width="250px" id="car-img-prev" src="" alt="">
+                            </div>
+                            <div  class="input-group show-car-img" ng-repeat="image in car.images track by $index" style="padding-bottom: 8px">
                                     <span class="input-group-addon">
                                         <i class="fa fa-image"></i>
                                     </span>
@@ -269,6 +272,7 @@
         <div class="clearfix"></div>
     </div>
 </div>
+
 <input type="hidden" value="" id="menuSelected" data-menu="page-new-car">
 <script type="text/javascript"
         src="/public/app/directives/drangeDirective.js"></script>
@@ -289,7 +293,17 @@
                         '</div>');
         });
 
-
+        $(document).on('mouseover','.show-car-img',function () {
+            position=$(this).position() ;
+            img_url=$(this).find('input').val();
+            $('#car-img-prev').attr('src',img_url);
+            console.log(position.top);
+            $('#car-img-prev').parent().css('margin-top',position.top-50+'px');
+            $('#car-img-prev').parent().addClass('fadeIn').removeClass('fadeOut');
+        });
+        $(document).on('mouseout','.show-car-img',function () {
+            $('#car-img-prev').parent().addClass('fadeOut').removeClass('fadeIn');
+        });
         $(document).on("click", ".btn-delete-img", function() {
             if($(this).parent().find('input').val()==null)
                 $(this).parent().parent().remove();
