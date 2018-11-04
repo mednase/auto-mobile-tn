@@ -90,27 +90,26 @@ var parseRealtimeMessage = function (message) {
 }
 
 // Shows a notification
-function showNotification(message) {
+function showNotification(payload) {
     // In this example we are assuming the message is a simple string
     // containing the notification text. The target link of the notification
     // click is fixed, but in your use case you could send a JSON message with
     // a link property and use it in the click_url of the notification
 
     // The notification title
-    const notificationTitle = 'Web Push Notification';
+    const notificationTitle = payload.title;
 
     // The notification properties
     const notificationOptions = {
-        body: message,
+        body: parseRealtimeMessage(payload.body),
         icon: 'img/realtime-logo.jpg',
         data: {
-            click_url: '/index.html'
+            click_url:payload.link
         },
         tag: Date.now()
     };
 
-    return self.registration.showNotification(notificationTitle,
-        notificationOptions);
+    return self.registration.showNotification(notificationTitle, notificationOptions);
 }
 
 // If you would like to customize notifications that are received in the
@@ -118,21 +117,20 @@ function showNotification(message) {
 // implement this optional method.
 fb_messaging.setBackgroundMessageHandler(function(payload) {
     console.log('Received background message ', payload);
-
     // Customize notification here
-    if(payload.data && payload.data.M) {
-        var message = parseRealtimeMessage(payload.data.M);
-        return showNotification(message);
+    if(payload.data) {
+        return showNotification(payload.data);
     }
 });
 
 // Forces a notification
 self.addEventListener('message', function (evt) {
-    evt.waitUntil(showNotification(evt.data));
+    evt.waitUntil(showNotification(evt));
 });
 
 // The user has clicked on the notification ...
 self.addEventListener('notificationclick', function(event) {
+    console.log('Clicked notification', event);
     // Android doesn’t close the notification when you click on it
     // See: http://crbug.com/463146
     event.notification.close();
