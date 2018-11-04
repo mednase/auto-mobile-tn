@@ -119,7 +119,7 @@ fb_messaging.setBackgroundMessageHandler(function(payload) {
     console.log('Received background message ', payload);
     // Customize notification here
     if(payload.data) {
-        return showNotification(payload.data);
+        return showNotification(payload.notification);
     }
 });
 
